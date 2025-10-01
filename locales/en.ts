@@ -10,18 +10,67 @@ export const en = {
     terms: "Terms",
     language: "Language",
   },
+
   hero: {
     title: "From Traditional to Digital",
     subtitle: "AI & Web solutions for growing businesses.",
+    cta: "See solutions",
     ctaPrimary: "See solutions",
     ctaSecondary: "Contact us",
   },
+
+  whatWeOffer: {
+    title: "What we offer",
+    chatbots: {
+      name: "AI Chatbots",
+      description: "Smart assistants for sales, support and operations.",
+    },
+    websites: {
+      name: "Websites",
+      description: "Fast Next.js websites, SEO-friendly, hosted on Netlify.",
+    },
+    automation: {
+      name: "Automations",
+      description: "Automated flows that save time and money.",
+    },
+    consulting: {
+      name: "Consulting",
+      description: "Architecture, audit and implementation plan.",
+    },
+  },
+
+  whyAI: {
+    title: "Why AI",
+    benefit1: { title: "Time saved", description: "Automate repetitive tasks and focus on growth." },
+    benefit2: { title: "Lower costs", description: "Efficient processes and fewer human errors." },
+    benefit3: { title: "Scale fast", description: "Processes that grow with your business." },
+    benefit4: { title: "Instant replies", description: "Customers get answers 24/7." },
+  },
+
+  technologies: {
+    title: "Technologies",
+    subtitle: "Modern, stable and fast tooling.",
+  },
+
+  specialOffer: {
+    badge: "Offer",
+    title: "Fast launch package",
+    description: "Website + chatbot + essential automations delivered in 14 days.",
+    cta: "Request a quote",
+  },
+
   about: {
     title: "About TINKA AI",
     subtitle: "We build fast, reliable digital products.",
     content:
       "We deliver results: Next.js websites, automations and AI assistants for SMBs.",
+    values: {
+      value1: "Transparency and clear communication.",
+      value2: "Speed of execution and quality.",
+      value3: "Long-term partnership.",
+    },
   },
+
   solutions: {
     title: "Our solutions",
     subtitle: "From fast websites to chatbots and automations.",
@@ -32,17 +81,18 @@ export const en = {
       { title: "Consulting", description: "Architecture, audit and implementation plan." },
     ],
   },
+
   privacy: {
     title: "Privacy policy",
     updated: "Last updated",
-    intro:
-      "We respect your data and use only the information necessary to provide our services.",
+    intro: "We respect your data and only use what is necessary to deliver our services.",
   },
+
   terms: {
     title: "Terms & conditions",
-    intro:
-      "By using this website you agree to the terms and conditions. Please read carefully.",
+    intro: "By using this website you agree to these terms. Please read carefully.",
   },
+
   contact: {
     title: "Contact",
     subtitle: "Let's talk about your project.",
@@ -100,6 +150,7 @@ export const en = {
       question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
     },
   },
+
   footer: {
     company: "TINKA AI SRL",
     tagline: "From Traditional to Digital",
