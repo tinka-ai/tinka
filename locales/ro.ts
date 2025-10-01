@@ -11,23 +11,66 @@ export const ro = {
     language: "Limbă",
   },
 
-  // pentru pagina principală (app/page.tsx)
   hero: {
     title: "Din Tradițional în Digital",
     subtitle: "Soluții AI & Web pentru afaceri care vor să crească.",
+    cta: "Vezi soluțiile",
     ctaPrimary: "Vezi soluțiile",
     ctaSecondary: "Contactează-ne",
   },
 
-  // /about
+  whatWeOffer: {
+    title: "Ce oferim",
+    chatbots: {
+      name: "Chatboți AI",
+      description: "Asistenți inteligenți pentru vânzări, suport și operațiuni.",
+    },
+    websites: {
+      name: "Website-uri",
+      description: "Site-uri rapide Next.js, SEO-friendly, găzduite pe Netlify.",
+    },
+    automation: {
+      name: "Automatizări",
+      description: "Fluxuri automate care economisesc timp și bani.",
+    },
+    consulting: {
+      name: "Consultanță",
+      description: "Arhitectură, audit și plan de implementare.",
+    },
+  },
+
+  whyAI: {
+    title: "De ce AI",
+    benefit1: { title: "Timp câștigat", description: "Automatizezi task-uri repetitive, te concentrezi pe creștere." },
+    benefit2: { title: "Costuri mai mici", description: "Procese eficiente, mai puține erori umane." },
+    benefit3: { title: "Scalare rapidă", description: "Procese care cresc odată cu afacerea ta." },
+    benefit4: { title: "Răspuns instant", description: "Clienții primesc informații 24/7." },
+  },
+
+  technologies: {
+    title: "Tehnologii",
+    subtitle: "Lucrăm cu unelte moderne, stabile și rapide.",
+  },
+
+  specialOffer: {
+    badge: "Ofertă",
+    title: "Pachet lansare rapidă",
+    description: "Website + chatbot + automatizări esențiale pentru start în 14 zile.",
+    cta: "Solicită ofertă",
+  },
+
   about: {
     title: "Despre TINKA AI",
     subtitle: "Construim produse digitale rapide și fiabile.",
     content:
       "Suntem o echipă axată pe rezultate: aplicații web cu Next.js, automatizări și asistenți AI pentru IMM-uri.",
+    values: {
+      value1: "Transparență și comunicare clară.",
+      value2: "Viteză de execuție și calitate.",
+      value3: "Parteneriat pe termen lung.",
+    },
   },
 
-  // /solutions
   solutions: {
     title: "Soluțiile noastre",
     subtitle: "De la site-uri rapide la chatboți și automatizări.",
@@ -39,7 +82,6 @@ export const ro = {
     ],
   },
 
-  // /privacy
   privacy: {
     title: "Politica de confidențialitate",
     updated: "Ultima actualizare",
@@ -47,14 +89,12 @@ export const ro = {
       "Respectăm datele tale și folosim doar informațiile strict necesare pentru a oferi serviciile noastre.",
   },
 
-  // /terms
   terms: {
     title: "Termeni și condiții",
     intro:
-      "Prin utilizarea acestui site accepți termenii și condițiile. Citește cu atenție secțiunile de mai jos.",
+      "Prin utilizarea acestui site accepți termenii și condițiile. Citește cu atenție.",
   },
 
-  // /contact – păstrat complet
   contact: {
     title: "Contact",
     subtitle: "Hai să vorbim despre proiectul tău.",
