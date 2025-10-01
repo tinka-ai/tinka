@@ -18,7 +18,7 @@ export default function ContactClient() {
   // traduceri reale (dacă există)
   const { t: tOrig } = useLocale()
 
-  // valori implicite ca să nu fie undefined la build
+  // fallback-uri ca t.* să nu fie niciodată undefined la build
   const defaults = {
     contact: {
       title: "Contact",
@@ -103,7 +103,7 @@ export default function ContactClient() {
     },
   } as const
 
-  // deep-merge defensiv (evită t.contact.* undefined)
+  // deep-merge defensiv
   const t = {
     contact: {
       ...defaults.contact,
@@ -245,7 +245,6 @@ export default function ContactClient() {
             <div className="lg:col-span-2">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-8">
-                  {/* success */}
                   {submitted ? (
                     <div className="text-center py-12 space-y-4">
                       <div className="h-16 w-16 bg-success/20 rounded-full flex items-center justify-center mx-auto">
