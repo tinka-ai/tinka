@@ -53,7 +53,7 @@ export default {
       result2: "-40% tickets routed to the human team",
       result3: "+25% conversions on the landing page",
       result4: "+18% CSAT",
-      testimonial: ""The implementation changed how we work day to day."",
+      testimonial: "'The implementation changed how we work day to day.'",
       author: "Ana Popescu",
       role: "Head of CX",
     },
