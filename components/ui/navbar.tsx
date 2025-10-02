@@ -63,6 +63,9 @@ function AnimatedNavLink({
   )
 }
 
+const ACRONYM = ["Technologies", "Innovation", "Networking", "Knowledge", "Automation"]
+const Dot = () => <span className="opacity-40">•</span>
+
 function Navbar() {
   const { locale, setLocale, t } = useLocale()
 
@@ -76,6 +79,7 @@ function Navbar() {
   return (
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
+        {/* Bara principală */}
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
           {/* Logo */}
           <Link
@@ -125,11 +129,30 @@ function Navbar() {
             </div>
           </div>
         </div>
+
+        {/* Banda cu acronimul TINKA (sub navbar) */}
+        <div
+          className="mt-2 hidden md:flex justify-center"
+          aria-label="TINKA: Technologies, Innovation, Networking, Knowledge, Automation"
+        >
+          <div className="relative inline-flex items-center gap-3 rounded-full border border-border bg-card/60 backdrop-blur-md px-4 py-1">
+            <p className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+              <span className="inline-flex items-center gap-3">
+                {ACRONYM.map((w, i) => (
+                  <span key={w} className="inline-flex items-center gap-3">
+                    <span>{w}</span>
+                    {i < ACRONYM.length - 1 && <Dot />}
+                  </span>
+                ))}
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
     </header>
   )
 }
 
-// export named + default (ca să funcționeze `import { Navbar } ...` și `import Navbar ...`)
+// export named + default corecte
 export { Navbar, AnimatedNavLink }
 export default Navbar
