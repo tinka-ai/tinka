@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Navbar } from "@/components/ui/navbar"
+import Navbar from "@/components/ui/navbar" // ← import implicit (default)
 import { useLocale } from "@/contexts/locale-context"
 import { Mail, Phone, Clock, MapPin, Send, CheckCircle, AlertTriangle, MessageCircle } from "lucide-react"
 import Link from "next/link"
@@ -102,6 +102,7 @@ export default function ContactClient() {
     },
   } as const
 
+  // deep-merge defensiv
   const t = {
     contact: {
       ...defaults.contact,
@@ -148,21 +149,25 @@ export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const phoneNumber = "37368333899"
+  // pentru mesagerie
+  const phoneNumber = "37368333899" // fără +
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
 
     try {
-      const form = e.currentTarget as HTMLFormElement
-      const data = new FormData(form)
+      // Trimitem payload-ul direct din state, ca să fim siguri că ajung și Select-urile
+      const payload = {
+        "form-name": "contact",
+        ...formData,
+      }
 
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data as any).toString()
+        body: new URLSearchParams(payload as any).toString(),
       })
 
       if (!res.ok) throw new Error("Eroare la trimitere")
@@ -185,6 +190,7 @@ export default function ContactClient() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
+      {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -194,9 +200,11 @@ export default function ContactClient() {
         </div>
       </section>
 
+      {/* Contact */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
+            {/* Info */}
             <div className="lg:col-span-1 space-y-6">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-6 space-y-6">
@@ -211,7 +219,10 @@ export default function ContactClient() {
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">{t.contact.info.email}</p>
-                        <a href={`mailto:${t.footer.email}`} className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                        <a
+                          href={`mailto:${t.footer.email}`}
+                          className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                        >
                           {t.footer.email}
                         </a>
                       </div>
@@ -223,7 +234,10 @@ export default function ContactClient() {
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">{t.contact.info.phone}</p>
-                        <a href={`tel:${t.footer.phone.replace(/[^0-9]/g, "")}`} className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                        <a
+                          href={`tel:${t.footer.phone.replace(/[^0-9]/g, "")}`}
+                          className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                        >
                           {t.footer.phone}
                         </a>
                       </div>
@@ -249,42 +263,41 @@ export default function ContactClient() {
                       </div>
                     </div>
 
+                    {/* Mesagerie */}
                     <div className="flex items-start gap-4">
                       <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <MessageCircle className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold text-foreground text-sm mb-2">{t.contact.info.messaging}</p>
-                        <div className="flex items-center gap-2">
-  <a
-    href={`https://wa.me/${phoneNumber}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center h-8 px-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-md text-xs font-medium transition-colors"
-  >
-    WhatsApp
-  </a>
+                        <div className="flex gap-2">
+                          <a
+                            href={`https://wa.me/${phoneNumber}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center h-8 px-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-md text-xs font-medium transition-colors"
+                          >
+                            WhatsApp
+                          </a>
 
-  <a
-    href={`viber://chat?number=%2B${phoneNumber}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center h-8 px-3 bg-[#7360F2] hover:bg-[#665AC8] text-white rounded-md text-xs font-medium transition-colors"
-  >
-    Viber
-  </a>
+                          <a
+                            href={`viber://chat?number=%2B${phoneNumber}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center h-8 px-3 bg-[#7360F2] hover:bg-[#665AC8] text-white rounded-md text-xs font-medium transition-colors"
+                          >
+                            Viber
+                          </a>
 
-  <a
-    href={`tg://resolve?phone=+${phoneNumber}`}
-    // alternativ web (nu merge mereu cu număr): href={`https://t.me/+${phoneNumber}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center h-8 px-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-md text-xs font-medium transition-colors"
-  >
-    Telegram
-  </a>
-</div>
-
+                          <a
+                            href={`tg://resolve?phone=+${phoneNumber}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center h-8 px-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-md text-xs font-medium transition-colors"
+                          >
+                            Telegram
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -299,6 +312,7 @@ export default function ContactClient() {
               </Card>
             </div>
 
+            {/* Formular */}
             <div className="lg:col-span-2">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-8">
@@ -311,25 +325,32 @@ export default function ContactClient() {
                       <p className="text-muted-foreground">{t.contact.form.successMessage}</p>
                     </div>
                   ) : (
-                    <form 
-                      name="contact" 
-                      method="POST" 
+                    <form
+                      name="contact"
+                      method="POST"
                       data-netlify="true"
                       data-netlify-honeypot="bot-field"
-                      onSubmit={handleSubmit} 
+                      onSubmit={handleSubmit}
                       className="space-y-6"
                     >
+                      {/* Netlify needs this */}
                       <input type="hidden" name="form-name" value="contact" />
-                      <div style={{ display: 'none' }}>
+                      <div style={{ display: "none" }}>
                         <input name="bot-field" />
                       </div>
+
+                      {/* Hidden inputs pentru Select (Radix nu trimite automat în FormData) */}
+                      <input type="hidden" name="service" value={formData.service} />
+                      <input type="hidden" name="budget" value={formData.budget} />
 
                       {error && (
                         <div className="flex items-start gap-3 rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm">
                           <AlertTriangle className="h-4 w-4 mt-0.5 text-destructive" />
                           <p className="text-destructive">
                             {error}. Dacă problema persistă, scrie-ne direct la{" "}
-                            <a className="underline" href={`mailto:${t.footer.email}`}>{t.footer.email}</a>.
+                            <a className="underline" href={`mailto:${t.footer.email}`}>
+                              {t.footer.email}
+                            </a>.
                           </p>
                         </div>
                       )}
@@ -337,26 +358,26 @@ export default function ContactClient() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="name">{t.contact.form.name}</Label>
-                          <Input 
-                            id="name" 
+                          <Input
+                            id="name"
                             name="name"
-                            value={formData.name} 
-                            onChange={(e) => handleChange("name", e.target.value)} 
-                            required 
-                            placeholder={t.contact.form.namePlaceholder} 
+                            value={formData.name}
+                            onChange={(e) => handleChange("name", e.target.value)}
+                            required
+                            placeholder={t.contact.form.namePlaceholder}
                           />
                         </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="email">{t.contact.form.email}</Label>
-                          <Input 
-                            id="email" 
+                          <Input
+                            id="email"
                             name="email"
-                            type="email" 
-                            value={formData.email} 
-                            onChange={(e) => handleChange("email", e.target.value)} 
-                            required 
-                            placeholder={t.contact.form.emailPlaceholder} 
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) => handleChange("email", e.target.value)}
+                            required
+                            placeholder={t.contact.form.emailPlaceholder}
                           />
                         </div>
                       </div>
@@ -364,24 +385,24 @@ export default function ContactClient() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="phone">{t.contact.form.phone}</Label>
-                          <Input 
-                            id="phone" 
+                          <Input
+                            id="phone"
                             name="phone"
-                            type="tel" 
-                            value={formData.phone} 
-                            onChange={(e) => handleChange("phone", e.target.value)} 
-                            placeholder={t.contact.form.phonePlaceholder} 
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => handleChange("phone", e.target.value)}
+                            placeholder={t.contact.form.phonePlaceholder}
                           />
                         </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="company">{t.contact.form.company}</Label>
-                          <Input 
-                            id="company" 
+                          <Input
+                            id="company"
                             name="company"
-                            value={formData.company} 
-                            onChange={(e) => handleChange("company", e.target.value)} 
-                            placeholder={t.contact.form.companyPlaceholder} 
+                            value={formData.company}
+                            onChange={(e) => handleChange("company", e.target.value)}
+                            placeholder={t.contact.form.companyPlaceholder}
                           />
                         </div>
                       </div>
@@ -389,9 +410,8 @@ export default function ContactClient() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="service">{t.contact.form.service}</Label>
-                          <Select 
-                            name="service"
-                            value={formData.service} 
+                          <Select
+                            value={formData.service}
                             onValueChange={(value) => handleChange("service", value)}
                           >
                             <SelectTrigger id="service">
@@ -409,11 +429,7 @@ export default function ContactClient() {
 
                         <div className="space-y-2">
                           <Label htmlFor="budget">{t.contact.form.budget}</Label>
-                          <Select 
-                            name="budget"
-                            value={formData.budget} 
-                            onValueChange={(value) => handleChange("budget", value)}
-                          >
+                          <Select value={formData.budget} onValueChange={(value) => handleChange("budget", value)}>
                             <SelectTrigger id="budget">
                               <SelectValue placeholder={t.contact.form.budgetPlaceholder} />
                             </SelectTrigger>
@@ -429,21 +445,21 @@ export default function ContactClient() {
 
                       <div className="space-y-2">
                         <Label htmlFor="message">{t.contact.form.message}</Label>
-                        <Textarea 
-                          id="message" 
+                        <Textarea
+                          id="message"
                           name="message"
-                          value={formData.message} 
-                          onChange={(e) => handleChange("message", e.target.value)} 
-                          required 
-                          rows={6} 
-                          placeholder={t.contact.form.messagePlaceholder} 
+                          value={formData.message}
+                          onChange={(e) => handleChange("message", e.target.value)}
+                          required
+                          rows={6}
+                          placeholder={t.contact.form.messagePlaceholder}
                         />
                       </div>
 
-                      <Button 
-                        type="submit" 
-                        size="lg" 
-                        disabled={loading} 
+                      <Button
+                        type="submit"
+                        size="lg"
+                        disabled={loading}
                         className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                       >
                         {loading ? "Se trimite..." : t.contact.form.submit}
@@ -458,6 +474,7 @@ export default function ContactClient() {
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -469,9 +486,11 @@ export default function ContactClient() {
             <Card className="bg-card/80 backdrop-blur-sm border-border">
               <CardContent className="p-8">
                 <Accordion type="single" collapsible className="w-full">
-                  {(["1","2","3","4","5","6","7","8"] as const).map((k) => (
+                  {(["1", "2", "3", "4", "5", "6", "7", "8"] as const).map((k) => (
                     <AccordionItem key={k} value={`item-${k}`}>
-                      <AccordionTrigger className="text-left">{(t.contact.faq as any)[`question${k}`].q}</AccordionTrigger>
+                      <AccordionTrigger className="text-left">
+                        {(t.contact.faq as any)[`question${k}`].q}
+                      </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground leading-relaxed">
                         {(t.contact.faq as any)[`question${k}`].a}
                       </AccordionContent>
@@ -484,6 +503,7 @@ export default function ContactClient() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="relative py-20 bg-background border-t border-border">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
@@ -496,19 +516,50 @@ export default function ContactClient() {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-foreground">{t.footer.quickLinks}</h4>
               <ul className="space-y-2">
-                <li><Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.home}</Link></li>
-                <li><Link href="/solutions" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.solutions}</Link></li>
-                <li><Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.about}</Link></li>
-                <li><Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.contact}</Link></li>
+                <li>
+                  <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {t.footer.home}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/solutions" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {t.footer.solutions}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {t.footer.about}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {t.footer.contact}
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-foreground">{t.footer.resources}</h4>
               <ul className="space-y-2">
-                <li><Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.blog}</Link></li>
-                <li><Link href="/case-studies" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.caseStudies}</Link></li>
-                <li><Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.faq}</Link></li>
+                <li>
+                  <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {t.footer.blog}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/case-studies"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {t.footer.caseStudies}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {t.footer.faq}
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -525,8 +576,12 @@ export default function ContactClient() {
           <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">{t.footer.copyright}</p>
             <div className="flex gap-6 text-sm">
-              <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.privacy}</Link>
-              <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">{t.footer.terms}</Link>
+              <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+                {t.footer.privacy}
+              </Link>
+              <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
+                {t.footer.terms}
+              </Link>
             </div>
           </div>
         </div>
