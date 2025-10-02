@@ -185,7 +185,6 @@ export default function ContactClient() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -195,11 +194,9 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
-            {/* Info */}
             <div className="lg:col-span-1 space-y-6">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-6 space-y-6">
@@ -298,7 +295,6 @@ export default function ContactClient() {
               </Card>
             </div>
 
-            {/* Form */}
             <div className="lg:col-span-2">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-8">
@@ -458,7 +454,6 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -485,7 +480,6 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="relative py-20 bg-background border-t border-border">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
