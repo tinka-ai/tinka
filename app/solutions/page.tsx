@@ -17,10 +17,11 @@ export default function SolutionsPage() {
   const ro = translations.ro
   const current = t ?? ro
 
-  // Combinăm profund secțiunile ca să nu fie niciodată undefined
+  // Combinație profundă cu fallback pe ro
   const s = {
     ...ro.solutions,
     ...(current.solutions ?? {}),
+    labels: { ...ro.solutions.labels, ...(current.solutions?.labels ?? {}) },
     chatbotDetail: { ...ro.solutions.chatbotDetail, ...(current.solutions?.chatbotDetail ?? {}) },
     websiteDetail: { ...ro.solutions.websiteDetail, ...(current.solutions?.websiteDetail ?? {}) },
     automationDetail: { ...ro.solutions.automationDetail, ...(current.solutions?.automationDetail ?? {}) },
@@ -35,13 +36,7 @@ export default function SolutionsPage() {
     ...(current.footer ?? {}),
   }
 
-  const labels = {
-    problem: s.chatbotDetail.problem,
-    how: s.chatbotDetail.how,
-    forWho: s.chatbotDetail.forWho,
-    tech: s.chatbotDetail.tech,
-    example: s.chatbotDetail.example,
-  }
+  const labels = s.labels
 
   const services = [
     {
