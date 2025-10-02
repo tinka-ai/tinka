@@ -29,7 +29,7 @@ export const ru = {
   },
 
   whyAI: {
-    title: "Почему AI",
+    title: "Почему ИИ",
     benefit1: { title: "Экономия времени", description: "Автоматизируйте рутину и сосредоточьтесь на росте." },
     benefit2: { title: "Меньше затрат", description: "Эффективные процессы, меньше ошибок." },
     benefit3: { title: "Быстрый масштаб", description: "Процессы растут вместе с бизнесом." },
@@ -78,7 +78,7 @@ export const ru = {
       exampleText: "Ассистент, отвечающий на сайте и в WhatsApp.",
     },
     websiteDetail: {
-      title: "Сайты с AI",
+      title: "Сайты с ИИ",
       problemText: "Статичные сайты, сложно обновлять, низкая конверсия.",
       howText: "Современный сайт с динамическими блоками и AI-ассистентом.",
       forWhoText: "Бренды, кому важны производительность и SEO.",
@@ -87,7 +87,7 @@ export const ru = {
     automationDetail: {
       title: "Автоматизация",
       problemText: "Ручные процессы, копипаст между приложениями.",
-      howText: "Интеграция CRM/ERP, e-mail, WhatsApp с логикой на базе AI.",
+      howText: "Интеграция CRM/ERP, e-mail, WhatsApp с логикой на базе ИИ.",
       forWhoText: "Отделы продаж, маркетинг, операционные команды.",
       exampleText: "Автоквалификация лида и создание сделки в CRM.",
     },
@@ -95,8 +95,8 @@ export const ru = {
       title: "AI-консалтинг",
       problemText: "Слишком много опций, сложно расставить приоритеты.",
       howText: "Стратегия, расчёт ROI и план внедрения.",
-      forWhoText: "Компании, начинающие путь с AI.",
-      exampleText: "Дорожная карта на 90 дней с понятными KPI.",
+      forWhoText: "Компании, начинающие путь с ИИ.",
+      exampleText: "Планировщик на 90 дней с понятными KPI.",
     },
     process: {
       title: "Наш процесс",
@@ -116,7 +116,7 @@ export const ru = {
       result3: "+25% конверсии на лендинге",
       result4: "+18% к CSAT",
       testimonial: "«Внедрение изменило нашу ежедневную работу»",
-      author: "Ana Popescu",
+      author: "Ana Botescu",
       role: "Руководитель CX",
     },
     specialOffer: {
