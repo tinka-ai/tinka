@@ -153,31 +153,16 @@ export default function ContactClient() {
     setError(null)
 
     try {
-      const res = await fetch("/api/contact-form", {
+      const form = e.currentTarget as HTMLFormElement
+      const data = new FormData(form)
+
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as any).toString()
       })
 
-      if (!res.ok) {
-        // fallback: deschide mailto cu mesajul compus, ca să ajungă sigur la office@tinka.md
-        const body = encodeURIComponent(
-          [
-            `Nume: ${formData.name}`,
-            `Email: ${formData.email}`,
-            `Telefon: ${formData.phone}`,
-            `Companie: ${formData.company}`,
-            `Serviciu: ${formData.service}`,
-            `Buget: ${formData.budget}`,
-            "",
-            formData.message,
-          ].join("\n"),
-        )
-        window.location.href = `mailto:${t.footer.email}?subject=${encodeURIComponent(
-          "Mesaj formular (fallback)",
-        )}&body=${body}`
-        throw new Error(await res.text())
-      }
+      if (!res.ok) throw new Error("Eroare la trimitere")
 
       setSubmitted(true)
       setFormData({ name: "", email: "", phone: "", company: "", service: "", budget: "", message: "" })
@@ -288,7 +273,19 @@ export default function ContactClient() {
                       <p className="text-muted-foreground">{t.contact.form.successMessage}</p>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form 
+                      name="contact" 
+                      method="POST" 
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      onSubmit={handleSubmit} 
+                      className="space-y-6"
+                    >
+                      <input type="hidden" name="form-name" value="contact" />
+                      <div style={{ display: 'none' }}>
+                        <input name="bot-field" />
+                      </div>
+
                       {error && (
                         <div className="flex items-start gap-3 rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm">
                           <AlertTriangle className="h-4 w-4 mt-0.5 text-destructive" />
@@ -302,31 +299,63 @@ export default function ContactClient() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="name">{t.contact.form.name}</Label>
-                          <Input id="name" value={formData.name} onChange={(e) => handleChange("name", e.target.value)} required placeholder={t.contact.form.namePlaceholder} />
+                          <Input 
+                            id="name" 
+                            name="name"
+                            value={formData.name} 
+                            onChange={(e) => handleChange("name", e.target.value)} 
+                            required 
+                            placeholder={t.contact.form.namePlaceholder} 
+                          />
                         </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="email">{t.contact.form.email}</Label>
-                          <Input id="email" type="email" value={formData.email} onChange={(e) => handleChange("email", e.target.value)} required placeholder={t.contact.form.emailPlaceholder} />
+                          <Input 
+                            id="email" 
+                            name="email"
+                            type="email" 
+                            value={formData.email} 
+                            onChange={(e) => handleChange("email", e.target.value)} 
+                            required 
+                            placeholder={t.contact.form.emailPlaceholder} 
+                          />
                         </div>
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="phone">{t.contact.form.phone}</Label>
-                          <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t.contact.form.phonePlaceholder} />
+                          <Input 
+                            id="phone" 
+                            name="phone"
+                            type="tel" 
+                            value={formData.phone} 
+                            onChange={(e) => handleChange("phone", e.target.value)} 
+                            placeholder={t.contact.form.phonePlaceholder} 
+                          />
                         </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="company">{t.contact.form.company}</Label>
-                          <Input id="company" value={formData.company} onChange={(e) => handleChange("company", e.target.value)} placeholder={t.contact.form.companyPlaceholder} />
+                          <Input 
+                            id="company" 
+                            name="company"
+                            value={formData.company} 
+                            onChange={(e) => handleChange("company", e.target.value)} 
+                            placeholder={t.contact.form.companyPlaceholder} 
+                          />
                         </div>
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="service">{t.contact.form.service}</Label>
-                          <Select value={formData.service} onValueChange={(value) => handleChange("service", value)}>
+                          <Select 
+                            name="service"
+                            value={formData.service} 
+                            onValueChange={(value) => handleChange("service", value)}
+                          >
                             <SelectTrigger id="service">
                               <SelectValue placeholder={t.contact.form.servicePlaceholder} />
                             </SelectTrigger>
@@ -342,7 +371,11 @@ export default function ContactClient() {
 
                         <div className="space-y-2">
                           <Label htmlFor="budget">{t.contact.form.budget}</Label>
-                          <Select value={formData.budget} onValueChange={(value) => handleChange("budget", value)}>
+                          <Select 
+                            name="budget"
+                            value={formData.budget} 
+                            onValueChange={(value) => handleChange("budget", value)}
+                          >
                             <SelectTrigger id="budget">
                               <SelectValue placeholder={t.contact.form.budgetPlaceholder} />
                             </SelectTrigger>
@@ -358,7 +391,15 @@ export default function ContactClient() {
 
                       <div className="space-y-2">
                         <Label htmlFor="message">{t.contact.form.message}</Label>
-                        <Textarea id="message" value={formData.message} onChange={(e) => handleChange("message", e.target.value)} required rows={6} placeholder={t.contact.form.messagePlaceholder} />
+                        <Textarea 
+                          id="message" 
+                          name="message"
+                          value={formData.message} 
+                          onChange={(e) => handleChange("message", e.target.value)} 
+                          required 
+                          rows={6} 
+                          placeholder={t.contact.form.messagePlaceholder} 
+                        />
                       </div>
 
                       <Button type="submit" size="lg" disabled={loading} className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
