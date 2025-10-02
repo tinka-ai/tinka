@@ -83,7 +83,7 @@ function Navbar() {
             className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-muted/40 transition-colors"
           >
             <Image
-              src="/logo.svg"   // schimbă dacă ai altă cale (ex: "/TINKA-AI Logo.png")
+              src="/TINKA-AI Logo.png"
               alt="TINKA AI"
               width={150}
               height={56}
