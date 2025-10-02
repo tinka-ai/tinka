@@ -7,7 +7,6 @@ import { Globe } from "lucide-react"
 import { useLocale } from "@/contexts/locale-context"
 import { cn } from "@/lib/utils"
 
-// folosim Select de la shadcn/ui (deja există în proiect)
 import {
   Select,
   SelectTrigger,
@@ -22,11 +21,16 @@ const LANGS: { value: "ro" | "ru" | "en"; label: string }[] = [
   { value: "en", label: "English" },
 ]
 
+// Bază pentru linkurile din meniu: are hover bold + animație
+const linkBase =
+  "nav-link rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:font-semibold"
+
 export function Navbar() {
   const pathname = usePathname()
   const { locale, setLocale, t } = useLocale()
 
-  // etichete din i18n, cu fallback dacă lipsesc cheile
+  const isActive = (href: string) => pathname === href
+
   const labels = {
     home: t?.nav?.home ?? t?.footer?.home ?? "Acasă",
     solutions: t?.nav?.solutions ?? t?.footer?.solutions ?? "Soluții",
@@ -34,38 +38,33 @@ export function Navbar() {
     contact: t?.nav?.contact ?? t?.footer?.contact ?? "Contact",
   }
 
-  const isActive = (href: string) => pathname === href
-
   return (
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
         <nav className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
-          {/* STÂNGA: Logo (înlocuiește textul) */}
+          {/* Logo în stânga */}
           <Link
             href="/"
             className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-muted/40 transition-colors"
           >
-            {/* Folosește logo din /public */}
             <Image
               src="/TINKA-AI Logo.png"
               alt="TINKA AI"
               width={150}
-              height={53}
+              height={56}
               className="rounded-md"
               priority
             />
             <span className="sr-only">TINKA AI</span>
           </Link>
 
-          {/* MIJLOC: Linkuri */}
+          {/* Meniu central */}
           <ul className="hidden md:flex items-center gap-4">
             <li>
               <Link
                 href="/"
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors",
-                  isActive("/") && "text-foreground"
-                )}
+                data-active={isActive("/")}
+                className={cn(linkBase, isActive("/") && "text-foreground font-semibold")}
               >
                 {labels.home}
               </Link>
@@ -73,10 +72,8 @@ export function Navbar() {
             <li>
               <Link
                 href="/solutions"
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors",
-                  isActive("/solutions") && "text-foreground"
-                )}
+                data-active={isActive("/solutions")}
+                className={cn(linkBase, isActive("/solutions") && "text-foreground font-semibold")}
               >
                 {labels.solutions}
               </Link>
@@ -84,10 +81,8 @@ export function Navbar() {
             <li>
               <Link
                 href="/about"
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors",
-                  isActive("/about") && "text-foreground"
-                )}
+                data-active={isActive("/about")}
+                className={cn(linkBase, isActive("/about") && "text-foreground font-semibold")}
               >
                 {labels.about}
               </Link>
@@ -95,17 +90,15 @@ export function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors",
-                  isActive("/contact") && "text-foreground"
-                )}
+                data-active={isActive("/contact")}
+                className={cn(linkBase, isActive("/contact") && "text-foreground font-semibold")}
               >
                 {labels.contact}
               </Link>
             </li>
           </ul>
 
-          {/* DREAPTA: Select limbi (dropdown animat) */}
+          {/* Selector limbi compact (dropdown) */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
               <Globe className="h-4 w-4 text-muted-foreground" />
@@ -127,9 +120,6 @@ export function Navbar() {
                 </SelectContent>
               </Select>
             </div>
-
-            {/* Buton meniu pe mobil (opțional) */}
-            {/* Dacă ai deja un MobileNav, îl poți păstra aici. */}
           </div>
         </nav>
       </div>
