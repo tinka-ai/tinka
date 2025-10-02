@@ -75,11 +75,11 @@ solutions: {
   title: "Soluțiile noastre",
   subtitle: "De la site-uri rapide la chatboți și automatizări.",
   labels: {
-    problem: "Ce Rezolvă",
-    how: "Cum Funcționează",
-    forWho: "Pentru Cine E Ideal",
+    problem: "Ce rezolvă",
+    how: "Cum funcționează",
+    forWho: "Pentru cine e ideal",
     tech: "Tehnologii",
-    example: "Exemplu Practic",
+    example: "Exemplu practic",
   },
   chatbotDetail: {
     title: "Chatbot-uri AI",
