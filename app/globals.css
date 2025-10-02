@@ -146,4 +146,15 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Hover smooth de la regular la bold pe item-urile din meniu */
+  .nav-link {
+    font-weight: 400;
+    transition: font-weight 200ms ease, color 200ms ease;
+  }
+  .nav-link:hover,
+  .nav-link[data-active="true"] {
+    font-weight: 600; /* echivalent font-semibold */
+  }
 }
+
