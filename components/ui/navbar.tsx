@@ -2,13 +2,11 @@
 "use client"
 
 import type { ReactNode } from "react"
-import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Globe } from "lucide-react"
 import { useLocale } from "@/contexts/locale-context"
-
 import {
   Select,
   SelectTrigger,
@@ -25,7 +23,7 @@ const LANGS: { value: Lang; label: string }[] = [
   { value: "en", label: "English" },
 ]
 
-// Link cu efect slide-up: normal → bold la hover și bold persistent pe ruta activă
+// Link cu efect slide-up: regular→bold la hover și bold persistent pe ruta activă
 function AnimatedNavLink({
   href,
   children,
@@ -45,7 +43,7 @@ function AnimatedNavLink({
       aria-current={isActive ? "page" : undefined}
       className={`group relative inline-block h-[1.25em] overflow-hidden ${className}`}
     >
-      {/* stratul REGULAR (vizibil inițial) */}
+      {/* strat REGULAR */}
       <span
         className={`block text-sm text-muted-foreground transition-transform duration-200 ${
           isActive ? "-translate-y-full" : "group-hover:-translate-y-full"
@@ -53,8 +51,7 @@ function AnimatedNavLink({
       >
         {children}
       </span>
-
-      {/* stratul BOLD (urcă la hover sau dacă e activ) */}
+      {/* strat BOLD */}
       <span
         className={`absolute left-0 top-0 block text-sm font-semibold text-foreground transition-transform duration-200 ${
           isActive ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"
@@ -66,7 +63,7 @@ function AnimatedNavLink({
   )
 }
 
-export default function Navbar() {
+function Navbar() {
   const { locale, setLocale, t } = useLocale()
 
   const labels = {
@@ -80,13 +77,13 @@ export default function Navbar() {
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
-          {/* Logo în stânga */}
+          {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-muted/40 transition-colors"
           >
             <Image
-              src="/logo.svg"  // schimbă dacă ai altă cale, ex: "/TINKA-AI Logo.png"
+              src="/logo.svg"   // schimbă dacă ai altă cale (ex: "/TINKA-AI Logo.png")
               alt="TINKA AI"
               width={150}
               height={56}
@@ -96,7 +93,7 @@ export default function Navbar() {
             <span className="sr-only">TINKA AI</span>
           </Link>
 
-          {/* Meniu central */}
+          {/* Meniu */}
           <nav className="hidden md:flex items-center gap-6">
             <AnimatedNavLink href="/">{labels.home}</AnimatedNavLink>
             <AnimatedNavLink href="/solutions">{labels.solutions}</AnimatedNavLink>
@@ -104,7 +101,7 @@ export default function Navbar() {
             <AnimatedNavLink href="/contact">{labels.contact}</AnimatedNavLink>
           </nav>
 
-          {/* Selector limbi (dropdown compact) */}
+          {/* Limbi */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
               <Globe className="h-4 w-4 text-muted-foreground" />
@@ -133,4 +130,6 @@ export default function Navbar() {
   )
 }
 
-export { AnimatedNavLink }
+// export named + default (ca să funcționeze `import { Navbar } ...` și `import Navbar ...`)
+export { Navbar, AnimatedNavLink }
+export default Navbar
