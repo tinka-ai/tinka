@@ -255,32 +255,36 @@ export default function ContactClient() {
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold text-foreground text-sm mb-2">{t.contact.info.messaging}</p>
-                        <div className="flex gap-2">
-                          
-                            href={`https://wa.me/${phoneNumber}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center h-8 px-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-md text-xs font-medium transition-colors"
-                          >
-                            WhatsApp
-                          </a>
-                          
-                            href={`viber://chat?number=%2B${phoneNumber}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center h-8 px-3 bg-[#7360F2] hover:bg-[#665AC8] text-white rounded-md text-xs font-medium transition-colors"
-                          >
-                            Viber
-                          </a>
-                          
-                            href={`https://t.me/${phoneNumber}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center h-8 px-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-md text-xs font-medium transition-colors"
-                          >
-                            Telegram
-                          </a>
-                        </div>
+                        <div className="flex items-center gap-2">
+  <a
+    href={`https://wa.me/${phoneNumber}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center h-8 px-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-md text-xs font-medium transition-colors"
+  >
+    WhatsApp
+  </a>
+
+  <a
+    href={`viber://chat?number=%2B${phoneNumber}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center h-8 px-3 bg-[#7360F2] hover:bg-[#665AC8] text-white rounded-md text-xs font-medium transition-colors"
+  >
+    Viber
+  </a>
+
+  <a
+    href={`tg://resolve?phone=+${phoneNumber}`}
+    // alternativ web (nu merge mereu cu număr): href={`https://t.me/+${phoneNumber}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center h-8 px-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-md text-xs font-medium transition-colors"
+  >
+    Telegram
+  </a>
+</div>
+
                       </div>
                     </div>
                   </div>
