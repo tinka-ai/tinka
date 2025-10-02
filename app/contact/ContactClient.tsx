@@ -11,14 +11,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Navbar } from "@/components/ui/navbar"
 import { useLocale } from "@/contexts/locale-context"
-import { Mail, Phone, Clock, MapPin, Send, CheckCircle } from "lucide-react"
+import { Mail, Phone, Clock, MapPin, Send, CheckCircle, AlertTriangle } from "lucide-react"
 import Link from "next/link"
 
 export default function ContactClient() {
-  // traduceri reale (dacă există)
   const { t: tOrig } = useLocale()
 
-  // fallback-uri ca t.* să nu fie niciodată undefined la build
   const defaults = {
     contact: {
       title: "Contact",
@@ -103,7 +101,6 @@ export default function ContactClient() {
     },
   } as const
 
-  // deep-merge defensiv
   const t = {
     contact: {
       ...defaults.contact,
@@ -146,13 +143,50 @@ export default function ContactClient() {
     budget: "",
     message: "",
   })
+  const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+    setLoading(true)
+    setError(null)
+
+    try {
+      const res = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!res.ok) {
+        // fallback: deschide mailto cu mesajul compus, ca să ajungă sigur la office@tinka.md
+        const body = encodeURIComponent(
+          [
+            `Nume: ${formData.name}`,
+            `Email: ${formData.email}`,
+            `Telefon: ${formData.phone}`,
+            `Companie: ${formData.company}`,
+            `Serviciu: ${formData.service}`,
+            `Buget: ${formData.budget}`,
+            "",
+            formData.message,
+          ].join("\n"),
+        )
+        window.location.href = `mailto:${t.footer.email}?subject=${encodeURIComponent(
+          "Mesaj formular (fallback)",
+        )}&body=${body}`
+        throw new Error(await res.text())
+      }
+
+      setSubmitted(true)
+      setFormData({ name: "", email: "", phone: "", company: "", service: "", budget: "", message: "" })
+      setTimeout(() => setSubmitted(false), 7000)
+    } catch (err: any) {
+      setError(err?.message || "Eroare la trimitere")
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleChange = (field: string, value: string) => {
@@ -163,7 +197,7 @@ export default function ContactClient() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -173,11 +207,11 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
+      {/* Content */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
+            {/* Info */}
             <div className="lg:col-span-1 space-y-6">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-6 space-y-6">
@@ -241,7 +275,7 @@ export default function ContactClient() {
               </Card>
             </div>
 
-            {/* Contact Form */}
+            {/* Form */}
             <div className="lg:col-span-2">
               <Card className="bg-card/80 backdrop-blur-sm border-border">
                 <CardContent className="p-8">
@@ -255,6 +289,16 @@ export default function ContactClient() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      {error && (
+                        <div className="flex items-start gap-3 rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm">
+                          <AlertTriangle className="h-4 w-4 mt-0.5 text-destructive" />
+                          <p className="text-destructive">
+                            {error}. Dacă problema persistă, scrie-ne direct la{" "}
+                            <a className="underline" href={`mailto:${t.footer.email}`}>{t.footer.email}</a>.
+                          </p>
+                        </div>
+                      )}
+
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="name">{t.contact.form.name}</Label>
@@ -317,8 +361,8 @@ export default function ContactClient() {
                         <Textarea id="message" value={formData.message} onChange={(e) => handleChange("message", e.target.value)} required rows={6} placeholder={t.contact.form.messagePlaceholder} />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                        {t.contact.form.submit}
+                      <Button type="submit" size="lg" disabled={loading} className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                        {loading ? "Se trimite..." : t.contact.form.submit}
                         <Send className="ml-2 h-4 w-4" />
                       </Button>
                     </form>
@@ -330,7 +374,7 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
