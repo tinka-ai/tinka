@@ -253,7 +253,7 @@ export default function ContactClient() {
                       <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <MessageCircle className="h-5 w-5 text-primary-foreground" />
                       </div>
-                      <div className="flex gap-2">
+                 <div className="flex gap-2">
   
     href={`https://wa.me/${phoneNumber}`}
     target="_blank"
@@ -279,7 +279,6 @@ export default function ContactClient() {
     Telegram
   </a>
 </div>
-                      </div>
                     </div>
                   </div>
                 </CardContent>
