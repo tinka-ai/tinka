@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Navbar } from "@/components/ui/navbar"
 import { useLocale } from "@/contexts/locale-context"
-import { Mail, Phone, Clock, MapPin, Send, CheckCircle, AlertTriangle } from "lucide-react"
+import { Mail, Phone, Clock, MapPin, Send, CheckCircle, AlertTriangle, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function ContactClient() {
@@ -28,6 +28,7 @@ export default function ContactClient() {
         hours: "Program",
         location: "Locație",
         locationDetail: "Chișinău, Republica Moldova",
+        messaging: "Mesagerie",
       },
       quickResponse: {
         title: "Răspundem rapid",
@@ -147,6 +148,8 @@ export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const phoneNumber = "37368333899"
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -246,6 +249,41 @@ export default function ContactClient() {
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">{t.contact.info.location}</p>
                         <p className="text-muted-foreground text-sm">{t.contact.info.locationDetail}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="h-5 w-5 text-primary-foreground" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-foreground text-sm mb-2">{t.contact.info.messaging}</p>
+                        <div className="flex gap-2">
+                          
+                            href={`https://wa.me/${phoneNumber}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center h-8 px-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-md text-xs font-medium transition-colors"
+                          >
+                            WhatsApp
+                          </a>
+                          
+                            href={`viber://chat?number=%2B${phoneNumber}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center h-8 px-3 bg-[#7360F2] hover:bg-[#665AC8] text-white rounded-md text-xs font-medium transition-colors"
+                          >
+                            Viber
+                          </a>
+                          
+                            href={`https://t.me/${phoneNumber}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center h-8 px-3 bg-[#0088cc] hover:bg-[#0077b5] text-white rounded-md text-xs font-medium transition-colors"
+                          >
+                            Telegram
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -402,7 +440,12 @@ export default function ContactClient() {
                         />
                       </div>
 
-                      <Button type="submit" size="lg" disabled={loading} className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                      <Button 
+                        type="submit" 
+                        size="lg" 
+                        disabled={loading} 
+                        className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                      >
                         {loading ? "Se trimite..." : t.contact.form.submit}
                         <Send className="ml-2 h-4 w-4" />
                       </Button>
