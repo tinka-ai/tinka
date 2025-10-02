@@ -27,7 +27,7 @@ export const en = {
     },
     websites: {
       name: "Websites",
-      description: "Fast Next.js websites, SEO-friendly, hosted on Netlify.",
+      description: "Fast websites with modern design, SEO-friendly.",
     },
     automation: {
       name: "Automations",
