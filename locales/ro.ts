@@ -27,7 +27,7 @@ export const ro = {
     },
     websites: {
       name: "Website-uri",
-      description: "Site-uri rapide Next.js, SEO-friendly, găzduite pe Netlify.",
+      description: "Site-uri rapide cu un design modern, SEO-friendly.",
     },
     automation: {
       name: "Automatizări",
