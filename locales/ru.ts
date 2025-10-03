@@ -198,7 +198,7 @@ export const ru = {
   },
 
   footer: {
-    company: "TINKA AI SRL",
+    company: "T.I.N.K.A. AI",
     tagline: "Из традиционного — в цифровое",
     description: "AI- и веб-решения для малого и среднего бизнеса.",
     quickLinks: "Быстрые ссылки",
