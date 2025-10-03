@@ -32,7 +32,7 @@ export default function ContactClient() {
       },
       quickResponse: {
         title: "Răspundem rapid",
-        description: "Îți răspundem în 24 de ore lucrătoare.",
+        description: "Îți răspundem în 4 de ore lucrătoare.",
       },
       form: {
         successTitle: "Mulțumim!",
@@ -95,7 +95,7 @@ export default function ContactClient() {
       contactInfo: "Contact",
       email: "office@tinka.md",
       phone: "+373 68 333 899",
-      hours: "Lun–Vin 09:00–18:00",
+      hours: "Lun–Vin 10:00–22:00",
       copyright: `© ${new Date().getFullYear()} TINKA AI`,
       privacy: "Politica de confidențialitate",
       terms: "Termeni și condiții",
