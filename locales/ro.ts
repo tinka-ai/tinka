@@ -210,7 +210,7 @@ solutions: {
   },
 
   footer: {
-    company: "TINKA AI SRL",
+    company: "T.I.N.K.A. AI",
     tagline: "Din Tradițional în Digital",
     description: "Soluții AI & Web pentru IMM-uri.",
     quickLinks: "Linkuri rapide",
