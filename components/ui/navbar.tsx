@@ -41,19 +41,30 @@ function AnimatedNavLink({
     <Link
       href={href}
       aria-current={isActive ? "page" : undefined}
-      className={`group relative inline-block h-[1.25em] overflow-hidden ${className}`}
+      // inline-grid => lățimea ia în calcul conținutul cel mai lat (ghost-ul bold)
+      className={`group relative inline-grid h-[1.3em] overflow-hidden whitespace-nowrap ${className}`}
+      style={{ alignItems: "start" }}
     >
+      {/* Ghost invizibil pentru măsurare (bold) */}
+      <span
+        aria-hidden
+        className="text-sm font-semibold opacity-0 select-none pointer-events-none"
+      >
+        {children}
+      </span>
+
       {/* strat REGULAR */}
       <span
-        className={`block text-sm text-muted-foreground transition-transform duration-200 ${
+        className={`col-start-1 row-start-1 text-sm text-muted-foreground transition-transform duration-200 ${
           isActive ? "-translate-y-full" : "group-hover:-translate-y-full"
         }`}
       >
         {children}
       </span>
+
       {/* strat BOLD */}
       <span
-        className={`absolute left-0 top-0 block text-sm font-semibold text-foreground transition-transform duration-200 ${
+        className={`col-start-1 row-start-1 text-sm font-semibold text-foreground transition-transform duration-200 ${
           isActive ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"
         }`}
       >
