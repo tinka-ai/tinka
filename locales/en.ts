@@ -198,7 +198,7 @@ export const en = {
   },
 
   footer: {
-    company: "TINKA AI",
+    company: "T.I.N.K.A. AI",
     tagline: "From Traditional to Digital",
     description: "AI & Web solutions for SMEs.",
     quickLinks: "Quick links",
