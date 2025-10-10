@@ -8,13 +8,15 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Eye, FlaskConical, Puzzle, Sparkles, Waves, Link2, BadgeCheck } from "lucide-react"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-import { useLanguage } from "@/components/language-provider"
+import OfferCTA from "@/components/offer/OfferCTA"
+import { useLocale } from "@/contexts/locale-context"
 
 // ⬇️ import nou: butonul care deschide formularul
 import OfferCta from "@/components/offer/OfferCta"
 
 export default function Page() {
-  const { t } = useLanguage()
+const { t: T } = useLocale() as any
+const t = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
 
   const fx =
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
