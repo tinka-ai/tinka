@@ -3,8 +3,7 @@
 import type { ReactNode } from "react"
 import { createContext, useCallback, useContext, useState } from "react"
 
-// ⬇️ corect
-import { ThemeProvider } from "@/components/ui/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider" // ✅ corect
 import { LocaleProvider } from "@/contexts/locale-context"
 import OfferModal from "@/components/offer/OfferModal"
 
