@@ -10,7 +10,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { useLanguage } from "@/components/language-provider"
 
 // ⬇️ import nou: butonul care deschide formularul
-import OfferCTA from "@/components/offer/OfferCTA"
+import OfferCta from "@/components/offer/OfferCta"
 
 export default function Page() {
   const { t } = useLanguage()
@@ -56,7 +56,7 @@ export default function Page() {
                   </Button>
 
                   {/* ⬇️ Butonul „Solicită ofertă” cu feedback vizual pe click */}
-                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                  <OfferCta className={`${fx} active:scale-95 transition-transform`} />
                 </div>
               </div>
 
