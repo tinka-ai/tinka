@@ -3,7 +3,8 @@
 import type { ReactNode } from "react"
 import { createContext, useCallback, useContext, useState } from "react"
 
-import { ThemeProvider } from "@/components/theme-provider"
+// ⬇️ corect
+import { ThemeProvider } from "@/components/ui/theme-provider"
 import { LocaleProvider } from "@/contexts/locale-context"
 import OfferModal from "@/components/offer/OfferModal"
 
@@ -27,7 +28,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <LocaleProvider>
         <OfferCtx.Provider value={{ open, close, isOpen }}>
-          {/* Modalul e montat global, doar îl deschidem din orice buton */}
+          {/* Modalul e montat global, îl deschizi din orice buton via useOfferModal() */}
           <OfferModal open={isOpen} onOpenChange={setIsOpen} />
           {children}
         </OfferCtx.Provider>
