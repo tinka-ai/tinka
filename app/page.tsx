@@ -1,6 +1,5 @@
 "use client"
 
-import OfferCTA from "@/components/offer/OfferCTA"
 import type React from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,12 +10,10 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import OfferCTA from "@/components/offer/OfferCTA"
 import { useLocale } from "@/contexts/locale-context"
 
-// ⬇️ import nou: butonul care deschide formularul
-import OfferCta from "@/components/offer/OfferCta"
-
 export default function Page() {
-const { t: T } = useLocale() as any
-const t = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
+  // folosim locale-context
+  const { t: T } = useLocale() as any
+  const t = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
 
   const fx =
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
@@ -49,18 +46,18 @@ const t = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">{t("hero.description")}</p>
 
-               {/* CTA buttons */}
-<div className="flex flex-col sm:flex-row gap-3">
-  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
-    <Link href="/domenii" aria-label={t("aria.home")}>
-      {t("hero.ctaPrimary")}
-      <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
-    </Link>
-  </Button>
+                {/* CTA buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
+                    <Link href="/domenii" aria-label={t("aria.home")}>
+                      {t("hero.ctaPrimary")}
+                      <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
+                    </Link>
+                  </Button>
 
-  {/* Butonul „Solicită ofertă” cu feedback vizual */}
-  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
-</div>
+                  {/* Butonul „Solicită ofertă” cu feedback vizual */}
+                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                </div>
               </div>
 
               <div className="relative">
