@@ -1,5 +1,6 @@
 "use client"
 
+import OfferCTA from "@/components/offer/OfferCTA"
 import type React from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -46,18 +47,18 @@ export default function Page() {
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">{t("hero.description")}</p>
 
-                {/* CTA buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
-                    <Link href="/domenii" aria-label={t("aria.home")}>
-                      {t("hero.ctaPrimary")}
-                      <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
-                    </Link>
-                  </Button>
+               {/* CTA buttons */}
+<div className="flex flex-col sm:flex-row gap-3">
+  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
+    <Link href="/domenii" aria-label={t("aria.home")}>
+      {t("hero.ctaPrimary")}
+      <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
+    </Link>
+  </Button>
 
-                  {/* ⬇️ Butonul „Solicită ofertă” cu feedback vizual pe click */}
-                  <OfferCta className={`${fx} active:scale-95 transition-transform`} />
-                </div>
+  {/* Butonul „Solicită ofertă” cu feedback vizual */}
+  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+</div>
               </div>
 
               <div className="relative">
