@@ -6,7 +6,6 @@ import { ArrowRight, Bot, Globe, Workflow, Lightbulb, CheckCircle, AlertCircle, 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Navbar } from "@/components/ui/navbar"
 import { useLocale } from "@/contexts/locale-context"
 import { translations } from "@/lib/i18n"
 
@@ -79,7 +78,7 @@ export default function SolutionsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+   
 
       {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
