@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client"
 
 import type React from "react"
@@ -11,7 +12,7 @@ import OfferCTA from "@/components/offer/OfferCTA"
 import { useLocale } from "@/contexts/locale-context"
 
 export default function Page() {
-  // folosim locale-context
+  // helper: accesează în siguranță texte din dicționarul i18n
   const { t: T } = useLocale() as any
   const t = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
 
@@ -55,7 +56,7 @@ export default function Page() {
                     </Link>
                   </Button>
 
-                  {/* Butonul „Solicită ofertă” cu feedback vizual */}
+                  {/* Butonul „Solicită ofertă” cu feedback vizual pe click */}
                   <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
                 </div>
               </div>
