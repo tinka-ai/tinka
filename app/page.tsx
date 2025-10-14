@@ -38,7 +38,7 @@ export default function Page() {
             <div className="relative">
               <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
               <Image
-                src="/images/hero-tinkaai.webp" // <- pune o imagine TINKA AI în /public/images
+                src="/images/hero-tinkaai.webp" // <- imagine in loc de 3D robot in /public/images
                 alt="TINKA AI — soluții AI & web"
                 width={880}
                 height={700}
