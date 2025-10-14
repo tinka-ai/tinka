@@ -7,8 +7,8 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-// <-- important: folosim Providers care include ThemeProvider + LocaleProvider + OfferModal global
 import Providers from "./providers"
+import Navbar from "@/components/ui/navbar" // 👈 import Navbar
 
 export const metadata: Metadata = {
   title: "TINKA AI - Transformare Digitală prin Inteligență Artificială",
@@ -22,9 +22,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ro" suppressHydrationWarning>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}>
         <Providers>
           <Suspense fallback={null}>
+            <Navbar /> {/* 👈 apare pe toate paginile */}
             {children}
             <Analytics />
           </Suspense>
