@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client"
 
 import type React from "react"
@@ -6,222 +5,259 @@ import Link from "next/link"
 import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
+import { ArrowRight, Eye, FlaskConical, Puzzle, Sparkles, Waves, Link2, BadgeCheck } from "lucide-react"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-import { ArrowRight, Bot, Workflow, PlugZap, ShieldCheck, LineChart, Link2, BadgeCheck } from "lucide-react"
 import OfferCTA from "@/components/offer/OfferCTA"
 import { useLocale } from "@/contexts/locale-context"
 
 export default function Page() {
-  // i18n helper (merge și dacă lipsesc unele chei)
-  const { t: T } = useLocale() as any
-  const t = (path: string, fallback?: string) =>
-    path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? fallback ?? path
+  const { t } = useLocale() as any
+  const tr = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?.[k], t) ?? path
 
   const fx =
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
 
   return (
-    <main>
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-10 items-center py-12">
-            {/* Text */}
-            <div className="space-y-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                {t("home.hero.badge", "TINKA AI • Pachet lansare rapidă")}
-              </span>
+    <>
+      {/* VIDEO LOGO SECTION */}
+      <section className="relative w-full h-auto overflow-hidden flex items-center justify-center bg-black py-4 mt-24 md:mt-0">
+        <video className="max-w-full max-h-full object-contain" autoPlay loop muted playsInline>
+          <source
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unwatermark_ELementar%20logo-IWmmAsRBKFrGVBf8T0e953xG8X72Y7.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </section>
 
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent leading-[1.05]">
-                {t("home.hero.title", "Transformare digitală prin Inteligență Artificială")}
-              </h1>
+      <main>
+        {/* HERO */}
+        <section id="acasa" className="relative overflow-hidden border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
+                  <Sparkles className="h-3.5 w-3.5 text-sky-400" aria-hidden />
+                  {tr("home.hero.badge")}
+                </div>
+                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                  {tr("home.hero.title")}
+                </h1>
+                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">{tr("home.hero.description")}</p>
 
-              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
-                {t(
-                  "home.hero.description",
-                  "Construim website-uri moderne, chatbot-uri AI și automatizări esențiale care reduc costurile și cresc conversiile."
-                )}
-              </p>
+                {/* CTA buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
+                    <Link href="/solutions" aria-label={tr("aria.home")}>
+                      {tr("home.hero.ctaPrimary")}
+                      <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
+                    </Link>
+                  </Button>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
-                  <Link href="/solutions" aria-label={t("aria.solutions", "Vezi soluțiile")}>
-                    {t("home.hero.primary", "Vezi soluțiile")}
-                    <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
-                  </Link>
-                </Button>
-
-                {/* Buton „Solicită ofertă” — deschide formularul modal */}
-                <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                  {/* Butonul „Solicită ofertă” cu feedback vizual */}
+                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                </div>
               </div>
 
-              <div className="flex gap-6 pt-2 text-sm text-gray-400">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="h-4 w-4 text-sky-400" /> {t("home.hero.points.secure", "Securizat & GDPR-ready")}
+              <div className="relative">
+                <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Aug%206%2C%202025%2C%2002_14_52%20AM-z4nOUqVJRDW56Gv6MkCZE8fLK8cFkN.png"
+                  alt={tr("home.hero.imageAlt")}
+                  width={880}
+                  height={700}
+                  className="w-full h-auto rounded-2xl object-cover select-none pointer-events-none"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FEATURES */}
+        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <SectionTitle title={tr("home.features.title")} />
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Feature
+                fx={fx}
+                icon={<Puzzle className="h-6 w-6" />}
+                title={tr("home.features.items.puzzles.title")}
+                text={tr("home.features.items.puzzles.description")}
+                link="/solutions"
+                learnMore={tr("home.features.learnMore")}
+              />
+              <Feature
+                fx={fx}
+                icon={<Waves className="h-6 w-6" />}
+                title={tr("home.features.items.sensory.title")}
+                text={tr("home.features.items.sensory.description")}
+                link="/solutions"
+                learnMore={tr("home.features.learnMore")}
+              />
+              <Feature
+                fx={fx}
+                icon={<Eye className="h-6 w-6" />}
+                title={tr("home.features.items.illusions.title")}
+                text={tr("home.features.items.illusions.description")}
+                link="/solutions"
+                learnMore={tr("home.features.learnMore")}
+              />
+              <Feature
+                fx={fx}
+                icon={<FlaskConical className="h-6 w-6" />}
+                title={tr("home.features.items.workshops.title")}
+                text={tr("home.features.items.workshops.description")}
+                link="/solutions"
+                learnMore={tr("home.features.learnMore")}
+              />
+            </ul>
+          </div>
+        </section>
+
+        {/* VALUES */}
+        <section className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-6">
+              <SectionKicker>{tr("home.values.kicker")}</SectionKicker>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-300">{tr("home.values.title")}</h2>
+              <p className="text-gray-300">{tr("home.values.description")}</p>
+              <div className="flex items-center gap-6">
+                <Donut value={79} label={tr("home.values.stats.growth")} />
+                <div>
+                  <p className="text-4xl font-extrabold text-gray-300">370+</p>
+                  <p className="text-sm text-gray-400">{tr("home.values.stats.hours")}</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <LineChart className="h-4 w-4 text-sky-400" /> {t("home.hero.points.impact", "Orientat pe rezultate")}
+                <div>
+                  <p className="text-4xl font-extrabold text-gray-300">239+</p>
+                  <p className="text-sm text-gray-400">{tr("home.values.stats.experiments")}</p>
                 </div>
               </div>
             </div>
 
-            {/* Visual */}
-            <div className="relative">
-              <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
+            <div>
               <Image
-                src="/TINKA-AI Logo.png"
-                alt="TINKA AI Logo"
+                src="/images/interactive-physics-experiment.png"
+                alt={tr("home.values.imageAlt")}
                 width={880}
                 height={620}
-                className="w-full h-auto rounded-2xl object-contain"
-                priority
+                className={`w-full h-auto rounded-2xl object-cover ${fx}`}
+                priority={false}
+                sizes="(max-width: 1024px) 100vw, 880px"
               />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FEATURES */}
-      <section className="py-12 sm:py-16 border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-            {t("home.features.title", "Ce livrăm în 14 zile")}
-          </h2>
-
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Feature
-              fx={fx}
-              icon={<Bot className="h-6 w-6" />}
-              title={t("home.features.items.chatbot.title", "Chatbot AI personalizat")}
-              text={t(
-                "home.features.items.chatbot.text",
-                "Preia lead-uri, răspunde automat la întrebări și se integrează cu CRM-ul tău."
-              )}
-              link="/solutions"
-              learnMore={t("home.features.learnMore", "Află mai mult")}
-            />
-            <Feature
-              fx={fx}
-              icon={<Workflow className="h-6 w-6" />}
-              title={t("home.features.items.automation.title", "Automatizări esențiale")}
-              text={t(
-                "home.features.items.automation.text",
-                "Formulare → email/CRM, notificări, calificare lead, programări, follow-up."
-              )}
-              link="/solutions"
-              learnMore={t("home.features.learnMore", "Află mai mult")}
-            />
-            <Feature
-              fx={fx}
-              icon={<PlugZap className="h-6 w-6" />}
-              title={t("home.features.items.integration.title", "Website modern + integrări")}
-              text={t(
-                "home.features.items.integration.text",
-                "Site rapid, SEO-ready, multi-lingv, conectat cu tool-urile deja folosite."
-              )}
-              link="/solutions"
-              learnMore={t("home.features.learnMore", "Află mai mult")}
-            />
-          </ul>
-        </div>
-      </section>
-
-      {/* PRICING (exemplu simplu) */}
-      <section className="py-12 sm:py-16 border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-sky-300">
-            <span className="inline-block h-1 w-1 rounded-full bg-sky-400" />
-            {t("home.pricing.kicker", "Pachet lansare rapidă")}
-          </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-gray-300">
-            {t("home.pricing.title", "Website + chatbot + automatizări esențiale")}
-          </h2>
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <PricingCard
-              fx={fx}
-              title={t("home.pricing.cards.starter.title", "Start")}
-              price={t("home.pricing.cards.starter.price", "De la 990 €")}
-              perks={[
-                t("home.pricing.cards.starter.p1", "Website 1–5 pagini"),
-                t("home.pricing.cards.starter.p2", "Chatbot FAQ/lead capture"),
-                t("home.pricing.cards.starter.p3", "2 integrări esențiale"),
-              ]}
-            />
-            <PricingCard
-              fx={fx}
-              highlight
-              title={t("home.pricing.cards.pro.title", "Pro")}
-              price={t("home.pricing.cards.pro.price", "De la 1.990 €")}
-              perks={[
-                t("home.pricing.cards.pro.p1", "Website extins + blog"),
-                t("home.pricing.cards.pro.p2", "Chatbot multi-rol (sales/support)"),
-                t("home.pricing.cards.pro.p3", "4+ integrări & automatizări"),
-              ]}
-            />
+        {/* SKILLS */}
+        <section className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <img
+                src="/images/optical-illusions-science-exhibit.png"
+                alt={tr("home.skills.imageAlt")}
+                width={880}
+                height={620}
+                className={`w-full h-auto rounded-2xl object-cover ${fx}`}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="space-y-6">
+              <SectionKicker>{tr("home.skills.kicker")}</SectionKicker>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-300">{tr("home.skills.title")}</h2>
+              <p className="text-gray-300">{tr("home.skills.description")}</p>
+              <Progress label={tr("home.skills.progress.understanding")} value={75} />
+              <Progress label={tr("home.skills.progress.application")} value={86} />
+            </div>
           </div>
+        </section>
 
-          <p className="mt-6 pt-3 text-center text-sm text-gray-400 border-t border-white/10">
-            {t(
-              "home.pricing.note",
-              "Prețurile sunt orientative. Completează formularul pentru o ofertă personalizată."
-            )}
-          </p>
-        </div>
-      </section>
+        {/* PRICING */}
+        <section className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <SectionKicker>{tr("home.pricing.kicker")}</SectionKicker>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-300">{tr("home.pricing.title")}</h2>
 
-      {/* FAQ */}
-      <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-sky-300">
-            <span className="inline-block h-1 w-1 rounded-full bg-sky-400" />
-            {t("home.faq.kicker", "Întrebări frecvente")}
-          </span>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              <PricingCard
+                fx={fx}
+                title={tr("home.pricing.cards.individual.title")}
+                price={tr("home.pricing.cards.individual.price")}
+                perks={[
+                  tr("home.pricing.cards.individual.perks.0"),
+                  tr("home.pricing.cards.individual.perks.1"),
+                  tr("home.pricing.cards.individual.perks.2"),
+                ]}
+              />
 
-          <Accordion type="single" collapsible className="mt-6">
-            <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-              <AccordionTrigger className="text-left">
-                {t("home.faq.q1", "În cât timp livrați?")}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-300">
-                {t(
-                  "home.faq.a1",
-                  "Pachetul de lansare rapidă se livrează uzual în 10–14 zile, în funcție de complexitate și feedback."
-                )}
-              </AccordionContent>
-            </AccordionItem>
+              <PricingCard
+                fx={fx}
+                highlight
+                title={tr("home.pricing.cards.group.title")}
+                price={tr("home.pricing.cards.group.price")}
+                perks={[
+                  tr("home.pricing.cards.group.perks.0"),
+                  tr("home.pricing.cards.group.perks.1"),
+                  tr("home.pricing.cards.group.perks.2"),
+                  tr("home.pricing.cards.group.perks.3"),
+                  tr("home.pricing.cards.group.perks.4"),
+                ]}
+              />
+            </div>
 
-            <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-              <AccordionTrigger className="text-left">
-                {t("home.faq.q2", "Cum primesc oferta?")}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-300">
-                {t(
-                  "home.faq.a2",
-                  "Completezi formularul din „Solicită ofertă”. Vei primi confirmare pe email și revenim cu propunerea."
-                )}
-              </AccordionContent>
-            </AccordionItem>
+            <p className="mt-6 pt-3 text-center text-sm text-gray-400 border-t border-white/10">
+              {tr("home.pricing.note.prefix")}{" "}
+              <span className="font-medium text-gray-300">{tr("home.pricing.note.date")}</span> {tr("home.pricing.note.suffix")}
+            </p>
+          </div>
+        </section>
 
-            <AccordionItem value="f3" className={`border-b border-white/10 ${fx}`}>
-              <AccordionTrigger className="text-left">
-                {t("home.faq.q3", "Ce integrări suportați?")}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-300">
-                {t(
-                  "home.faq.a3",
-                  "CRM (HubSpot/Pipedrive/Zoho), formulare, email, calendare, plăți, WhatsApp/Facebook/Telegram etc."
-                )}
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-    </main>
+        {/* FAQ */}
+        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <SectionKicker>{tr("home.faq.kicker")}</SectionKicker>
+            <Accordion type="single" collapsible className="mt-6">
+              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger className="text-left">{tr("home.faq.items.audience.question")}</AccordionTrigger>
+                <AccordionContent className="text-gray-300">{tr("home.faq.items.audience.answer")}</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger className="text-left">{tr("home.faq.items.duration.question")}</AccordionTrigger>
+                <AccordionContent className="text-gray-300">{tr("home.faq.items.duration.answer")}</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="f3" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger className="text-left">{tr("home.faq.items.booking.question")}</AccordionTrigger>
+                <AccordionContent className="text-gray-300">{tr("home.faq.items.booking.answer")}</AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
 
 /* ————— Sub-componente ————— */
+
+function SectionKicker({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-sky-300">
+      <span className="inline-block h-1 w-1 rounded-full bg-sky-400" />
+      {children}
+    </span>
+  )
+}
+
+function SectionTitle({ title }: { title: string }) {
+  return (
+    <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+      {title}
+    </h2>
+  )
+}
 
 function Feature({
   fx,
@@ -253,6 +289,47 @@ function Feature({
         {learnMore}
       </Link>
     </li>
+  )
+}
+
+function Donut({ value, label }: { value: number; label: string }) {
+  const rotation = (value / 100) * 360
+  return (
+    <div className="relative grid place-items-center">
+      <div
+        className="h-20 w-20 rounded-full"
+        style={{
+          background:
+            "conic-gradient(rgb(56,189,248) 0deg, rgb(168,85,247) " +
+            rotation +
+            "deg, rgba(255,255,255,0.08) " +
+            rotation +
+            "deg 360deg)",
+        }}
+        aria-hidden
+      />
+      <div className="absolute text-center">
+        <div className="text-xl font-bold text-gray-300">{value}%</div>
+        <div className="text-[10px] text-gray-400">{label}</div>
+      </div>
+    </div>
+  )
+}
+
+function Progress({ label, value }: { label: string; value: number }) {
+  return (
+    <div>
+      <div className="flex items-center justify-between text-sm">
+        <span className="text-gray-300">{label}</span>
+        <span className="text-gray-300 font-medium">{value}%</span>
+      </div>
+      <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 rounded-full"
+          style={{ width: `${value}%` }}
+        />
+      </div>
+    </div>
   )
 }
 
