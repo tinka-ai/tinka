@@ -1,11 +1,14 @@
 "use client"
 
+"use client"
+
 import type { ReactNode } from "react"
 import { createContext, useCallback, useContext, useState } from "react"
 
-import { ThemeProvider } from "@/components/theme-provider" // ✅ corect
+import { ThemeProvider } from "@/components/theme-provider"
 import { LocaleProvider } from "@/contexts/locale-context"
 import OfferModal from "@/components/offer/OfferModal"
+
 
 // --- Context + hook pentru OfferModal ---
 type OfferCtx = { open: () => void; close: () => void; isOpen: boolean }
