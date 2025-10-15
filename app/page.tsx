@@ -6,7 +6,7 @@ import { ArrowRight, Bot, Globe, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import OfferCTA from "@/components/offer/OfferCTA"
 import { useLocale } from "@/contexts/locale-context"
-
+import Footer from "@/components/ui/footer"
 export default function Page() {
   const { t } = useLocale() as any
   const fx = "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
@@ -101,7 +101,47 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </section>
-    </main>
+        {/* WHY NOW */}
+<section className="py-16 border-b border-white/5">
+  <div className="mx-auto max-w-7xl px-4">
+    <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 text-center">
+      {t("whyAI.title")}
+    </h2>
+
+    <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        t("whyAI.benefit1"),
+        t("whyAI.benefit2"),
+        t("whyAI.benefit3"),
+        t("whyAI.benefit4"),
+      ].map((b: any, i: number) => (
+        <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5">
+          <p className="font-semibold text-gray-200">{b.title}</p>
+          <p className="mt-2 text-sm text-gray-400">{b.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* TECHNOLOGIES */}
+<section className="py-16 border-b border-white/5">
+  <div className="mx-auto max-w-7xl px-4">
+    <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 text-center">
+      {t("technologies.title")}
+    </h2>
+    <p className="mt-2 text-center text-gray-400">{t("technologies.subtitle")}</p>
+
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+      {["ChatGPT","Claude","Python","React","Next.js","TensorFlow","PyTorch","Node.js"].map((tag)=>(
+        <span key={tag} className="rounded-md border border-white/10 bg-white/5 px-3 py-1 text-sm text-gray-300">
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+      </main>
+      <Footer />
   )
 }
