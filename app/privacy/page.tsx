@@ -585,9 +585,7 @@ const bodies = {
 
 const lang = (["ro","ru","en"] as const).includes(locale as any) ? (locale as "ro"|"ru"|"en") : "ro"
 
-const mailHref = `mailto:${L.email
-  }?subject=${encodeURIComponent(subjects[lang])
-  }&body=${encodeURIComponent(bodies[lang])}`
+const mailHref = `mailto:${L.email}?subject=${encodeURIComponent(subjects[lang])}&body=${encodeURIComponent(bodies[lang])}`
 
 
   return (
