@@ -590,6 +590,10 @@ const mailHref = `mailto:${L.email}?subject=${encodeURIComponent(subjects[lang])
 
   return (
     <div className="min-h-screen bg-background">
+
+
+  return (
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-24">
         <div className="max-w-4xl mx-auto">
           <Link href="/">
@@ -630,15 +634,15 @@ const mailHref = `mailto:${L.email}?subject=${encodeURIComponent(subjects[lang])
             ))}
           </article>
 
-          <div className="mt-10 rounded-lg border border-border p-4 text-sm text-muted-foreground">
-            <p>
-              {L.contactLabel}{" "}
-             <a href={mailHref} className="text-info hover:underline">
-  {L.contactEmailLabel} {L.email}
-</a>
-              .
-            </p>
-          </div>
+         <div className="mt-10 rounded-lg border border-border p-4 text-sm text-muted-foreground">
+  <p>
+    {L.contactLabel}{" "}
+    <a href={mailHref} className="text-info hover:underline">
+      {L.contactEmailLabel} {L.email}
+    </a>
+    .
+  </p>
+</div>
         </div>
       </div>
     </div>
