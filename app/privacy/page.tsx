@@ -40,9 +40,9 @@ const PRIVACY: Record<"ro" | "ru" | "en", PrivacyT> = {
         h2: "2. Date de contact",
         body: [
 { type: "ul", items: [
-  `Email: office@tinka.md`,
-  `Adresa: Chișinău, Rep. Moldova`,
-  `Telefon: +373 68 333 899`,
+  "Email: office@tinka.md",
+  "Adresa: Chișinău, Rep. Moldova",
+  "Telefon: +373 68 333 899",
 ]},
 
         ],
@@ -256,11 +256,11 @@ const PRIVACY: Record<"ro" | "ru" | "en", PrivacyT> = {
       {
         h2: "15. Contact",
         body: [
-          { type: "ul", items: [
-            "Email: office@tinka.md",
-            "Adresa: Chișinău, Rep. Moldova",
-            "Telefon: +373 68 333 899,
-          ]},
+         { type: "ul", items: [
+  "Email: office@tinka.md",
+  "Adresa: Chișinău, Rep. Moldova",
+  "Telefon: +373 68 333 899",
+]},
           { type: "p", text: "Ne angajăm să răspundem solicitărilor în timp util și să abordăm orice preocupări legate de confidențialitate. Prin utilizarea serviciilor TINKA AI, confirmați că ați citit, înțeles și acceptat această Politică de Confidențialitate." },
         ],
       },
@@ -556,7 +556,11 @@ const PRIVACY: Record<"ro" | "ru" | "en", PrivacyT> = {
       {
         h2: "15. Contact",
         body: [
-          { type: "ul", items: ["Email: office@tinka.md","Address: Chisinau, Republic of Moldova","Phone: +373 68 333 899"]},
+         { type: "ul", items: [
+  "Email: office@tinka.md",
+  "Adress: Chișinău, Republic of Moldova",
+  "Telefon: +373 68 333 899",
+]},
           { type: "p", text: "We respond promptly and address privacy concerns. By using TINKA AI services you confirm you have read, understood and accepted this Policy." },
         ],
       },
