@@ -39,11 +39,12 @@ const PRIVACY: Record<"ro" | "ru" | "en", PrivacyT> = {
       {
         h2: "2. Date de contact",
         body: [
-     { type: "ul", items: [
-  "Email: office@tinka.md",
-  "Adresa: Chișinău, Rep. Moldova",
-  "Telefon: +373 68 333 899",
-          ]},
+{ type: "ul", items: [
+  `Email: office@tinka.md`,
+  `Adresa: Chișinău, Rep. Moldova`,
+  `Telefon: +373 68 333 899`,
+]},
+
         ],
       },
       {
