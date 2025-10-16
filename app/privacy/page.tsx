@@ -569,7 +569,26 @@ const PRIVACY: Record<"ro" | "ru" | "en", PrivacyT> = {
 
 export default function PrivacyPage() {
   const { locale, t: T } = useLocale() as any
-  const L = (PRIVACY as any)[locale as "ro" | "ru" | "en"] ?? PRIVACY.ro
+const L = (PRIVACY as any)[locale as "ro" | "ru" | "en"] ?? PRIVACY.ro
+
+const subjects = {
+  ro: "Întrebare privind Politica de Confidențialitate",
+  ru: "Вопрос по Политике конфиденциальности",
+  en: "Question about the Privacy Policy",
+} as const
+
+const bodies = {
+  ro: "Bună, echipa TINKA AI,\n\nAm o întrebare legată de Politica de Confidențialitate:\n\n",
+  ru: "Здравствуйте, уважаемая команда TINKA AI,\n\nУ меня вопрос по Политике конфиденциальности:\n\n",
+  en: "Hello TINKA AI team,\n\nI have a question about the Privacy Policy:\n\n",
+} as const
+
+const lang = (["ro","ru","en"] as const).includes(locale as any) ? (locale as "ro"|"ru"|"en") : "ro"
+
+const mailHref = `mailto:${L.email
+  }?subject=${encodeURIComponent(subjects[lang])
+  }&body=${encodeURIComponent(bodies[lang])}`
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -616,9 +635,9 @@ export default function PrivacyPage() {
           <div className="mt-10 rounded-lg border border-border p-4 text-sm text-muted-foreground">
             <p>
               {L.contactLabel}{" "}
-              <a href={`mailto:${L.email}`} className="text-info hover:underline">
-                {L.contactEmailLabel} {L.email}
-              </a>
+             <a href={mailHref} className="text-info hover:underline">
+  {L.contactEmailLabel} {L.email}
+</a>
               .
             </p>
           </div>
