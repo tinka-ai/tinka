@@ -39,11 +39,10 @@ const PRIVACY: Record<"ro" | "ru" | "en", PrivacyT> = {
       {
         h2: "2. Date de contact",
         body: [
-          { type: "ul", items: [
-            "Denumirea companiei: TINKA AI",
-            "Adresa: [De completat]",
-            "Email: office@tinka.md",
-            "Telefon: [De completat]",
+     { type: "ul", items: [
+  "Email: office@tinka.md",
+  "Adresa: Chișinău, Rep. Moldova",
+  "Telefon: +373 68 333 899",
           ]},
         ],
       },
