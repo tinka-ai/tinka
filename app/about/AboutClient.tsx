@@ -239,18 +239,18 @@ export default function AboutClient() {
                   {about.cta.description}
                 </p>
                 <CalendlyButton 
-                  buttonText={about.cta.button}
-                  modalTitle={
-                    locale === "en" ? "Schedule a Free Consultation" :
-                    locale === "ru" ? "Запланировать бесплатную консультацию" :
-                    "Programează Consultație Gratuită"
-                  }
-                  modalSubtitle={
-                    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
-                    locale === "ru" ? "30 минут · Онлайн · Обсудим AI для вашей компании" :
-                    "30 minute · Online · Discutăm despre AI în compania ta"
-                  }
-                />
+  buttonText={about.cta.button}
+  modalTitle={
+    locale === "en" ? "Schedule a Free Phone Consultation" :
+    locale === "ru" ? "Запланировать бесплатную телефонную консультацию" :
+    "Programează o consultație telefonică gratuită"
+  }
+  modalSubtitle={
+    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
+    locale === "ru" ? "30 минут · Онлайн · Обсудим AI для вашей компании" :
+    "30 de minute · Online · Discutăm despre AI în compania ta"
+  }
+/>
               </CardContent>
             </Card>
           </div>
