@@ -3,10 +3,10 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { useLocale } from "@/contexts/locale-context"
 import Link from "next/link"
-import { Heart, Shield, Target, Users, Lightbulb, ArrowRight } from "lucide-react"
+import { Heart, Shield, Target, Users, Lightbulb } from "lucide-react"
+import CalendlyButton from "@/components/CalendlyButton"
 
 export default function AboutClient() {
   const { t, locale } = useLocale() as any
@@ -113,7 +113,7 @@ export default function AboutClient() {
         (locale === "en" ? "Approach" : locale === "ru" ? "Подход" : F.about.labels.approach),
       letsTalk:
         A.labels?.letsTalk ??
-        (locale === "en" ? "Let’s talk" : locale === "ru" ? "Давайте обсудим" : F.about.labels.letsTalk),
+        (locale === "en" ? "Let's talk" : locale === "ru" ? "Давайте обсудим" : F.about.labels.letsTalk),
     },
   }
 
@@ -238,10 +238,19 @@ export default function AboutClient() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {about.cta.description}
                 </p>
-                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                  {about.cta.button}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <CalendlyButton 
+                  buttonText={about.cta.button}
+                  modalTitle={
+                    locale === "en" ? "Schedule a Free Consultation" :
+                    locale === "ru" ? "Запланировать бесплатную консультацию" :
+                    "Programează Consultație Gratuită"
+                  }
+                  modalSubtitle={
+                    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
+                    locale === "ru" ? "30 минут · Онлайн · Обсудим AI для вашей компании" :
+                    "30 minute · Online · Discutăm despre AI în compania ta"
+                  }
+                />
               </CardContent>
             </Card>
           </div>
