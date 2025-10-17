@@ -247,7 +247,7 @@ export default function AboutClient() {
   }
   modalSubtitle={
     locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
-    locale === "ru" ? "30 минут · Онлайн · Обсудим AI для вашей компании" :
+    locale === "ru" ? "30 минут · Онлайн · Обсудим ИИ для вашей компании" :
     "30 de minute · Online · Discutăm despre AI în compania ta"
   }
 />
