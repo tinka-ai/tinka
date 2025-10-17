@@ -57,13 +57,16 @@ export default function AboutClient() {
           "Lucrăm în echipe compacte de implementare, direct cu stakeholderii tăi, pentru a scurta feedback loop-urile.",
       },
       cta: {
-        title: "Vrei să vezi ce poate face AI în compania ta?",
-        description: "Îți propunem un audit rapid de 60 minute și 3 oportunități cu impact imediat.",
-        :
-          locale === "en" ? "Schedule a call" :
-          locale === "ru" ? "Записаться на звонок" :
-          "Programează un call",
-      },
+  title: A.cta?.title ?? F.about.cta.title,
+  description: A.cta?.description ?? F.about.cta.description,
+  button:
+    A.cta?.button ??
+    (locale === "en"
+      ? "Schedule a call"
+      : locale === "ru"
+      ? "Записаться на звонок"
+      : "Programează un call"),
+},
       labels: {
         mission: locale === "en" ? "Mission" : locale === "ru" ? "Миссия" : "Misiune",
         approach: locale === "en" ? "Approach" : locale === "ru" ? "Подход" : "Abordare",
