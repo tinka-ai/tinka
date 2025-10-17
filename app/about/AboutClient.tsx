@@ -1,6 +1,7 @@
 // app/about/AboutClient.tsx
 "use client"
 
+import React from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useLocale } from "@/contexts/locale-context"
@@ -11,7 +12,6 @@ import CalendlyButton from "@/components/CalendlyButton"
 export default function AboutClient() {
   const { t, locale } = useLocale() as any
 
-  // Fallback RO sigur la build
   const F = {
     footer: {
       company: "TINKA AI",
@@ -27,8 +27,8 @@ export default function AboutClient() {
       caseStudies: "Studii de caz",
       faq: "FAQ",
       contactInfo: "Contact",
-      email: "info@tinka.ai",
-      phone: "+373 00 000 000",
+      email: "office@tinka.md",
+      phone: "+373 68 333 899",
       hours: "L–V 09:00–18:00",
       copyright: "© TINKA AI",
       privacy: "Confidențialitate",
@@ -38,7 +38,7 @@ export default function AboutClient() {
       hero: {
         title: "Despre TINKA AI",
         subtitle:
-          "Construim soluții AI pragmatice: chatboți, automatisări și website-uri care aduc rezultate măsurabile.",
+          "Construim soluții AI pragmatice: chatboți, automatizări și website-uri care aduc rezultate măsurabile.",
       },
       mission: {
         title: "Misiunea noastră",
@@ -59,36 +59,32 @@ export default function AboutClient() {
       cta: {
         title: "Vrei să vezi ce poate face AI în compania ta?",
         description: "Îți propunem un audit rapid de 60 minute și 3 oportunități cu impact imediat.",
-        button: "Programează un call",
+        button:
+          locale === "en" ? "Schedule a call" :
+          locale === "ru" ? "Записаться на звонок" :
+          "Programează un call",
       },
       labels: {
-        mission: "Misiune",
-        approach: "Abordare",
-        letsTalk: "Hai să discutăm",
+        mission: locale === "en" ? "Mission" : locale === "ru" ? "Миссия" : "Misiune",
+        approach: locale === "en" ? "Approach" : locale === "ru" ? "Подход" : "Abordare",
+        letsTalk: locale === "en" ? "Let's talk" : locale === "ru" ? "Давайте обсудим" : "Hai să discutăm",
       },
     },
   }
 
-  // Dicționarul actual (poate fi pe schema veche sau nouă)
   const A = (t?.about ?? {}) as any
 
-  // Mapare tolerantă: suportă schema veche (title/subtitle/content/values) și schema nouă (hero/mission/…)
   const about = {
     hero: {
       title: A.hero?.title ?? A.title ?? F.about.hero.title,
       subtitle: A.hero?.subtitle ?? A.subtitle ?? F.about.hero.subtitle,
     },
     mission: {
-      title:
-        A.mission?.title ??
-        A.labels?.mission ??
-        (locale === "en" ? "Our Mission" : locale === "ru" ? "Наша миссия" : F.about.mission.title),
+      title: A.mission?.title ?? A.labels?.mission ?? F.about.mission.title,
       description: A.mission?.description ?? A.content ?? F.about.mission.description,
     },
     values: {
-      title:
-        A.values?.title ??
-        (locale === "en" ? "Our Values" : locale === "ru" ? "Наши ценности" : F.about.values.title),
+      title: A.values?.title ?? F.about.values.title,
       value1: A.values?.value1 ?? F.about.values.value1,
       value2: A.values?.value2 ?? F.about.values.value2,
       value3: A.values?.value3 ?? F.about.values.value3,
@@ -100,35 +96,25 @@ export default function AboutClient() {
     cta: {
       title: A.cta?.title ?? F.about.cta.title,
       description: A.cta?.description ?? F.about.cta.description,
-      button:
-        A.cta?.button ??
-        (locale === "en" ? "Schedule a call" : locale === "ru" ? "Записаться на звонок" : F.about.cta.button),
+      button: A.cta?.button ?? F.about.cta.button,
     },
     labels: {
-      mission:
-        A.labels?.mission ??
-        (locale === "en" ? "Mission" : locale === "ru" ? "Миссия" : F.about.labels.mission),
-      approach:
-        A.labels?.approach ??
-        (locale === "en" ? "Approach" : locale === "ru" ? "Подход" : F.about.labels.approach),
-      letsTalk:
-        A.labels?.letsTalk ??
-        (locale === "en" ? "Let's talk" : locale === "ru" ? "Давайте обсудим" : F.about.labels.letsTalk),
+      mission: A.labels?.mission ?? F.about.labels.mission,
+      approach: A.labels?.approach ?? F.about.labels.approach,
+      letsTalk: A.labels?.letsTalk ?? F.about.labels.letsTalk,
     },
   }
 
-  // Fallback de footer: întâi RO, apoi suprascriem cu traducerile disponibile
   const footer = { ...F.footer, ...(t?.footer ?? {}) }
 
   const values = [
     { icon: Target, text: about.values.value1 },
     { icon: Shield, text: about.values.value2 },
     { icon: Heart, text: about.values.value3 },
-  ].filter((v) => Boolean(v.text))
+  ].filter(v => Boolean(v.text))
 
   return (
     <div className="min-h-screen bg-background">
-
       {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
         <div className="container mx-auto px-4">
@@ -238,38 +224,31 @@ export default function AboutClient() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {about.cta.description}
                 </p>
-                <CalendlyButton 
-  buttonText={about.cta.button}
-  modalTitle={
-    locale === "en" ? "Schedule a Free Phone Consultation" :
-    locale === "ru" ? "Запланировать бесплатную телефонную консультацию" :
-    "Programează o consultație telefonică gratuită"
-  }
-  modalSubtitle={
-    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
-    locale === "ru" ? "30 минут · Онлайн · Обсудим ИИ для вашей компании" :
-    "30 de minute · Online · Discutăm despre AI în compania ta"
-  }
-<CalendlyButton 
-  buttonText={about.cta.button}
-  modalTitle={
-    locale === "en" ? "Schedule a Free Phone Consultation" :
-    locale === "ru" ? "Запланировать бесплатную телефонную консультацию" :
-    "Programează o consultație telefonică gratuită"
-  }
-  modalSubtitle={
-    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
-    locale === "ru" ? "30 минут · Онлайн · Обсудим ИИ для вашей компании" :
-    "30 de minute · Online · Discutăm despre AI în compania ta"
-  }
-/>
+
+                <CalendlyButton
+                  buttonText={about.cta.button}
+                  modalTitle={
+                    locale === "en"
+                      ? "Schedule a Free Phone Consultation"
+                      : locale === "ru"
+                      ? "Запланировать бесплатную телефонную консультацию"
+                      : "Programează o consultație telefonică gratuită"
+                  }
+                  modalSubtitle={
+                    locale === "en"
+                      ? "30 minutes · Online · Let's discuss AI for your company"
+                      : locale === "ru"
+                      ? "30 минут · Онлайн · Обсудим ИИ для вашей компании"
+                      : "30 de minute · Online · Discutăm despre AI în compania ta"
+                  }
+                />
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer (dacă pe „About” îl vrei inclus aici) */}
       <footer className="relative py-20 bg-background border-t border-border">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
