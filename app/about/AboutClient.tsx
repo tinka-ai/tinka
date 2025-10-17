@@ -57,20 +57,14 @@ export default function AboutClient() {
           "Lucrăm în echipe compacte de implementare, direct cu stakeholderii tăi, pentru a scurta feedback loop-urile.",
       },
       cta: {
-  title: A.cta?.title ?? F.about.cta.title,
-  description: A.cta?.description ?? F.about.cta.description,
-  button:
-    A.cta?.button ??
-    (locale === "en"
-      ? "Schedule a call"
-      : locale === "ru"
-      ? "Записаться на звонок"
-      : "Programează un call"),
-},
+        title: "Vrei să vezi ce poate face AI în compania ta?",
+        description: "Îți propunem un audit rapid de 60 minute și 3 oportunități cu impact imediat.",
+        button: "Programează un apel telefonic",
+      },
       labels: {
-        mission: locale === "en" ? "Mission" : locale === "ru" ? "Миссия" : "Misiune",
-        approach: locale === "en" ? "Approach" : locale === "ru" ? "Подход" : "Abordare",
-        letsTalk: locale === "en" ? "Let's talk" : locale === "ru" ? "Давайте обсудим" : "Hai să discutăm",
+        mission: "Misiune",
+        approach: "Abordare",
+        letsTalk: "Hai să discutăm",
       },
     },
   }
@@ -99,12 +93,28 @@ export default function AboutClient() {
     cta: {
       title: A.cta?.title ?? F.about.cta.title,
       description: A.cta?.description ?? F.about.cta.description,
-      : A.cta?. ?? F.about.cta.button,
+      button: A.cta?.button ?? (
+        locale === "en" ? "Schedule a call" :
+        locale === "ru" ? "Записаться на звонок" :
+        F.about.cta.button
+      ),
     },
     labels: {
-      mission: A.labels?.mission ?? F.about.labels.mission,
-      approach: A.labels?.approach ?? F.about.labels.approach,
-      letsTalk: A.labels?.letsTalk ?? F.about.labels.letsTalk,
+      mission: A.labels?.mission ?? (
+        locale === "en" ? "Mission" :
+        locale === "ru" ? "Миссия" :
+        F.about.labels.mission
+      ),
+      approach: A.labels?.approach ?? (
+        locale === "en" ? "Approach" :
+        locale === "ru" ? "Подход" :
+        F.about.labels.approach
+      ),
+      letsTalk: A.labels?.letsTalk ?? (
+        locale === "en" ? "Let's talk" :
+        locale === "ru" ? "Давайте обсудим" :
+        F.about.labels.letsTalk
+      ),
     },
   }
 
@@ -228,26 +238,26 @@ export default function AboutClient() {
                   {about.cta.description}
                 </p>
 
-            <CalendlyButton 
-  buttonText={about.cta.button}
-  modalTitle={
-    locale === "en" ? "Schedule a Free Phone Consultation" :
-    locale === "ru" ? "Запланировать бесплатную телефонную консультацию" :
-    "Programează o consultație telefonică gratuită"
-  }
-  modalSubtitle={
-    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
-    locale === "ru" ? "30 минут · Онлайн · Обсудим ИИ для вашей компании" :
-    "30 de minute · Online · Discutăm despre AI în compania ta"
-  }
-/>
+                <CalendlyButton 
+                  buttonText={about.cta.button}
+                  modalTitle={
+                    locale === "en" ? "Schedule a Free Phone Consultation" :
+                    locale === "ru" ? "Запланировать бесплатную телефонную консультацию" :
+                    "Programează o consultație telefonică gratuită"
+                  }
+                  modalSubtitle={
+                    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
+                    locale === "ru" ? "30 минут · Онлайн · Обсудим ИИ для вашей компании" :
+                    "30 de minute · Online · Discutăm despre AI în compania ta"
+                  }
+                />
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Footer (dacă pe „About” îl vrei inclus aici) */}
+      {/* Footer */}
       <footer className="relative py-20 bg-background border-t border-border">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
