@@ -59,7 +59,7 @@ export default function AboutClient() {
       cta: {
         title: "Vrei să vezi ce poate face AI în compania ta?",
         description: "Îți propunem un audit rapid de 60 minute și 3 oportunități cu impact imediat.",
-        button:
+        :
           locale === "en" ? "Schedule a call" :
           locale === "ru" ? "Записаться на звонок" :
           "Programează un call",
@@ -96,7 +96,7 @@ export default function AboutClient() {
     cta: {
       title: A.cta?.title ?? F.about.cta.title,
       description: A.cta?.description ?? F.about.cta.description,
-      button: A.cta?.button ?? F.about.cta.button,
+      : A.cta?. ?? F.about.cta.button,
     },
     labels: {
       mission: A.labels?.mission ?? F.about.labels.mission,
@@ -225,23 +225,19 @@ export default function AboutClient() {
                   {about.cta.description}
                 </p>
 
-                <CalendlyButton
-                  buttonText={about.cta.button}
-                  modalTitle={
-                    locale === "en"
-                      ? "Schedule a Free Phone Consultation"
-                      : locale === "ru"
-                      ? "Запланировать бесплатную телефонную консультацию"
-                      : "Programează o consultație telefonică gratuită"
-                  }
-                  modalSubtitle={
-                    locale === "en"
-                      ? "30 minutes · Online · Let's discuss AI for your company"
-                      : locale === "ru"
-                      ? "30 минут · Онлайн · Обсудим ИИ для вашей компании"
-                      : "30 de minute · Online · Discutăm despre AI în compania ta"
-                  }
-                />
+            <CalendlyButton 
+  buttonText={about.cta.button}
+  modalTitle={
+    locale === "en" ? "Schedule a Free Phone Consultation" :
+    locale === "ru" ? "Запланировать бесплатную телефонную консультацию" :
+    "Programează o consultație telefonică gratuită"
+  }
+  modalSubtitle={
+    locale === "en" ? "30 minutes · Online · Let's discuss AI for your company" :
+    locale === "ru" ? "30 минут · Онлайн · Обсудим ИИ для вашей компании" :
+    "30 de minute · Online · Discutăm despre AI în compania ta"
+  }
+/>
               </CardContent>
             </Card>
           </div>
