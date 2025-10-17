@@ -4,7 +4,17 @@ import { useState } from "react"
 import { X, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function CalendlyButton() {
+interface CalendlyButtonProps {
+  buttonText?: string
+  modalTitle?: string
+  modalSubtitle?: string
+}
+
+export default function CalendlyButton({ 
+  buttonText = "Programează un call",
+  modalTitle = "Programează Consultație Gratuită",
+  modalSubtitle = "30 minute · Online · Discutăm despre AI în compania ta"
+}: CalendlyButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -12,10 +22,11 @@ export default function CalendlyButton() {
       {/* Butonul principal */}
       <Button 
         onClick={() => setIsOpen(true)}
-        className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold"
+        size="lg"
+        className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
       >
-        Programează un call
-        <ArrowRight className="ml-2 h-5 w-5" />
+        {buttonText}
+        <ArrowRight className="ml-2 h-4 w-4" />
       </Button>
 
       {/* Modal cu Calendly */}
@@ -32,11 +43,35 @@ export default function CalendlyButton() {
             <div className="flex items-center justify-between p-6 border-b border-border bg-background/95 backdrop-blur">
               <div>
                 <h2 className="text-2xl font-bold text-foreground">
-                  Programează Consultație Gratuită
+                  {modalTitle}
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  30 minute · Online · Discutăm despre AI în compania ta
+                  {modalSubtitle}
                 </p>
               </div>
               <button
-                onClick={() => setIsOpen(fals
+                onClick={() => setIsOpen(false)}
+                className="p-2 hover:bg-muted rounded-full transition-colors group"
+                aria-label="Închide"
+              >
+                <X className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              </button>
+            </div>
+
+            {/* Calendly Iframe */}
+            <div className="h-[calc(100%-88px)]">
+              <iframe
+                src="https://calendly.com/tinka-ai-srl/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=000000&text_color=ffffff&primary_color=3b82f6"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Programează consultație"
+                className="calendly-inline-widget"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
