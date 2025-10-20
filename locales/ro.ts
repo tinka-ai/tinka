@@ -348,7 +348,7 @@ export const ro = {
 
   footer: {
     company: "T.I.N.K.A. AI",
-    tagline: "Din Tradițional în Digital",
+    tagline: "Digital. Simplu. Eficient",
     description: "Soluții AI & Web pentru IMM-uri.",
     quickLinks: "Linkuri rapide",
     home: "Acasă",
