@@ -21,29 +21,31 @@ export default function CalendlyButton({
 
   return (
     <>
-      {/* Butonul principal */}
+      {/* Butonul principal (dark gradient + glow) */}
       <Button
         onClick={() => setIsOpen(true)}
-        size="lg"
-        // stiluri de feedback vizual fără a schimba tema butonului
-        className={[
-          "group cursor-pointer select-none",
-          "transition-all duration-200 ease-out",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
-          "hover:shadow-lg hover:-translate-y-[1px]",
-          "active:translate-y-0 active:shadow-md",
-          className,
-        ].join(" ")}
         title={buttonText}
         aria-label={buttonText}
+        className={[
+          // stilul cerut
+          "group inline-flex items-center gap-2 rounded-lg",
+          "bg-[linear-gradient(180deg,rgba(22,26,39,.95),rgba(10,12,20,.95))]",
+          "text-white border border-white/10",
+          "shadow-[inset_0_1px_0_rgba(255,255,255,.06)]",
+          "ring-1 ring-white/5 hover:ring-primary-foreground/50",
+          "hover:shadow-[0_0_0_1px_rgba(99,102,241,.25),0_0_28px_6px_rgba(99,102,241,.15)]",
+          "px-6 py-3 transition-all duration-200",
+          // feedback suplimentar
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
+          "hover:-translate-y-[1px] active:translate-y-0",
+          className,
+        ].join(" ")}
       >
-        <span className="inline-flex items-center">
-          <span>{buttonText}</span>
-          <ArrowRight
-            className="ml-2 h-4 w-4 transition-transform duration-200 ease-out group-hover:translate-x-1"
-            aria-hidden="true"
-          />
-        </span>
+        {buttonText}
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
       </Button>
 
       {/* Modal cu Calendly */}
