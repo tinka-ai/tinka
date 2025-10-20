@@ -317,7 +317,7 @@ export const en = {
       question3: { q: "Payments & contract?", a: "Yes: contract + invoice; 30% upfront." },
       question4: { q: "Maintenance?", a: "We offer maintenance packages." },
       question5: { q: "Own hosting?", a: "Possible, or we can host for you." },
-      question6: { q: "Tech stack?", a: "Next.js, Netlify, Tailwind, etc." },
+      question6: { q: "Tech stack?", a: "from classic to modern." },
       question7: { q: "Languages?", a: "Support in Romanian, Russian, English." },
       question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
     },
