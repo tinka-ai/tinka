@@ -13,7 +13,7 @@ export const ro = {
   },
 
   hero: {
-    title: "Din Tradițional în Digital",
+    title: "Digital, Simplu, Eficient",
     subtitle: "Soluții AI & Web pentru afaceri care vor să crească.",
     cta: "Vezi soluțiile",
     ctaPrimary: "Vezi soluțiile",
