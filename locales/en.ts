@@ -13,7 +13,7 @@ export const en = {
   },
 
   hero: {
-    title: "From Traditional to Digital",
+    title: "digital, simple, efficient",
     subtitle: "AI & Web solutions for growth-minded businesses.",
     cta: "See solutions",
     ctaPrimary: "See solutions",
