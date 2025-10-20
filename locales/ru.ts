@@ -78,7 +78,7 @@ export const ru = {
       exampleText: "Ассистент на сайте и в WhatsApp.",
     },
     websiteDetail: {
-      title: "Сайты с AI",
+      title: "Сайты с ИИ",
       problemText: "Статичные сайты, сложные в обновлении, низкая конверсия.",
       howText: "Современный сайт с динамическими блоками и AI-ассистентом.",
       forWhoText: "Бренды, которым важны производительность и SEO.",
@@ -92,7 +92,7 @@ export const ru = {
       exampleText: "Автоквалификация лида и создание сделки в CRM.",
     },
     consultingDetail: {
-      title: "AI-консалтинг",
+      title: "ИИ-консалтинг",
       problemText: "Много опций, сложно приоритизировать.",
       howText: "Стратегия, ROI и план внедрения.",
       forWhoText: "Компании, начинающие путь в AI.",
@@ -323,8 +323,8 @@ export const ru = {
       question3: { q: "Оплата и договор?", a: "Да, договор + счёт; 30% предоплата." },
       question4: { q: "Поддержка?", a: "Есть пакеты сопровождения." },
       question5: { q: "Собственный хостинг?", a: "Возможно, либо хостим у себя." },
-      question6: { q: "Технологии?", a: "Next.js, Netlify, Tailwind и др." },
-      question7: { q: "Языки?", a: "Поддержка ro, ru, en." },
+      question6: { q: "Технологии?", a: "от классических до Next.js, Netlify, Tailwind и др." },
+      question7: { q: "Языки?", a: "любые по желанию" },
       question8: { q: "Персональные данные?", a: "Соблюдаем GDPR и best practices." },
     },
   },
