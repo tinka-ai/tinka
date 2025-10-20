@@ -331,8 +331,8 @@ export const ru = {
 
   footer: {
     company: "T.I.N.K.A. AI",
-    tagline: "Из традиционного в цифровое",
-    description: "AI и веб-решения для МСБ.",
+    tagline: "Инновации. Просто. Эффективно. ",
+    description: "ИИ и веб-решения для Вашего бизнеса.",
     quickLinks: "Быстрые ссылки",
     home: "Главная",
     solutions: "Решения",
