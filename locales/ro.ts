@@ -67,7 +67,7 @@ export const ro = {
     title: "Despre TINKA AI",
     subtitle: "Construim produse digitale rapide și fiabile.",
     content:
-      "Suntem o echipă axată pe rezultate: aplicații web cu Next.js, automatizări și asistenți AI pentru IMM-uri.",
+      "Suntem o echipă axată pe rezultate: aplicații web, automatizări și asistenți AI pentru IMM-uri.",
     values: {
       value1: "Transparență și comunicare clară.",
       value2: "Viteză de execuție și calitate.",
