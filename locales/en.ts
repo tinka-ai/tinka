@@ -52,7 +52,7 @@ export const en = {
     title: "About TINKA AI",
     subtitle: "We build fast and reliable digital products.",
     content:
-      "We’re result-driven: web apps, automations, and AI assistants for SMEs.",
+      "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
     values: {
       value1: "Transparency and clear communication.",
       value2: "Execution speed and quality.",
