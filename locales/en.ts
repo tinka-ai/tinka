@@ -49,40 +49,26 @@ export const en = {
   },
 
   about: {
-  hero: {
     title: "About TINKA AI",
     subtitle: "We build fast and reliable digital products.",
+    content: "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
+    values: {
+      value1: "Transparency and clear communication.",
+      value2: "Execution speed and quality.",
+      value3: "Long-term partnership.",
+    },
   },
-  mission: {
-    title: "Our Mission",
-    description:
-      "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
-  },
-  values: {
-    title: "Our Values",
-    value1: "Transparency and clear communication.",
-    value2: "Execution speed and quality.",
-    value3: "Long-term partnership.",
-  },
-  team: {
-    title: "A small, impact-oriented team",
-    text:
-      "We work in compact implementation teams, directly with your stakeholders to shorten feedback loops.",
-  },
-  cta: {
-    title: "Want to see what AI can do for your company?",
-    description: "We propose a quick 60-minute audit and 3 immediate-impact opportunities.",
-    button: "Schedule a call",
-  },
-  labels: {
-    mission: "Mission",
-    approach: "Approach",
-    letsTalk: "Let's talk",
-  },
+
   solutions: {
     title: "Our solutions",
     subtitle: "From fast websites to chatbots and automations.",
-    labels: { problem: "What it solves", how: "How it works", forWho: "Who it's for", tech: "Tech", example: "Example" },
+    labels: {
+      problem: "What it solves",
+      how: "How it works",
+      forWho: "Who it's for",
+      tech: "Tech",
+      example: "Example",
+    },
     chatbotDetail: {
       title: "AI Chatbots",
       problemText: "Slow replies, many repeated questions.",
@@ -121,7 +107,8 @@ export const en = {
     firstClient: {
       badge: "CASE STUDY",
       title: "Cut response time by 70%",
-      story: "E-commerce with hundreds of daily questions. We added an AI assistant on site and WhatsApp.",
+      story:
+        "E-commerce with hundreds of daily questions. We added an AI assistant on site and WhatsApp.",
       results: "Results",
       result1: "–70% average reply time",
       result2: "–40% human tickets",
@@ -144,7 +131,8 @@ export const en = {
   offer: {
     cta: "Request a quote",
     title: "Request a quote — Quick-Launch Package",
-    subtitle: "Fill in what you can — it’s enough for us to tailor the right solution.",
+    subtitle:
+      "Fill in what you can — it’s enough for us to tailor the right solution.",
     cancel: "Cancel",
     submit: "Send",
     close: "Close",
@@ -266,8 +254,8 @@ export const en = {
       },
       budget: {
         lt1k: "< MDL 10,000",
-        "1to5": "MDL 10,000– MDL 50,000",
-        "5to10": "MDL 50,000– MDL 100,000",
+        "1to5": "MDL 10,000–50,000",
+        "5to10": "MDL 50,000–100,000",
         gt10: "> MDL 100,000",
       },
     },
@@ -276,12 +264,14 @@ export const en = {
   privacy: {
     title: "Privacy Policy",
     updated: "Last updated",
-    intro: "We respect your data and only use information strictly required to provide our services.",
+    intro:
+      "We respect your data and only use information strictly required to provide our services.",
   },
 
   terms: {
     title: "Terms & Conditions",
-    intro: "By using this site you accept the terms and conditions. Please read carefully.",
+    intro:
+      "By using this site you accept the terms and conditions. Please read carefully.",
   },
 
   contact: {
@@ -322,10 +312,10 @@ export const en = {
         other: "Other",
       },
       budgetOptions: {
-        option1: "< 10,000 MDL",
-        option2: "10,000–50,000 MDL",
-        option3: "50,000–100,000 MDL",
-        option4: "> 100,000 MDL",
+        option1: "< MDL 10,000",
+        option2: "MDL 10,000–50,000",
+        option3: "MDL 50,000–100,000",
+        option4: "> MDL 100,000",
       },
     },
     faq: {
@@ -344,7 +334,7 @@ export const en = {
 
   footer: {
     company: "T.I.N.K.A. AI",
-    tagline: "- Digital. Simple. Efficient.",
+    tagline: "— Digital. Simple. Efficient.",
     description: "AI & Web solutions for SMEs.",
     quickLinks: "Quick links",
     home: "Home",
