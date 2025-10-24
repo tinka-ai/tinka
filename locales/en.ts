@@ -49,17 +49,36 @@ export const en = {
   },
 
   about: {
+  hero: {
     title: "About TINKA AI",
     subtitle: "We build fast and reliable digital products.",
-    content:
-      "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
-    values: {
-      value1: "Transparency and clear communication.",
-      value2: "Execution speed and quality.",
-      value3: "Long-term partnership.",
-    },
   },
-
+  mission: {
+    title: "Our Mission",
+    description:
+      "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
+  },
+  values: {
+    title: "Our Values",
+    value1: "Transparency and clear communication.",
+    value2: "Execution speed and quality.",
+    value3: "Long-term partnership.",
+  },
+  team: {
+    title: "A small, impact-oriented team",
+    text:
+      "We work in compact implementation teams, directly with your stakeholders to shorten feedback loops.",
+  },
+  cta: {
+    title: "Want to see what AI can do for your company?",
+    description: "We propose a quick 60-minute audit and 3 immediate-impact opportunities.",
+    button: "Schedule a call",
+  },
+  labels: {
+    mission: "Mission",
+    approach: "Approach",
+    letsTalk: "Let's talk",
+  },
   solutions: {
     title: "Our solutions",
     subtitle: "From fast websites to chatbots and automations.",
