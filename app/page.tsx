@@ -57,7 +57,7 @@ export default function Page() {
               <div className="relative">
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
                 <Image
-                  src="/images/interactive-physics-experiment.png"
+                  src="/images/hero-tinkaai.webp"
                   alt="Hero visual"
                   width={880}
                   height={700}
