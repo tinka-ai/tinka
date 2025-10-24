@@ -48,14 +48,37 @@ export const en = {
     cta: "Request a quote",
   },
 
+  // ===== About (structure used by AboutClient) =====
   about: {
-    title: "About TINKA AI",
-    subtitle: "We build fast and reliable digital products.",
-    content: "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
+    hero: {
+      title: "About TINKA AI",
+      subtitle: "We build fast and reliable digital products.",
+    },
+    mission: {
+      title: "Our Mission",
+      description:
+        "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
+    },
     values: {
+      title: "Our values",
       value1: "Transparency and clear communication.",
       value2: "Execution speed and quality.",
       value3: "Long-term partnership.",
+    },
+    team: {
+      title: "A small team focused on impact",
+      text:
+        "We work in compact implementation squads, directly with your stakeholders, to shorten feedback loops.",
+    },
+    cta: {
+      title: "Want to see what AI can do in your company?",
+      description: "We propose a 60-minute quick audit and 3 opportunities with immediate impact.",
+      button: "Schedule a call",
+    },
+    labels: {
+      mission: "Mission",
+      approach: "Approach",
+      letsTalk: "Let's talk",
     },
   },
 
@@ -194,7 +217,8 @@ export const en = {
       audience: "Who buys? What need do you cover?",
       problems: "Where are the pains today? (few leads, slow support, etc.)",
       kpi: "E.g., 50 leads/month, 5% conversion",
-      content: "Do you already have texts/photos or should we prepare them?",
+      content:
+        "Do you already have texts/photos or should we prepare them?",
       branding: "Do you have a brand identity or need proposals?",
       integrations: "E.g., Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
       domain: "Do you have a domain or should we buy one?",
@@ -254,8 +278,8 @@ export const en = {
       },
       budget: {
         lt1k: "< MDL 10,000",
-        "1to5": "MDL 10,000–50,000",
-        "5to10": "MDL 50,000–100,000",
+        "1to5": "MDL 10,000– MDL 50,000",
+        "5to10": "MDL 50,000– MDL 100,000",
         gt10: "> MDL 100,000",
       },
     },
@@ -312,10 +336,10 @@ export const en = {
         other: "Other",
       },
       budgetOptions: {
-        option1: "< MDL 10,000",
-        option2: "MDL 10,000–50,000",
-        option3: "MDL 50,000–100,000",
-        option4: "> MDL 100,000",
+        option1: "< 10,000 MDL",
+        option2: "10,000–50,000 MDL",
+        option3: "50,000–100,000 MDL",
+        option4: "> 100,000 MDL",
       },
     },
     faq: {
@@ -334,7 +358,7 @@ export const en = {
 
   footer: {
     company: "T.I.N.K.A. AI",
-    tagline: "— Digital. Simple. Efficient.",
+    tagline: "- Digital. Simple. Efficient.",
     description: "AI & Web solutions for SMEs.",
     quickLinks: "Quick links",
     home: "Home",
