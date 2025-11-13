@@ -427,18 +427,43 @@ function TinkaBookSection({ fx }: { fx: string }) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1">
-                      {t("tinkabook.form.fields.name")} *
-                    </label>
-                    <input
-                      required
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder={t("tinkabook.form.placeholders.name")}
-                      className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-                    />
-                  </div>
+  <label className="block text-xs font-medium text-gray-300 mb-1">
+    {t("tinkabook.form.fields.language")}
+  </label>
+  <select
+    name="language"
+    value={formData.language}
+    onChange={handleChange}
+    className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+  >
+    <option
+      value=""
+      className="bg-white text-slate-900"
+    >
+      {t("tinkabook.form.placeholders.language")}
+    </option>
+    <option
+      value="ro"
+      className="bg-white text-slate-900"
+    >
+      {t("tinkabook.form.languageOptions.ro")}
+    </option>
+    <option
+      value="ru"
+      className="bg-white text-slate-900"
+    >
+      {t("tinkabook.form.languageOptions.ru")}
+    </option>
+    <option
+      value="en"
+      className="bg-white text-slate-900"
+    >
+      {t("tinkabook.form.languageOptions.en")}
+    </option>
+  </select>
+</div>
+
+
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
