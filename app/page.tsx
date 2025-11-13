@@ -2,7 +2,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Eye, FlaskConical, Puzzle, Waves, Link2, BadgeCheck, X } from "lucide-react"
@@ -29,7 +29,6 @@ export default function Page() {
             <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                  {/* poți înlocui cu Sparkles dacă îl folosești */}
                   <span className="h-3.5 w-3.5 rounded-full bg-sky-400" aria-hidden />
                   {t("hero.subtitle")}
                 </div>
@@ -70,7 +69,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* FEATURES */}
+        {/* WHY AI */}
         <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
@@ -114,28 +113,30 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TINKABOOK SECTION – teaser + pop-up form */}
+        {/* TINKABOOK SECTION – cu popup */}
         <TinkaBookSection fx={fx} />
 
-        {/* FAQ */}
+        {/* FAQ (exemplu) */}
         <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <h3 className="text-2xl font-bold text-gray-200">{t("contact.faq.title")}</h3>
+            <h3 className="text-2xl font-bold text-gray-200">
+              {t("faq.title") /* ajustează key-ul dacă e altul */}
+            </h3>
             <Accordion type="single" collapsible className="mt-6">
               <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
                 <AccordionTrigger className="text-left">
-                  {t("contact.faq.question1.q")}
+                  {t("faq.question1.q")}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-300">
-                  {t("contact.faq.question1.a")}
+                  {t("faq.question1.a")}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
                 <AccordionTrigger className="text-left">
-                  {t("contact.faq.question2.q")}
+                  {t("faq.question2.q")}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-300">
-                  {t("contact.faq.question2.a")}
+                  {t("faq.question2.a")}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -143,13 +144,47 @@ export default function Page() {
         </section>
       </main>
 
-      {/* Footer doar pe Acasă */}
       <Footer />
     </>
   )
 }
 
-/* ———— TINKABOOK SECTION cu MODAL ———— */
+/* ———— Sub-componente ———— */
+
+function Feature({
+  fx,
+  icon,
+  title,
+  text,
+  link,
+  learnMore,
+}: {
+  fx: string
+  icon: React.ReactNode
+  title: string
+  text: string
+  link: string
+  learnMore: string
+}) {
+  return (
+    <li className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}>
+      <div className="flex items-center gap-3">
+        <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">
+          {icon}
+        </div>
+        <p className="font-semibold text-gray-300">{title}</p>
+      </div>
+      <p className="mt-2 text-sm text-gray-300">{text}</p>
+      <Link
+        href={link}
+        className="mt-3 inline-flex items-center gap-2 text-sky-300 text-sm hover:text-white transition-colors"
+      >
+        <Link2 className="h-4 w-4" />
+        {learnMore}
+      </Link>
+    </li>
+  )
+}
 
 function TinkaBookSection({ fx }: { fx: string }) {
   const { t: T } = useLocale() as any
@@ -172,6 +207,16 @@ function TinkaBookSection({ fx }: { fx: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [error, setError] = useState<string | null>(null)
 
+  // ESC pentru închidere
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false)
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [open])
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
@@ -186,10 +231,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
     e.preventDefault()
     setError(null)
 
-    // honeypot anti-spam
-    if (formData.honeypot) {
-      return
-    }
+    if (formData.honeypot) return
 
     if (!formData.consent) {
       setError(t("tinkabook.form.consentRequired"))
@@ -251,7 +293,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
   return (
     <section id="tinkabook" className="py-12 sm:py-16 border-b border-white/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-center">
-        {/* Col stânga: prezentare + preț */}
+        {/* Col stânga: prezentare + doar buton demo */}
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
             <BadgeCheck className="h-3.5 w-3.5 text-sky-400" aria-hidden />
@@ -260,7 +302,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
 
           <div className="flex items-center gap-4">
             <Image
-              src="/image/TinkaBook_Logo.png"
+              src="/image/TinkaBook_Logo.png" // schimbă în /images/ dacă ai alt path
               alt="TinkaBook logo"
               width={72}
               height={72}
@@ -286,15 +328,6 @@ function TinkaBookSection({ fx }: { fx: string }) {
           </ul>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <Button
-              type="button"
-              onClick={openModal}
-              className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
-            >
-              {t("tinkabook.ctaScroll")}
-              <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
-            </Button>
-
             <Button asChild variant="outline" className={`${fx} border-white/15 bg-white/5`}>
               <Link href="https://tinkaweb.md/agenda/" target="_blank" rel="noreferrer">
                 {t("tinkabook.ctaVisit")}
@@ -304,7 +337,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
           </div>
         </div>
 
-        {/* Col dreapta: card demo + buton de deschidere formular */}
+        {/* Col dreapta: card cu buton „Solicită acces” */}
         <div className={`rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 ${fx}`}>
           <p className="text-sm text-gray-300">
             {t("tinkabook.form.description")}
@@ -322,11 +355,15 @@ function TinkaBookSection({ fx }: { fx: string }) {
         </div>
       </div>
 
-      {/* MODAL FORM */}
+      {/* MODAL */}
       {open && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+        <div
+          className="fixed inset-0 z-[60] flex items-start justify-center bg-black/70 backdrop-blur-sm px-4"
+          onClick={closeModal}
+        >
           <div
-            className={`relative w-full max-w-xl rounded-2xl border border-white/10 bg-slate-950/95 p-5 sm:p-6 ${fx}`}
+            className={`relative mt-20 w-full max-w-xl rounded-2xl border border-white/10 bg-slate-950/95 p-5 sm:p-6 ${fx} max-h-[85vh] overflow-y-auto`}
+            onClick={e => e.stopPropagation()}
           >
             <button
               type="button"
@@ -459,10 +496,18 @@ function TinkaBookSection({ fx }: { fx: string }) {
                         onChange={handleChange}
                         className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                       >
-                        <option value="">{t("tinkabook.form.placeholders.contactPref")}</option>
-                        <option value="phone">{t("tinkabook.form.contactPrefOptions.phone")}</option>
-                        <option value="email">{t("tinkabook.form.contactPrefOptions.email")}</option>
-                        <option value="whatsapp">{t("tinkabook.form.contactPrefOptions.whatsapp")}</option>
+                        <option value="">
+                          {t("tinkabook.form.placeholders.contactPref")}
+                        </option>
+                        <option value="phone">
+                          {t("tinkabook.form.contactPrefOptions.phone")}
+                        </option>
+                        <option value="email">
+                          {t("tinkabook.form.contactPrefOptions.email")}
+                        </option>
+                        <option value="whatsapp">
+                          {t("tinkabook.form.contactPrefOptions.whatsapp")}
+                        </option>
                       </select>
                     </div>
                     <div>
@@ -475,10 +520,18 @@ function TinkaBookSection({ fx }: { fx: string }) {
                         onChange={handleChange}
                         className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                       >
-                        <option value="">{t("tinkabook.form.placeholders.language")}</option>
-                        <option value="ro">{t("tinkabook.form.languageOptions.ro")}</option>
-                        <option value="ru">{t("tinkabook.form.languageOptions.ru")}</option>
-                        <option value="en">{t("tinkabook.form.languageOptions.en")}</option>
+                        <option value="">
+                          {t("tinkabook.form.placeholders.language")}
+                        </option>
+                        <option value="ro">
+                          {t("tinkabook.form.languageOptions.ro")}
+                        </option>
+                        <option value="ru">
+                          {t("tinkabook.form.languageOptions.ru")}
+                        </option>
+                        <option value="en">
+                          {t("tinkabook.form.languageOptions.en")}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -536,7 +589,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
                       onClick={closeModal}
                       className="sm:w-auto border-white/20 bg-black/30 text-gray-200 hover:bg-black/60"
                     >
-                      Anulează
+                      Închide
                     </Button>
                   </div>
 
@@ -552,40 +605,5 @@ function TinkaBookSection({ fx }: { fx: string }) {
         </div>
       )}
     </section>
-  )
-}
-
-/* ———— Feature card ———— */
-
-function Feature({
-  fx,
-  icon,
-  title,
-  text,
-  link,
-  learnMore,
-}: {
-  fx: string
-  icon: React.ReactNode
-  title: string
-  text: string
-  link: string
-  learnMore: string
-}) {
-  return (
-    <li className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}>
-      <div className="flex items-center gap-3">
-        <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">{icon}</div>
-        <p className="font-semibold text-gray-300">{title}</p>
-      </div>
-      <p className="mt-2 text-sm text-gray-300">{text}</p>
-      <Link
-        href={link}
-        className="mt-3 inline-flex items-center gap-2 text-sky-300 text-sm hover:text-white transition-colors"
-      >
-        <Link2 className="h-4 w-4" />
-        {learnMore}
-      </Link>
-    </li>
   )
 }
