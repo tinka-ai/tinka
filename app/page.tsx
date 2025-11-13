@@ -286,7 +286,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
 
           <div className="flex items-center gap-4">
             <Image
-              src="/images/TinkaBook_Logo.png"
+              src="/image/TinkaBook_Logo.png"
               alt="TinkaBook logo"
               width={72}
               height={72}
