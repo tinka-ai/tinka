@@ -305,6 +305,69 @@ export const ru = {
         option3: "50 000–100 000 MDL",
         option4: "> 100 000 MDL",
       },
+        tinkabook: {
+    badge: "Новинка",
+    title: "TinkaBook — онлайн-запись для вас и ваших клиентов.",
+    subtitle:
+      "TinkaBook — это ваша цифровая запись: клиенты записываются сами, а вы видите все по порядку на любом устройстве. Заполните форму, и мы активируем доступ.",
+    priceHighlight: "Промо-предложение: 200 MDL/мес. (стандартная цена 350 MDL/мес.).",
+    bullets: {
+      bullet1: "Запись 24/7 без пропущенных звонков и забытых сообщений.",
+      bullet2: "Понятный календарь для каждого специалиста и быстрые уведомления.",
+      bullet3: "Настройку делаем мы — вы просто начинаете принимать записи.",
+    },
+    ctaScroll: "Заполнить форму",
+    ctaVisit: "Посмотреть TinkaBook в действии",
+    ctaVisitShort: "Открыть демо",
+
+    form: {
+      title: "Запрос на доступ к TinkaBook",
+      description:
+        "Заполните данные ниже. Мы создадим профиль и отправим на email ссылку и данные для входа.",
+      fields: {
+        name: "Имя / псевдоним / название",
+        phone: "Номер телефона",
+        email: "Email",
+        activity: "Сфера деятельности / какие услуги вы оказываете",
+        contactPref: "Предпочтительный способ связи",
+        links: "Ссылка на страницу Facebook / Instagram / сайт",
+        language: "Предпочитаемый язык общения",
+        honeypot: "Оставьте это поле пустым",
+      },
+      placeholders: {
+        name: "Напр.: Мария Попеску или «Салон Luna»",
+        phone: "+373...",
+        email: "пример@домен.com",
+        activity: "Напр.: парикмахер, маникюр, массаж, фотография...",
+        contactPref: "Выберите, как с вами лучше связаться",
+        links: "https://facebook.com/..., https://instagram.com/... и т.д.",
+        language: "Выберите язык",
+      },
+      contactPrefOptions: {
+        phone: "Телефон",
+        email: "Email",
+        whatsapp: "WhatsApp",
+      },
+      languageOptions: {
+        ro: "Румынский",
+        ru: "Русский",
+        en: "Английский",
+      },
+
+      consentTitle: "Согласие на обработку персональных данных",
+      consentLabel: "Я согласен(а) на обработку данных в соответствии с соглашением выше.",
+      consentText: "<<< aici copiezi în rusă, traducere fidelă a textului românesc de mai sus >>>",
+      submit: "Отправить запрос",
+      submitting: "Отправка...",
+      successTitle: "Запрос отправлен.",
+      successBody:
+        "В ближайшее время вы получите на email ссылку и данные для входа в TinkaBook. А пока можете посмотреть демо здесь: ",
+      successDemoLinkText: "открыть демо TinkaBook",
+      successDemoCredentials:
+        "Данные для тестового доступа: пользователь «test_user», пароль «testuser111».",
+      error:
+        "Произошла ошибка при отправке. Попробуйте еще раз или напишите нам на office@tinka.md.",
+      consentRequired: "Чтобы отправить форму, необходимо дать согласие на обработку персональных данных.",
     },
     faq: {
       title: "FAQ",
