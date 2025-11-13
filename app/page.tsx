@@ -575,14 +575,18 @@ function TinkaBookSection({ fx }: { fx: string }) {
 
                   <div className="pt-2 flex flex-col sm:flex-row gap-3">
                     <Button
-                      type="submit"
-                      disabled={status === "submitting"}
-                      className="flex-1 bg-sky-500 text-white hover:bg-sky-400 disabled:opacity-60"
-                    >
-                      {status === "submitting"
-                        ? t("tinkabook.form.submitting")
-                        : t("tinkabook.form.submit")}
-                    </Button>
+  type="submit"
+  disabled={!formData.consent || status === "submitting"}
+  className={`flex-1 text-white ${
+    !formData.consent || status === "submitting"
+      ? "bg-gray-600 cursor-not-allowed opacity-60"
+      : "bg-sky-500 hover:bg-sky-400"
+  }`}
+>
+  {status === "submitting"
+    ? t("tinkabook.form.submitting")
+    : t("tinkabook.form.submit")}
+</Button>
                     <Button
                       type="button"
                       variant="outline"
