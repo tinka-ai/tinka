@@ -341,71 +341,7 @@ export const en = {
         option3: "50,000–100,000 MDL",
         option4: "> 100,000 MDL",
       },
-  tinkabook: {
-    badge: "New",
-    title: "TinkaBook — online bookings for you and your clients.",
-    subtitle:
-      "TinkaBook is your digital agenda: clients book themselves, you see everything organised on any device. Fill in the form and we’ll activate your access.",
-    priceHighlight: "Promo offer: 200 MDL/month (standard price 350 MDL/month).",
-    bullets: {
-      bullet1: "24/7 bookings without missed calls or forgotten messages.",
-      bullet2: "Clear calendar for each specialist, with fast notifications.",
-      bullet3: "We handle the setup — you just start receiving bookings.",
     },
-    ctaScroll: "Fill in the form",
-    ctaVisit: "See TinkaBook in action",
-    ctaVisitShort: "Open demo",
-
-    form: {
-      title: "Request access to TinkaBook",
-      description:
-        "Please fill in the details below. We’ll create your profile and send the access link and credentials by email.",
-      fields: {
-        name: "Name / nickname / business name",
-        phone: "Phone number",
-        email: "Email",
-        activity: "Business field / services you offer",
-        contactPref: "Preferred contact method",
-        links: "Link to your Facebook / Instagram page or website",
-        language: "Preferred communication language",
-        honeypot: "Leave this field empty",
-      },
-      placeholders: {
-        name: "E.g. Maria Popescu or “Salon Luna”",
-        phone: "+373...",
-        email: "example@domain.com",
-        activity: "E.g. hairdresser, nails, massage, photography...",
-        contactPref: "How should we contact you?",
-        links: "https://facebook.com/..., https://instagram.com/... etc.",
-        language: "Choose a language",
-      },
-      contactPrefOptions: {
-        phone: "Phone",
-        email: "Email",
-        whatsapp: "WhatsApp",
-      },
-      languageOptions: {
-        ro: "Romanian",
-        ru: "Russian",
-        en: "English",
-      },
-
-      consentTitle: "Consent for personal data processing",
-      consentLabel: "I agree with the processing of my data according to the agreement above.",
-      consentText: "<<< aici copiezi traducerea în engleză a acordului din română >>>",
-      submit: "Send request",
-      submitting: "Sending...",
-      successTitle: "Your request has been sent.",
-      successBody:
-        "Soon you will receive by email a link and access details for TinkaBook. Meanwhile, you can see the app here: ",
-      successDemoLinkText: "open TinkaBook demo",
-      successDemoCredentials:
-        "Test access details: username “test_user”, password “testuser111”.",
-      error:
-        "An error occurred while sending the form. Please try again or email us at office@tinka.md.",
-      consentRequired: "You must agree to the data processing in order to submit the form.",
-    },
-  },
     faq: {
       title: "FAQ",
       subtitle: "Quick answers",
@@ -414,10 +350,116 @@ export const en = {
       question3: { q: "Payments & contract?", a: "Yes: contract + invoice; 30% upfront." },
       question4: { q: "Maintenance?", a: "We offer maintenance packages." },
       question5: { q: "Own hosting?", a: "Possible, or we can host for you." },
-      question6: { q: "Tech stack?", a: "from classic to modern." },
+      question6: { q: "Tech stack?", a: "From classic to modern." },
       question7: { q: "Languages?", a: "Support in Romanian, Russian, English." },
       question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
     },
+  },
+
+  tinkabook: {
+    badge: "New",
+    title: "TinkaBook — online bookings for you and your clients.",
+    subtitle:
+      "TinkaBook is your digital agenda: clients book themselves 24/7, and you see everything organized on any device. Fill in the form and we’ll activate your access.",
+    priceHighlight:
+      "Promo offer: 200 MDL/month (standard price 350 MDL/month). No minimum term — cancel anytime.",
+    bullets: {
+      bullet1: "24/7 online bookings without missed calls or forgotten messages.",
+      bullet2: "Clear calendar for each specialist, with fast notifications.",
+      bullet3: "We handle the setup — you just start receiving bookings.",
+    },
+    ctaScroll: "Request access to TinkaBook",
+    ctaVisit: "See TinkaBook in action",
+
+    form: {
+      title: "Request access to TinkaBook",
+      description:
+        "Please fill in the details below. We’ll create your profile and send the access link and credentials by email, together with simple usage instructions.",
+
+      fields: {
+        honeypot: "Leave this field empty",
+        name: "Name / nickname / business name",
+        phone: "Phone number",
+        email: "Email",
+        activity: "Field of activity / services you offer",
+        contactPref: "Preferred contact method",
+        links: "Link to your Facebook / Instagram page or website",
+        language: "Preferred communication language",
+      },
+
+      placeholders: {
+        name: "E.g. Maria Popescu / Studio Glam Nails",
+        phone: "+373 6...",
+        email: "example@domain.md",
+        activity: "E.g. nails, hairdresser, massage, coaching, psychologist, etc.",
+        contactPref: "How should we contact you?",
+        links: "E.g. facebook.com/studio, instagram.com/studio",
+        language: "Choose a language",
+      },
+
+      contactPrefOptions: {
+        phone: "Phone",
+        email: "Email",
+        whatsapp: "WhatsApp",
+      },
+
+      languageOptions: {
+        ro: "Romanian",
+        ru: "Russian",
+        en: "English",
+      },
+
+      consentTitle: "Consent for personal data processing",
+      consentLabel:
+        "I agree to the processing of my personal data in accordance with the terms described above.",
+      consentRequired:
+        "You must give your consent to personal data processing in order to submit this form.",
+
+      consentText:
+        "By submitting this form and ticking the “I agree” box, I confirm that I have read and agree that " +
+        "SRL “TINKA AI”, IDNO 1025600048437, registered office: mun. Chișinău, or. Stăuceni, str. Studenților 8/31, Republic of Moldova, " +
+        "as personal data controller, will process my personal data provided in this form for the following purposes:\n" +
+        "- creating, configuring and administering my user profile in the TinkaBook service;\n" +
+        "- communication regarding access activation, account settings and usage of the TinkaBook service;\n" +
+        "- sending technical and operational notifications related to the functioning of the service (including updates, maintenance, changes in features or pricing);\n" +
+        "- internal records and contractual documentation related to onboarding and provision of services.\n\n" +
+        "The legal basis for processing is my explicit consent, granted in accordance with Law no. 133/2011 " +
+        "on personal data protection and, where applicable, the principles of Regulation (EU) 2016/679 (GDPR).\n\n" +
+        "The data provided will be stored for the duration of our contractual or pre-contractual relationship (including any testing period), " +
+        "as well as further, if there is a legal retention obligation or a legitimate interest (for example in case of potential disputes), " +
+        "but no longer than necessary for the purposes stated above.\n\n" +
+        "I am informed that I can withdraw my consent at any time by sending a request to office@tinka.md. " +
+        "Withdrawal of consent only applies for the future and does not affect the lawfulness of processing carried out before the withdrawal.\n\n" +
+        "I am also informed of my rights as a data subject: the right of access, rectification, erasure (“right to be forgotten”), " +
+        "restriction of processing, objection to processing, data portability (where applicable), and the right to lodge a complaint " +
+        "with the National Center for Personal Data Protection of the Republic of Moldova.\n\n" +
+        "I understand that if I do not give this consent, my request for TinkaBook access cannot be processed, " +
+        "as the data requested in this form are necessary to create and manage my user account.",
+
+      submit: "Send request",
+      submitting: "Sending...",
+      successTitle: "Your request has been sent.",
+      successBody:
+        "Thank you! Your request has been received by TINKA AI. Soon you will receive by email a link and access details for TinkaBook. Meanwhile, you can see how TinkaBook works here: ",
+      successDemoLinkText: "open TinkaBook demo",
+      successDemoCredentials:
+        "Test access details: username “test_user”, password “testuser111”.",
+      error:
+        "An error occurred while sending the form. Please try again or email us directly at office@tinka.md.",
+    },
+  },
+
+  faq: {
+    title: "FAQ",
+    subtitle: "Quick answers",
+    question1: { q: "How do we start?", a: "Write to us and we’ll schedule a call." },
+    question2: { q: "Delivery time?", a: "Typically 2–6 weeks depending on scope." },
+    question3: { q: "Payments & contract?", a: "Yes: contract + invoice; 30% upfront." },
+    question4: { q: "Maintenance?", a: "We offer maintenance packages." },
+    question5: { q: "Own hosting?", a: "Possible, or we can host for you." },
+    question6: { q: "Tech stack?", a: "From classic to modern." },
+    question7: { q: "Languages?", a: "Support in Romanian, Russian, English." },
+    question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
   },
 
   footer: {
@@ -442,3 +484,4 @@ export const en = {
     terms: "Terms & Conditions",
   },
 } as const
+
