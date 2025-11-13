@@ -305,138 +305,7 @@ export const ro = {
         option3: "50.000–100.000 MDL",
         option4: "> 100.000 MDL",
       },
-      contact: {
-    // ... ce ai deja aici
-  },
-
-  tinkabook: {
-    badge: "Nou",
-    title: "TinkaBook — programări online pentru tine și clienții tăi.",
-    subtitle:
-      "TinkaBook este agenda ta digitală: clienții se programează singuri, tu vezi totul ordonat, pe orice dispozitiv. Completează formularul și îți activăm accesul.",
-    priceHighlight: "Ofertă promoțională: 200 MDL/lună (preț standard 350 MDL/lună).",
-    bullets: {
-      bullet1: "Programări 24/7 fără apeluri pierdute sau mesaje uitate.",
-      bullet2: "Calendar clar pentru fiecare specialist, cu notificări rapide.",
-      bullet3: "Configurare de către noi – tu doar începi să primești programări.",
     },
-    ctaScroll: "Completează formularul",
-    ctaVisit: "Vezi TinkaBook în acțiune",
-    ctaVisitShort: "Deschide demo",
-
-    form: {
-      title: "Solicită acces la TinkaBook",
-      description:
-        "Completează datele de mai jos. Îți vom crea profilul și îți trimitem pe email linkul și datele de acces.",
-      fields: {
-        name: "Nume / Pseudonim / Denumire",
-        phone: "Număr de telefon",
-        email: "Email",
-        activity: "Domeniul de activitate / ce servicii oferi",
-        contactPref: "Modalitate preferată de contact",
-        links: "Link către pagina de Facebook / Instagram / site",
-        language: "Limba preferată în comunicare",
-        honeypot: "Lasă acest câmp necompletat",
-      },
-      placeholders: {
-        name: "Ex.: Maria Popescu sau „Salon Luna”",
-        phone: "+373...",
-        email: "exemplu@domeniu.com",
-        activity: "Ex.: frizerie, manichiură, masaj, fotografie...",
-        contactPref: "Alege cum vrei să fii contactat",
-        links: "https://facebook.com/..., https://instagram.com/... etc.",
-        language: "Alege limba preferată",
-      },
-      contactPrefOptions: {
-        phone: "Telefon",
-        email: "Email",
-        whatsapp: "WhatsApp",
-      },
-      languageOptions: {
-        ro: "Română",
-        ru: "Rusă",
-        en: "Engleză",
-      },
-
-      consentTitle: "Acord pentru prelucrarea datelor cu caracter personal",
-      consentLabel: "Sunt de acord cu prelucrarea datelor conform acordului afișat mai sus.",
-      consentText: `Prin completarea și trimiterea acestui formular, îmi exprim consimțământul liber,
-informat și neechivoc ca SRL „TINKA AI”, IDNO 1025600048437, cu sediul juridic în mun. Chișinău,
-or. Stăuceni, str. Studenților 8/31 (în continuare „Operatorul”), să prelucreze datele mele cu
-caracter personal furnizate în acest formular și pe parcursul utilizării serviciului TinkaBook.
-
-1. Scopurile prelucrării
-− crearea, configurarea și administrarea profilului meu de utilizator în TinkaBook;
-− comunicarea privind activarea accesului, setările contului și utilizarea serviciului;
-− transmiterea de informări tehnice și operaționale legate de funcționarea TinkaBook
-  (inclusiv notificări privind actualizări, mentenanță sau modificări de funcționalitate);
-−, după caz, transmiterea de informări comerciale moderate privind servicii conexe TinkaBook,
-  cu posibilitatea de dezabonare în orice moment.
-
-2. Categorii de date prelucrate
-− datele introduse de mine în formular: nume/pseudonim/denumire, număr de telefon, adresă
-  de email, domeniu de activitate/servicii oferite, preferințe de contact, linkuri către pagini
-  publice (ex. site, Facebook, Instagram), limba preferată în comunicare;
-− date tehnice generate automat la trimiterea formularului sau la utilizarea serviciului:
-  data și ora trimiterii, adresa IP, informații minime despre dispozitiv/navigator, necesare
-  pentru securitate și pentru a demonstra momentul exprimării consimțământului.
-
-3. Temeiul juridic
-Temeiul juridic al prelucrării este consimțământul meu expres, acordat în condițiile Legii
-nr. 133/2011 privind protecția datelor cu caracter personal și ale principiilor similare
-Regulamentului (UE) 2016/679 (GDPR), după caz.
-
-4. Destinatari ai datelor
-Datele pot fi accesate doar de:
-− personalul autorizat al Operatorului, în măsura necesară îndeplinirii atribuțiilor de serviciu;
-− furnizori de servicii IT ai Operatorului (ex. găzduire, servicii de email, instrumente
-  de suport), cu care există acorduri de confidențialitate și protecție a datelor;
-− autorități publice sau de supraveghere, atunci când legea obligă Operatorul să furnizeze
-  astfel de date.
-
-Datele nu vor fi vândute și nu vor fi transferate în alte scopuri decât cele declarate mai sus.
-
-5. Perioada de stocare
-Datele vor fi păstrate pe durata existenței contului meu TinkaBook și/sau până la retragerea
-consimțământului. După retragere sau închiderea contului, Operatorul va șterge sau anonimiză
-datele, cu excepția celor pe care este obligat să le păstreze în baza legii pentru perioade
-determinare (ex. evidențe contabile sau de securitate).
-
-6. Drepturile mele
-În calitate de persoană vizată, beneficiez de următoarele drepturi:
-− dreptul de acces la date;
-− dreptul la rectificare;
-− dreptul la ștergere („dreptul de a fi uitat”), în limitele legii;
-− dreptul la restricționarea prelucrării;
-− dreptul la opoziție;
-− dreptul la portabilitatea datelor, în măsura în care este aplicabil;
-− dreptul de a-mi retrage consimțământul în orice moment, fără a afecta legalitatea
-  prelucrării efectuate înainte de retragere;
-− dreptul de a depune o plângere la Centrul Național pentru Protecția Datelor cu Caracter
-  Personal din Republica Moldova.
-
-Pentru exercitarea acestor drepturi pot contacta Operatorul la adresa de email: office@tinka.md.
-
-7. Retragerea consimțământului
-Sunt informat că retragerea consimțământului poate face imposibilă utilizarea sau continuarea
-utilizării serviciului TinkaBook, în măsura în care prelucrarea datelor este strict necesară
-pentru furnizarea lui. Retragerea consimțământului nu afectează legalitatea prelucrării
-realizate înainte de retragere.
-
-Confirm că am citit și am înțeles prezentul acord și bifez mai jos pentru a-mi exprima
-consimțământul pentru prelucrarea datelor în condițiile descrise.`,
-      submit: "Trimite cererea",
-      submitting: "Se trimite...",
-      successTitle: "Cererea a fost trimisă.",
-      successBody:
-        "Curând vei primi pe email un link și datele de acces la TinkaBook. Între timp, poți vedea cum arată aplicația aici: ",
-      successDemoLinkText: "deschide demo TinkaBook",
-      successDemoCredentials:
-        "Date de acces pentru testare: utilizator „test_user”, parolă „testuser111”.",
-      error: "A apărut o eroare la trimitere. Încearcă din nou sau scrie-ne direct la office@tinka.md.",
-      consentRequired: "Trebuie să îți dai acordul pentru prelucrarea datelor pentru a trimite formularul.",
-    },
-  },
     faq: {
       title: "Întrebări frecvente",
       subtitle: "Răspunsuri rapide",
@@ -448,6 +317,89 @@ consimțământul pentru prelucrarea datelor în condițiile descrise.`,
       question6: { q: "Tehnologii?", a: "de la clasice la moderne." },
       question7: { q: "Limbi?", a: "Suport în română, rusă, engleză." },
       question8: { q: "Date personale?", a: "Respectăm GDPR și bune practici." },
+    },
+  },
+
+  tinkabook: {
+    badge: "TinkaBook pentru liber-profesioniști",
+    title: "TinkaBook — programări online pentru tine și clienții tăi.",
+    subtitle:
+      "TinkaBook îți oferă o agendă online unde clienții se pot programa singuri, 24/7. Completează formularul și îți activăm accesul la aplicație.",
+    priceHighlight:
+      "Preț promoțional: 200 MDL/lună (în loc de 350 MDL). Fără perioadă minimă, poți renunța oricând.",
+    bullets: {
+      bullet1: "Agenda online vizibilă clienților tăi, cu programări automate.",
+      bullet2: "Mai puține apeluri pierdute și mesaje neprocesate.",
+      bullet3: "Timp câștigat pentru lucru efectiv cu clienții.",
+    },
+    ctaScroll: "Solicită acces la TinkaBook",
+    ctaVisit: "Vezi TinkaBook în acțiune",
+
+    form: {
+      title: "Cerere de conectare la TinkaBook",
+      description:
+        "Completează câmpurile de mai jos. După confirmare, vei primi pe email linkul și datele de acces, împreună cu instrucțiunile de folosire.",
+
+      fields: {
+        honeypot: "Nu completa acest câmp",
+        name: "Nume Prenume / Denumire",
+        phone: "Număr de telefon",
+        email: "Email",
+        activity: "Domeniul de activitate / servicii oferite",
+        contactPref: "Modalitate preferată de contact",
+        links: "Link către pagina de Facebook / Instagram / site",
+        language: "Limba preferată în comunicare",
+      },
+
+      placeholders: {
+        name: "Ex.: Maria Popescu / Studio Glam Nails",
+        phone: "+373 6...",
+        email: "exemplu@domeniu.md",
+        activity: "Ex.: manichiură, frizerie, masaj, coaching, psiholog etc.",
+        contactPref: "Alege modalitatea preferată",
+        links: "Ex.: facebook.com/studioglam, instagram.com/studioglam",
+        language: "Alege limba",
+      },
+
+      contactPrefOptions: {
+        phone: "Telefon",
+        email: "Email",
+        whatsapp: "WhatsApp",
+      },
+
+      languageOptions: {
+        ro: "Română",
+        ru: "Rusă",
+        en: "Engleză",
+      },
+
+      consentTitle: "Acord pentru prelucrarea datelor cu caracter personal",
+      consentLabel:
+        "Sunt de acord cu prelucrarea datelor mele cu caracter personal conform textului de mai sus.",
+      consentRequired:
+        "Pentru a trimite cererea, este necesar să fii de acord cu prelucrarea datelor.",
+
+      consentText:
+        "Prin bifarea căsuței «Sunt de acord», confirm că am citit și am înțeles acest acord și îmi exprim consimțământul liber, expres și informat ca SRL TINKA AI, IDNO 1025600048437, cu sediul în mun. Chișinău, or. Stăuceni, str. Studenților 8/31, Republica Moldova, în calitate de operator de date cu caracter personal, să prelucreze datele mele personale furnizate prin acest formular, în următoarele scopuri:\n" +
+        "- crearea și administrarea profilului meu de utilizator în aplicația TinkaBook;\n" +
+        "- comunicarea privind activarea, configurarea și utilizarea contului TinkaBook;\n" +
+        "- trimiterea de informări legate de funcționarea serviciului (inclusiv actualizări, mentenanță, modificări de funcționalitate sau tarife);\n" +
+        "- evidența internă a cererilor de conectare și a contractelor de prestări servicii.\n\n" +
+        "Temeiul juridic al prelucrării este consimțământul meu, în conformitate cu Legea nr. 133/2011 privind protecția datelor cu caracter personal și cu principiile Regulamentului (UE) 2016/679 (GDPR), în măsura în care acestea sunt aplicabile.\n\n" +
+        "Datele furnizate vor fi păstrate pe durata existenței relației mele contractuale sau precontractuale cu SRL TINKA AI (inclusiv perioada de testare a serviciului), precum și ulterior, în măsura în care există o obligație legală de păstrare sau un interes legitim justificat (de exemplu, în caz de litigii), dar nu mai mult decât este necesar pentru scopurile indicate.\n\n" +
+        "Am fost informat că îmi pot retrage consimțământul în orice moment, printr-un email la adresa office@tinka.md, retragerea producând efecte doar pentru viitor. De asemenea, am dreptul de acces la datele mele, de rectificare, ștergere («dreptul de a fi uitat»), restricționare a prelucrării, opoziție, precum și dreptul la portabilitatea datelor, în condițiile prevăzute de legislația aplicabilă.\n\n" +
+        "Înțeleg că neacceptarea acestui acord poate împiedica procesarea cererii mele de conectare la TinkaBook, întrucât datele furnizate sunt necesare pentru crearea și administrarea contului de utilizator.",
+
+      submit: "Trimite cererea",
+      submitting: "Se trimite...",
+      successTitle: "Cererea a fost trimisă.",
+      successBody:
+        "Mulțumim! Cererea ta a ajuns la TINKA AI. În scurt timp vei primi pe email linkul și datele de acces. Între timp poți vedea cum arată TinkaBook aici: ",
+      successDemoLinkText: "deschide TinkaBook demo",
+      successDemoCredentials:
+        "Date de acces pentru testare: utilizator: test_user, parolă: testuser111",
+      error:
+        "A apărut o eroare la trimiterea formularului. Încearcă din nou sau scrie-ne direct la office@tinka.md.",
     },
   },
 
