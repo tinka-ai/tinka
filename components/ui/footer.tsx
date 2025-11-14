@@ -12,6 +12,7 @@ export default function Footer() {
     <footer className="relative py-20 bg-background border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+          
           {/* Col 1 */}
           <div className="lg:col-span-1 space-y-4">
             <h3 className="text-2xl font-bold text-foreground">{t("footer.company")}</h3>
@@ -30,7 +31,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 */}
+          {/* Col 3 – RESURSE (ASCUNS) */}
+          {/*
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-foreground">{t("footer.resources")}</h4>
             <ul className="space-y-2">
@@ -39,6 +41,7 @@ export default function Footer() {
               <li><Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.faq")}</Link></li>
             </ul>
           </div>
+          */}
 
           {/* Col 4 */}
           <div className="space-y-4">
