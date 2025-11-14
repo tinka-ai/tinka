@@ -115,39 +115,35 @@ export default function Page() {
 
         {/* TINKABOOK SECTION – cu popup */}
         <TinkaBookSection fx={fx} />
+{/* FAQ */}
+<section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+  <div className="mx-auto max-w-4xl px-4 sm:px-6">
+    <h3 className="text-2xl font-bold text-gray-200">
+      {t("contact.faq.title")}
+    </h3>
 
-        {/* FAQ (exemplu) */}
-        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <h3 className="text-2xl font-bold text-gray-200">
-              {t("faq.title") /* ajustează key-ul dacă e altul */}
-            </h3>
-            <Accordion type="single" collapsible className="mt-6">
-              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger className="text-left">
-                  {t("faq.question1.q")}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  {t("faq.question1.a")}
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger className="text-left">
-                  {t("faq.question2.q")}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  {t("faq.question2.a")}
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-      </main>
+    <Accordion type="single" collapsible className="mt-6">
+      <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+        <AccordionTrigger className="text-left">
+          {t("contact.faq.question1.q")}
+        </AccordionTrigger>
+        <AccordionContent className="text-gray-300">
+          {t("contact.faq.question1.a")}
+        </AccordionContent>
+      </AccordionItem>
 
-      <Footer />
-    </>
-  )
-}
+      <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+        <AccordionTrigger className="text-left">
+          {t("contact.faq.question2.q")}
+        </AccordionTrigger>
+        <AccordionContent className="text-gray-300">
+          {t("contact.faq.question2.a")}
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  </div>
+</section>
+
 
 /* ———— Sub-componente ———— */
 
