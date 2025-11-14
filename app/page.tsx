@@ -115,35 +115,41 @@ export default function Page() {
 
         {/* TINKABOOK SECTION – cu popup */}
         <TinkaBookSection fx={fx} />
-{/* FAQ */}
-<section id="faq" className="py-12 sm:py-16 border-b border-white/5">
-  <div className="mx-auto max-w-4xl px-4 sm:px-6">
-    <h3 className="text-2xl font-bold text-gray-200">
-      {t("contact.faq.title")}
-    </h3>
 
-    <Accordion type="single" collapsible className="mt-6">
-      <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-        <AccordionTrigger className="text-left">
-          {t("contact.faq.question1.q")}
-        </AccordionTrigger>
-        <AccordionContent className="text-gray-300">
-          {t("contact.faq.question1.a")}
-        </AccordionContent>
-      </AccordionItem>
+        {/* FAQ */}
+        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <h3 className="text-2xl font-bold text-gray-200">
+              {t("contact.faq.title")}
+            </h3>
 
-      <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-        <AccordionTrigger className="text-left">
-          {t("contact.faq.question2.q")}
-        </AccordionTrigger>
-        <AccordionContent className="text-gray-300">
-          {t("contact.faq.question2.a")}
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  </div>
-</section>
+            <Accordion type="single" collapsible className="mt-6">
+              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger className="text-left">
+                  {t("contact.faq.question1.q")}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  {t("contact.faq.question1.a")}
+                </AccordionContent>
+              </AccordionItem>
 
+              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger className="text-left">
+                  {t("contact.faq.question2.q")}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  {t("contact.faq.question2.a")}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  )
+}
 
 /* ———— Sub-componente ———— */
 
@@ -298,7 +304,7 @@ function TinkaBookSection({ fx }: { fx: string }) {
 
           <div className="flex items-center gap-4">
             <Image
-              src="/image/TinkaBook_Logo.png" // schimbă în /images/ dacă ai alt path
+              src="/image/TinkaBook_Logo.png"
               alt="TinkaBook logo"
               width={72}
               height={72}
@@ -423,43 +429,18 @@ function TinkaBookSection({ fx }: { fx: string }) {
                   </div>
 
                   <div>
-  <label className="block text-xs font-medium text-gray-300 mb-1">
-    {t("tinkabook.form.fields.language")}
-  </label>
-  <select
-    name="language"
-    value={formData.language}
-    onChange={handleChange}
-    className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-  >
-    <option
-      value=""
-      className="bg-white text-slate-900"
-    >
-      {t("tinkabook.form.placeholders.language")}
-    </option>
-    <option
-      value="ro"
-      className="bg-white text-slate-900"
-    >
-      {t("tinkabook.form.languageOptions.ro")}
-    </option>
-    <option
-      value="ru"
-      className="bg-white text-slate-900"
-    >
-      {t("tinkabook.form.languageOptions.ru")}
-    </option>
-    <option
-      value="en"
-      className="bg-white text-slate-900"
-    >
-      {t("tinkabook.form.languageOptions.en")}
-    </option>
-  </select>
-</div>
-
-
+                    <label className="block text-xs font-medium text-gray-300 mb-1">
+                      {t("tinkabook.form.fields.name")} *
+                    </label>
+                    <input
+                      required
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder={t("tinkabook.form.placeholders.name")}
+                      className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                    />
+                  </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -541,16 +522,16 @@ function TinkaBookSection({ fx }: { fx: string }) {
                         onChange={handleChange}
                         className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100 outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                       >
-                        <option value="">
+                        <option value="" className="bg-white text-slate-900">
                           {t("tinkabook.form.placeholders.language")}
                         </option>
-                        <option value="ro">
+                        <option value="ro" className="bg-white text-slate-900">
                           {t("tinkabook.form.languageOptions.ro")}
                         </option>
-                        <option value="ru">
+                        <option value="ru" className="bg-white text-slate-900">
                           {t("tinkabook.form.languageOptions.ru")}
                         </option>
-                        <option value="en">
+                        <option value="en" className="bg-white text-slate-900">
                           {t("tinkabook.form.languageOptions.en")}
                         </option>
                       </select>
@@ -596,18 +577,18 @@ function TinkaBookSection({ fx }: { fx: string }) {
 
                   <div className="pt-2 flex flex-col sm:flex-row gap-3">
                     <Button
-  type="submit"
-  disabled={!formData.consent || status === "submitting"}
-  className={`flex-1 text-white ${
-    !formData.consent || status === "submitting"
-      ? "bg-gray-600 cursor-not-allowed opacity-60"
-      : "bg-sky-500 hover:bg-sky-400"
-  }`}
->
-  {status === "submitting"
-    ? t("tinkabook.form.submitting")
-    : t("tinkabook.form.submit")}
-</Button>
+                      type="submit"
+                      disabled={!formData.consent || status === "submitting"}
+                      className={`flex-1 text-white ${
+                        !formData.consent || status === "submitting"
+                          ? "bg-gray-600 cursor-not-allowed opacity-60"
+                          : "bg-sky-500 hover:bg-sky-400"
+                      }`}
+                    >
+                      {status === "submitting"
+                        ? t("tinkabook.form.submitting")
+                        : t("tinkabook.form.submit")}
+                    </Button>
                     <Button
                       type="button"
                       variant="outline"
