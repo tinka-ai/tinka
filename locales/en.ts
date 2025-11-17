@@ -362,7 +362,7 @@ export const en = {
     subtitle:
       "TinkaBook is your digital agenda: clients book themselves 24/7, and you see everything organized on any device. Fill in the form and we’ll activate your access.",
     priceHighlight:
-      "Promo offer: 200 MDL/month (standard price 350 MDL/month). No minimum term — cancel anytime.",
+      "Promo offer: 149 MDL/month (standard price 250 MDL/month). No minimum term — cancel anytime.",
     bullets: {
       bullet1: "24/7 online bookings without missed calls or forgotten messages.",
       bullet2: "Clear calendar for each specialist, with fast notifications.",
