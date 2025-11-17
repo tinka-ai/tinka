@@ -326,7 +326,7 @@ export const ro = {
     subtitle:
       "TinkaBook îți oferă o agendă online unde clienții se pot programa singuri, 24/7. Completează formularul și îți activăm accesul la aplicație.",
     priceHighlight:
-      "Preț promoțional: 200 MDL/lună (în loc de 350 MDL). Fără perioadă minimă, poți renunța oricând.",
+      "Preț promoțional:149 MDL/lună (în loc de 250 MDL). Fără perioadă minimă, poți renunța oricând.",
     bullets: {
       bullet1: "Agenda online vizibilă clienților tăi, cu programări automate.",
       bullet2: "Mai puține apeluri pierdute și mesaje neprocesate.",
