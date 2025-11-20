@@ -5,30 +5,10 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import Script from "next/script" 
 import "./globals.css"
 
 import Providers from "./providers"
 import Navbar from "@/components/ui/navbar"
-
-// ✅ JSON-LD pentru TINKA AI (Organization)
-const orgJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TINKA AI",
-  "url": "https://tinka.md",
-  "logo": "https://tinka.md/TINKA-AI Logo.png", 
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+373 68 333 899", 
-      "contactType": "customer service",
-      "areaServed": "MD",
-      "availableLanguage": ["ro", "ru"]
-    }
-  ]
-}
-
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tinka.md"),
@@ -73,15 +53,12 @@ export const metadata: Metadata = {
   },
 }
 
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ro" suppressHydrationWarning>
-      <body
-        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
-      >
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}>
         <Providers>
           <Suspense fallback={null}>
             <Navbar />
@@ -89,15 +66,6 @@ export default function RootLayout({
             <Analytics />
           </Suspense>
         </Providers>
-
-        {/* ✅ Schema.org injectat în <body> */}
-        <Script
-          id="tinka-org-ld-json"
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
-          {JSON.stringify(orgJsonLd)}
-        </Script>
       </body>
     </html>
   )
