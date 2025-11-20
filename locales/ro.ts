@@ -14,13 +14,13 @@ export const ro = {
 
   hero: {
     title: "digital, simplu, eficient",
-    subtitle: "Soluții AI & Web pentru companii orientate pe creștere.",
+    subtitle: "Soluții AI & Web pentru companii și liber-profesioniști din Republica Moldova.",
     cta: "Vezi soluțiile",
     ctaPrimary: "Vezi soluțiile",
     ctaSecondary: "Scrie-ne",
     badge: "Soluții inteligente pentru creștere",
     description:
-      "Livrăm rapid site-uri moderne, chatboți AI și automatizări care reduc costurile și cresc conversiile.",
+      "Creăm site-uri moderne, magazine online, chatboți AI și automatizări care reduc costurile și cresc conversiile pentru afacerile din Moldova.",
   },
 
   whatWeOffer: {
@@ -59,64 +59,110 @@ export const ro = {
     },
   },
 
-  solutions: {
-    title: "Soluțiile noastre",
-    subtitle: "De la site-uri rapide la chatboți și automatizări.",
-    labels: { problem: "Ce rezolvă", how: "Cum funcționează", forWho: "Pentru cine", tech: "Tehnologii", example: "Exemplu" },
+    solutions: {
+    title: "Soluții digitale și AI pentru afaceri din Republica Moldova",
+    subtitle:
+      "TINKA AI te ajută cu web design, site-uri de prezentare, magazine online, chatboți și automatizări cu inteligență artificială, adaptate IMM-urilor din Moldova.",
+
+    labels: {
+      problem: "Problema în afacerea ta",
+      how: "Cum te ajută TINKA AI",
+      forWho: "Pentru cine este această soluție",
+      tech: "Tehnologii folosite",
+      example: "Exemplu practic",
+    },
+
     chatbotDetail: {
-      title: "Chatboți AI",
-      problemText: "Răspunsuri lente, multe întrebări repetate.",
-      howText: "Automatizează suportul și califică lead-uri 24/7.",
-      forWhoText: "E-commerce, servicii, suport clienți.",
-      exampleText: "Asistent pe site și WhatsApp.",
+      title: "Chatboți AI pentru afaceri din Moldova",
+      problemText:
+        "Primești multe întrebări repetitive pe Facebook, WhatsApp sau pe site, iar răspunsurile întârzie. Clienții se pierd pentru că nu răspunzi la timp.",
+      howText:
+        "Implementăm un chatbot inteligent în limba română și rusă, conectat la website și paginile tale de social media, care răspunde 24/7 și colectează datele de contact ale clienților.",
+      forWhoText:
+        "E-commerce, servicii, clinici, saloane, restaurante și orice afacere din Republica Moldova care are contact direct cu clienții.",
+      exampleText:
+        "Un magazin online din Chișinău își redirecționează întrebările de pe Facebook și site către un chatbot AI care răspunde imediat, trimite oferte și colectează lead-uri pentru vânzări.",
     },
+
     websiteDetail: {
-      title: "Site-uri cu AI",
-      problemText: "Site static, greu de actualizat, conversie slabă.",
-      howText: "Site modern cu blocuri dinamice și asistent AI.",
-      forWhoText: "Branduri care vor performanță și SEO.",
-      exampleText: "Landing cu creare de conținut asistată de AI.",
+      title: "Web design și creare site-uri pentru IMM-urile din Moldova",
+      problemText:
+        "Site-ul actual arată învechit, se încarcă greu și nu apare în Google când cineva caută serviciile tale în Moldova.",
+      howText:
+        "Construim website-uri moderne, optimizate SEO pentru căutări precum „web design Moldova”, „creare site Chișinău”, integrate cu formulare de contact, chatbot și analitică.",
+      forWhoText:
+        "Antreprenori, freelanceri, cabinete medicale, saloane de frumusețe, ateliere și orice afacere care vrea o prezență online profesionistă.",
+      exampleText:
+        "Refacem site-ul unui prestator de servicii din Chișinău, îl optimizăm pentru mobil și Google, iar în câteva luni începe să primească clienți organici din căutări locale.",
     },
+
     automationDetail: {
-      title: "Automatizări",
-      problemText: "Pași manuali, copy-paste între aplicații.",
-      howText: "Integrare CRM/ERP, email, WhatsApp cu logică AI.",
-      forWhoText: "Vânzări, marketing, operațiuni.",
-      exampleText: "Calificare automată și creare deal în CRM.",
+      title: "Automatizări cu Inteligență Artificială pentru procesele tale",
+      problemText:
+        "Pierzi timp cu task-uri repetitive: introducere de date, trimitere de emailuri, copiere informații între Excel, CRM și alte aplicații.",
+      howText:
+        "Identificăm procesele care pot fi automatizate și construim fluxuri cu AI (integrare CRM, email, WhatsApp, facturare) ca să reduci munca manuală și să eviți erorile.",
+      forWhoText:
+        "Companii cu volum de lucru în vânzări, suport clienți, logistică, programări, contabilitate primară sau management de proiect.",
+      exampleText:
+        "La o companie din Moldova am automatizat preluarea cererilor din formularul de pe site, evaluarea lor cu AI și crearea automată de task-uri în CRM pentru echipa de vânzări.",
     },
+
     consultingDetail: {
-      title: "Consultanță AI",
-      problemText: "Prea multe opțiuni, greu de prioritizat.",
-      howText: "Strategie, ROI și plan de implementare.",
-      forWhoText: "Companii la începutul drumului în AI.",
-      exampleText: "Roadmap pe 90 de zile cu KPI clari.",
+      title: "Consultanță în strategie digitală și AI pentru companii din Moldova",
+      problemText:
+        "Nu știi de unde să începi cu AI și digitalizarea. Ai multe opțiuni, dar e greu să alegi ce merită făcut acum.",
+      howText:
+        "Analizăm modelul tău de business, identificăm 2–3 proiecte concrete (website, chatbot, automatizări, magazin online) și creăm un plan de implementare realist pentru următoarele 3–6 luni.",
+      forWhoText:
+        "Fondatori, directori și antreprenori care vor să investească inteligent în digitalizare, nu la întâmplare.",
+      exampleText:
+        "Un IMM din Republica Moldova a primit un roadmap pe 90 de zile cu trei proiecte clare: refacerea site-ului, chatbot pentru lead-uri și automatizare de follow-up la clienți.",
     },
+
     process: {
-      title: "Procesul nostru",
-      step1: { title: "Discovery", description: "Clarificăm obiectivele și constrângerile." },
-      step2: { title: "Propunere", description: "Soluții, timeline și cost." },
-      step3: { title: "Livrare", description: "Iterații și testare." },
-      step4: { title: "Lansare & Măsurare", description: "Optimizăm pe KPI." },
+      title: "Cum lucrăm împreună",
+      step1: {
+        title: "Descoperire",
+        description: "Înțelegem afacerea ta, publicul țintă și unde pierzi timp sau clienți.",
+      },
+      step2: {
+        title: "Propunere",
+        description: "Îți prezentăm soluții concrete (site, chatbot, automatizări) cu costuri și termene clare.",
+      },
+      step3: {
+        title: "Implementare",
+        description: "Construim, testăm și ajustăm soluțiile astfel încât să funcționeze în realitatea ta.",
+      },
+      step4: {
+        title: "Lansare & optimizare",
+        description: "Monitorizăm rezultatele și îmbunătățim constant pe baza datelor.",
+      },
     },
+
     firstClient: {
       badge: "STUDIU DE CAZ",
-      title: "–70% timp mediu de răspuns",
-      story: "E-commerce cu sute de întrebări zilnice. Am adăugat un asistent AI pe site și WhatsApp.",
-      results: "Rezultate",
-      result1: "–70% timp mediu de răspuns",
-      result2: "–40% tichete către oameni",
-      result3: "+25% conversii pe landing",
-      result4: "+18% CSAT",
-      testimonial: "„Implementarea ne-a schimbat munca de zi cu zi.”",
+      title: "Cum am redus timpul de răspuns cu 70% la un client din e-commerce",
+      story:
+        "Un magazin online din Republica Moldova primea zilnic zeci de întrebări pe Facebook și pe site. Am integrat un chatbot AI în română și rusă, conectat la catalogul de produse.",
+      results: "Rezultate obținute",
+      result1: "–70% timp mediu de răspuns la întrebările clienților",
+      result2: "–40% sarcini repetitive pentru echipa de suport",
+      result3: "+25% conversii pe paginile de produs",
+      result4: "Creștere semnificativă a satisfacției clienților (CSAT)",
+      testimonial:
+        "„Acum echipa noastră răspunde doar la cazurile mai complexe, iar clienții primesc răspuns imediat.”",
       author: "Ana Popescu",
-      role: "Head of CX",
+      role: "Manager vânzări online",
     },
+
     specialOffer: {
-      badge: "LIMITAT",
-      title: "Audit rapid de 60 de minute",
-      description: "Identificăm 3 oportunități AI cu impact imediat.",
-      cta: "Programează un call",
-      urgency: "Doar 5 sloturi pe săptămână",
+      badge: "OFERTĂ LIMITATĂ",
+      title: "Audit gratuit de 60 de minute pentru afacerea ta",
+      description:
+        "Într-un call online analizăm site-ul, procesele și comunicarea ta și îți propunem 2–3 idei de îmbunătățire cu AI și digitalizare.",
+      cta: "Programează un call cu TINKA AI",
+      urgency: "Acceptăm doar câteva audituri pe săptămână.",
     },
   },
 
