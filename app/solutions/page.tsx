@@ -1,5 +1,8 @@
 "use client"
 
+"use client"
+
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, Bot, Globe, Workflow, Lightbulb, CheckCircle, AlertCircle, Zap, Users, Code } from "lucide-react"
 
@@ -9,6 +12,32 @@ import { Badge } from "@/components/ui/badge"
 import { useLocale } from "@/contexts/locale-context"
 import { translations } from "@/lib/i18n"
 
+export const metadata: Metadata = {
+  title: "Soluții AI & Web Design în Moldova – Chatbot, Website, Automatizări",
+  description:
+    "Descoperă soluțiile TINKA AI pentru afaceri din Moldova: website-uri moderne, magazine online, chatboți AI, integrări WhatsApp, CRM și automatizări care reduc costurile și cresc conversiile.",
+  keywords: [
+    "solutii AI Moldova",
+    "creare site Moldova",
+    "web design Chisinau",
+    "dezvoltare website Moldova",
+    "chatbot AI Moldova",
+    "automatizari business Moldova",
+    "digitalizare IMM Moldova",
+  ],
+  alternates: {
+    canonical: "/solutions",
+  },
+  openGraph: {
+    title: "Soluții AI & Web Design în Moldova – Chatbot, Website, Automatizări",
+    description:
+      "Website-uri moderne, magazine online, chatboți AI, integrări WhatsApp, CRM și automatizări pentru afaceri din Republica Moldova.",
+    url: "https://tinka.md/solutions",
+    siteName: "TINKA AI",
+    locale: "ro_MD",
+    type: "website",
+  },
+}
 export default function SolutionsPage() {
   const { t } = useLocale()
 
