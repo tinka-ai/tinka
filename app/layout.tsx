@@ -5,7 +5,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import Script from "next/script" // ✅ adăugat
+import Script from "next/script" 
 import "./globals.css"
 
 import Providers from "./providers"
@@ -17,17 +17,18 @@ const orgJsonLd = {
   "@type": "Organization",
   "name": "TINKA AI",
   "url": "https://tinka.md",
-  "logo": "https://tinka.md/logo.png", // ⬅️ pune aici URL-ul real al logo-ului tău
+  "logo": "https://tinka.md/TINKA-AI Logo.png", 
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+37300000000", // ⬅️ înlocuiește cu numărul tău
+      "telephone": "+373 68 333 899", 
       "contactType": "customer service",
       "areaServed": "MD",
       "availableLanguage": ["ro", "ru"]
     }
   ]
 }
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tinka.md"),
