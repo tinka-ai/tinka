@@ -32,26 +32,47 @@ const orgJsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tinka.md"),
+
   title: {
-    default: "TINKA AI – Soluții digitale și AI pentru IMM-urile din Moldova",
+    default: "TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova",
     template: "%s | TINKA AI",
   },
+
   description:
-    "TINKA AI ajută afacerile din Republica Moldova să crească prin website-uri moderne, SEO, planificatoare online, chatbot-uri și automatizări cu inteligență artificială.",
+    "TINKA AI creează site-uri moderne, magazine online, chatboți AI și automatizări pentru companii și liber-profesioniști din Republica Moldova. Digital, simplu, eficient.",
+
+  keywords: [
+    "TINKA AI",
+    "solutii AI Moldova",
+    "web design Moldova",
+    "creare site Chisinau",
+    "chatbot AI Moldova",
+    "automatizari business Moldova",
+    "site pentru afaceri",
+  ],
+
   generator: "v0.app",
+
   robots: {
     index: true,
     follow: true,
   },
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    type: "website",
-    url: "https://tinka.md",
-    title: "TINKA AI – Soluții digitale și AI pentru IMM-urile din Moldova",
+    title: "TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova",
     description:
-      "Website-uri, TinkaBook (programări online), automatizări AI și servicii digitale pentru IMM-urile din Republica Moldova.",
+      "Site-uri moderne, AI chatboți și automatizări pentru companii și liber-profesioniști din Republica Moldova.",
+    url: "https://tinka.md/",
     siteName: "TINKA AI",
+    locale: "ro_MD",
+    type: "website",
   },
 }
+
 
 export default function RootLayout({
   children,
