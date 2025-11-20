@@ -14,13 +14,13 @@ export const en = {
 
   hero: {
     title: "digital, simple, efficient",
-    subtitle: "AI & Web solutions for growth-minded businesses.",
+    subtitle: "AI & Web solutions for companies and freelancers in Moldova.",
     cta: "See solutions",
     ctaPrimary: "See solutions",
     ctaSecondary: "Contact us",
     badge: "Smart solutions for growth",
     description:
-      "We quickly deliver modern websites, AI chatbots, and automations that cut costs and boost conversions.",
+      "We design modern websites, online stores, AI chatbots, and automations that help businesses in Moldova cut costs and win more clients.",
   },
 
   whatWeOffer: {
@@ -82,71 +82,110 @@ export const en = {
     },
   },
 
-  solutions: {
-    title: "Our solutions",
-    subtitle: "From fast websites to chatbots and automations.",
+    solutions: {
+    title: "Digital and AI solutions for businesses in Moldova",
+    subtitle:
+      "TINKA AI helps you with web design, landing pages, online stores, chatbots, and AI-powered automations, tailored for SMEs in the Republic of Moldova.",
+
     labels: {
-      problem: "What it solves",
-      how: "How it works",
-      forWho: "Who it's for",
-      tech: "Tech",
-      example: "Example",
+      problem: "The problem in your business",
+      how: "How TINKA AI helps",
+      forWho: "Who this is for",
+      tech: "Technologies used",
+      example: "Practical example",
     },
+
     chatbotDetail: {
-      title: "AI Chatbots",
-      problemText: "Slow replies, many repeated questions.",
-      howText: "Automate support and qualify leads 24/7.",
-      forWhoText: "E-commerce, services, customer support.",
-      exampleText: "Assistant on the website and WhatsApp.",
+      title: "AI chatbots for businesses in Moldova",
+      problemText:
+        "You receive many repeated questions on Facebook, WhatsApp, or your website, and replies are often slow. Potential clients drop off before you manage to answer.",
+      howText:
+        "We implement a smart chatbot in Romanian and Russian, connected to your website and social pages, that replies 24/7 and collects contact details from interested clients.",
+      forWhoText:
+        "E-commerce, service providers, clinics, salons, restaurants, and any business in Moldova that communicates directly with customers.",
+      exampleText:
+        "An online store in Chișinău routes questions from Facebook and its website to an AI chatbot that replies instantly, sends offers, and captures leads for the sales team.",
     },
+
     websiteDetail: {
-      title: "AI-powered Websites",
-      problemText: "Static sites, hard to update, poor conversion.",
-      howText: "Modern site with dynamic blocks and an AI assistant.",
-      forWhoText: "Brands that care about performance and SEO.",
-      exampleText: "Landing with AI-assisted content creation.",
+      title: "Web design and website creation for SMEs in Moldova",
+      problemText:
+        "Your current website looks outdated, loads slowly, and doesn’t show up when people search for your services in Google.",
+      howText:
+        "We build modern, fast websites, SEO-optimized for searches like “web design Moldova” and “create a website in Chișinău”, with contact forms, analytics, and chatbot integration.",
+      forWhoText:
+        "Entrepreneurs, freelancers, medical practices, beauty salons, workshops, and any business that wants a professional online presence.",
+      exampleText:
+        "We redesign the website of a local service provider in Chișinău, optimize it for mobile and Google, and within a few months it starts bringing in organic leads from local searches.",
     },
+
     automationDetail: {
-      title: "Automations",
-      problemText: "Manual steps, copy-paste between apps.",
-      howText: "Integrate CRM/ERP, email, WhatsApp with AI logic.",
-      forWhoText: "Sales, marketing, operations.",
-      exampleText: "Auto-qualify lead and create CRM deal.",
+      title: "AI-powered automations for your daily workflows",
+      problemText:
+        "You lose hours on repetitive tasks: copying data between Excel and CRM, sending follow-up emails, or manually confirming bookings.",
+      howText:
+        "We identify processes that can be automated and build AI workflows (CRM, email, WhatsApp, invoicing) so that your team spends less time on manual work and avoids errors.",
+      forWhoText:
+        "Companies with active sales, customer support, logistics, bookings, basic accounting, or project management.",
+      exampleText:
+        "For a company in Moldova, we automated lead capture from website forms, AI-based qualification, and automatic task creation in the CRM for the sales team.",
     },
+
     consultingDetail: {
-      title: "AI Consulting",
-      problemText: "Too many options, hard to prioritize.",
-      howText: "Strategy, ROI, and an implementation plan.",
-      forWhoText: "Companies starting their AI journey.",
-      exampleText: "90-day roadmap with clear KPIs.",
+      title: "Digital & AI strategy consulting for companies in Moldova",
+      problemText:
+        "You know you should use AI and improve your digital presence, but you’re not sure where to start or what brings the highest return.",
+      howText:
+        "We analyze your business model, identify 2–3 concrete projects (website, chatbot, automations, online store) and build a realistic 3–6 month implementation plan.",
+      forWhoText:
+        "Founders, directors, and entrepreneurs who want to invest smartly in digital and AI, not randomly.",
+      exampleText:
+        "An SME in Moldova received a 90-day roadmap with three clear projects: website redesign, a lead-generation chatbot, and a follow-up automation for existing clients.",
     },
+
     process: {
-      title: "Our process",
-      step1: { title: "Discovery", description: "We clarify goals and constraints." },
-      step2: { title: "Proposal", description: "Solutions, timeline, and cost." },
-      step3: { title: "Delivery", description: "Iterative build and testing." },
-      step4: { title: "Launch & Measure", description: "Optimize on KPIs." },
+      title: "How we work together",
+      step1: {
+        title: "Discovery",
+        description: "We understand your business, target customers, and where you lose time or clients today.",
+      },
+      step2: {
+        title: "Proposal",
+        description: "We present concrete solutions (site, chatbot, automations) with clear costs and timelines.",
+      },
+      step3: {
+        title: "Implementation",
+        description: "We build, test, and adjust the solutions so they work in your real-world setup.",
+      },
+      step4: {
+        title: "Launch & optimisation",
+        description: "We monitor results and continuously improve based on data and feedback.",
+      },
     },
+
     firstClient: {
       badge: "CASE STUDY",
-      title: "Cut response time by 70%",
+      title: "How we cut reply time by 70% for an e-commerce client in Moldova",
       story:
-        "E-commerce with hundreds of daily questions. We added an AI assistant on site and WhatsApp.",
+        "An online store in the Republic of Moldova received dozens of questions every day on Facebook and on their site. We integrated an AI chatbot in Romanian and Russian, connected to their product catalog.",
       results: "Results",
-      result1: "–70% average reply time",
-      result2: "–40% human tickets",
-      result3: "+25% landing conversions",
-      result4: "+18% CSAT",
-      testimonial: "“Implementation changed our day-to-day work.”",
+      result1: "–70% average reply time to customer questions",
+      result2: "–40% repetitive tasks for the support team",
+      result3: "+25% conversions on product pages",
+      result4: "Significant increase in customer satisfaction (CSAT)",
+      testimonial:
+        "“Now our team only handles the more complex cases, and customers get instant answers to most questions.”",
       author: "Ana Popescu",
       role: "Head of CX",
     },
+
     specialOffer: {
-      badge: "LIMITED",
-      title: "60-minute quick audit",
-      description: "We identify 3 AI opportunities with immediate impact.",
-      cta: "Book a call",
-      urgency: "Only 5 slots per week",
+      badge: "LIMITED OFFER",
+      title: "Free 60-minute audit for your business",
+      description:
+        "On a video call, we review your website, processes, and communication and propose 2–3 concrete improvements using AI and digital tools.",
+      cta: "Book a call with TINKA AI",
+      urgency: "We only accept a few audits per week.",
     },
   },
 
