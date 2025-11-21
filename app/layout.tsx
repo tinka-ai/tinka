@@ -5,6 +5,8 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import Script from "next/script"  // ⬅️ GA4 necesar
+
 import "./globals.css"
 
 import Providers from "./providers"
@@ -58,6 +60,21 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ro" suppressHydrationWarning>
+
+      {/* 🔥 GA4 – Google Analytics */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-MLE4N46EN9"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MLE4N46EN9');
+        `}
+      </Script>
+
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}>
         <Providers>
           <Suspense fallback={null}>
