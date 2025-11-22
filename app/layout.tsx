@@ -5,7 +5,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import Script from "next/script"  // ⬅️ GA4 necesar
+import Script from "next/script"
 
 import "./globals.css"
 
@@ -21,37 +21,65 @@ export const metadata: Metadata = {
   },
 
   description:
-    "TINKA AI creează site-uri moderne, magazine online, chatboți AI și automatizări pentru companii și liber-profesioniști din Republica Moldova. Digital, simplu, eficient.",
+    "TINKA AI creează site-uri moderne, chatbot-uri AI, magazine online și automatizări inteligente pentru companii și liber-profesioniști din Republica Moldova.",
 
   keywords: [
     "TINKA AI",
-    "solutii AI Moldova",
     "web design Moldova",
     "creare site Chisinau",
     "chatbot AI Moldova",
     "automatizari business Moldova",
-    "site pentru afaceri",
+    "digitalizare IMM Moldova",
+    "programări online Moldova",
+    "magazin online Moldova",
+    "website profesional Moldova",
   ],
-
-  generator: "v0.app",
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   alternates: {
-    canonical: "/",
+    canonical: "https://tinka.md/",
+    languages: {
+      "ro-MD": "https://tinka.md/",
+      "ru-MD": "https://tinka.md/ru",
+      "en-US": "https://tinka.md/en",
+    },
   },
 
   openGraph: {
     title: "TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova",
     description:
-      "Site-uri moderne, AI chatboți și automatizări pentru companii și liber-profesioniști din Republica Moldova.",
+      "Website-uri moderne, chatboturi AI, SEO și automatizări pentru afaceri din Republica Moldova.",
     url: "https://tinka.md/",
     siteName: "TINKA AI",
     locale: "ro_MD",
     type: "website",
+    images: [
+      {
+        url: "https://tinka.md/tinka-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TINKA AI – Soluții Digitale Moldova",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "TINKA AI – Soluții Digitale în Moldova",
+    description:
+      "Website-uri moderne, chatboturi AI, SEO și automatizări pentru IMM-uri.",
+    images: ["https://tinka.md/tinka-og-image.jpg"],
   },
 }
 
@@ -60,6 +88,83 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ro" suppressHydrationWarning>
+      <head>
+
+        {/* 🔥 JSON-LD LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://tinka.md/#business",
+              name: "TINKA AI",
+              url: "https://tinka.md",
+              logo: "https://tinka.md/tinka-og-image.jpg",
+              image: "https://tinka.md/tinka-og-image.jpg",
+              description:
+                "TINKA AI oferă website-uri moderne, chatbot-uri AI, SEO și automatizări pentru companii din Republica Moldova.",
+              telephone: "+37368333899",
+              email: "office@tinka.md",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Chișinău",
+                addressCountry: "Moldova",
+              },
+              sameAs: [
+                "https://www.facebook.com/tinka.ai",
+                "https://www.instagram.com/tinka.ai",
+              ],
+              priceRange: "$$",
+              areaServed: {
+                "@type": "Country",
+                name: "Republica Moldova",
+              },
+              makesOffer: [
+                { "@type": "Offer", name: "Web Design" },
+                { "@type": "Offer", name: "Chatbot AI" },
+                { "@type": "Offer", name: "Automatizări Business" },
+              ],
+            }),
+          }}
+        />
+
+        {/* 🔥 JSON-LD Website Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              url: "https://tinka.md",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://tinka.md/?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+
+        {/* 🔥 JSON-LD Breadcrumbs */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Acasă",
+                  item: "https://tinka.md/",
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
 
       {/* 🔥 GA4 – Google Analytics */}
       <Script
@@ -75,7 +180,9 @@ export default function RootLayout({
         `}
       </Script>
 
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}>
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
+      >
         <Providers>
           <Suspense fallback={null}>
             <Navbar />
