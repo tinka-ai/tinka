@@ -1,4 +1,3 @@
-// locales/ro.ts
 export const ro = {
   nav: {
     home: "Acasă",
@@ -13,33 +12,66 @@ export const ro = {
   },
 
   hero: {
-    title: "digital, simplu, eficient",
-    subtitle: "Soluții AI & Web pentru companii și liber-profesioniști din Republica Moldova.",
+    title: "Soluții AI și Web Design în Moldova",
+    subtitle:
+      "Website-uri moderne, SEO local, chatbot-uri AI și automatizări pentru IMM-urile din Republica Moldova.",
     cta: "Vezi soluțiile",
     ctaPrimary: "Vezi soluțiile",
     ctaSecondary: "Scrie-ne",
-    badge: "Soluții inteligente pentru creștere",
+    badge: "Digital. Simplu. Eficient.",
     description:
-      "Creăm site-uri moderne, magazine online, chatboți AI și automatizări care reduc costurile și cresc conversiile pentru afacerile din Moldova.",
+      "TINKA AI dezvoltă site-uri rapide, magazine online, chatboți AI și automatizări business pentru companii din Chișinău și toată Moldova. Soluții complete de digitalizare pentru creștere.",
   },
 
   whatWeOffer: {
     title: "Ce oferim",
-    chatbots: { name: "Chatboți AI", description: "Asistenți inteligenți pentru vânzări, suport și operațiuni." },
-    websites: { name: "Site-uri Web", description: "Site-uri moderne, rapide și SEO-friendly." },
-    automation: { name: "Automatizări", description: "Fluxuri care economisesc timp și bani." },
-    consulting: { name: "Consultanță", description: "Arhitectură, audit și plan de implementare." },
+    chatbots: {
+      name: "Chatboți AI",
+      description:
+        "Chatboți AI în română și rusă pentru afaceri din Moldova — suport 24/7, vânzări și integrare WhatsApp/website.",
+    },
+    websites: {
+      name: "Site-uri Web",
+      description:
+        "Creare site și web design în Chișinău — pagini rapide, optimizate SEO, perfecte pentru IMM-urile din Moldova.",
+    },
+    automation: {
+      name: "Automatizări",
+      description:
+        "Automatizări business pentru companii din Moldova — integrare CRM, WhatsApp, email și procese interne.",
+    },
+    consulting: {
+      name: "Consultanță",
+      description:
+        "Consultanță în digitalizare, web, AI și strategie pentru IMM-urile din Republica Moldova.",
+    },
   },
 
   whyAI: {
     title: "De ce AI",
-    benefit1: { title: "Timp economisit", description: "Automatizezi sarcinile repetitive și te concentrezi pe creștere." },
-    benefit2: { title: "Costuri mai mici", description: "Procese eficiente, mai puține erori umane." },
-    benefit3: { title: "Scalare rapidă", description: "Procese care cresc odată cu afacerea." },
-    benefit4: { title: "Răspuns instant", description: "Clienții primesc răspuns 24/7." },
+    benefit1: {
+      title: "Timp economisit",
+      description:
+        "Automatizezi sarcinile repetitive și te concentrezi pe creștere.",
+    },
+    benefit2: {
+      title: "Costuri mai mici",
+      description: "Procese eficiente, mai puține erori umane.",
+    },
+    benefit3: {
+      title: "Scalare rapidă",
+      description: "Procese care cresc odată cu afacerea.",
+    },
+    benefit4: {
+      title: "Răspuns instant",
+      description: "Clienții primesc răspuns 24/7.",
+    },
   },
 
-  technologies: { title: "Tehnologii", subtitle: "Stack modern, stabil și rapid." },
+  technologies: {
+    title: "Tehnologii",
+    subtitle: "Stack modern, stabil și rapid.",
+  },
 
   specialOffer: {
     badge: "Ofertă",
@@ -51,7 +83,8 @@ export const ro = {
   about: {
     title: "Despre TINKA AI",
     subtitle: "Construim produse digitale rapide și fiabile.",
-    content: "Suntem orientați pe rezultat: aplicații web SaaS, automatizări și asistenți AI pentru IMM-uri.",
+    content:
+      "Suntem orientați pe rezultat: aplicații web SaaS, automatizări și asistenți AI pentru IMM-uri.",
     values: {
       value1: "Transparență și comunicare clară.",
       value2: "Viteză de execuție și calitate.",
@@ -59,10 +92,10 @@ export const ro = {
     },
   },
 
-    solutions: {
-    title: "Soluții digitale și AI pentru afaceri din Republica Moldova",
+  solutions: {
+    title: "Soluții digitale și AI pentru afaceri din Moldova",
     subtitle:
-      "TINKA AI te ajută cu web design, site-uri de prezentare, magazine online, chatboți și automatizări cu inteligență artificială, adaptate IMM-urilor din Moldova.",
+      "Web design, creare site-uri, chatbot-uri AI și automatizări pentru IMM-urile din Republica Moldova. Soluții moderne, rapide și optimizate SEO.",
 
     labels: {
       problem: "Problema în afacerea ta",
@@ -77,66 +110,70 @@ export const ro = {
       problemText:
         "Primești multe întrebări repetitive pe Facebook, WhatsApp sau pe site, iar răspunsurile întârzie. Clienții se pierd pentru că nu răspunzi la timp.",
       howText:
-        "Implementăm un chatbot inteligent în limba română și rusă, conectat la website și paginile tale de social media, care răspunde 24/7 și colectează datele de contact ale clienților.",
+        "Creăm chatboți inteligenți în română și rusă, integrați cu website-ul, WhatsApp și paginile de social media — răspuns instant 24/7, colectare lead-uri, transfer către echipă.",
       forWhoText:
-        "E-commerce, servicii, clinici, saloane, restaurante și orice afacere din Republica Moldova care are contact direct cu clienții.",
+        "Magazine online, servicii, clinici, saloane, restaurante și afaceri din Republica Moldova care comunică zilnic cu clienții.",
       exampleText:
-        "Un magazin online din Chișinău își redirecționează întrebările de pe Facebook și site către un chatbot AI care răspunde imediat, trimite oferte și colectează lead-uri pentru vânzări.",
+        "Un magazin online din Chișinău își redirecționează întrebările către chatbot-ul AI care răspunde imediat, trimite oferte și colectează lead-uri pentru echipa de vânzări.",
     },
 
     websiteDetail: {
-      title: "Web design și creare site-uri pentru IMM-urile din Moldova",
+      title: "Web design și creare site-uri în Moldova",
       problemText:
-        "Site-ul actual arată învechit, se încarcă greu și nu apare în Google când cineva caută serviciile tale în Moldova.",
+        "Site-ul actual se încarcă greu, arată învechit sau nu apare în Google la căutări precum „web design Moldova” sau „creare site Chișinău”.",
       howText:
-        "Construim website-uri moderne, optimizate SEO pentru căutări precum „web design Moldova”, „creare site Chișinău”, integrate cu formulare de contact, chatbot și analitică.",
+        "Construim site-uri moderne, optimizate SEO, rapide pe mobil, integrate cu formular de contact, chatbot și Analytics.",
       forWhoText:
-        "Antreprenori, freelanceri, cabinete medicale, saloane de frumusețe, ateliere și orice afacere care vrea o prezență online profesionistă.",
+        "Antreprenori, freelanceri, cabinete medicale, saloane, ateliere și companii care au nevoie de o prezență online profesionistă.",
       exampleText:
-        "Refacem site-ul unui prestator de servicii din Chișinău, îl optimizăm pentru mobil și Google, iar în câteva luni începe să primească clienți organici din căutări locale.",
+        "Un prestator de servicii din Chișinău a obținut trafic organic constant după refacerea website-ului și optimizarea SEO locală.",
     },
 
     automationDetail: {
-      title: "Automatizări cu Inteligență Artificială pentru procesele tale",
+      title: "Automatizări cu Inteligență Artificială",
       problemText:
-        "Pierzi timp cu task-uri repetitive: introducere de date, trimitere de emailuri, copiere informații între Excel, CRM și alte aplicații.",
+        "Pierzi timp cu sarcini repetitive: introducere date, trimis emailuri, gestionat mesaje, sincronizat informații între aplicații.",
       howText:
-        "Identificăm procesele care pot fi automatizate și construim fluxuri cu AI (integrare CRM, email, WhatsApp, facturare) ca să reduci munca manuală și să eviți erorile.",
+        "Analizăm procesele tale și creăm automatizări cu AI — integrare CRM, notificări WhatsApp, email automat, fluxuri interne și facturare.",
       forWhoText:
-        "Companii cu volum de lucru în vânzări, suport clienți, logistică, programări, contabilitate primară sau management de proiect.",
+        "Companii din Moldova cu activitate intensă în vânzări, suport, logistică, programări, contabilitate sau management de proiect.",
       exampleText:
-        "La o companie din Moldova am automatizat preluarea cererilor din formularul de pe site, evaluarea lor cu AI și crearea automată de task-uri în CRM pentru echipa de vânzări.",
+        "O companie din Moldova a redus cu 50% timpul de procesare după automatizarea preluării cererilor și crearea automată a taskurilor în CRM.",
     },
 
     consultingDetail: {
-      title: "Consultanță în strategie digitală și AI pentru companii din Moldova",
+      title: "Consultanță și strategie digitală în Moldova",
       problemText:
-        "Nu știi de unde să începi cu AI și digitalizarea. Ai multe opțiuni, dar e greu să alegi ce merită făcut acum.",
+        "Nu știi ce să alegi între website, social media, AI, chatbot, CRM sau automatizări. Este greu să prioritizezi.",
       howText:
-        "Analizăm modelul tău de business, identificăm 2–3 proiecte concrete (website, chatbot, automatizări, magazin online) și creăm un plan de implementare realist pentru următoarele 3–6 luni.",
+        "Analizăm modelul tău de business și îți propunem 2–3 proiecte concrete cu rezultate rapide pentru următoarele 3–6 luni.",
       forWhoText:
-        "Fondatori, directori și antreprenori care vor să investească inteligent în digitalizare, nu la întâmplare.",
+        "Antreprenori, directori și fondatori care vor să investească inteligent în digitalizare și AI.",
       exampleText:
-        "Un IMM din Republica Moldova a primit un roadmap pe 90 de zile cu trei proiecte clare: refacerea site-ului, chatbot pentru lead-uri și automatizare de follow-up la clienți.",
+        "Un IMM din Chișinău a primit un plan pe 90 de zile incluzând website nou, chatbot AI și automatizări de follow-up.",
     },
 
     process: {
       title: "Cum lucrăm împreună",
       step1: {
         title: "Descoperire",
-        description: "Înțelegem afacerea ta, publicul țintă și unde pierzi timp sau clienți.",
+        description:
+          "Înțelegem afacerea ta, publicul țintă și unde pierzi timp sau clienți.",
       },
       step2: {
         title: "Propunere",
-        description: "Îți prezentăm soluții concrete (site, chatbot, automatizări) cu costuri și termene clare.",
+        description:
+          "Îți prezentăm soluții concrete (site, chatbot, automatizări) cu costuri și termene clare.",
       },
       step3: {
         title: "Implementare",
-        description: "Construim, testăm și ajustăm soluțiile astfel încât să funcționeze în realitatea ta.",
+        description:
+          "Construim, testăm și ajustăm soluțiile astfel încât să funcționeze în realitatea ta.",
       },
       step4: {
         title: "Lansare & optimizare",
-        description: "Monitorizăm rezultatele și îmbunătățim constant pe baza datelor.",
+        description:
+          "Monitorizăm rezultatele și îmbunătățim constant pe baza datelor.",
       },
     },
 
@@ -169,12 +206,14 @@ export const ro = {
   offer: {
     cta: "Cere ofertă",
     title: "Cere ofertă — Pachet Quick-Launch",
-    subtitle: "Completează cât poți — e suficient pentru a propune soluția potrivită.",
+    subtitle:
+      "Completează cât poți — e suficient pentru a propune soluția potrivită.",
     cancel: "Renunță",
     submit: "Trimite",
     close: "Închide",
     successTitle: "Mulțumim! Formularul a fost trimis.",
-    successBody: "TINKA AI va analiza răspunsurile și va reveni cu propunerea. Ți-am trimis și un email.",
+    successBody:
+      "TINKA AI va analiza răspunsurile și va reveni cu propunerea. Ți-am trimis și un email.",
     error: "A apărut o eroare. Încearcă din nou.",
 
     sections: {
@@ -232,7 +271,8 @@ export const ro = {
       kpi: "Ex.: 50 lead-uri/lună, 5% conversie",
       content: "Aveți texte/foto sau le pregătim noi?",
       branding: "Aveți identitate vizuală sau doriți propuneri?",
-      integrations: "Ex.: Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
+      integrations:
+        "Ex.: Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
       domain: "Aveți domeniu sau îl cumpărăm noi?",
       refs: "https://site1.com, https://site2.com …",
       botLangs: "ro, ru, en",
@@ -300,12 +340,14 @@ export const ro = {
   privacy: {
     title: "Politica de Confidențialitate",
     updated: "Ultima actualizare",
-    intro: "Respectăm datele tale și folosim doar informațiile strict necesare pentru a oferi serviciile.",
+    intro:
+      "Respectăm datele tale și folosim doar informațiile strict necesare pentru a oferi serviciile.",
   },
 
   terms: {
     title: "Termeni & Condiții",
-    intro: "Prin utilizarea site-ului accepți termenii și condițiile. Te rugăm să citești cu atenție.",
+    intro:
+      "Prin utilizarea site-ului accepți termenii și condițiile. Te rugăm să citești cu atenție.",
   },
 
   contact: {
@@ -319,7 +361,10 @@ export const ro = {
       location: "Locație",
       locationDetail: "Chișinău, Republica Moldova",
     },
-    quickResponse: { title: "Răspundem rapid", description: "Răspundem în 24 de ore lucrătoare." },
+    quickResponse: {
+      title: "Răspundem rapid",
+      description: "Răspundem în 24 de ore lucrătoare.",
+    },
     form: {
       successTitle: "Mulțumim!",
       successMessage: "Mesajul a fost trimis. Revenim în curând.",
@@ -356,13 +401,34 @@ export const ro = {
       title: "Întrebări frecvente",
       subtitle: "Răspunsuri rapide",
       question1: { q: "Cum începem?", a: "Ne scrii și stabilim o discuție." },
-      question2: { q: "În cât timp livrați?", a: "De regulă 2–6 săptămâni, în funcție de proiect." },
-      question3: { q: "Plăți și contract?", a: "Da: contract + factură; 30% avans." },
-      question4: { q: "Mentenanță?", a: "Oferim pachete de mentenanță." },
-      question5: { q: "Hosting propriu?", a: "Se poate, sau găzduim noi." },
-      question6: { q: "Tehnologii?", a: "de la clasice la moderne." },
-      question7: { q: "Limbi?", a: "Suport în română, rusă, engleză." },
-      question8: { q: "Date personale?", a: "Respectăm GDPR și bune practici." },
+      question2: {
+        q: "În cât timp livrați?",
+        a: "De regulă 2–6 săptămâni, în funcție de proiect.",
+      },
+      question3: {
+        q: "Plăți și contract?",
+        a: "Da: contract + factură; 30% avans.",
+      },
+      question4: {
+        q: "Mentenanță?",
+        a: "Oferim pachete de mentenanță.",
+      },
+      question5: {
+        q: "Hosting propriu?",
+        a: "Se poate, sau găzduim noi.",
+      },
+      question6: {
+        q: "Tehnologii?",
+        a: "de la clasice la moderne.",
+      },
+      question7: {
+        q: "Limbi?",
+        a: "Suport în română, rusă, engleză.",
+      },
+      question8: {
+        q: "Date personale?",
+        a: "Respectăm GDPR și bune practici.",
+      },
     },
   },
 
@@ -374,9 +440,12 @@ export const ro = {
     priceHighlight:
       "Preț promoțional:149 MDL/lună (în loc de 250 MDL). Fără perioadă minimă, poți renunța oricând.",
     bullets: {
-      bullet1: "Agenda online vizibilă clienților tăi, cu programări automate.",
-      bullet2: "Mai puține apeluri pierdute și mesaje neprocesate.",
-      bullet3: "Timp câștigat pentru lucru efectiv cu clienții.",
+      bullet1:
+        "Agenda online vizibilă clienților tăi, cu programări automate.",
+      bullet2:
+        "Mai puține apeluri pierdute și mesaje neprocesate.",
+      bullet3:
+        "Timp câștigat pentru lucru efectiv cu clienții.",
     },
     ctaScroll: "Solicită acces la TinkaBook",
     ctaVisit: "Vezi TinkaBook în acțiune",
@@ -393,7 +462,8 @@ export const ro = {
         email: "Email",
         activity: "Domeniul de activitate / servicii oferite",
         contactPref: "Modalitate preferată de contact",
-        links: "Link către pagina de Facebook / Instagram / site",
+        links:
+          "Link către pagina de Facebook / Instagram / site",
         language: "Limba preferată în comunicare",
       },
 
@@ -401,9 +471,11 @@ export const ro = {
         name: "Ex.: Maria Popescu / Studio Glam Nails",
         phone: "+373 6...",
         email: "exemplu@domeniu.md",
-        activity: "Ex.: manichiură, frizerie, masaj, coaching, psiholog etc.",
+        activity:
+          "Ex.: manichiură, frizerie, masaj, coaching, psiholog etc.",
         contactPref: "Alege modalitatea preferată",
-        links: "Ex.: facebook.com/studioglam, instagram.com/studioglam",
+        links:
+          "Ex.: facebook.com/studioglam, instagram.com/studioglam",
         language: "Alege limba",
       },
 
@@ -452,7 +524,8 @@ export const ro = {
   footer: {
     company: "T.I.N.K.A. AI",
     tagline: "— Digital. Simplu. Eficient.",
-    description: "Soluții AI & Web pentru IMM-uri.",
+    description:
+      "Soluții AI, web design, creare site-uri și automatizări pentru IMM-uri din Chișinău și toată Republica Moldova.",
     quickLinks: "Linkuri rapide",
     home: "Acasă",
     solutions: "Soluții",
@@ -466,8 +539,9 @@ export const ro = {
     email: "office@tinka.md",
     phone: "+373 68 333 899",
     hours: "Lun–Dum 10:00–22:00",
-    copyright: `© ${new Date().getFullYear()} TINKA AI`,
+    copyright: `© ${new Date()
+      .getFullYear()} TINKA AI`,
     privacy: "Politica de confidențialitate",
     terms: "Termeni și condiții",
   },
-} as const
+} as const;
