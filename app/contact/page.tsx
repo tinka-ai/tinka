@@ -10,6 +10,15 @@ export const metadata = {
   description:
     "Contactează echipa TINKA AI pentru consultanță în web design, automatizări AI, chatbot-uri și soluții digitale pentru afaceri din Republica Moldova.",
 
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+
   alternates: {
     canonical: "https://tinka.md/contact",
     languages: {
@@ -52,6 +61,7 @@ function ContactJSONLD() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     url: "https://tinka.md/contact",
+
     mainEntity: {
       "@type": "Organization",
       name: "TINKA AI",
@@ -59,12 +69,19 @@ function ContactJSONLD() {
       email: "office@tinka.md",
       telephone: "+37368333899",
       logo: "https://tinka.md/tinka-og-image.jpg",
+      image: "https://tinka.md/tinka-og-image.jpg",
+
+      sameAs: [
+        "https://www.facebook.com/tinka.ai",
+        "https://www.instagram.com/tinka.ai",
+      ],
+
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "customer support",
         telephone: "+37368333899",
         email: "office@tinka.md",
-        areaServed: "Moldova",
+        areaServed: ["MD"],
         availableLanguage: ["ro", "ru", "en"],
       },
     },
@@ -74,6 +91,7 @@ function ContactJSONLD() {
     <Script
       id="contact-jsonld"
       type="application/ld+json"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
