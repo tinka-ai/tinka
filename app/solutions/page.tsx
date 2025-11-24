@@ -10,6 +10,10 @@ import { useLocale } from "@/contexts/locale-context"
 import { translations } from "@/lib/i18n"
 import Script from "next/script"
 export const metadata = {
+  title: "Soluții Digitale & AI pentru Afaceri din Moldova | TINKA AI",
+  description:
+    "Chatbot-uri AI, website-uri moderne, automatizări business și consultanță digitală pentru IMM-uri din Republica Moldova. Soluții rapide, eficiente și profitabile.",
+
   alternates: {
     canonical: "https://tinka.md/solutions",
     languages: {
@@ -18,7 +22,35 @@ export const metadata = {
       "ru-MD": "https://tinka.md/ru/solutions",
     },
   },
-}
+
+  openGraph: {
+    title: "Soluții Digitale & AI pentru Afaceri din Moldova",
+    description:
+      "Implementăm chatbot-uri AI, website-uri moderne și automatizări pentru companii din Republica Moldova.",
+    url: "https://tinka.md/solutions",
+    siteName: "TINKA AI",
+    type: "website",
+    locale: "ro_MD",
+    alternateLocale: ["en_US", "ru_MD"],
+    images: [
+      {
+        url: "https://tinka.md/og/solutions-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TINKA AI – Soluții digitale și AI",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Soluții AI & Web Design pentru Afaceri | TINKA AI",
+    description:
+      "AI chatbots, website-uri moderne și automatizări pentru companii din Republica Moldova.",
+    images: ["https://tinka.md/og/solutions-og.jpg"],
+  },
+};
+
 
 function StructuredDataSolutions() {
   const data = {
