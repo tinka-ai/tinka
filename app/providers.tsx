@@ -1,38 +1,52 @@
+// app/providers.tsx
 "use client"
 
-"use client"
-
-import type { ReactNode } from "react"
-import { createContext, useCallback, useContext, useState } from "react"
+import { ReactNode, createContext, useContext, useState, useCallback } from "react"
+import dynamic from "next/dynamic"
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { LocaleProvider } from "@/contexts/locale-context"
-import OfferModal from "@/components/offer/OfferModal"
 
+// Lazy load pentru OfferModal – IMPORTANT pentru PageSpeed
+const OfferModal = dynamic(() => import("@/components/offer/OfferModal"), {
+  ssr: false,
+  loading: () => null,
+})
 
-// --- Context + hook pentru OfferModal ---
-type OfferCtx = { open: () => void; close: () => void; isOpen: boolean }
+// ----------------------------
+// Offer Modal Context
+// ----------------------------
+type OfferCtx = {
+  open: () => void
+}
+
 const OfferCtx = createContext<OfferCtx | null>(null)
 
 export function useOfferModal() {
   const ctx = useContext(OfferCtx)
-  if (!ctx) throw new Error("useOfferModal must be used within <Providers>")
+  if (!ctx) throw new Error("useOfferModal must be inside <Providers>")
   return ctx
 }
 
-// --- Provider global folosit în app/layout.tsx ---
+// Providers (MINIM JS posibil)
 export default function Providers({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
-  const open = useCallback(() => setIsOpen(true), [])
+
+  const open = useCallback(() => {
+    // Montează modalul DOAR când userul cere
+    setIsOpen(true)
+  }, [])
+
   const close = useCallback(() => setIsOpen(false), [])
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <LocaleProvider>
-        <OfferCtx.Provider value={{ open, close, isOpen }}>
-          {/* Modalul e montat global, îl deschizi din orice buton via useOfferModal() */}
-          <OfferModal open={isOpen} onOpenChange={setIsOpen} />
+        <OfferCtx.Provider value={{ open }}>
           {children}
+
+          {/* Modalul este montat doar când e necesar */}
+          {isOpen && <OfferModal open={isOpen} onOpenChange={close} />}
         </OfferCtx.Provider>
       </LocaleProvider>
     </ThemeProvider>
