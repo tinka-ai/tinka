@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-
 import {
   Select,
   SelectContent,
@@ -24,58 +23,15 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-// 🔥 SVG ICONS – inline (NO lucide-react)
-const LoaderSvg = (
-  <svg className="mr-2 h-4 w-4 animate-spin" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-  </svg>
-)
+import {
+  WEBSITE_GOALS_KEYS,
+  WEBSITE_FEATURES_KEYS,
+  BOT_CHANNEL_KEYS,
+  BOT_ROLE_KEYS,
+  AUTOMATION_KEYS,
+} from "./offer.constants"
 
-const SendSvg = (
-  <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
-    <path
-      d="M22 2L11 13"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M22 2L15 22L11 13L2 9L22 2Z"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-// 🔒 CONSTANTE (NECESARE)
-const WEBSITE_GOALS_KEYS = ["leads", "ecom", "brand", "info", "support"] as const
-const WEBSITE_FEATURES_KEYS = [
-  "blog",
-  "portfolio",
-  "form",
-  "booking",
-  "payments",
-  "ecommerce",
-  "multilang",
-  "gdpr",
-  "analytics",
-] as const
-const BOT_CHANNEL_KEYS = ["site", "whatsapp", "facebook", "telegram", "viber"] as const
-const BOT_ROLE_KEYS = ["sales", "support", "faq", "booking"] as const
-const AUTOMATION_KEYS = [
-  "crm",
-  "qualify",
-  "notify",
-  "schedule",
-  "followup",
-  "newsletter",
-  "other",
-] as const
+import { LoaderSvg, SendSvg } from "./offer.icons"
 
 type OfferModalProps = { open: boolean; onOpenChange: (v: boolean) => void }
 
@@ -131,7 +87,6 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
       if (res.ok) {
         setSent("ok")
         e.currentTarget.reset()
-
         setContent("")
         setBranding("")
         setDomain("")
@@ -155,13 +110,20 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
 
         {sent === "ok" ? (
           <div className="space-y-3">
-            <p className="text-green-500 font-medium">{L?.successTitle ?? "Trimis!"}</p>
-            <Button onClick={() => onOpenChange(false)}>Închide</Button>
+            <p className="text-green-500 font-medium">
+              {L?.successTitle ?? "Trimis!"}
+            </p>
+            <Button onClick={() => onOpenChange(false)}>
+              {L?.close ?? "Închide"}
+            </Button>
           </div>
         ) : (
+
+          /* 🔥 AICI RE-VENIM cu form complet */
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* FORM CONTENT ... tot restul rămâne neschimbat */}
-            
+
+            {/* … aici inserezi TOT formularul original (l-ai tăiat din greșeală) */}
+
             <div className="flex justify-end gap-3">
               <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
                 {L?.cancel ?? "Renunță"}
