@@ -2,6 +2,7 @@
 import type React from "react"
 import Link from "next/link"
 import Image from "next/image"
+import dynamic from "next/dynamic"
 
 // ICONS (import individual – optim pentru PageSpeed)
 import ArrowRight from "lucide-react/dist/esm/icons/arrow-right"
@@ -11,8 +12,6 @@ import Waves from "lucide-react/dist/esm/icons/waves"
 import FlaskConical from "lucide-react/dist/esm/icons/flask-conical"
 import Link2 from "lucide-react/dist/esm/icons/link-2"
 
-// COMPONENTE
-import dynamic from "next/dynamic"
 import { Button } from "@/components/ui/button"
 import {
   Accordion,
@@ -20,11 +19,17 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion"
-import OfferCTA from "@/components/offer/OfferCTA"
+
 import Footer from "@/components/ui/footer"
 import { useLocale } from "@/contexts/locale-context"
 
-// TinkaBookSection – Lazy load (IMPORTANT pt PageSpeed)
+// ⭐ LAZY LOAD pentru OfferCTA (ZERO JS în Above-the-fold)
+const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
+  ssr: false,
+  loading: () => <span className="text-gray-400 text-sm">…</span>,
+})
+
+// ⭐ LAZY LOAD pentru TinkaBookSection
 const TinkaBookSection = dynamic(() => import("@/components/TinkaBookSection"), {
   ssr: false,
   loading: () => (
@@ -52,13 +57,12 @@ export default function Page() {
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
-              {/* Text Hero */}
+              
+              {/* TEXT HERO */}
               <div className="space-y-6">
+
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                  <span
-                    className="h-3.5 w-3.5 rounded-full bg-sky-400"
-                    aria-hidden
-                  />
+                  <span className="h-3.5 w-3.5 rounded-full bg-sky-400" aria-hidden />
                   {t("hero.subtitle")}
                 </div>
 
@@ -70,8 +74,9 @@ export default function Page() {
                   {t("whatWeOffer.title")}
                 </p>
 
-                {/* CTA buttons */}
+                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3">
+
                   <Button
                     asChild
                     className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
@@ -82,13 +87,12 @@ export default function Page() {
                     </Link>
                   </Button>
 
-                  <OfferCTA
-                    className={`${fx} active:scale-95 transition-transform`}
-                  />
+                  {/* ⚡ Lazy loaded OfferCTA */}
+                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
                 </div>
               </div>
 
-              {/* Imagine Hero – OPTIMIZATĂ pentru LCP */}
+              {/* IMAGE HERO – OPTIMIZAT PENTRU LCP */}
               <div className="relative">
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
 
@@ -107,56 +111,22 @@ export default function Page() {
         </section>
 
         {/* WHY AI */}
-        <section
-          id="experiente"
-          className="py-12 sm:py-16 border-b border-white/5"
-        >
+        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
               {t("whyAI.title")}
             </h2>
 
             <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <Feature
-                fx={fx}
-                icon={<Puzzle className="h-6 w-6" />}
-                title={t("whyAI.benefit1.title")}
-                text={t("whyAI.benefit1.description")}
-                link="/solutions"
-                learnMore={t("hero.cta")}
-              />
-
-              <Feature
-                fx={fx}
-                icon={<Waves className="h-6 w-6" />}
-                title={t("whyAI.benefit2.title")}
-                text={t("whyAI.benefit2.description")}
-                link="/solutions"
-                learnMore={t("hero.cta")}
-              />
-
-              <Feature
-                fx={fx}
-                icon={<Eye className="h-6 w-6" />}
-                title={t("whyAI.benefit3.title")}
-                text={t("whyAI.benefit3.description")}
-                link="/solutions"
-                learnMore={t("hero.cta")}
-              />
-
-              <Feature
-                fx={fx}
-                icon={<FlaskConical className="h-6 w-6" />}
-                title={t("whyAI.benefit4.title")}
-                text={t("whyAI.benefit4.description")}
-                link="/solutions"
-                learnMore={t("hero.cta")}
-              />
+              <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={t("whyAI.benefit1.title")} text={t("whyAI.benefit1.description")} link="/solutions" learnMore={t("hero.cta")} />
+              <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={t("whyAI.benefit2.title")} text={t("whyAI.benefit2.description")} link="/solutions" learnMore={t("hero.cta")} />
+              <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={t("whyAI.benefit3.title")} text={t("whyAI.benefit3.description")} link="/solutions" learnMore={t("hero.cta")} />
+              <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={t("whyAI.benefit4.title")} text={t("whyAI.benefit4.description")} link="/solutions" learnMore={t("hero.cta")} />
             </ul>
           </div>
         </section>
 
-        {/* TinkaBook – Lazy Loaded */}
+        {/* TINKA BOOK – LAZY LOAD */}
         <TinkaBookSection fx={fx} />
 
         {/* FAQ */}
@@ -168,21 +138,13 @@ export default function Page() {
 
             <Accordion type="single" collapsible className="mt-6">
               <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger className="text-left">
-                  {t("contact.faq.question1.q")}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  {t("contact.faq.question1.a")}
-                </AccordionContent>
+                <AccordionTrigger>{t("contact.faq.question1.q")}</AccordionTrigger>
+                <AccordionContent className="text-gray-300">{t("contact.faq.question1.a")}</AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger className="text-left">
-                  {t("contact.faq.question2.q")}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  {t("contact.faq.question2.a")}
-                </AccordionContent>
+                <AccordionTrigger>{t("contact.faq.question2.q")}</AccordionTrigger>
+                <AccordionContent className="text-gray-300">{t("contact.faq.question2.a")}</AccordionContent>
               </AccordionItem>
             </Accordion>
           </div>
@@ -194,33 +156,16 @@ export default function Page() {
   )
 }
 
-/* ———— Sub-component ———— */
-function Feature({
-  fx,
-  icon,
-  title,
-  text,
-  link,
-  learnMore,
-}: {
-  fx: string
-  icon: React.ReactNode
-  title: string
-  text: string
-  link: string
-  learnMore: string
-}) {
+/* ———— Sub-componentă ———— */
+
+function Feature({ fx, icon, title, text, link, learnMore }: any) {
   return (
     <li className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}>
       <div className="flex items-center gap-3">
         <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">
           {icon}
         </div>
-
-        {/* H3 SEO – optimizat */}
-        <h3 className="font-semibold text-gray-300 text-lg">
-          {title}
-        </h3>
+        <h3 className="font-semibold text-gray-300 text-lg">{title}</h3>
       </div>
 
       <p className="mt-2 text-sm text-gray-300">{text}</p>
