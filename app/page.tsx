@@ -23,13 +23,13 @@ import {
 import Footer from "@/components/ui/footer"
 import { useLocale } from "@/contexts/locale-context"
 
-// ⭐ LAZY LOAD pentru OfferCTA (ZERO JS în Above-the-fold)
+// LAZY LOAD pentru OfferCTA (ZERO JS în Above-the-fold)
 const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
   ssr: false,
   loading: () => <span className="text-gray-400 text-sm">…</span>,
 })
 
-// ⭐ LAZY LOAD pentru TinkaBookSection
+//  LAZY LOAD pentru TinkaBookSection
 const TinkaBookSection = dynamic(() => import("@/components/TinkaBookSection"), {
   ssr: false,
   loading: () => (
