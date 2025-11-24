@@ -9,6 +9,16 @@ import { Badge } from "@/components/ui/badge"
 import { useLocale } from "@/contexts/locale-context"
 import { translations } from "@/lib/i18n"
 import Script from "next/script"
+export const metadata = {
+  alternates: {
+    canonical: "https://tinka.md/solutions",
+    languages: {
+      "ro-MD": "https://tinka.md/solutions",
+      "en-US": "https://tinka.md/en/solutions",
+      "ru-MD": "https://tinka.md/ru/solutions",
+    },
+  },
+}
 
 function StructuredDataSolutions() {
   const data = {
