@@ -3,7 +3,12 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { X, Link2, BadgeCheck } from "lucide-react"
+
+// ICONS – import individual pentru PageSpeed
+import X from "lucide-react/dist/esm/icons/x"
+import Link2 from "lucide-react/dist/esm/icons/link-2"
+import BadgeCheck from "lucide-react/dist/esm/icons/badge-check"
+
 import { Button } from "@/components/ui/button"
 import { useLocale } from "@/contexts/locale-context"
 
@@ -115,7 +120,8 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
   return (
     <section id="tinkabook" className="py-12 sm:py-16 border-b border-white/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-center">
-        {/* Col stânga: prezentare + doar buton demo */}
+
+        {/* Col stânga */}
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
             <BadgeCheck className="h-3.5 w-3.5 text-sky-400" aria-hidden />
@@ -159,7 +165,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
           </div>
         </div>
 
-        {/* Col dreapta: card cu buton „Solicită acces” */}
+        {/* Col dreapta */}
         <div className={`rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 ${fx}`}>
           <p className="text-sm text-gray-300">
             {t("tinkabook.form.description")}
@@ -430,3 +436,6 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
           </div>
         </div>
       )}
+    </section>
+  )
+}
