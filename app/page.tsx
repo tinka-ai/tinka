@@ -1,11 +1,10 @@
 // app/page.tsx
-"use client"
-
 import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Eye, FlaskConical, Puzzle, Waves, Link2, BadgeCheck, X } from "lucide-react"
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right"
+import Eye from "lucide-react/dist/esm/icons/eye"
 
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
