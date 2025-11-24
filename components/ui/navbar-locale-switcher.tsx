@@ -2,6 +2,12 @@
 
 import { useLocale } from "@/contexts/locale-context"
 
+const LANGS = [
+  { value: "ro", label: "Română" },
+  { value: "ru", label: "Русский" },
+  { value: "en", label: "English" },
+]
+
 export default function LocaleSwitcher() {
   const { locale, setLocale } = useLocale()
 
@@ -9,11 +15,13 @@ export default function LocaleSwitcher() {
     <select
       value={locale}
       onChange={(e) => setLocale(e.target.value as any)}
-      className="bg-transparent text-sm text-muted-foreground focus:outline-none"
+      className="bg-transparent text-sm text-foreground focus:outline-none"
     >
-      <option value="ro">Română</option>
-      <option value="ru">Русский</option>
-      <option value="en">English</option>
+      {LANGS.map((l) => (
+        <option key={l.value} value={l.value} className="text-black">
+          {l.label}
+        </option>
+      ))}
     </select>
   )
 }
