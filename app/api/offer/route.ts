@@ -1,7 +1,9 @@
 // app/api/offer/route.ts
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
-
+// TEST ENV
+console.log("ENV TEST:", process.env.TEST_VAR)
+// END TEST ENV
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
