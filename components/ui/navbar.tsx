@@ -1,13 +1,11 @@
-// components/ui/navbar.tsx
+// components/ui/navbar.tsx (SERVER COMPONENT)
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
 import { getTranslations } from "@/lib/server-i18n"
-
-// ⭐ Client component DOAR pentru schimbarea limbii
 import LocaleSwitcher from "./navbar-locale-switcher"
 
-// ICON: mic, fără importuri mari
+// icon mic, fără overhead
 const Dot = () => <span className="opacity-40">•</span>
 
 export default async function Navbar() {
@@ -26,14 +24,14 @@ export default async function Navbar() {
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
 
-        {/* Bara principală */}
+        {/* Bară principală — ZERO JS */}
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
 
-          {/* Logo – fără priority (îmbunătățește LCP) */}
+          {/* LOGO */}
           <Link
             href="/"
-            className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-muted/40 transition-colors"
             prefetch={false}
+            className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-muted/40 transition-colors"
           >
             <Image
               src="/TINKA-AI Logo.png"
@@ -45,15 +43,15 @@ export default async function Navbar() {
             <span className="sr-only">TINKA AI</span>
           </Link>
 
-          {/* Meniu – ZERO JS */}
+          {/* MENIU – ZERO JS */}
           <nav className="hidden md:flex items-center gap-6">
-            <PlainNavLink href="/">{labels.home}</PlainNavLink>
-            <PlainNavLink href="/solutions">{labels.solutions}</PlainNavLink>
-            <PlainNavLink href="/about">{labels.about}</PlainNavLink>
-            <PlainNavLink href="/contact">{labels.contact}</PlainNavLink>
+            <ActiveNavLink href="/">{labels.home}</ActiveNavLink>
+            <ActiveNavLink href="/solutions">{labels.solutions}</ActiveNavLink>
+            <ActiveNavLink href="/about">{labels.about}</ActiveNavLink>
+            <ActiveNavLink href="/contact">{labels.contact}</ActiveNavLink>
           </nav>
 
-          {/* Limbi – ultra-light, doar client pentru select */}
+          {/* LIMBI – DOAR SWITCHER este client component */}
           <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
             <Globe className="h-4 w-4 text-muted-foreground" />
             <LocaleSwitcher />
@@ -68,9 +66,9 @@ export default async function Navbar() {
           <div className="relative inline-flex items-center gap-3 rounded-full border border-border bg-card/60 backdrop-blur-md px-4 py-1">
             <p className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
               <span className="inline-flex items-center gap-3">
-                {ACRONYM.map((w, i) => (
-                  <span key={w} className="inline-flex items-center gap-3">
-                    <span>{w}</span>
+                {ACRONYM.map((word, i) => (
+                  <span key={word} className="inline-flex items-center gap-3">
+                    <span>{word}</span>
                     {i < ACRONYM.length - 1 && <Dot />}
                   </span>
                 ))}
@@ -84,10 +82,11 @@ export default async function Navbar() {
   )
 }
 
-/*  SUBCOMPONENTE  */
+/* ——————————————————————————
+    LINK CU ACTIVE STATE — ZERO JS
+—————————————————————————— */
 
-// ZERO JS – fără hover animations complicate
-function PlainNavLink({
+function ActiveNavLink({
   href,
   children,
 }: {
@@ -98,7 +97,18 @@ function PlainNavLink({
     <Link
       href={href}
       prefetch={false}
-      className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+      className={`
+        text-sm font-medium transition-colors
+        text-muted-foreground
+        hover:text-foreground
+        [aria-current="page"]:text-foreground
+        [aria-current="page"]:font-semibold
+      `}
+      aria-current={
+        typeof window !== "undefined" && window.location.pathname.startsWith(href)
+          ? "page"
+          : undefined
+      }
     >
       {children}
     </Link>
