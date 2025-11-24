@@ -1,27 +1,28 @@
-"use client"
+import Link from "next/link"
+import { headers } from "next/headers"
 
-import { useLocale } from "@/contexts/locale-context"
+export function PlainNavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const headersList = headers()
+  const pathname = headersList.get("x-pathname") || "/"
 
-const LANGS = [
-  { value: "ro", label: "Română" },
-  { value: "ru", label: "Русский" },
-  { value: "en", label: "English" },
-]
-
-export default function LocaleSwitcher() {
-  const { locale, setLocale } = useLocale()
+  // Activ exact ca în client, dar calculat pe server
+  const isActive =
+    href === "/"
+      ? pathname === "/"
+      : pathname.startsWith(href)
 
   return (
-    <select
-      value={locale}
-      onChange={(e) => setLocale(e.target.value as any)}
-      className="bg-transparent text-sm text-foreground focus:outline-none"
+    <Link
+      href={href}
+      prefetch={false}
+      className={
+        "text-sm transition-colors font-medium " +
+        (isActive
+          ? "text-foreground font-semibold"
+          : "text-muted-foreground hover:text-foreground")
+      }
     >
-      {LANGS.map((l) => (
-        <option key={l.value} value={l.value} className="text-black">
-          {l.label}
-        </option>
-      ))}
-    </select>
+      {children}
+    </Link>
   )
 }
