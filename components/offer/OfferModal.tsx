@@ -129,18 +129,22 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
                   <Label htmlFor="name">{L.fields.name}</Label>
                   <Input id="name" name="name" placeholder="John Doe" />
                 </div>
+
                 <div>
                   <Label htmlFor="email">{L.fields.email} *</Label>
                   <Input id="email" name="email" type="email" required placeholder="name@domain.com" />
                 </div>
+
                 <div>
                   <Label htmlFor="phone">{L.fields.phone}</Label>
                   <Input id="phone" name="phone" placeholder="+373…" />
                 </div>
+
                 <div>
                   <Label htmlFor="company">{L.fields.company}</Label>
                   <Input id="company" name="company" placeholder="Company SRL" />
                 </div>
+
                 <div className="md:col-span-2">
                   <Label htmlFor="region">{L.fields.region}</Label>
                   <Input id="region" name="region" placeholder={L.placeholders.region} />
@@ -347,7 +351,6 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
 
                 <div>
                   <Label>{L.fields.budget}</Label>
-
                   <Select value={budget} onValueChange={setBudget}>
                     <SelectTrigger>
                       <SelectValue placeholder={L.placeholders.budget} />
@@ -380,8 +383,24 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
 
             {/* SUBMIT */}
             <div className="flex justify-end gap-3">
-              <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => onOpenChange(false)}
+              >
                 {L.cancel}
               </Button>
 
-              <Button type
+              <Button type="submit" className="bg-primary-foreground text-primary">
+                {sending ? LoaderSvg : SendSvg}
+                {L.submit}
+              </Button>
+            </div>
+
+          </form>
+        )}
+
+      </DialogContent>
+    </Dialog>
+  )
+}
