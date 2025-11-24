@@ -19,10 +19,18 @@ import OfferCTA from "@/components/offer/OfferCTA"
 import Footer from "@/components/ui/footer"
 import { useLocale } from "@/contexts/locale-context"
 
-// TinkaBookSection – Lazy load (very important!)
-const TinkaBookSection = dynamic(() => import("@/components/TinkaBookSection"), {
-  ssr: false,
-})
+// TinkaBookSection – Lazy load
+const TinkaBookSection = dynamic(
+  () => import("@/components/TinkaBookSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="text-center py-10 text-gray-400 text-sm">
+        Loading...
+      </div>
+    ),
+  }
+)
 
 export default function Page() {
   const { t: T } = useLocale() as any
@@ -69,7 +77,7 @@ export default function Page() {
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
                 <Image
                   src="/image/hero-tinkaai.webp"
-                  alt="Hero visual"
+                  alt="TINKA AI – Soluții AI și Web Design în Moldova"
                   width={880}
                   height={700}
                   className="w-full h-auto rounded-2xl object-cover select-none pointer-events-none"
@@ -124,7 +132,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TINKABOOK SECTION – lazy loaded */}
+        {/* TINKABOOK SECTION */}
         <TinkaBookSection fx={fx} />
 
         {/* FAQ */}
@@ -185,8 +193,13 @@ function Feature({
         <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">
           {icon}
         </div>
-        <p className="font-semibold text-gray-300">{title}</p>
+
+        {/* ❗AICI este modificarea SEO corectă */}
+        <h3 className="font-semibold text-gray-300 text-lg">
+          {title}
+        </h3>
       </div>
+
       <p className="mt-2 text-sm text-gray-300">{text}</p>
 
       <Link
