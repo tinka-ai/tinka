@@ -1,101 +1,39 @@
 // components/ui/navbar.tsx
-"use client"
-
-import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { Globe } from "lucide-react"
-import { useLocale } from "@/contexts/locale-context"
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
-} from "@/components/ui/select"
+import { getTranslations } from "@/lib/server-i18n"
 
-type Lang = "ro" | "ru" | "en"
+// ⭐ Client component DOAR pentru schimbarea limbii
+import LocaleSwitcher from "./navbar-locale-switcher"
 
-const LANGS: { value: Lang; label: string }[] = [
-  { value: "ro", label: "Română" },
-  { value: "ru", label: "Русский" },
-  { value: "en", label: "English" },
-]
-
-// Link cu efect slide-up: regular→bold la hover și bold persistent pe ruta activă
-function AnimatedNavLink({
-  href,
-  children,
-  className = "",
-}: {
-  href: string
-  children: ReactNode
-  className?: string
-}) {
-  const pathname = usePathname()
-  const isActive =
-    pathname === href || (href !== "/" && pathname?.startsWith(href))
-
-  return (
-    <Link
-      href={href}
-      aria-current={isActive ? "page" : undefined}
-      // inline-grid => lățimea ia în calcul conținutul cel mai lat (ghost-ul bold)
-      className={`group relative inline-grid h-[1.3em] overflow-hidden whitespace-nowrap ${className}`}
-      style={{ alignItems: "start" }}
-    >
-      {/* Ghost invizibil pentru măsurare (bold) */}
-      <span
-        aria-hidden
-        className="text-sm font-semibold opacity-0 select-none pointer-events-none"
-      >
-        {children}
-      </span>
-
-      {/* strat REGULAR */}
-      <span
-        className={`col-start-1 row-start-1 text-sm text-muted-foreground transition-transform duration-200 ${
-          isActive ? "-translate-y-full" : "group-hover:-translate-y-full"
-        }`}
-      >
-        {children}
-      </span>
-
-      {/* strat BOLD */}
-      <span
-        className={`col-start-1 row-start-1 text-sm font-semibold text-foreground transition-transform duration-200 ${
-          isActive ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"
-        }`}
-      >
-        {children}
-      </span>
-    </Link>
-  )
-}
-
-const ACRONYM = ["Technologies", "Innovation", "Networking", "Knowledge", "Automation"]
+// ICON: mic, fără importuri mari
 const Dot = () => <span className="opacity-40">•</span>
 
-function Navbar() {
-  const { locale, setLocale, t } = useLocale()
+export default async function Navbar() {
+  const t = await getTranslations()
 
   const labels = {
-    home: t?.nav?.home ?? t?.footer?.home ?? "Acasă",
-    solutions: t?.nav?.solutions ?? t?.footer?.solutions ?? "Soluții",
-    about: t?.nav?.about ?? t?.footer?.about ?? "Despre",
-    contact: t?.nav?.contact ?? t?.footer?.contact ?? "Contact",
+    home: t.nav.home,
+    solutions: t.nav.solutions,
+    about: t.nav.about,
+    contact: t.nav.contact,
   }
+
+  const ACRONYM = ["Technologies", "Innovation", "Networking", "Knowledge", "Automation"]
 
   return (
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
+
         {/* Bara principală */}
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
-          {/* Logo */}
+
+          {/* Logo – fără priority (îmbunătățește LCP) */}
           <Link
             href="/"
             className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-muted/40 transition-colors"
+            prefetch={false}
           >
             <Image
               src="/TINKA-AI Logo.png"
@@ -103,45 +41,26 @@ function Navbar() {
               width={150}
               height={56}
               className="rounded-md"
-              priority
             />
             <span className="sr-only">TINKA AI</span>
           </Link>
 
-          {/* Meniu */}
+          {/* Meniu – ZERO JS */}
           <nav className="hidden md:flex items-center gap-6">
-            <AnimatedNavLink href="/">{labels.home}</AnimatedNavLink>
-            <AnimatedNavLink href="/solutions">{labels.solutions}</AnimatedNavLink>
-            <AnimatedNavLink href="/about">{labels.about}</AnimatedNavLink>
-            <AnimatedNavLink href="/contact">{labels.contact}</AnimatedNavLink>
+            <PlainNavLink href="/">{labels.home}</PlainNavLink>
+            <PlainNavLink href="/solutions">{labels.solutions}</PlainNavLink>
+            <PlainNavLink href="/about">{labels.about}</PlainNavLink>
+            <PlainNavLink href="/contact">{labels.contact}</PlainNavLink>
           </nav>
 
-          {/* Limbi */}
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
-              <Globe className="h-4 w-4 text-muted-foreground" />
-              <Select
-                value={locale as Lang}
-                onValueChange={(val: Lang) => setLocale(val)}
-              >
-                <SelectTrigger className="h-8 w-[140px] border-0 bg-transparent focus:ring-0 data-[placeholder]:text-muted-foreground">
-                  <SelectValue
-                    placeholder={LANGS.find((l) => l.value === (locale as Lang))?.label}
-                  />
-                </SelectTrigger>
-                <SelectContent className="border-border bg-card/95 backdrop-blur-sm">
-                  {LANGS.map((l) => (
-                    <SelectItem key={l.value} value={l.value}>
-                      {l.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          {/* Limbi – ultra-light, doar client pentru select */}
+          <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
+            <Globe className="h-4 w-4 text-muted-foreground" />
+            <LocaleSwitcher />
           </div>
         </div>
 
-        {/* Banda cu acronimul TINKA (sub navbar) */}
+        {/* Banda ACRONYM */}
         <div
           className="mt-2 hidden md:flex justify-center"
           aria-label="TINKA: Technologies, Innovation, Networking, Knowledge, Automation"
@@ -159,11 +78,29 @@ function Navbar() {
             </p>
           </div>
         </div>
+
       </div>
     </header>
   )
 }
 
-// export named + default corecte
-export { Navbar, AnimatedNavLink }
-export default Navbar
+/*  SUBCOMPONENTE  */
+
+// ZERO JS – fără hover animations complicate
+function PlainNavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      prefetch={false}
+      className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+    >
+      {children}
+    </Link>
+  )
+}
