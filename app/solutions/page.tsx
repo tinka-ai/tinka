@@ -1,5 +1,4 @@
-// app/solutions/page.tsx (SERVER COMPONENT – ZERO JS)
-// ❗ IMPORTANT: fără "use client"
+// app/solutions/page.tsx 
 
 import Image from "next/image"
 import Link from "next/link"
