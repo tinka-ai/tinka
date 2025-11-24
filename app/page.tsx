@@ -14,27 +14,30 @@ import Link2 from "lucide-react/dist/esm/icons/link-2"
 // COMPONENTE
 import dynamic from "next/dynamic"
 import { Button } from "@/components/ui/button"
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion"
 import OfferCTA from "@/components/offer/OfferCTA"
 import Footer from "@/components/ui/footer"
 import { useLocale } from "@/contexts/locale-context"
 
-// TinkaBookSection – Lazy load
-const TinkaBookSection = dynamic(
-  () => import("@/components/TinkaBookSection"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="text-center py-10 text-gray-400 text-sm">
-        Loading...
-      </div>
-    ),
-  }
-)
+// TinkaBookSection – Lazy load (IMPORTANT pt PageSpeed)
+const TinkaBookSection = dynamic(() => import("@/components/TinkaBookSection"), {
+  ssr: false,
+  loading: () => (
+    <div className="text-center py-10 text-gray-400 text-sm">
+      Loading...
+    </div>
+  ),
+})
 
 export default function Page() {
   const { t: T } = useLocale() as any
-  const t = (path: string) => path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
+  const t = (path: string) =>
+    path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
 
   const fx =
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
@@ -43,12 +46,19 @@ export default function Page() {
     <>
       <main>
         {/* HERO */}
-        <section id="acasa" className="relative overflow-hidden border-b border-white/5">
+        <section
+          id="acasa"
+          className="relative overflow-hidden border-b border-white/5"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
+              {/* Text Hero */}
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                  <span className="h-3.5 w-3.5 rounded-full bg-sky-400" aria-hidden />
+                  <span
+                    className="h-3.5 w-3.5 rounded-full bg-sky-400"
+                    aria-hidden
+                  />
                   {t("hero.subtitle")}
                 </div>
 
@@ -62,26 +72,34 @@ export default function Page() {
 
                 {/* CTA buttons */}
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
+                  <Button
+                    asChild
+                    className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
+                  >
                     <Link href="/solutions" aria-label={t("nav.solutions")}>
                       {t("hero.ctaPrimary")}
                       <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
                     </Link>
                   </Button>
 
-                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                  <OfferCTA
+                    className={`${fx} active:scale-95 transition-transform`}
+                  />
                 </div>
               </div>
 
+              {/* Imagine Hero – OPTIMIZATĂ pentru LCP */}
               <div className="relative">
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
+
                 <Image
                   src="/image/hero-tinkaai.webp"
                   alt="TINKA AI – Soluții AI și Web Design în Moldova"
                   width={880}
                   height={700}
-                  className="w-full h-auto rounded-2xl object-cover select-none pointer-events-none"
                   priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="w-full h-auto rounded-2xl object-cover select-none pointer-events-none"
                 />
               </div>
             </div>
@@ -89,7 +107,10 @@ export default function Page() {
         </section>
 
         {/* WHY AI */}
-        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
+        <section
+          id="experiente"
+          className="py-12 sm:py-16 border-b border-white/5"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
               {t("whyAI.title")}
@@ -104,6 +125,7 @@ export default function Page() {
                 link="/solutions"
                 learnMore={t("hero.cta")}
               />
+
               <Feature
                 fx={fx}
                 icon={<Waves className="h-6 w-6" />}
@@ -112,6 +134,7 @@ export default function Page() {
                 link="/solutions"
                 learnMore={t("hero.cta")}
               />
+
               <Feature
                 fx={fx}
                 icon={<Eye className="h-6 w-6" />}
@@ -120,6 +143,7 @@ export default function Page() {
                 link="/solutions"
                 learnMore={t("hero.cta")}
               />
+
               <Feature
                 fx={fx}
                 icon={<FlaskConical className="h-6 w-6" />}
@@ -132,7 +156,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TINKABOOK SECTION */}
+        {/* TinkaBook – Lazy Loaded */}
         <TinkaBookSection fx={fx} />
 
         {/* FAQ */}
@@ -170,8 +194,7 @@ export default function Page() {
   )
 }
 
-/* ———— Sub-componente ———— */
-
+/* ———— Sub-component ———— */
 function Feature({
   fx,
   icon,
@@ -194,7 +217,7 @@ function Feature({
           {icon}
         </div>
 
-        {/* ❗AICI este modificarea SEO corectă */}
+        {/* H3 SEO – optimizat */}
         <h3 className="font-semibold text-gray-300 text-lg">
           {title}
         </h3>
