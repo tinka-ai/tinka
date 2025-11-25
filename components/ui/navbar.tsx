@@ -2,10 +2,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
-
 import { getTranslations } from "@/lib/server-i18n"
-import ActiveNavLink from "./active-nav-link"
 import { PlainNavLink } from "./navbar-locale-switcher"
+import ActiveNavLink from "./active-nav-link"
 
 const Dot = () => <span className="opacity-40">•</span>
 
@@ -25,10 +24,8 @@ export default async function Navbar() {
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
 
-        {/* Bara principală */}
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
 
-          {/* LOGO */}
           <Link
             href="/"
             prefetch={false}
@@ -44,7 +41,6 @@ export default async function Navbar() {
             <span className="sr-only">TINKA AI</span>
           </Link>
 
-          {/* MENIU */}
           <nav className="hidden md:flex items-center gap-6">
             <ActiveNavLink href="/">{labels.home}</ActiveNavLink>
             <ActiveNavLink href="/solutions">{labels.solutions}</ActiveNavLink>
@@ -52,14 +48,12 @@ export default async function Navbar() {
             <ActiveNavLink href="/contact">{labels.contact}</ActiveNavLink>
           </nav>
 
-          {/* LIMBI */}
           <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
             <Globe className="h-4 w-4 text-muted-foreground" />
             <PlainNavLink />
           </div>
         </div>
 
-        {/* Banda ACRONYM */}
         <div className="mt-2 hidden md:flex justify-center" aria-label="TINKA">
           <div className="relative inline-flex items-center gap-3 rounded-full border border-border bg-card/60 backdrop-blur-md px-4 py-1">
             <p className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
