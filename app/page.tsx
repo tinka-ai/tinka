@@ -1,5 +1,4 @@
-"use client"
-// app/page.tsx — FIXED TO PREVENT CLIENT-SIDE CRASH
+"use client";
 
 import type React from "react";
 import Link from "next/link";
@@ -12,8 +11,8 @@ import Puzzle from "lucide-react/dist/esm/icons/puzzle";
 import Waves from "lucide-react/dist/esm/icons/waves";
 import FlaskConical from "lucide-react/dist/esm/icons/flask-conical";
 import Link2 from "lucide-react/dist/esm/icons/link-2";
-import Footer from "@/components/ui/footer";
 
+import Footer from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -25,10 +24,7 @@ import {
 import LocalePageClient from "@/components/LocalePageClient";
 import T from "@/components/T";
 
-const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
-  ssr: false,
-});
-
+const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), { ssr: false });
 const TinkaBookSection = dynamic(
   () => import("@/components/sections/TinkaBookSection"),
   { ssr: false }
@@ -41,7 +37,7 @@ export default function Page() {
   return (
     <LocalePageClient>
       <main id="main-content">
-        
+
         {/* HERO */}
         <section
           id="acasa"
@@ -50,7 +46,7 @@ export default function Page() {
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
-              
+
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
                   <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
@@ -91,74 +87,3 @@ export default function Page() {
               </div>
 
             </div>
-          </div>
-        </section>
-
-        {/* WHY AI */}
-        <section id="experiente" aria-label="Beneficii și experiențe" className="py-12 sm:py-16 border-b border-white/5">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-              <T path="whyAI.title" />
-            </h2>
-
-            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={<T path="whyAI.benefit1.title" />} text={<T path="whyAI.benefit1.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-              <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={<T path="whyAI.benefit2.title" />} text={<T path="whyAI.benefit2.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-              <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={<T path="whyAI.benefit3.title" />} text={<T path="whyAI.benefit3.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-              <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={<T path="whyAI.benefit4.title" />} text={<T path="whyAI.benefit4.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-            </ul>
-          </div>
-        </section>
-
-        {/* TINKA BOOK */}
-        <TinkaBookSection fx={fx} />
-
-        {/* FAQ */}
-        <section id="faq" aria-label="Întrebări frecvente" className="py-12 sm:py-16 border-b border-white/5">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <h3 className="text-2xl font-bold text-gray-200">
-              <T path="contact.faq.title" />
-            </h3>
-
-            <Accordion type="single" collapsible className="mt-6">
-              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger><T path="contact.faq.question1.q" /></AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  <T path="contact.faq.question1.a" />
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger><T path="contact.faq.question2.q" /></AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  <T path="contact.faq.question2.a" />
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-
-      </main>
-    </LocalePageClient>
-  );
-}
-
-function Feature({ fx, icon, title, text, link, learnMore }: any) {
-  return (
-    <li className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}>
-      <div className="flex items-center gap-3">
-        <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">
-          {icon}
-        </div>
-        <h3 className="font-semibold text-gray-300 text-lg">{title}</h3>
-      </div>
-
-      <p className="mt-2 text-sm text-gray-300">{text}</p>
-
-      <Link href={link} className="mt-3 inline-flex items-center gap-2 text-sky-300 text-sm hover:text-white transition-colors">
-        <Link2 className="h-4 w-4" />
-        {learnMore}
-      </Link>
-    </li>
-  );
-}
