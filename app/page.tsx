@@ -1,4 +1,4 @@
-// app/page.tsx — FINAL FIXED VERSION (SERVER COMPONENT)
+// app/page.tsx — FINAL SERVER COMPONENT FIXED
 
 import type React from "react"
 import Link from "next/link"
@@ -22,8 +22,8 @@ import {
 
 import Footer from "@/components/ui/footer"
 
-// nou: mic client wrapper VALID
 import LocalePageClient from "@/components/LocalePageClient"
+import T from "@/components/T"
 
 // lazy components
 const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
@@ -49,116 +49,111 @@ export default function Page() {
 
   return (
     <LocalePageClient>
-      {(t) => (
-        <>
-          <main>
-            {/* HERO */}
-            <section
-              id="acasa"
-              className="relative overflow-hidden border-b border-white/5"
-            >
-              <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
+      <main>
+        {/* HERO */}
+        <section
+          id="acasa"
+          className="relative overflow-hidden border-b border-white/5"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
+              
+              {/* TEXT HERO */}
+              <div className="space-y-6">
 
-                  {/* TEXT HERO */}
-                  <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
+                  <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
+                  <T path="hero.subtitle" />
+                </div>
 
-                    <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                      <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
-                      {t("hero.subtitle")}
-                    </div>
+                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                  <T path="hero.title" />
+                </h1>
 
-                    <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-                      {t("hero.title")}
-                    </h1>
+                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
+                  <T path="whatWeOffer.title" />
+                </p>
 
-                    <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
-                      {t("whatWeOffer.title")}
-                    </p>
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    asChild
+                    className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
+                  >
+                    <Link href="/solutions">
+                      <T path="hero.ctaPrimary" />
+                      <ArrowRight className="ms-2 h-4 w-4" />
+                    </Link>
+                  </Button>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3">
-
-                      <Button
-                        asChild
-                        className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
-                      >
-                        <Link href="/solutions">
-                          {t("hero.ctaPrimary")}
-                          <ArrowRight className="ms-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-
-                      <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
-                    </div>
-                  </div>
-
-                  {/* IMAGE HERO */}
-                  <div className="relative">
-                    <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
-
-                    <Image
-                      src="/image/hero-tinkaai.webp"
-                      alt="TINKA AI – Soluții AI și Web Design în Moldova"
-                      width={880}
-                      height={700}
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="w-full h-auto rounded-2xl object-cover"
-                    />
-                  </div>
+                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
                 </div>
               </div>
-            </section>
 
-            {/* WHY AI */}
-            <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-                  {t("whyAI.title")}
-                </h2>
+              {/* IMAGE HERO */}
+              <div className="relative">
+                <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
 
-                <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={t("whyAI.benefit1.title")} text={t("whyAI.benefit1.description")} link="/solutions" learnMore={t("hero.cta")} />
-                  <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={t("whyAI.benefit2.title")} text={t("whyAI.benefit2.description")} link="/solutions" learnMore={t("hero.cta")} />
-                  <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={t("whyAI.benefit3.title")} text={t("whyAI.benefit3.description")} link="/solutions" learnMore={t("hero.cta")} />
-                  <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={t("whyAI.benefit4.title")} text={t("whyAI.benefit4.description")} link="/solutions" learnMore={t("hero.cta")} />
-                </ul>
+                <Image
+                  src="/image/hero-tinkaai.webp"
+                  alt="TINKA AI – Soluții AI și Web Design în Moldova"
+                  width={880}
+                  height={700}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="w-full h-auto rounded-2xl object-cover"
+                />
               </div>
-            </section>
+            </div>
+          </div>
+        </section>
 
-            {/* TINKA BOOK */}
-            <TinkaBookSection fx={fx} />
+        {/* WHY AI */}
+        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+              <T path="whyAI.title" />
+            </h2>
 
-            {/* FAQ */}
-            <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
-              <div className="mx-auto max-w-4xl px-4 sm:px-6">
-                <h3 className="text-2xl font-bold text-gray-200">
-                  {t("contact.faq.title")}
-                </h3>
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={<T path="whyAI.benefit1.title" />} text={<T path="whyAI.benefit1.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={<T path="whyAI.benefit2.title" />} text={<T path="whyAI.benefit2.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={<T path="whyAI.benefit3.title" />} text={<T path="whyAI.benefit3.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={<T path="whyAI.benefit4.title" />} text={<T path="whyAI.benefit4.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+            </ul>
+          </div>
+        </section>
 
-                <Accordion type="single" collapsible className="mt-6">
-                  <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-                    <AccordionTrigger>{t("contact.faq.question1.q")}</AccordionTrigger>
-                    <AccordionContent className="text-gray-300">
-                      {t("contact.faq.question1.a")}
-                    </AccordionContent>
-                  </AccordionItem>
+        {/* TINKA BOOK */}
+        <TinkaBookSection fx={fx} />
 
-                  <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-                    <AccordionTrigger>{t("contact.faq.question2.q")}</AccordionTrigger>
-                    <AccordionContent className="text-gray-300">
-                      {t("contact.faq.question2.a")}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-            </section>
-          </main>
+        {/* FAQ */}
+        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <h3 className="text-2xl font-bold text-gray-200">
+              <T path="contact.faq.title" />
+            </h3>
 
-          <Footer />
-        </>
-      )}
+            <Accordion type="single" collapsible className="mt-6">
+              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger><T path="contact.faq.question1.q" /></AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  <T path="contact.faq.question1.a" />
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger><T path="contact.faq.question2.q" /></AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  <T path="contact.faq.question2.a" />
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </LocalePageClient>
   )
 }
