@@ -57,30 +57,30 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova",
-    description:
-      "Website-uri moderne, chatboturi AI, SEO și automatizări pentru afaceri din Republica Moldova.",
-    url: "https://tinka.md/",
-    siteName: "TINKA AI",
-    locale: "ro_MD",
-    type: "website",
-    images: [
-      {
-        url: "https://tinka.md/tinka-og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "TINKA AI – Soluții Digitale Moldova",
-      },
-    ],
-  },
+  title: "TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova",
+  description:
+    "Website-uri moderne, chatboturi AI, SEO și automatizări pentru afaceri din Republica Moldova.",
+  url: "https://tinka.md/",
+  siteName: "TINKA AI",
+  locale: "ro_MD",
+  type: "website",
+  images: [
+    {
+      url: "https://tinka.md/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "TINKA AI – Soluții Digitale Moldova",
+    },
+  ],
+},
 
-  twitter: {
-    card: "summary_large_image",
-    title: "TINKA AI – Soluții Digitale în Moldova",
-    description:
-      "Website-uri moderne, chatboturi AI, SEO și automatizări pentru IMM-uri.",
-    images: ["https://tinka.md/tinka-og-image.jpg"],
-  },
+twitter: {
+  card: "summary_large_image",
+  title: "TINKA AI – Soluții Digitale în Moldova",
+  description:
+    "Website-uri moderne, chatboturi AI, SEO și automatizări pentru IMM-uri.",
+  images: ["https://tinka.md/og-image.png"],
+},
 }
 
 export default function RootLayout({
