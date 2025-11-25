@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
 import { getTranslations } from "@/lib/server-i18n"
-import LocaleSwitcher from "./navbar-locale-switcher"
+import { PlainNavLink } from "./navbar-locale-switcher"
 import ActiveNavLink from "./active-nav-link"   // <-- ✔ corect
 
 const Dot = () => <span className="opacity-40">•</span>
@@ -54,7 +54,7 @@ export default async function Navbar() {
           {/* LIMBI */}
           <div className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-2 py-1">
             <Globe className="h-4 w-4 text-muted-foreground" />
-            <LocaleSwitcher />
+            <PlainNavLink />
           </div>
         </div>
 
