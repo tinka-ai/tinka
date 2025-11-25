@@ -90,14 +90,14 @@ export default function RootLayout({
     <html lang="ro" suppressHydrationWarning>
       <head>
 
-        {/* ⭐ Fallback SEO explicitly required by Google Lighthouse */}
+        {/* Fallback SEO required by Lighthouse */}
         <title>TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova</title>
         <meta
           name="description"
           content="TINKA AI creează site-uri moderne, chatbot-uri AI, magazine online și automatizări inteligente pentru companii și liber-profesioniști din Republica Moldova."
         />
 
-        {/* 🔥 JSON-LD LocalBusiness */}
+        {/* JSON-LD LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -136,7 +136,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* 🔥 JSON-LD Website Search */}
+        {/* JSON-LD Website Search */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -153,7 +153,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* 🔥 JSON-LD Breadcrumbs */}
+        {/* JSON-LD Breadcrumbs */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -173,7 +173,7 @@ export default function RootLayout({
         />
       </head>
 
-      {/* 🔥 GA4 – Google Analytics */}
+      {/* GA4 */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-MLE4N46EN9"
         strategy="afterInteractive"
@@ -187,28 +187,26 @@ export default function RootLayout({
         `}
       </Script>
 
-<body
-  className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
->
-  <Providers>
-    <Suspense fallback={null}>
-      
-      {/* Landmark principal */}
-      <header role="banner">
-        <Navbar />
-      </header>
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
+      >
+        <Providers>
+          <Suspense fallback={null}>
 
-      <main id="main-content" role="main">
-        {children}
-      </main>
+            <header role="banner">
+              <Navbar />
+            </header>
 
-      <footer role="contentinfo">
-        <Analytics />
-      </footer>
+            <main id="main-content" role="main">
+              {children}
+            </main>
 
-    </Suspense>
-  </Providers>
-</body>
+            <footer role="contentinfo">
+             <Analytics />
+            </footer>
+          </Suspense>
+        </Providers>
+      </body>
     </html>
   )
 }
