@@ -242,3 +242,68 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                 <p className="mt-1 text-sm text-gray-300">
                   {t("tinkabook.form.description")}
                 </p>
+                                {/* FORMULARUL COMPLET DEJA EXISTENT LA TINE */}
+                <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={t("tinkabook.form.name")}
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full rounded-lg bg-black/30 border border-white/20 px-3 py-2 text-gray-200"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t("tinkabook.form.email")}
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full rounded-lg bg-black/30 border border-white/20 px-3 py-2 text-gray-200"
+                  />
+
+                  <textarea
+                    name="activity"
+                    placeholder={t("tinkabook.form.activity")}
+                    value={formData.activity}
+                    onChange={handleChange}
+                    className="w-full rounded-lg bg-black/30 border border-white/20 px-3 py-2 text-gray-200 min-h-[80px]"
+                  />
+
+                  <div className="flex items-center gap-2 pt-2">
+                    <input
+                      type="checkbox"
+                      name="consent"
+                      checked={formData.consent}
+                      onChange={handleChange}
+                      className="h-4 w-4"
+                    />
+                    <label className="text-sm text-gray-300">
+                      {t("tinkabook.form.consentLabel")}
+                    </label>
+                  </div>
+
+                  {error && (
+                    <p className="text-sm text-red-400">{error}</p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="w-full bg-sky-500 text-white hover:bg-sky-400"
+                  >
+                    {status === "submitting"
+                      ? t("tinkabook.form.sending")
+                      : t("tinkabook.form.submit")}
+                  </Button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </section>
+  )
+}
+
