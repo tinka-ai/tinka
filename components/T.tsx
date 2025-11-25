@@ -5,27 +5,20 @@ import { useLocale } from "@/contexts/locale-context"
 export default function T({ path }: { path: string }) {
   const { t } = useLocale()
 
-  // Ex: "hero.title" → ["hero", "title"]
   const keys = path.split(".")
-
   let value: any = t
 
   for (const k of keys) {
-    if (value == null || typeof value !== "object") {
-      return `[${path}]` // fallback sigur
+    if (value && typeof value === "object" && k in value) {
+      value = value[k]
+    } else {
+      return ""   // ✔️ nu arătăm [hero.title]
     }
-    value = value[k]
   }
 
-  // Dacă valoarea finală NU există → fallback
-  if (value === undefined || value === null) {
-    return `[${path}]`
-  }
+  // Dacă valoarea este string → afișăm
+  if (typeof value === "string") return value
 
-  // Dacă valoarea este obiect (greșeală de structură)
-  if (typeof value === "object") {
-    return `[${path}]`
-  }
-
-  return value
+  // Dacă din greșeală este alt tip → nu afișăm nimic
+  return ""
 }
