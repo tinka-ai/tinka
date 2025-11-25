@@ -1,10 +1,10 @@
-// app/page.tsx
+// app/page.tsx (VERSIUNEA FINALĂ)
+
 import type React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 
-// ICONS (import individual – optim pentru PageSpeed)
 import ArrowRight from "lucide-react/dist/esm/icons/arrow-right"
 import Eye from "lucide-react/dist/esm/icons/eye"
 import Puzzle from "lucide-react/dist/esm/icons/puzzle"
@@ -21,15 +21,16 @@ import {
 } from "@/components/ui/accordion"
 
 import Footer from "@/components/ui/footer"
-import { useLocale } from "@/contexts/locale-context"
 
-// LAZY LOAD pentru OfferCTA (ZERO JS în Above-the-fold)
+// Wrapper client pentru i18n
+import LocaleClientWrapper from "@/components/LocaleClientWrapper"
+
+// Lazy components
 const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
   ssr: false,
   loading: () => <span className="text-gray-400 text-sm">…</span>,
 })
 
-//  LAZY LOAD pentru TinkaBookSection
 const TinkaBookSection = dynamic(
   () => import("@/components/sections/TinkaBookSection"),
   {
@@ -42,121 +43,123 @@ const TinkaBookSection = dynamic(
   }
 )
 
-
 export default function Page() {
-  const { t: T } = useLocale() as any
-  const t = (path: string) =>
-    path.split(".").reduce((acc: any, k: string) => acc?.[k], T) ?? path
-
   const fx =
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
 
   return (
-    <>
-      <main>
-        {/* HERO */}
-        <section
-          id="acasa"
-          className="relative overflow-hidden border-b border-white/5"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
-              
-              {/* TEXT HERO */}
-              <div className="space-y-6">
+    <LocaleClientWrapper>
+      {(t) => (
+        <>
+          <main>
+            {/* HERO */}
+            <section
+              id="acasa"
+              className="relative overflow-hidden border-b border-white/5"
+            >
+              <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
+                  
+                  {/* TEXT HERO */}
+                  <div className="space-y-6">
 
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                  <span className="h-3.5 w-3.5 rounded-full bg-sky-400" aria-hidden />
-                  {t("hero.subtitle")}
-                </div>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
+                      <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
+                      {t("hero.subtitle")}
+                    </div>
 
-                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-                  {t("hero.title")}
-                </h1>
+                    <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                      {t("hero.title")}
+                    </h1>
 
-                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
-                  {t("whatWeOffer.title")}
-                </p>
+                    <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
+                      {t("whatWeOffer.title")}
+                    </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3">
 
-                  <Button
-                    asChild
-                    className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
-                  >
-                    <Link href="/solutions" aria-label={t("nav.solutions")}>
-                      {t("hero.ctaPrimary")}
-                      <ArrowRight className="ms-2 h-4 w-4" aria-hidden />
-                    </Link>
-                  </Button>
+                      <Button
+                        asChild
+                        className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
+                      >
+                        <Link href="/solutions">
+                          {t("hero.ctaPrimary")}
+                          <ArrowRight className="ms-2 h-4 w-4" />
+                        </Link>
+                      </Button>
 
-                  {/* ⚡ Lazy loaded OfferCTA */}
-                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                      <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                    </div>
+                  </div>
+
+                  {/* IMAGE HERO */}
+                  <div className="relative">
+                    <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
+
+                    <Image
+                      src="/image/hero-tinkaai.webp"
+                      alt="TINKA AI – Soluții AI și Web Design în Moldova"
+                      width={880}
+                      height={700}
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="w-full h-auto rounded-2xl object-cover"
+                    />
+                  </div>
                 </div>
               </div>
+            </section>
 
-              {/* IMAGE HERO – OPTIMIZAT PENTRU LCP */}
-              <div className="relative">
-                <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
+            {/* WHY AI */}
+            <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                  {t("whyAI.title")}
+                </h2>
 
-                <Image
-                  src="/image/hero-tinkaai.webp"
-                  alt="TINKA AI – Soluții AI și Web Design în Moldova"
-                  width={880}
-                  height={700}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="w-full h-auto rounded-2xl object-cover select-none pointer-events-none"
-                />
+                <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={t("whyAI.benefit1.title")} text={t("whyAI.benefit1.description")} link="/solutions" learnMore={t("hero.cta")} />
+                  <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={t("whyAI.benefit2.title")} text={t("whyAI.benefit2.description")} link="/solutions" learnMore={t("hero.cta")} />
+                  <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={t("whyAI.benefit3.title")} text={t("whyAI.benefit3.description")} link="/solutions" learnMore={t("hero.cta")} />
+                  <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={t("whyAI.benefit4.title")} text={t("whyAI.benefit4.description")} link="/solutions" learnMore={t("hero.cta")} />
+                </ul>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* WHY AI */}
-        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-              {t("whyAI.title")}
-            </h2>
+            {/* TINKA BOOK */}
+            <TinkaBookSection fx={fx} />
 
-            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={t("whyAI.benefit1.title")} text={t("whyAI.benefit1.description")} link="/solutions" learnMore={t("hero.cta")} />
-              <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={t("whyAI.benefit2.title")} text={t("whyAI.benefit2.description")} link="/solutions" learnMore={t("hero.cta")} />
-              <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={t("whyAI.benefit3.title")} text={t("whyAI.benefit3.description")} link="/solutions" learnMore={t("hero.cta")} />
-              <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={t("whyAI.benefit4.title")} text={t("whyAI.benefit4.description")} link="/solutions" learnMore={t("hero.cta")} />
-            </ul>
-          </div>
-        </section>
+            {/* FAQ */}
+            <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+              <div className="mx-auto max-w-4xl px-4 sm:px-6">
+                <h3 className="text-2xl font-bold text-gray-200">
+                  {t("contact.faq.title")}
+                </h3>
 
-        {/* TINKA BOOK – LAZY LOAD */}
-        <TinkaBookSection fx={fx} />
+                <Accordion type="single" collapsible className="mt-6">
+                  <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+                    <AccordionTrigger>{t("contact.faq.question1.q")}</AccordionTrigger>
+                    <AccordionContent className="text-gray-300">
+                      {t("contact.faq.question1.a")}
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* FAQ */}
-        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <h3 className="text-2xl font-bold text-gray-200">
-              {t("contact.faq.title")}
-            </h3>
+                  <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+                    <AccordionTrigger>{t("contact.faq.question2.q")}</AccordionTrigger>
+                    <AccordionContent className="text-gray-300">
+                      {t("contact.faq.question2.a")}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </section>
+          </main>
 
-            <Accordion type="single" collapsible className="mt-6">
-              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger>{t("contact.faq.question1.q")}</AccordionTrigger>
-                <AccordionContent className="text-gray-300">{t("contact.faq.question1.a")}</AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger>{t("contact.faq.question2.q")}</AccordionTrigger>
-                <AccordionContent className="text-gray-300">{t("contact.faq.question2.a")}</AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </>
+          <Footer />
+        </>
+      )}
+    </LocaleClientWrapper>
   )
 }
 
