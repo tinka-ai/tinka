@@ -187,17 +187,28 @@ export default function RootLayout({
         `}
       </Script>
 
-      <body
-        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
-      >
-        <Providers>
-          <Suspense fallback={null}>
-            <Navbar />
-            {children}
-            <Analytics />
-          </Suspense>
-        </Providers>
-      </body>
+<body
+  className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
+>
+  <Providers>
+    <Suspense fallback={null}>
+      
+      {/* Landmark principal */}
+      <header role="banner">
+        <Navbar />
+      </header>
+
+      <main id="main-content" role="main">
+        {children}
+      </main>
+
+      <footer role="contentinfo">
+        <Analytics />
+      </footer>
+
+    </Suspense>
+  </Providers>
+</body>
     </html>
   )
 }
