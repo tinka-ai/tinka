@@ -1,10 +1,10 @@
-// app/solutions/page.tsx 
+"use client"
 
 import Image from "next/image"
 import Link from "next/link"
 import Script from "next/script"
 
-// ICONS — import individual (tree-shaking, bundle ultra-mic)
+// ICONS
 import Bot from "lucide-react/dist/esm/icons/bot"
 import Globe from "lucide-react/dist/esm/icons/globe"
 import Workflow from "lucide-react/dist/esm/icons/workflow"
@@ -16,7 +16,7 @@ import Code from "lucide-react/dist/esm/icons/code"
 
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { getTranslations } from "@/lib/server-i18n"
+import { useLocale } from "@/contexts/locale-context"
 
 export const metadata = {
   title: "Soluții Digitale & AI pentru Afaceri din Moldova | TINKA AI",
@@ -71,55 +71,52 @@ function StructuredDataSolutions() {
   )
 }
 
-export default async function SolutionsPage() {
-  const t = await getTranslations()
+export default function SolutionsPage() {
+  const { t } = useLocale()
 
   const services = [
     {
       id: "chatbot",
-      h2: "Chatbot AI pentru Afaceri",
+      h2: "Chatbot AI",
       icon: Bot,
-      title: t.solutions.chatbotDetail.title,
-      problem: t.solutions.chatbotDetail.problemText,
-      how: t.solutions.chatbotDetail.howText,
-      forWho: t.solutions.chatbotDetail.forWhoText,
-      example: t.solutions.chatbotDetail.exampleText,
+      title: t("solutions.chatbotDetail.title"),
+      problem: t("solutions.chatbotDetail.problemText"),
+      how: t("solutions.chatbotDetail.howText"),
+      forWho: t("solutions.chatbotDetail.forWhoText"),
+      example: t("solutions.chatbotDetail.exampleText"),
       tech: ["ChatGPT", "Claude", "Python", "WhatsApp API"],
     },
-
     {
       id: "website",
-      h2: "Web Design & Creare Website",
+      h2: "Web Design & Website",
       icon: Globe,
-      title: t.solutions.websiteDetail.title,
-      problem: t.solutions.websiteDetail.problemText,
-      how: t.solutions.websiteDetail.howText,
-      forWho: t.solutions.websiteDetail.forWhoText,
-      example: t.solutions.websiteDetail.exampleText,
+      title: t("solutions.websiteDetail.title"),
+      problem: t("solutions.websiteDetail.problemText"),
+      how: t("solutions.websiteDetail.howText"),
+      forWho: t("solutions.websiteDetail.forWhoText"),
+      example: t("solutions.websiteDetail.exampleText"),
       tech: ["Next.js", "React", "TailwindCSS"],
     },
-
     {
       id: "automation",
-      h2: "Automatizări Business cu AI",
+      h2: "Automatizări Business",
       icon: Workflow,
-      title: t.solutions.automationDetail.title,
-      problem: t.solutions.automationDetail.problemText,
-      how: t.solutions.automationDetail.howText,
-      forWho: t.solutions.automationDetail.forWhoText,
-      example: t.solutions.automationDetail.exampleText,
+      title: t("solutions.automationDetail.title"),
+      problem: t("solutions.automationDetail.problemText"),
+      how: t("solutions.automationDetail.howText"),
+      forWho: t("solutions.automationDetail.forWhoText"),
+      example: t("solutions.automationDetail.exampleText"),
       tech: ["Python", "Zapier", "Make"],
     },
-
     {
       id: "consulting",
-      h2: "Consultanță în Strategie Digitală",
+      h2: "Consultanță Digitală",
       icon: Lightbulb,
-      title: t.solutions.consultingDetail.title,
-      problem: t.solutions.consultingDetail.problemText,
-      how: t.solutions.consultingDetail.howText,
-      forWho: t.solutions.consultingDetail.forWhoText,
-      example: t.solutions.consultingDetail.exampleText,
+      title: t("solutions.consultingDetail.title"),
+      problem: t("solutions.consultingDetail.problemText"),
+      how: t("solutions.consultingDetail.howText"),
+      forWho: t("solutions.consultingDetail.forWhoText"),
+      example: t("solutions.consultingDetail.exampleText"),
       tech: ["AI Strategy", "ROI Analysis"],
     },
   ]
@@ -128,14 +125,14 @@ export default async function SolutionsPage() {
     <div className="min-h-screen bg-background">
       <StructuredDataSolutions />
 
-      {/* HERO (SERVER RENDERED – NO JS) */}
+      {/* HERO */}
       <section className="pt-32 pb-16 text-center">
         <h1 className="text-4xl md:text-5xl font-bold">
-          Soluții Digitale și AI pentru Afaceri din Moldova
+          {t("solutions.title")}
         </h1>
 
         <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">
-          {t.solutions.subtitle}
+          {t("solutions.subtitle")}
         </p>
       </section>
 
@@ -159,17 +156,16 @@ export default async function SolutionsPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 mb-8">
-                      <ServiceBlock icon={AlertCircle} title="Problema" text={s.problem} color="text-destructive" />
-                      <ServiceBlock icon={Zap} title="Cum ajutăm" text={s.how} color="text-warning" />
-                      <ServiceBlock icon={Users} title="Pentru cine" text={s.forWho} color="text-chart-4" />
+                      <ServiceBlock icon={AlertCircle} title={t("solutions.labels.problem")} text={s.problem} color="text-destructive" />
+                      <ServiceBlock icon={Zap} title={t("solutions.labels.how")} text={s.how} color="text-warning" />
+                      <ServiceBlock icon={Users} title={t("solutions.labels.forWho")} text={s.forWho} color="text-chart-4" />
                       <TechBlock tech={s.tech} />
                     </div>
 
-                    {/* EXEMPLU */}
                     <div className="bg-muted/50 rounded-lg p-6 border">
                       <h3 className="font-semibold mb-3 flex items-center gap-2">
                         <Lightbulb className="h-5 w-5 text-warning" />
-                        Exemplu practic
+                        {t("solutions.labels.example")}
                       </h3>
                       <p className="text-muted-foreground italic">{s.example}</p>
                     </div>
