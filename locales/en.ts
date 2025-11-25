@@ -1,4 +1,3 @@
-// locales/en.ts
 export const en = {
   nav: {
     home: "Home",
@@ -13,82 +12,93 @@ export const en = {
   },
 
   hero: {
-    title: "digital, simple, efficient",
-    subtitle: "AI & Web solutions for companies and freelancers in Moldova.",
+    title: "AI Solutions & Web Design in Moldova",
+    subtitle:
+      "Modern websites, local SEO, AI chatbots and business automation for SMEs in the Republic of Moldova.",
     cta: "See solutions",
     ctaPrimary: "See solutions",
     ctaSecondary: "Contact us",
-    badge: "Smart solutions for growth",
+    badge: "Digital. Simple. Efficient.",
     description:
-      "We design modern websites, online stores, AI chatbots, and automations that help businesses in Moldova cut costs and win more clients.",
+      "TINKA AI builds fast websites, online stores, AI chatbots and business automation tools for companies in Chișinău and nationwide. Complete digital solutions for growth.",
   },
 
   whatWeOffer: {
     title: "What we offer",
-    chatbots: { name: "AI Chatbots", description: "Smart assistants for sales, support, and ops." },
-    websites: { name: "Websites", description: "Fast, modern, SEO-friendly sites." },
-    automation: { name: "Automations", description: "Workflows that save time and money." },
-    consulting: { name: "Consulting", description: "Architecture, audit, and rollout plan." },
+    chatbots: {
+      name: "AI Chatbots",
+      description:
+        "AI chatbots in Romanian and Russian for Moldovan businesses — 24/7 support, sales, and integration with WhatsApp or your website.",
+    },
+    websites: {
+      name: "Websites",
+      description:
+        "Website creation and web design in Chișinău — fast, SEO-optimized pages, ideal for Moldovan SMEs.",
+    },
+    automation: {
+      name: "Automation",
+      description:
+        "Business automation for companies in Moldova — CRM integration, WhatsApp flows, email and internal process automation.",
+    },
+    consulting: {
+      name: "Consulting",
+      description:
+        "Consulting on digital strategy, AI and web solutions for SMEs in the Republic of Moldova.",
+    },
   },
 
   whyAI: {
     title: "Why AI",
-    benefit1: { title: "Time saved", description: "Automate repetitive tasks and focus on growth." },
-    benefit2: { title: "Lower costs", description: "Efficient processes, fewer human errors." },
-    benefit3: { title: "Scale fast", description: "Processes that grow with your business." },
-    benefit4: { title: "Instant replies", description: "Customers get answers 24/7." },
+    benefit1: {
+      title: "Time saved",
+      description:
+        "Automate repetitive work and focus on growth.",
+    },
+    benefit2: {
+      title: "Lower costs",
+      description: "Fewer manual tasks and fewer errors.",
+    },
+    benefit3: {
+      title: "Scalable",
+      description: "Processes that grow with your business.",
+    },
+    benefit4: {
+      title: "Instant response",
+      description: "Your clients receive answers 24/7.",
+    },
   },
 
-  technologies: { title: "Technologies", subtitle: "Modern, stable, and fast tooling." },
+  technologies: {
+    title: "Technologies",
+    subtitle: "Modern, stable and fast tech stack.",
+  },
 
   specialOffer: {
     badge: "Offer",
     title: "Quick-Launch Package",
     description: "Website + chatbot + essential automations in 14 days.",
-    cta: "Request a quote",
+    cta: "Request offer",
   },
 
-  // ===== About (structure used by AboutClient) =====
   about: {
-    hero: {
-      title: "About TINKA AI",
-      subtitle: "We build fast and reliable digital products.",
-    },
-    mission: {
-      title: "Our Mission",
-      description:
-        "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
-    },
+    title: "About TINKA AI",
+    subtitle: "We build fast and reliable digital products.",
+    content:
+      "We are results-oriented: SaaS web applications, automation and AI assistants for SMEs.",
     values: {
-      title: "Our values",
       value1: "Transparency and clear communication.",
-      value2: "Execution speed and quality.",
+      value2: "Fast delivery and quality.",
       value3: "Long-term partnership.",
     },
-    team: {
-      title: "A small team focused on impact",
-      text:
-        "We work in compact implementation squads, directly with your stakeholders, to shorten feedback loops.",
-    },
-    cta: {
-      title: "Want to see what AI can do in your company?",
-      description: "We propose a 60-minute quick audit and 3 opportunities with immediate impact.",
-      button: "Schedule a call",
-    },
-    labels: {
-      mission: "Mission",
-      approach: "Approach",
-      letsTalk: "Let's talk",
-    },
   },
 
-    solutions: {
-    title: "Digital and AI solutions for businesses in Moldova",
+  solutions: {
+    title: "Digital & AI solutions for businesses in Moldova",
     subtitle:
-      "TINKA AI helps you with web design, landing pages, online stores, chatbots, and AI-powered automations, tailored for SMEs in the Republic of Moldova.",
+      "Web design, websites, AI chatbots and automations for SMEs in Moldova. Fast, modern and SEO-optimized.",
 
     labels: {
-      problem: "The problem in your business",
+      problem: "Your business problem",
       how: "How TINKA AI helps",
       forWho: "Who this is for",
       tech: "Technologies used",
@@ -96,112 +106,115 @@ export const en = {
     },
 
     chatbotDetail: {
-      title: "AI chatbots for businesses in Moldova",
+      title: "AI Chatbots for Moldovan businesses",
       problemText:
-        "You receive many repeated questions on Facebook, WhatsApp, or your website, and replies are often slow. Potential clients drop off before you manage to answer.",
+        "You receive many repetitive questions on Facebook, WhatsApp or your website, and replies are delayed. Leads are lost because clients don't get answers in time.",
       howText:
-        "We implement a smart chatbot in Romanian and Russian, connected to your website and social pages, that replies 24/7 and collects contact details from interested clients.",
+        "We create intelligent chatbots in Romanian and Russian, integrated with your website, WhatsApp and social media — instant 24/7 replies, lead collection and handover to your team.",
       forWhoText:
-        "E-commerce, service providers, clinics, salons, restaurants, and any business in Moldova that communicates directly with customers.",
+        "Online shops, service providers, clinics, salons, restaurants and Moldovan businesses with daily customer interactions.",
       exampleText:
-        "An online store in Chișinău routes questions from Facebook and its website to an AI chatbot that replies instantly, sends offers, and captures leads for the sales team.",
+        "An online store in Chișinău routes all questions to the AI chatbot, which answers instantly, sends offers and collects leads.",
     },
 
     websiteDetail: {
-      title: "Web design and website creation for SMEs in Moldova",
+      title: "Web design & website creation in Moldova",
       problemText:
-        "Your current website looks outdated, loads slowly, and doesn’t show up when people search for your services in Google.",
+        "Your website is slow, outdated or not visible on Google searches such as “web design Moldova” or “website Chișinău”.",
       howText:
-        "We build modern, fast websites, SEO-optimized for searches like “web design Moldova” and “create a website in Chișinău”, with contact forms, analytics, and chatbot integration.",
+        "We build modern, SEO-optimized, fast websites — mobile-ready, with contact forms, chatbots and Analytics.",
       forWhoText:
-        "Entrepreneurs, freelancers, medical practices, beauty salons, workshops, and any business that wants a professional online presence.",
+        "Entrepreneurs, freelancers, medical offices, salons, workshops and companies needing a professional online presence.",
       exampleText:
-        "We redesign the website of a local service provider in Chișinău, optimize it for mobile and Google, and within a few months it starts bringing in organic leads from local searches.",
+        "A service provider in Chișinău gained constant organic traffic after redesigning the website and optimizing local SEO.",
     },
 
     automationDetail: {
-      title: "AI-powered automations for your daily workflows",
+      title: "AI-powered business automation",
       problemText:
-        "You lose hours on repetitive tasks: copying data between Excel and CRM, sending follow-up emails, or manually confirming bookings.",
+        "You lose time with repetitive tasks: data entry, emails, message management, syncing information across apps.",
       howText:
-        "We identify processes that can be automated and build AI workflows (CRM, email, WhatsApp, invoicing) so that your team spends less time on manual work and avoids errors.",
+        "We analyze your internal processes and create AI automations — CRM integration, WhatsApp notifications, email flows, internal workflows and invoicing.",
       forWhoText:
-        "Companies with active sales, customer support, logistics, bookings, basic accounting, or project management.",
+        "Companies in Moldova active in sales, support, logistics, appointments, accounting or project management.",
       exampleText:
-        "For a company in Moldova, we automated lead capture from website forms, AI-based qualification, and automatic task creation in the CRM for the sales team.",
+        "A company reduced processing time by 50% after automating requests and creating tasks automatically in their CRM.",
     },
 
     consultingDetail: {
-      title: "Digital & AI strategy consulting for companies in Moldova",
+      title: "Digital strategy & consulting",
       problemText:
-        "You know you should use AI and improve your digital presence, but you’re not sure where to start or what brings the highest return.",
+        "You’re unsure whether to invest in a website, social media, AI, chatbot, CRM or automation. Hard to prioritize.",
       howText:
-        "We analyze your business model, identify 2–3 concrete projects (website, chatbot, automations, online store) and build a realistic 3–6 month implementation plan.",
+        "We analyze your business model and propose 2–3 concrete projects with fast results in the next 3–6 months.",
       forWhoText:
-        "Founders, directors, and entrepreneurs who want to invest smartly in digital and AI, not randomly.",
+        "Entrepreneurs, directors and founders looking to invest smartly in digital and AI.",
       exampleText:
-        "An SME in Moldova received a 90-day roadmap with three clear projects: website redesign, a lead-generation chatbot, and a follow-up automation for existing clients.",
+        "An SME in Chișinău received a 90-day plan including a new website, AI chatbot and follow-up automations.",
     },
 
     process: {
-      title: "How we work together",
+      title: "How we work",
       step1: {
         title: "Discovery",
-        description: "We understand your business, target customers, and where you lose time or clients today.",
+        description:
+          "We analyze your business, audience and bottlenecks.",
       },
       step2: {
         title: "Proposal",
-        description: "We present concrete solutions (site, chatbot, automations) with clear costs and timelines.",
+        description:
+          "You receive concrete solutions (site, chatbot, automation) with clear costs and deadlines.",
       },
       step3: {
         title: "Implementation",
-        description: "We build, test, and adjust the solutions so they work in your real-world setup.",
+        description:
+          "We build, test and adjust until everything works perfectly.",
       },
       step4: {
-        title: "Launch & optimisation",
-        description: "We monitor results and continuously improve based on data and feedback.",
+        title: "Launch & optimization",
+        description:
+          "We monitor results and refine based on data.",
       },
     },
 
     firstClient: {
       badge: "CASE STUDY",
-      title: "How we cut reply time by 70% for an e-commerce client in Moldova",
+      title: "How we reduced response time by 70% for an e-commerce client",
       story:
-        "An online store in the Republic of Moldova received dozens of questions every day on Facebook and on their site. We integrated an AI chatbot in Romanian and Russian, connected to their product catalog.",
+        "An online store in Moldova received dozens of questions daily on Facebook and on the website. We integrated an AI chatbot in Romanian and Russian, linked to their product catalog.",
       results: "Results",
-      result1: "–70% average reply time to customer questions",
-      result2: "–40% repetitive tasks for the support team",
-      result3: "+25% conversions on product pages",
+      result1: "–70% average response time",
+      result2: "–40% repetitive workload for support team",
+      result3: "+25% product page conversions",
       result4: "Significant increase in customer satisfaction (CSAT)",
       testimonial:
-        "“Now our team only handles the more complex cases, and customers get instant answers to most questions.”",
+        "“Now our team handles only complex cases, while clients get answers instantly.”",
       author: "Ana Popescu",
-      role: "Head of CX",
+      role: "Online Sales Manager",
     },
 
     specialOffer: {
       badge: "LIMITED OFFER",
       title: "Free 60-minute audit for your business",
       description:
-        "On a video call, we review your website, processes, and communication and propose 2–3 concrete improvements using AI and digital tools.",
-      cta: "Book a call with TINKA AI",
-      urgency: "We only accept a few audits per week.",
+        "We analyze your website, processes and communication and propose 2–3 improvement ideas using AI and automation.",
+      cta: "Book a call",
+      urgency: "Only a few free audits available weekly.",
     },
   },
 
-  // -------- Offer / Modal --------
   offer: {
-    cta: "Request a quote",
-    title: "Request a quote — Quick-Launch Package",
+    cta: "Request offer",
+    title: "Request offer — Quick-Launch Package",
     subtitle:
-      "Fill in what you can — it’s enough for us to tailor the right solution.",
+      "Fill in what you can — enough to propose the right solution.",
     cancel: "Cancel",
     submit: "Send",
     close: "Close",
-    successTitle: "Thanks! Your form was sent.",
+    successTitle: "Thank you! Your form has been sent.",
     successBody:
-      "TINKA AI will review your answers and get back with a proposal soon. A confirmation email was sent to you.",
-    error: "Something went wrong. Please try again.",
+      "TINKA AI will review your answers and send a proposal. We've also emailed you a confirmation.",
+    error: "An error occurred. Try again.",
 
     sections: {
       contact: "Contact",
@@ -209,7 +222,7 @@ export const en = {
       goals: "Goals & KPIs",
       website: "Website",
       bot: "Chatbot",
-      automation: "Automations",
+      automation: "Automation",
       constraints: "Constraints",
     },
 
@@ -220,24 +233,24 @@ export const en = {
       company: "Company",
       region: "Region",
 
-      about: "Brief business description",
+      about: "Short business description",
       audience: "Target audience / ideal customer",
-      problems: "Current problems/bottlenecks",
-      links: "Useful links (site, social media)",
+      problems: "Current problems or bottlenecks",
+      links: "Useful links (website, social media)",
 
       websiteGoals: "Website goal",
-      kpi: "KPIs (e.g., conversions, leads/month)",
+      kpi: "KPIs (e.g. conversions, leads/month)",
 
       features: "Required features",
       content: "Content",
       branding: "Branding",
-      refs: "References (sites you like)",
-      integrations: "Integrations (CRM, ERP, payments, etc.)",
+      refs: "References (websites you like)",
+      integrations: "Integrations (CRM, ERP, payments etc.)",
       domain: "Domain",
 
       botChannels: "Chatbot channels",
       botRole: "Chatbot role",
-      botLangs: "Languages (e.g., ro, ru, en)",
+      botLangs: "Languages (e.g. ro, ru, en)",
       kb: "Knowledge base (docs, links, FAQ)",
 
       automations: "Automations",
@@ -247,26 +260,26 @@ export const en = {
       budget: "Budget",
       notes: "Notes",
 
-      gdpr: "I agree to data processing for the purpose of receiving a quote",
+      gdpr: "I agree with the processing of personal data",
     },
 
     placeholders: {
       region: "Country / city / time zone",
       about: "What do you offer? What makes you different?",
-      audience: "Who buys? What need do you cover?",
-      problems: "Where are the pains today? (few leads, slow support, etc.)",
-      kpi: "E.g., 50 leads/month, 5% conversion",
-      content:
-        "Do you already have texts/photos or should we prepare them?",
-      branding: "Do you have a brand identity or need proposals?",
-      integrations: "E.g., Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
+      audience: "Who buys from you? What need do you solve?",
+      problems: "Where are the bottlenecks? (few leads, slow support etc.)",
+      kpi: "Example: 50 leads/month, 5% conversion",
+      content: "Do you have content or should we create it?",
+      branding: "Do you have branding or need new concepts?",
+      integrations:
+        "Ex.: Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
       domain: "Do you have a domain or should we buy one?",
       refs: "https://site1.com, https://site2.com …",
       botLangs: "ro, ru, en",
-      kb: "Links to PDF/Docs/FAQ or upload later",
+      kb: "Links to PDFs/Docs/FAQ or upload later",
       other: "Any other useful details",
-      deadline: "E.g., 2–4 weeks",
-      budget: "Select a range",
+      deadline: "Ex.: 2–4 weeks",
+      budget: "Select range",
       notes: "Additional details",
     },
 
@@ -275,14 +288,14 @@ export const en = {
         leads: "Lead generation",
         ecom: "E-commerce",
         brand: "Brand & trust",
-        info: "Information & presentation",
+        info: "Informational / presentation",
         support: "Customer support",
       },
       features: {
         blog: "Blog / News",
         portfolio: "Portfolio / Case studies",
         form: "Custom forms",
-        booking: "Bookings / Appointments",
+        booking: "Booking / Appointments",
         payments: "Online payments",
         ecommerce: "Online store",
         multilang: "Multilingual",
@@ -301,25 +314,25 @@ export const en = {
         viber: "Viber",
       },
       botRole: {
-        sales: "Sales / lead qualification",
+        sales: "Sales / qualification",
         support: "Customer support",
         faq: "FAQ",
-        booking: "Bookings",
+        booking: "Booking",
       },
       automations: {
         crm: "CRM integration",
-        qualify: "Auto-qualification",
+        qualify: "Automatic qualification",
         notify: "Email/WhatsApp notifications",
-        schedule: "Auto-scheduling",
+        schedule: "Automatic scheduling",
         followup: "Follow-up sequences",
         newsletter: "Newsletter / campaigns",
         other: "Other",
       },
       budget: {
-        lt1k: "< MDL 10,000",
-        "1to5": "MDL 10,000– MDL 50,000",
-        "5to10": "MDL 50,000– MDL 100,000",
-        gt10: "> MDL 100,000",
+        lt1k: "< 10,000 MDL",
+        "1to5": "10,000–50,000 MDL",
+        "5to10": "50,000–100,000 MDL",
+        gt10: "> 100,000 MDL",
       },
     },
   },
@@ -328,13 +341,13 @@ export const en = {
     title: "Privacy Policy",
     updated: "Last updated",
     intro:
-      "We respect your data and only use information strictly required to provide our services.",
+      "We respect your data and only use the information necessary to provide our services.",
   },
 
   terms: {
     title: "Terms & Conditions",
     intro:
-      "By using this site you accept the terms and conditions. Please read carefully.",
+      "By using this site, you agree to the terms and conditions. Please read carefully.",
   },
 
   contact: {
@@ -344,18 +357,21 @@ export const en = {
       title: "Contact information",
       email: "Email",
       phone: "Phone",
-      hours: "Working hours",
+      hours: "Hours",
       location: "Location",
       locationDetail: "Chișinău, Republic of Moldova",
     },
-    quickResponse: { title: "Fast reply", description: "We reply within 24 business hours." },
+    quickResponse: {
+      title: "Fast response",
+      description: "We reply within 24 business hours.",
+    },
     form: {
       successTitle: "Thank you!",
-      successMessage: "Your message was sent. We’ll get back soon.",
+      successMessage: "Your message has been sent. We will get back to you soon.",
       name: "Name",
       namePlaceholder: "Your name",
       email: "Email",
-      emailPlaceholder: "e.g., name@domain.com",
+      emailPlaceholder: "example@domain.com",
       phone: "Phone",
       phonePlaceholder: "+373…",
       company: "Company",
@@ -365,12 +381,12 @@ export const en = {
       budget: "Budget",
       budgetPlaceholder: "Choose a budget",
       message: "Message",
-      messagePlaceholder: "Share a few details…",
+      messagePlaceholder: "Write a few details…",
       submit: "Send",
       serviceOptions: {
         chatbot: "AI Chatbot",
         website: "Website",
-        automation: "Automations",
+        automation: "Automation",
         consulting: "Consulting",
         other: "Other",
       },
@@ -382,58 +398,82 @@ export const en = {
       },
     },
     faq: {
-      title: "FAQ",
+      title: "Frequently asked questions",
       subtitle: "Quick answers",
-      question1: { q: "How do we start?", a: "Write to us and we’ll schedule a call." },
-      question2: { q: "Delivery time?", a: "Typically 2–6 weeks depending on scope." },
-      question3: { q: "Payments & contract?", a: "Yes: contract + invoice; 30% upfront." },
-      question4: { q: "Maintenance?", a: "We offer maintenance packages." },
-      question5: { q: "Own hosting?", a: "Possible, or we can host for you." },
-      question6: { q: "Tech stack?", a: "From classic to modern." },
-      question7: { q: "Languages?", a: "Support in Romanian, Russian, English." },
-      question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
+      question1: { q: "How do we start?", a: "Send us a message and we’ll schedule a call." },
+      question2: {
+        q: "Delivery time?",
+        a: "Usually 2–6 weeks, depending on the project.",
+      },
+      question3: {
+        q: "Payment & contract?",
+        a: "Yes: contract + invoice; 30% upfront.",
+      },
+      question4: {
+        q: "Maintenance?",
+        a: "We offer maintenance packages.",
+      },
+      question5: {
+        q: "Hosting?",
+        a: "We can host it or you can use your own.",
+      },
+      question6: {
+        q: "Technologies?",
+        a: "From classic to modern.",
+      },
+      question7: {
+        q: "Languages?",
+        a: "Support in Romanian, Russian, English.",
+      },
+      question8: {
+        q: "Personal data?",
+        a: "We follow GDPR and industry best practices.",
+      },
     },
   },
 
   tinkabook: {
-    badge: "New",
-    title: "TinkaBook — online bookings for you and your clients.",
+    badge: "TinkaBook for freelancers",
+    title: "TinkaBook — online appointments for you and your clients.",
     subtitle:
-      "TinkaBook is your digital agenda: clients book themselves 24/7, and you see everything organized on any device. Fill in the form and we’ll activate your access.",
+      "TinkaBook gives you an online agenda where clients can book themselves 24/7. Fill in the form and we’ll activate your access.",
     priceHighlight:
-      "Promo offer: 149 MDL/month (standard price 250 MDL/month). No minimum term — cancel anytime.",
+      "Promotional price: 149 MDL/month (instead of 250 MDL). No minimum period, cancel anytime.",
     bullets: {
-      bullet1: "24/7 online bookings without missed calls or forgotten messages.",
-      bullet2: "Clear calendar for each specialist, with fast notifications.",
-      bullet3: "We handle the setup — you just start receiving bookings.",
+      bullet1: "Client-visible online agenda with automatic bookings.",
+      bullet2: "Fewer missed calls and unread messages.",
+      bullet3: "Time saved to focus on delivering your services.",
     },
-    ctaScroll: "Request access to TinkaBook",
+    ctaScroll: "Request TinkaBook access",
     ctaVisit: "See TinkaBook in action",
 
     form: {
       title: "Request access to TinkaBook",
       description:
-        "Please fill in the details below. We’ll create your profile and send the access link and credentials by email, together with simple usage instructions.",
+        "Fill in the fields below. After confirmation, you will receive the login link and access details together with instructions.",
 
       fields: {
-        honeypot: "Leave this field empty",
-        name: "Name / nickname / business name",
+        honeypot: "Do not fill",
+        name: "Full name / Business name",
         phone: "Phone number",
         email: "Email",
-        activity: "Field of activity / services you offer",
+        activity: "Activity / services you provide",
         contactPref: "Preferred contact method",
-        links: "Link to your Facebook / Instagram page or website",
-        language: "Preferred communication language",
+        links:
+          "Link to Facebook / Instagram / website",
+        language: "Preferred language",
       },
 
       placeholders: {
-        name: "E.g. Maria Popescu / Studio Glam Nails",
+        name: "Ex.: Maria Popescu / Studio Glam Nails",
         phone: "+373 6...",
         email: "example@domain.md",
-        activity: "E.g. nails, hairdresser, massage, coaching, psychologist, etc.",
-        contactPref: "How should we contact you?",
-        links: "E.g. facebook.com/studio, instagram.com/studio",
-        language: "Choose a language",
+        activity:
+          "Ex.: manicure, hair salon, massage, coaching, psychology etc.",
+        contactPref: "Choose contact method",
+        links:
+          "Ex.: facebook.com/studioglam, instagram.com/studioglam",
+        language: "Choose language",
       },
 
       contactPrefOptions: {
@@ -448,64 +488,42 @@ export const en = {
         en: "English",
       },
 
-      consentTitle: "Consent for personal data processing",
+      consentTitle: "Personal data processing agreement",
       consentLabel:
-        "I agree to the processing of my personal data in accordance with the terms described above.",
+        "I agree to the processing of my personal data according to the text above.",
       consentRequired:
-        "You must give your consent to personal data processing in order to submit this form.",
+        "To send the request, you must agree to data processing.",
 
       consentText:
-        "By submitting this form and ticking the “I agree” box, I confirm that I have read and agree that " +
-        "SRL “TINKA AI”, IDNO 1025600048437, registered office: mun. Chișinău, or. Stăuceni, str. Studenților 8/31, Republic of Moldova, " +
-        "as personal data controller, will process my personal data provided in this form for the following purposes:\n" +
-        "- creating, configuring and administering my user profile in the TinkaBook service;\n" +
-        "- communication regarding access activation, account settings and usage of the TinkaBook service;\n" +
-        "- sending technical and operational notifications related to the functioning of the service (including updates, maintenance, changes in features or pricing);\n" +
-        "- internal records and contractual documentation related to onboarding and provision of services.\n\n" +
-        "The legal basis for processing is my explicit consent, granted in accordance with Law no. 133/2011 " +
-        "on personal data protection and, where applicable, the principles of Regulation (EU) 2016/679 (GDPR).\n\n" +
-        "The data provided will be stored for the duration of our contractual or pre-contractual relationship (including any testing period), " +
-        "as well as further, if there is a legal retention obligation or a legitimate interest (for example in case of potential disputes), " +
-        "but no longer than necessary for the purposes stated above.\n\n" +
-        "I am informed that I can withdraw my consent at any time by sending a request to office@tinka.md. " +
-        "Withdrawal of consent only applies for the future and does not affect the lawfulness of processing carried out before the withdrawal.\n\n" +
-        "I am also informed of my rights as a data subject: the right of access, rectification, erasure (“right to be forgotten”), " +
-        "restriction of processing, objection to processing, data portability (where applicable), and the right to lodge a complaint " +
-        "with the National Center for Personal Data Protection of the Republic of Moldova.\n\n" +
-        "I understand that if I do not give this consent, my request for TinkaBook access cannot be processed, " +
-        "as the data requested in this form are necessary to create and manage my user account.",
+        "By checking the box “I agree”, I confirm that I have read and understood this notice and I give my free, explicit and informed consent for SRL TINKA AI, IDNO 1025600048437, located in Chișinău, Stăuceni, str. Studenților 8/31, Republic of Moldova, as personal data controller, to process the personal data I provide in this form for the following purposes:\n" +
+        "- creating and managing my user account in the TinkaBook application;\n" +
+        "- communication regarding activation, configuration and use of the TinkaBook account;\n" +
+        "- sending notifications related to service functionality (updates, maintenance, feature or pricing changes);\n" +
+        "- internal evidence of access requests and service agreements.\n\n" +
+        "The legal basis for processing is my consent, under Law no. 133/2011 on personal data protection and, where applicable, the principles of GDPR (Regulation EU 2016/679).\n\n" +
+        "The provided data will be stored for the duration of the contractual or pre-contractual relationship with SRL TINKA AI (including the testing period), and afterwards, only if there is a legal obligation or legitimate interest (e.g. in case of disputes), but no longer than necessary.\n\n" +
+        "I understand that I can withdraw my consent at any time by emailing office@tinka.md. Withdrawal applies only to the future. I also have the right to access, rectify, delete (“right to be forgotten”), restrict processing, object, and the right to data portability, under applicable law.\n\n" +
+        "I understand that refusing this agreement may prevent the processing of my request, as the data is necessary to create and manage the user account.",
 
-      submit: "Send request",
-      submitting: "Sending...",
-      successTitle: "Your request has been sent.",
+      submit: "Submit request",
+      submitting: "Submitting...",
+      successTitle: "Request sent successfully",
       successBody:
-        "Thank you! Your request has been received by TINKA AI. Soon you will receive by email a link and access details for TinkaBook. Meanwhile, you can see how TinkaBook works here: ",
+        "Thank you! Your request has reached TINKA AI. Soon you will receive the login link and access details. Meanwhile, you can preview TinkaBook here:",
       successDemoLinkText: "open TinkaBook demo",
       successDemoCredentials:
-        "Test access details: username “test_user”, password “testuser111”.",
+        "Test access: user: test_user, password: testuser111",
       error:
-        "An error occurred while sending the form. Please try again or email us directly at office@tinka.md.",
+        "An error occurred while submitting the form. Please try again or contact us at office@tinka.md.",
     },
-  },
-
-  faq: {
-    title: "FAQ",
-    subtitle: "Quick answers",
-    question1: { q: "How do we start?", a: "Write to us and we’ll schedule a call." },
-    question2: { q: "Delivery time?", a: "Typically 2–6 weeks depending on scope." },
-    question3: { q: "Payments & contract?", a: "Yes: contract + invoice; 30% upfront." },
-    question4: { q: "Maintenance?", a: "We offer maintenance packages." },
-    question5: { q: "Own hosting?", a: "Possible, or we can host for you." },
-    question6: { q: "Tech stack?", a: "From classic to modern." },
-    question7: { q: "Languages?", a: "Support in Romanian, Russian, English." },
-    question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
   },
 
   footer: {
     company: "T.I.N.K.A. AI",
-    tagline: "- Digital. Simple. Efficient.",
-    description: "AI & Web solutions for SMEs.",
-    quickLinks: "Quick links",
+    tagline: "— Digital. Simple. Efficient.",
+    description:
+      "AI solutions, web design, website creation and automation for SMEs in Chișinău and across Moldova.",
+    quickLinks: "Quick Links",
     home: "Home",
     solutions: "Solutions",
     about: "About",
@@ -518,9 +536,8 @@ export const en = {
     email: "office@tinka.md",
     phone: "+373 68 333 899",
     hours: "Mon–Sun 10:00–22:00",
-    copyright: `© ${new Date().getFullYear()} TINKA AI`,
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
+    copyright: `© ${new Date().getFullYear()} TINKA AI`,
   },
-} as const
-
+} as const;
