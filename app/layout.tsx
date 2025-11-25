@@ -90,6 +90,13 @@ export default function RootLayout({
     <html lang="ro" suppressHydrationWarning>
       <head>
 
+        {/* ⭐ Fallback SEO explicitly required by Google Lighthouse */}
+        <title>TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova</title>
+        <meta
+          name="description"
+          content="TINKA AI creează site-uri moderne, chatbot-uri AI, magazine online și automatizări inteligente pentru companii și liber-profesioniști din Republica Moldova."
+        />
+
         {/* 🔥 JSON-LD LocalBusiness */}
         <script
           type="application/ld+json"
