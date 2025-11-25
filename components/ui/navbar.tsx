@@ -1,21 +1,22 @@
-// components/ui/navbar.tsx (SERVER COMPONENT)
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
-import { getTranslations } from "@/lib/server-i18n"
+import { useLocale } from "@/contexts/locale-context"
 import { PlainNavLink } from "./navbar-locale-switcher"
 import ActiveNavLink from "./active-nav-link"
 
 const Dot = () => <span className="opacity-40">•</span>
 
-export default async function Navbar() {
-  const t = await getTranslations()
+export default function Navbar() {
+  const { t } = useLocale()
 
   const labels = {
-    home: t.nav.home,
-    solutions: t.nav.solutions,
-    about: t.nav.about,
-    contact: t.nav.contact,
+    home: t("nav.home"),
+    solutions: t("nav.solutions"),
+    about: t("nav.about"),
+    contact: t("nav.contact"),
   }
 
   const ACRONYM = ["Technologies", "Innovation", "Networking", "Knowledge", "Automation"]
