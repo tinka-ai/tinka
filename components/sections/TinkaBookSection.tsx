@@ -6,11 +6,14 @@ import Link from "next/link";
 import { BadgeCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import T from "@/components/T";
+import { useLocale } from "@/contexts/locale-context";
 
 export default function TinkaBookSection({ fx }: { fx: string }) {
+  const { t } = useLocale() as any;
+
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<"consent" | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +27,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
     consent: false,
   });
 
-  // închidere ESC
+  // închidere cu ESC
   useEffect(() => {
     if (!open) return;
     const handler = (e: KeyboardEvent) => {
@@ -48,10 +51,12 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
     e.preventDefault();
     setError(null);
 
+    // honeypot anti-bot
     if (formData.honeypot) return;
 
+    // consimțământ obligatoriu – mesaj din traduceri
     if (!formData.consent) {
-      setError("Trebuie să acorzi consimțământul.");
+      setError("consent");
       return;
     }
 
@@ -73,6 +78,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
       if (!res.ok) throw new Error("fail");
 
       setStatus("success");
+      setError(null);
 
       setFormData({
         name: "",
@@ -87,8 +93,14 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
       });
     } catch (err) {
       setStatus("error");
-      setError("Eroare la trimitere. Încearcă din nou.");
+      setError(null);
     }
+  };
+
+  const openModal = () => {
+    setStatus("idle");
+    setError(null);
+    setOpen(true);
   };
 
   return (
@@ -148,7 +160,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
           </p>
 
           <Button
-            onClick={() => setOpen(true)}
+            onClick={openModal}
             className={`mt-4 w-full bg-sky-500 text-white hover:bg-sky-400 ${fx}`}
           >
             <T path="tinkabook.ctaScroll" />
@@ -180,12 +192,19 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                 </h3>
                 <p className="text-sm text-gray-300 mt-2">
                   <T path="tinkabook.form.successBody" />
-                  <Link href="https://tinkaweb.md/agenda/" target="_blank" className="text-sky-300 underline ml-1">
+                  <Link
+                    href="https://tinkaweb.md/agenda/"
+                    target="_blank"
+                    className="text-sky-300 underline ml-1"
+                  >
                     <T path="tinkabook.form.successDemoLinkText" />
                   </Link>
                 </p>
 
-                <Button onClick={() => setOpen(false)} className="mt-4 w-full bg-sky-500 hover:bg-sky-400">
+                <Button
+                  onClick={() => setOpen(false)}
+                  className="mt-4 w-full bg-sky-500 hover:bg-sky-400"
+                >
                   OK
                 </Button>
               </>
@@ -201,7 +220,13 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                 <form onSubmit={handleSubmit} className="mt-4 space-y-4">
 
                   {/* Honeypot */}
-                  <input type="text" name="honeypot" value={formData.honeypot} onChange={handleChange} className="hidden" />
+                  <input
+                    type="text"
+                    name="honeypot"
+                    value={formData.honeypot}
+                    onChange={handleChange}
+                    className="hidden"
+                  />
 
                   {/* Limba */}
                   <div>
@@ -215,16 +240,16 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                       className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
                     >
                       <option value="" className="bg-white text-slate-900">
-                        <T path="tinkabook.form.placeholders.language" />
+                        {t?.tinkabook?.form?.placeholders?.language ?? ""}
                       </option>
                       <option value="ro" className="bg-white text-slate-900">
-                        <T path="tinkabook.form.languageOptions.ro" />
+                        {t?.tinkabook?.form?.languageOptions?.ro ?? "Română"}
                       </option>
                       <option value="ru" className="bg-white text-slate-900">
-                        <T path="tinkabook.form.languageOptions.ru" />
+                        {t?.tinkabook?.form?.languageOptions?.ru ?? "Русский"}
                       </option>
                       <option value="en" className="bg-white text-slate-900">
-                        <T path="tinkabook.form.languageOptions.en" />
+                        {t?.tinkabook?.form?.languageOptions?.en ?? "English"}
                       </option>
                     </select>
                   </div>
@@ -241,7 +266,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                        placeholder="+373..."
+                        placeholder={t?.tinkabook?.form?.placeholders?.phone ?? ""}
                       />
                     </div>
 
@@ -256,7 +281,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                        placeholder="email@exemplu.md"
+                        placeholder={t?.tinkabook?.form?.placeholders?.email ?? ""}
                       />
                     </div>
                   </div>
@@ -273,7 +298,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                       onChange={handleChange}
                       rows={3}
                       className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                      placeholder="Ex: frizerie, manichiură, masaj…"
+                      placeholder={t?.tinkabook?.form?.placeholders?.activity ?? ""}
                     />
                   </div>
 
@@ -289,16 +314,16 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                       className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
                     >
                       <option value="">
-                        <T path="tinkabook.form.placeholders.contactPref" />
+                        {t?.tinkabook?.form?.placeholders?.contactPref ?? ""}
                       </option>
                       <option value="phone">
-                        <T path="tinkabook.form.contactPrefOptions.phone" />
+                        {t?.tinkabook?.form?.contactPrefOptions?.phone ?? "Telefon"}
                       </option>
                       <option value="email">
-                        <T path="tinkabook.form.contactPrefOptions.email" />
+                        {t?.tinkabook?.form?.contactPrefOptions?.email ?? "Email"}
                       </option>
                       <option value="whatsapp">
-                        <T path="tinkabook.form.contactPrefOptions.whatsapp" />
+                        {t?.tinkabook?.form?.contactPrefOptions?.whatsapp ?? "WhatsApp"}
                       </option>
                     </select>
                   </div>
@@ -313,7 +338,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                       value={formData.links}
                       onChange={handleChange}
                       className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                      placeholder="https://facebook.com/... "
+                      placeholder={t?.tinkabook?.form?.placeholders?.links ?? ""}
                     />
                   </div>
 
@@ -338,7 +363,11 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                       <span><T path="tinkabook.form.consentLabel" /></span>
                     </label>
 
-                    {error && <p className="text-xs text-red-400">{error}</p>}
+                    {error === "consent" && (
+                      <p className="text-xs text-red-400">
+                        <T path="tinkabook.form.consentRequired" />
+                      </p>
+                    )}
                   </div>
 
                   {/* Butoane */}
@@ -352,7 +381,11 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                           : "bg-sky-500 hover:bg-sky-400"
                       }`}
                     >
-                      {status === "submitting" ? <T path="tinkabook.form.submitting" /> : <T path="tinkabook.form.submit" />}
+                      {status === "submitting" ? (
+                        <T path="tinkabook.form.submitting" />
+                      ) : (
+                        <T path="tinkabook.form.submit" />
+                      )}
                     </Button>
 
                     <Button
@@ -361,11 +394,15 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                       onClick={() => setOpen(false)}
                       className="sm:w-auto border-white/20 bg-black/30 text-gray-200 hover:bg-black/60"
                     >
-                      Închide
+                      <T path="offer.close" />
                     </Button>
                   </div>
 
-                  {status === "error" && <p className="text-xs text-red-400"><T path="tinkabook.form.error" /></p>}
+                  {status === "error" && (
+                    <p className="text-xs text-red-400">
+                      <T path="tinkabook.form.error" />
+                    </p>
+                  )}
                 </form>
               </>
             )}
