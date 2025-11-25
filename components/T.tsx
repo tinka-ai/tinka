@@ -5,20 +5,9 @@ import { useLocale } from "@/contexts/locale-context"
 export default function T({ path }: { path: string }) {
   const { t } = useLocale()
 
-  const keys = path.split(".")
-  let value: any = t
+  // Folosim direct proxy-ul
+  const value = t[path]
 
-  for (const k of keys) {
-    if (value && typeof value === "object" && k in value) {
-      value = value[k]
-    } else {
-      return ""   // ✔️ nu arătăm [hero.title]
-    }
-  }
-
-  // Dacă valoarea este string → afișăm
-  if (typeof value === "string") return value
-
-  // Dacă din greșeală este alt tip → nu afișăm nimic
-  return ""
+  if (!value || typeof value !== "string") return ""
+  return value
 }
