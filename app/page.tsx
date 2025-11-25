@@ -1,3 +1,4 @@
+"use client"
 // app/page.tsx — FIXED TO PREVENT CLIENT-SIDE CRASH
 
 import type React from "react";
