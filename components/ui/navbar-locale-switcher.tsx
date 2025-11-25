@@ -1,28 +1,20 @@
-import Link from "next/link"
-import { headers } from "next/headers"
+"use client"
 
-export function PlainNavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const headersList = headers()
-  const pathname = headersList.get("x-pathname") || "/"
+import { useLocale } from "@/contexts/locale-context"
 
-  // Activ exact ca în client, dar calculat pe server
-  const isActive =
-    href === "/"
-      ? pathname === "/"
-      : pathname.startsWith(href)
+export function PlainNavLink() {
+  const { locale, setLocale } = useLocale()
 
   return (
-    <Link
-      href={href}
-      prefetch={false}
-      className={
-        "text-sm transition-colors font-medium " +
-        (isActive
-          ? "text-foreground font-semibold"
-          : "text-muted-foreground hover:text-foreground")
-      }
+    <select
+      value={locale}
+      onChange={(e) => setLocale(e.target.value as any)}
+      className="bg-transparent text-sm text-muted-foreground outline-none cursor-pointer"
+      aria-label="Selectează limba"
     >
-      {children}
-    </Link>
+      <option value="ro">RO</option>
+      <option value="en">EN</option>
+      <option value="ru">RU</option>
+    </select>
   )
 }
