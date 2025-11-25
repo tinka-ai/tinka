@@ -1,15 +1,16 @@
-// components/ui/navbar.tsx (SERVER COMPONENT)
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
-import { getTranslations } from "@/lib/server-i18n"
+import { useLocale } from "@/contexts/locale-context"
+import ActiveNavLink from "./active-nav-link"
 import { PlainNavLink } from "./navbar-locale-switcher"
-import ActiveNavLink from "./active-nav-link"   // <-- ✔ corect
 
 const Dot = () => <span className="opacity-40">•</span>
 
-export default async function Navbar() {
-  const t = await getTranslations()
+export default function Navbar() {
+  const { t } = useLocale()
 
   const labels = {
     home: t.nav.home,
@@ -24,7 +25,7 @@ export default async function Navbar() {
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
 
-        {/* Bara principală — ZERO JS */}
+        {/* Bara principală */}
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
 
           {/* LOGO */}
@@ -43,7 +44,7 @@ export default async function Navbar() {
             <span className="sr-only">TINKA AI</span>
           </Link>
 
-          {/* MENIU — ZERO JS în nav, doar links sunt client-based */}
+          {/* MENIU */}
           <nav className="hidden md:flex items-center gap-6">
             <ActiveNavLink href="/">{labels.home}</ActiveNavLink>
             <ActiveNavLink href="/solutions">{labels.solutions}</ActiveNavLink>
@@ -59,10 +60,7 @@ export default async function Navbar() {
         </div>
 
         {/* Banda ACRONYM */}
-        <div
-          className="mt-2 hidden md:flex justify-center"
-          aria-label="TINKA"
-        >
+        <div className="mt-2 hidden md:flex justify-center" aria-label="TINKA">
           <div className="relative inline-flex items-center gap-3 rounded-full border border-border bg-card/60 backdrop-blur-md px-4 py-1">
             <p className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
               {ACRONYM.map((word, i) => (
