@@ -30,14 +30,18 @@ const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
 })
 
 //  LAZY LOAD pentru TinkaBookSection
-const TinkaBookSection = dynamic(() => import("@/components/TinkaBookSection"), {
-  ssr: false,
-  loading: () => (
-    <div className="text-center py-10 text-gray-400 text-sm">
-      Loading...
-    </div>
-  ),
-})
+const TinkaBookSection = dynamic(
+  () => import("@/components/sections/TinkaBookSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="text-center py-10 text-gray-400 text-sm">
+        Loading...
+      </div>
+    ),
+  }
+)
+
 
 export default function Page() {
   const { t: T } = useLocale() as any
