@@ -59,14 +59,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }
 
   /** Obiect T care permite accesul prin metode: T("hero.title") */
-  const t = new Proxy(
-    {},
-    {
-      get: (_, prop: string) => {
-        return getValue(DICTS[locale], prop)
-      },
-    }
-  )
+const t = (path: string) => {
+  return getValue(DICTS[locale], path)
+}
+
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale, t }}>
