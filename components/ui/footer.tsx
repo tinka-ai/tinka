@@ -1,64 +1,60 @@
-// components/ui/footer.tsx
-"use client"
-
+// components/ui/footer.tsx (SERVER COMPONENT — ZERO JS)
 import Link from "next/link"
-import { useLocale } from "@/contexts/locale-context"
+import { getTranslations } from "@/lib/server-i18n"
 
-export default function Footer() {
-  const { t: T } = useLocale() as any
-  const t = (p: string) => p.split(".").reduce((a: any, k: string) => a?.[k], T) ?? p
+export default async function Footer() {
+  const t = await getTranslations()
 
   return (
     <footer className="relative py-20 bg-background border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           
-          {/* Col 1 */}
+          {/* COL 1 */}
           <div className="lg:col-span-1 space-y-4">
-            <h3 className="text-2xl font-bold text-foreground">{t("footer.company")}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{t("footer.tagline")}</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{t("footer.description")}</p>
+            <h3 className="text-2xl font-bold text-foreground">
+              {t("footer.company")}
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {t("footer.tagline")}
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {t("footer.description")}
+            </p>
           </div>
 
-          {/* Col 2 */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">{t("footer.quickLinks")}</h4>
-            <ul className="space-y-2">
-              <li><Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.home")}</Link></li>
-              <li><Link href="/solutions" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.solutions")}</Link></li>
-              <li><Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.about")}</Link></li>
-              <li><Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.contact")}</Link></li>
+          {/* COL 2 — QUICK LINKS */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">
+              {t("footer.quickLinks")}
+            </h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/">{t("footer.home")}</Link></li>
+              <li><Link href="/solutions">{t("footer.solutions")}</Link></li>
+              <li><Link href="/about">{t("footer.about")}</Link></li>
+              <li><Link href="/contact">{t("footer.contact")}</Link></li>
             </ul>
           </div>
 
-          {/* Col 3 – RESURSE (ASCUNS) */}
-          {/*
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">{t("footer.resources")}</h4>
-            <ul className="space-y-2">
-              <li><Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.blog")}</Link></li>
-              <li><Link href="/case-studies" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.caseStudies")}</Link></li>
-              <li><Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.faq")}</Link></li>
+          {/* COL 3 — CONTACT INFO */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">
+              {t("footer.contactInfo")}
+            </h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>{t("footer.email")}</li>
+              <li>{t("footer.phone")}</li>
+              <li>{t("footer.hours")}</li>
             </ul>
-          </div>
-          */}
-
-          {/* Col 4 */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">{t("footer.contactInfo")}</h4>
-            <div className="space-y-2 text-sm">
-              <p className="text-muted-foreground">{t("footer.email")}</p>
-              <p className="text-muted-foreground">{t("footer.phone")}</p>
-              <p className="text-muted-foreground">{t("footer.hours")}</p>
-            </div>
           </div>
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">{t("footer.copyright")}</p>
-          <div className="flex gap-6 text-sm">
-            <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.privacy")}</Link>
-            <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.terms")}</Link>
+        {/* BOTTOM ROW */}
+        <div className="flex justify-between items-center mt-12 text-xs text-muted-foreground">
+          <p>{t("footer.copyright")}</p>
+          <div className="flex gap-6">
+            <Link href="/privacy">{t("footer.privacy")}</Link>
+            <Link href="/terms">{t("footer.terms")}</Link>
           </div>
         </div>
       </div>
