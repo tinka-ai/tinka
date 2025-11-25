@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
 import { useLocale } from "@/contexts/locale-context"
 
-export default function LocaleClientWrapper({
+export default function LocalePageClient({
   children,
 }: {
-  children: (t: (path: string) => string) => React.ReactNode
+  children: (t: any) => React.ReactNode
 }) {
   const { t: T } = useLocale() as any
 
