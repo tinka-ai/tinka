@@ -1,4 +1,4 @@
-// app/page.tsx — FINAL SERVER COMPONENT FIXED
+// app/page.tsx — FINAL SERVER COMPONENT FIXED & CLEAN
 
 import type React from "react"
 import Link from "next/link"
@@ -20,12 +20,9 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion"
 
-import Footer from "@/components/ui/footer"
-
 import LocalePageClient from "@/components/LocalePageClient"
 import T from "@/components/T"
 
-// lazy components
 const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
   ssr: false,
   loading: () => <span className="text-gray-400 text-sm">…</span>,
@@ -49,15 +46,17 @@ export default function Page() {
 
   return (
     <LocalePageClient>
-      <main>
+      <>
+
         {/* HERO */}
         <section
           id="acasa"
+          aria-label="Pagina principală – introducere"
           className="relative overflow-hidden border-b border-white/5"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
-              
+
               {/* TEXT HERO */}
               <div className="space-y-6">
 
@@ -109,7 +108,11 @@ export default function Page() {
         </section>
 
         {/* WHY AI */}
-        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
+        <section
+          id="experiente"
+          aria-label="Beneficii și experiențe"
+          className="py-12 sm:py-16 border-b border-white/5"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
               <T path="whyAI.title" />
@@ -128,7 +131,11 @@ export default function Page() {
         <TinkaBookSection fx={fx} />
 
         {/* FAQ */}
-        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+        <section
+          id="faq"
+          aria-label="Întrebări frecvente"
+          className="py-12 sm:py-16 border-b border-white/5"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <h3 className="text-2xl font-bold text-gray-200">
               <T path="contact.faq.title" />
@@ -151,14 +158,11 @@ export default function Page() {
             </Accordion>
           </div>
         </section>
-      </main>
 
-      <Footer />
+      </>
     </LocalePageClient>
   )
 }
-
-/* ——— Sub-componentă ——— */
 
 function Feature({ fx, icon, title, text, link, learnMore }: any) {
   return (
