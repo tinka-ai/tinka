@@ -12,6 +12,7 @@ import Puzzle from "lucide-react/dist/esm/icons/puzzle";
 import Waves from "lucide-react/dist/esm/icons/waves";
 import FlaskConical from "lucide-react/dist/esm/icons/flask-conical";
 import Link2 from "lucide-react/dist/esm/icons/link-2";
+import Footer from "@/components/ui/footer";
 
 import { Button } from "@/components/ui/button";
 import {
