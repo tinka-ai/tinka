@@ -5,16 +5,27 @@ import { useLocale } from "@/contexts/locale-context"
 export default function T({ path }: { path: string }) {
   const { t } = useLocale()
 
-  // "hero.title" → ["hero", "title"]
+  // Ex: "hero.title" → ["hero", "title"]
   const keys = path.split(".")
 
-  // navigăm prin obiectul de traduceri
   let value: any = t
+
   for (const k of keys) {
-    if (!value || typeof value !== "object") return path // fallback
+    if (value == null || typeof value !== "object") {
+      return `[${path}]` // fallback sigur
+    }
     value = value[k]
   }
 
-  // dacă nu există cheia → returnăm path pentru debug
-  return value ?? path
+  // Dacă valoarea finală NU există → fallback
+  if (value === undefined || value === null) {
+    return `[${path}]`
+  }
+
+  // Dacă valoarea este obiect (greșeală de structură)
+  if (typeof value === "object") {
+    return `[${path}]`
+  }
+
+  return value
 }
