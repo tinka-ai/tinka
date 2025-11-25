@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   type: "website",
   images: [
     {
-      url: "https://tinka.md/og-image.png",
+      url: "https://tinka.md/image/og-image.webp",
       width: 1200,
       height: 630,
       alt: "TINKA AI – Soluții Digitale Moldova",
@@ -79,7 +79,7 @@ twitter: {
   title: "TINKA AI – Soluții Digitale în Moldova",
   description:
     "Website-uri moderne, chatboturi AI, SEO și automatizări pentru IMM-uri.",
-  images: ["https://tinka.md/og-image.png"],
+  images: ["https://tinka.md/image/og-image.webp"],
 },
 }
 
