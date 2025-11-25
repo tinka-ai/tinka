@@ -1,5 +1,4 @@
-// app/solutions/page.tsx (SERVER COMPONENT – allowed to export metadata)
-
+// app/solutions/page.tsx — SERVER COMPONENT, fără “use client”
 import SolutionsClient from "./SolutionsClient"
 
 export const metadata = {
