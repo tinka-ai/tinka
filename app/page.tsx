@@ -1,4 +1,4 @@
-// app/page.tsx (VERSIUNEA FINALĂ)
+// app/page.tsx — FINAL FIXED VERSION (SERVER COMPONENT)
 
 import type React from "react"
 import Link from "next/link"
@@ -22,10 +22,10 @@ import {
 
 import Footer from "@/components/ui/footer"
 
-// Wrapper client pentru i18n
-import LocaleClientWrapper from "@/components/LocaleClientWrapper"
+// nou: mic client wrapper VALID
+import LocalePageClient from "@/components/LocalePageClient"
 
-// Lazy components
+// lazy components
 const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), {
   ssr: false,
   loading: () => <span className="text-gray-400 text-sm">…</span>,
@@ -48,7 +48,7 @@ export default function Page() {
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md"
 
   return (
-    <LocaleClientWrapper>
+    <LocalePageClient>
       {(t) => (
         <>
           <main>
@@ -59,7 +59,7 @@ export default function Page() {
             >
               <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
-                  
+
                   {/* TEXT HERO */}
                   <div className="space-y-6">
 
@@ -159,11 +159,11 @@ export default function Page() {
           <Footer />
         </>
       )}
-    </LocaleClientWrapper>
+    </LocalePageClient>
   )
 }
 
-/* ———— Sub-componentă ———— */
+/* ——— Sub-componentă ——— */
 
 function Feature({ fx, icon, title, text, link, learnMore }: any) {
   return (
