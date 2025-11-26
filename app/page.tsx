@@ -84,16 +84,18 @@ export default function Page() {
               <div className="relative">
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
 
-                <Image
-                  src="/image/hero-tinkaai.webp"
-                  alt="TINKA AI – Soluții AI și Web Design în Moldova"
-                  width={880}
-                  height={700}
-                  priority
-                  loading="eager"
-                  sizes="(max-width: 480px) 100vw, (max-width: 1024px) 90vw, 50vw"
-                  className="w-full h-auto rounded-2xl object-cover will-change-transform"
-                />
+            <Image
+  src="/image/hero-tinkaai.webp"
+  alt="TINKA AI – Soluții AI și Web Design în Moldova"
+  width={880}
+  height={700}
+  priority
+  loading="eager"
+  quality={70}
+  sizes="(max-width:480px) 100vw, (max-width:768px) 90vw, (max-width:1200px) 50vw, 880px"
+  className="w-full h-auto rounded-2xl object-cover will-change-transform"
+  style={{ contentVisibility: "auto" }}
+/>
               </div>
 
             </div>
