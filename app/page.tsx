@@ -24,10 +24,15 @@ import {
 import LocalePageClient from "@/components/LocalePageClient";
 import T from "@/components/T";
 
-const OfferCTA = dynamic(() => import("@/components/offer/OfferCTA"), { ssr: false });
+/* ⚡ OPTIMIZARE – încărcăm JS doar când e nevoie */
+const OfferCTA = dynamic(
+  () => import("@/components/offer/OfferCTA"),
+  { ssr: false, loading: () => null }
+);
+
 const TinkaBookSection = dynamic(
   () => import("@/components/sections/TinkaBookSection"),
-  { ssr: false }
+  { ssr: false, loading: () => null }
 );
 
 export default function Page() {
@@ -47,13 +52,14 @@ export default function Page() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
 
+              {/* TEXT HERO */}
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
                   <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
                   <T path="hero.subtitle" />
                 </div>
 
-                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent will-change-transform">
                   <T path="hero.title" />
                 </h1>
 
@@ -69,23 +75,25 @@ export default function Page() {
                     </Link>
                   </Button>
 
+                  {/* CTA Lazy-loaded */}
                   <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
                 </div>
               </div>
 
+              {/* HERO IMAGE OPTIMIZATĂ */}
               <div className="relative">
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
-          <Image
-  src="/image/hero-tinkaai.webp"
-  alt="TINKA AI – Soluții AI și Web Design în Moldova"
-  width={880}
-  height={700}
-  priority
-  loading="eager"
-  fetchPriority="high"
-  sizes="100vw"
-  className="w-full h-auto rounded-2xl object-cover"
-/>
+
+                <Image
+                  src="/image/hero-tinkaai.webp"
+                  alt="TINKA AI – Soluții AI și Web Design în Moldova"
+                  width={880}
+                  height={700}
+                  priority
+                  loading="eager"
+                  sizes="(max-width: 480px) 100vw, (max-width: 1024px) 90vw, 50vw"
+                  className="w-full h-auto rounded-2xl object-cover will-change-transform"
+                />
               </div>
 
             </div>
@@ -108,7 +116,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TINKA BOOK */}
+        {/* TINKA BOOK – lazy loading */}
         <TinkaBookSection fx={fx} />
 
         {/* FAQ */}
@@ -138,7 +146,7 @@ export default function Page() {
 
       </main>
 
-      {/* FOOTER RESTABILIT */}
+      {/* FOOTER */}
       <Footer />
 
     </LocalePageClient>
@@ -157,7 +165,10 @@ function Feature({ fx, icon, title, text, link, learnMore }: any) {
 
       <p className="mt-2 text-sm text-gray-300">{text}</p>
 
-      <Link href={link} className="mt-3 inline-flex items-center gap-2 text-sky-300 text-sm hover:text-white transition-colors">
+      <Link
+        href={link}
+        className="mt-3 inline-flex items-center gap-2 text-sky-300 text-sm hover:text-white transition-colors"
+      >
         <Link2 className="h-4 w-4" />
         {learnMore}
       </Link>
