@@ -30,21 +30,16 @@ export default function ActiveNavLink({
       {/* ▬ DESKTOP — efect scroll ▬ */}
       <span
         className={
-          "hidden md:block transition-transform duration-300 " +
+          "hidden md:block transition-transform duration-300 ease-out " +
           (isActive ? "-translate-y-full" : "hover:-translate-y-full")
         }
       >
-        {/* Linie 1 = text inițial (gri pe normal, alb bold pe pagina activa) */}
-        <span
-          className={
-            "block text-sm font-medium " +
-            (isActive ? "text-white font-semibold" : "text-muted-foreground")
-          }
-        >
+        {/* Linie 1 = text inițial gri (întotdeauna gri când nu e scroll) */}
+        <span className="block text-sm font-medium text-muted-foreground">
           {children}
         </span>
 
-        {/* Linie 2 = text alb bold (se vede după scroll la hover) */}
+        {/* Linie 2 = text alb bold (se vede după scroll - fie hover, fie active) */}
         <span className="block text-sm font-semibold text-white">
           {children}
         </span>
