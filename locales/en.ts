@@ -66,7 +66,28 @@ export const en = {
       description: "Your clients get help instantly — 24/7.",
     },
   },
+tinkabook: {
+    badge: "TinkaBook",
+    title: "Online booking for stylists and service providers",
+    subtitle: "Clients book themselves — you save time",
+    priceHighlight: "First month free",
 
+    bullets: {
+      bullet1: "24/7 online booking",
+      bullet2: "Automatic client reminders",
+      bullet3: "Visit history & schedule management",
+    },
+
+    ctaVisit: "Visit TinkaBook website",
+
+    form: {
+      description: "Fill the form to get demo access.",
+      successDemoCredentials:
+        "Demo login details will be sent to your email.",
+    },
+
+    ctaScroll: "Request demo",
+},
   footer: {
     company: "T.I.N.K.A. AI",
     tagline: "— Digital. Simple. Efficient.",
