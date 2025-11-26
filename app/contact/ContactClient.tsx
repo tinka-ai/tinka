@@ -14,12 +14,14 @@ import { Mail, Phone, Clock, MapPin, Send, CheckCircle, AlertTriangle, MessageCi
 import Link from "next/link"
 
 export default function ContactClient() {
-  const { t: tOrig } = useLocale()
+  const { t: tFunc } = useLocale()
+  const tOrig = tFunc // ✅ Acum tOrig este obiectul dicționar
 
   const defaults = {
     contact: {
       title: "Contact",
       subtitle: "Hai să vorbim despre proiectul tău.",
+     
       info: {
         title: "Informații de contact",
         email: "Email",
