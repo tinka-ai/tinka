@@ -1,16 +1,11 @@
-// components/ui/navbar.tsx — SERVER COMPONENT
+// components/ui/navbar.tsx — SERVER COMPONENT, FĂRĂ server-i18n
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
 import ActiveNavLink from "./active-nav-link"
 import { PlainNavLink } from "./navbar-locale-switcher"
-import { getTranslations } from "@/lib/server-i18n"
 
-const Dot = () => <span className="opacity-40">•</span>
-
-export default async function Navbar() {
-  const t = await getTranslations()
-
+export default function Navbar() {
   return (
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
@@ -35,10 +30,10 @@ export default async function Navbar() {
 
           {/* NAVIGATION */}
           <nav className="hidden md:flex items-center gap-6">
-            <ActiveNavLink href="/">{t("nav.home")}</ActiveNavLink>
-            <ActiveNavLink href="/solutions">{t("nav.solutions")}</ActiveNavLink>
-            <ActiveNavLink href="/about">{t("nav.about")}</ActiveNavLink>
-            <ActiveNavLink href="/contact">{t("nav.contact")}</ActiveNavLink>
+            <ActiveNavLink href="/">{`Acasă`}</ActiveNavLink>
+            <ActiveNavLink href="/solutions">{`Soluții`}</ActiveNavLink>
+            <ActiveNavLink href="/about">{`Despre`}</ActiveNavLink>
+            <ActiveNavLink href="/contact">{`Contact`}</ActiveNavLink>
           </nav>
 
           {/* LANGUAGE SWITCH */}
@@ -48,17 +43,11 @@ export default async function Navbar() {
           </div>
         </div>
 
-        {/* ACRONYM STRIP */}
+        {/* SECOND ROW – ACRONYM */}
         <div className="mt-2 hidden md:flex justify-center" aria-label="TINKA">
           <div className="relative inline-flex items-center gap-3 rounded-full border border-border bg-card/60 backdrop-blur-md px-4 py-1">
             <p className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-              <span className="inline-flex items-center gap-3">
-                Technologies <Dot />
-                Innovation <Dot />
-                Networking <Dot />
-                Knowledge <Dot />
-                Automation
-              </span>
+              Technologies • Innovation • Networking • Knowledge • Automation
             </p>
           </div>
         </div>
