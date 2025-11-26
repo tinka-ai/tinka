@@ -10,11 +10,9 @@ const DICTS = { ro, en, ru } as const
 export type Locale = keyof typeof DICTS
 export const defaultLocale: Locale = "ro"
 
-type Dict = typeof ro
-
 /** 
- * Funcție pentru a extrage o valoare profundă din dicționar.
- * Dacă nu există → returnează numele cheii ca fallback.
+ * Extrage o cheie din dicționar fără fallback la altă limbă.
+ * Dacă lipsește → returnează [path] pentru debugging.
  */
 function getValue(dict: any, path: string): string {
   const parts = path.split(".")
@@ -24,18 +22,17 @@ function getValue(dict: any, path: string): string {
     if (current && typeof current === "object" && p in current) {
       current = current[p]
     } else {
-      return `[${path}]` // fallback profesional
+      return `[${path}]`
     }
   }
 
-  if (typeof current === "string") return current
-  return `[${path}]`
+  return typeof current === "string" ? current : `[${path}]`
 }
 
 type LocaleContextType = {
   locale: Locale
   setLocale: (locale: Locale) => void
-  t: any
+  t: (path: string) => string
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
@@ -43,6 +40,7 @@ const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale)
 
+  // Load saved language from localStorage
   useEffect(() => {
     if (typeof window === "undefined") return
     const saved = window.localStorage.getItem("locale") as Locale | null
@@ -58,11 +56,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  /** Obiect T care permite accesul prin metode: T("hero.title") */
-const t = (path: string) => {
-  return getValue(DICTS[locale], path)
-}
-
+  /** T("hero.title") → returnă string din dicționarul activ */
+  const t = (path: string) => getValue(DICTS[locale], path)
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale, t }}>
