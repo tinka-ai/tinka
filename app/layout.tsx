@@ -3,7 +3,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-// import { Analytics } from "@vercel/analytics/next" // ❌ Șters - nu e nevoie pe Netlify
+import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import Script from "next/script"
 
@@ -89,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="ro" suppressHydrationWarning>
       <head>
+
         {/* Fallback SEO required by Lighthouse */}
         <title>TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova</title>
         <meta
@@ -179,4 +180,33 @@ export default function RootLayout({
       />
       <Script id="ga4-init" strategy="afterInteractive">
         {`
-          window.dataLayer
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MLE4N46EN9');
+        `}
+      </Script>
+
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
+      >
+        <Providers>
+          <Suspense fallback={null}>
+
+            <header role="banner">
+              <Navbar />
+            </header>
+
+            <main id="main-content" role="main">
+              {children}
+            </main>
+
+            <footer role="contentinfo">
+             <Analytics />
+            </footer>
+          </Suspense>
+        </Providers>
+      </body>
+    </html>
+  )
+}
