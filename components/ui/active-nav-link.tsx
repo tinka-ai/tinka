@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -11,7 +10,6 @@ export default function ActiveNavLink({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
-
   const isActive =
     href === "/"
       ? pathname === "/"
@@ -25,9 +23,7 @@ export default function ActiveNavLink({
       className="relative inline-block overflow-hidden h-[20px]"
     >
       {/* ▬ MOBILE — fără efect ▬ */}
-      <span className="block md:hidden text-sm font-medium 
-        text-muted-foreground hover:text-foreground
-        ">
+      <span className="block md:hidden text-sm font-medium text-muted-foreground hover:text-foreground">
         {children}
       </span>
 
@@ -38,23 +34,18 @@ export default function ActiveNavLink({
           (isActive ? "-translate-y-full" : "hover:-translate-y-full")
         }
       >
-        {/* Linie 1 = text inițial */}
+        {/* Linie 1 = text inițial (gri pe normal, alb bold pe pagina activa) */}
         <span
           className={
             "block text-sm font-medium " +
-            (isActive ? "text-primary font-semibold" : "text-muted-foreground")
+            (isActive ? "text-white font-semibold" : "text-muted-foreground")
           }
         >
           {children}
         </span>
 
-        {/* Linie 2 = text vizibil la scroll sau când activ */}
-        <span
-          className={
-            "block text-sm font-medium " +
-            (isActive ? "text-primary font-semibold" : "text-foreground")
-          }
-        >
+        {/* Linie 2 = text alb bold (se vede după scroll la hover) */}
+        <span className="block text-sm font-semibold text-white">
           {children}
         </span>
       </span>
