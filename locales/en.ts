@@ -87,6 +87,20 @@ tinkabook: {
     },
 
     ctaScroll: "Request demo",
+  contact: {
+    faq: {
+      title: "Frequently Asked Questions",
+
+      question1: {
+        q: "How fast do you usually respond?",
+        a: "Typically we reply within 30–60 minutes during working hours.",
+      },
+
+      question2: {
+        q: "Do you offer demos?",
+        a: "Yes, we can show a live demo of chatbots, websites or automation flows via Zoom.",
+      },
+    }
 },
   footer: {
     company: "T.I.N.K.A. AI",
