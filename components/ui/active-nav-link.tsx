@@ -22,39 +22,39 @@ export default function ActiveNavLink({
       href={href}
       prefetch={false}
       aria-current={isActive ? "page" : undefined}
-      className="
-        relative inline-block h-[20px] overflow-hidden 
-        md:h-[20px] 
-      "
+      className="relative inline-block overflow-hidden h-[20px]"
     >
-      {/* ▬▬▬ Structura este diferită pentru mobil vs desktop ▬▬▬ */}
-
-      {/* 🔸 MOBIL — fără scroll */}
-      <span className="block md:hidden text-sm font-medium transition-colors
+      {/* ▬ MOBILE — fără efect ▬ */}
+      <span className="block md:hidden text-sm font-medium 
         text-muted-foreground hover:text-foreground
         ">
         {children}
       </span>
 
-      {/* 🔹 DESKTOP — are scroll */}
+      {/* ▬ DESKTOP — efect scroll ▬ */}
       <span
         className={
           "hidden md:block transition-transform duration-300 " +
           (isActive ? "-translate-y-full" : "hover:-translate-y-full")
         }
       >
-        {/* TEXT NORMAL */}
+        {/* Linie 1 = text inițial */}
         <span
           className={
-            "block text-sm font-medium transition-colors " +
+            "block text-sm font-medium " +
             (isActive ? "text-primary font-semibold" : "text-muted-foreground")
           }
         >
           {children}
         </span>
 
-        {/* TEXT HOVER / ACTIVE */}
-        <span className="block text-sm font-medium text-primary">
+        {/* Linie 2 = text vizibil la scroll sau când activ */}
+        <span
+          className={
+            "block text-sm font-medium " +
+            (isActive ? "text-primary font-semibold" : "text-foreground")
+          }
+        >
           {children}
         </span>
       </span>
