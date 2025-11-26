@@ -14,7 +14,7 @@ export const en = {
   hero: {
     title: "AI Solutions & Web Design in Moldova",
     subtitle:
-      "Modern websites, local SEO, AI chatbots and business automation for SMEs in the Republic of Moldova.",
+      "Modern websites, local SEO, AI chatbots and business automation for SMEs in Moldova.",
     cta: "View solutions",
     ctaPrimary: "View solutions",
     ctaSecondary: "Contact us",
@@ -23,216 +23,216 @@ export const en = {
       "TINKA AI builds fast websites, online stores, AI chatbots and automation tools for companies in Chișinău and across Moldova.",
   },
 
-  // ✅ OPTIMIZED SECTION - COMPLETE SOLUTIONS
+  // ------------------------------------------------------
+  // SOLUTIONS
+  // ------------------------------------------------------
   solutions: {
     title: "Solutions",
-    subtitle: "Transform your processes with AI and applications",
-    
+    subtitle: "Transform your processes with AI and automation",
+
     chatbots: {
       title: "Smart AI Chatbots",
-      subtitle: "Automated 24/7 support that responds instantly and convinces customers to buy",
-      
+      subtitle: "24/7 automated support that responds instantly",
+
       problem: {
         title: "Problem",
-        description: "Your customers wait hours for simple answers, and your team wastes time on the same repetitive questions every day. You're losing sales because you don't respond fast enough."
+        description:
+          "Customers wait hours for simple answers, and your team wastes time on repetitive questions every day.",
       },
-      
+
       whereApplies: {
         title: "Where it applies",
-        description: "Perfect for online stores, SaaS, professional services, and any business receiving repetitive customer inquiries.",
-        tags: ["E-commerce", "Customer support", "Sales", "Lead generation", "Automated FAQ"]
+        description:
+          "E-commerce, SaaS, beauty services, consulting, logistics, hospitality.",
+        tags: ["E-commerce", "Customer support", "Sales", "Lead generation", "FAQ automation"],
       },
-      
+
       example: {
         title: "Example",
-        description: "An online store implements an AI chatbot that handles 150+ conversations per day automatically. Result: response time drops from 4 hours to 30 seconds, and sales increase by 28% in the first month."
+        description:
+          "A shop implements an AI chatbot handling 150+ conversations/day. Response time drops from 4 hours to 30 seconds; sales increase by 28%.",
       },
-      
+
       features: {
         title: "What it can do:",
         list: [
-          "Responds instantly 24/7, including weekends and holidays",
-          "Handles multiple conversations simultaneously (unlimited)",
-          "Learns from conversations and gets smarter over time",
-          "Integration with WhatsApp, Facebook Messenger, your website",
-          "Collects contact data and generates qualified leads",
-          "Escalates complex conversations to your team"
-        ]
+          "Instant replies 24/7",
+          "Unlimited simultaneous conversations",
+          "Learns and improves continuously",
+          "WhatsApp, Messenger & Website integration",
+          "Captures leads automatically",
+          "Escalates complex cases to your team",
+        ],
       },
-      
+
       cta: {
         primary: "Schedule free demo",
-        secondary: "See how a personalized AI chatbot works for your business - 15-minute demo, no obligations"
-      }
+        secondary: "See a live personalized AI chatbot in action",
+      },
     },
 
     websites: {
       title: "AI-Powered Websites",
-      subtitle: "Modern sites that convert visitors into customers",
-      
+      subtitle: "Fast and modern websites built to convert",
+
       problem: {
         title: "Problem",
-        description: "Your website is slow, doesn't appear in Google, and doesn't convince visitors to become customers. You're missing opportunities daily."
+        description:
+          "Your site loads slowly, ranks poorly on Google, and doesn’t turn visitors into paying customers.",
       },
-      
+
       whereApplies: {
         title: "Where it applies",
-        description: "Landing pages for campaigns, high-performing online stores, corporate websites with integrated AI.",
-        tags: ["Landing pages", "Online stores", "Corporate presentations", "Portfolios", "SEO sites"]
+        description:
+          "Landing pages, corporate websites, product pages, online shops, service providers.",
+        tags: ["Landing pages", "Online stores", "Corporate websites", "Portfolio", "SEO"],
       },
-      
+
       example: {
         title: "Example",
-        description: "Optimized website with loading under 2 seconds, personalized AI recommendations and automatic chat - increases conversions by 40% and appears on Google's first page within 60 days."
+        description:
+          "A site loading under 2 seconds with AI recommendations boosts conversions by 40% and reaches Google's first page in 60 days.",
       },
-      
+
       features: {
         title: "What's included:",
         list: [
-          "Modern design, responsive on all devices",
-          "Optimized loading speed (90+ PageSpeed score)",
-          "Local SEO optimized for Moldova and Chișinău",
-          "Integrated AI chatbot for lead capture",
-          "Analytics and performance reports",
-          "Simple administration, no technical knowledge required"
-        ]
+          "Fully responsive design",
+          "90+ PageSpeed score",
+          "Local SEO for Moldova",
+          "Integrated AI chatbot",
+          "Analytics dashboards",
+          "Easy content editing",
+        ],
       },
-      
+
       cta: {
         primary: "Request custom quote",
-        secondary: "Let's discuss your project and we'll provide a free estimate within 24h"
-      }
+        secondary: "Free project estimate within 24 hours",
+      },
     },
 
     automation: {
       title: "Smart Automation",
-      subtitle: "Automate repetitive tasks and save 20+ hours per week",
-      
+      subtitle: "Save 20+ hours per week with automated workflows",
+
       problem: {
         title: "Problem",
-        description: "Your team wastes precious hours on repetitive tasks: data entry, email responses, order processing. This time could be used strategically."
+        description:
+          "Your team spends hours on routine tasks: emails, orders, data entry, notifications.",
       },
-      
+
       whereApplies: {
         title: "Where it applies",
-        description: "Email marketing automation, order processing, CRM synchronization, automatic reports, internal workflows.",
-        tags: ["Email marketing", "CRM", "Order processing", "Reports", "Workflows"]
+        description:
+          "CRM automation, online shops, internal processes, email workflows, reporting.",
+        tags: ["Email marketing", "CRM", "Order processing", "Reports", "Workflows"],
       },
-      
+
       example: {
         title: "Example",
-        description: "Complete automation: new orders from the site automatically enter CRM, customer receives confirmation email, team gets WhatsApp notification, and invoice generates automatically - zero manual intervention."
+        description:
+          "Orders go directly into CRM, customers receive instant confirmations, team gets WhatsApp alerts, invoices generate automatically.",
       },
-      
+
       features: {
         title: "What we automate:",
         list: [
-          "Automatic emails (welcome, follow-up, cart abandonment)",
-          "Data synchronization between apps (CRM, shop, accounting)",
-          "Automatic order processing and routing",
-          "Real-time report and dashboard generation",
-          "WhatsApp/Telegram notifications for team",
-          "Customized workflows for your processes"
-        ]
+          "Automatic email sequences",
+          "CRM synchronization",
+          "Order routing and processing",
+          "Real-time dashboards",
+          "Automatic WhatsApp notifications",
+          "Custom business workflows",
+        ],
       },
-      
+
       cta: {
         primary: "Analyze your processes",
-        secondary: "Let's identify together what you can automate - free 30-minute audit"
-      }
+        secondary: "Free 30-minute automation audit",
+      },
     },
 
     consulting: {
       title: "AI & Digital Consulting",
-      subtitle: "Clear strategy for implementing AI in your business",
-      
+      subtitle: "A clear strategy for adopting AI in your business",
+
       problem: {
         title: "Problem",
-        description: "You know AI can help your business, but don't know where to start, which tools to use, or how to implement correctly."
+        description:
+          "You know AI can help, but don’t know where to start or which tools to choose.",
       },
-      
+
       whereApplies: {
         title: "Where we help",
-        description: "AI strategy, solution implementation, team training, digital process optimization.",
-        tags: ["AI strategy", "Implementation", "Training", "Optimization", "Digital transformation"]
+        description:
+          "AI strategy, implementation, team training, process optimization.",
+        tags: ["AI strategy", "Implementation", "Training", "Digital transformation"],
       },
-      
+
       example: {
         title: "Example",
-        description: "Complete consulting for a restaurant: implementation of online ordering system with AI chatbot, booking automation and digital menu with personalized recommendations - everything functional in 45 days."
+        description:
+          "Restaurant receives a full digital transformation: AI chatbot orders, automated reservations, smart digital menu.",
       },
-      
+
       features: {
         title: "What you get:",
         list: [
-          "Complete audit of your current processes",
-          "Personalized AI strategy with concrete steps",
-          "Tool and technology recommendations",
-          "Step-by-step guided implementation",
-          "Training for your team (in Romanian/Russian)",
-          "Continuous support 3 months post-implementation"
-        ]
+          "Complete business audit",
+          "Personalized AI strategy",
+          "Step-by-step implementation",
+          "Team onboarding",
+          "3 months of support",
+        ],
       },
-      
+
       cta: {
         primary: "Book free consultation",
-        secondary: "60 minutes to discover how AI can transform your business"
-      }
-    }
+        secondary: "Learn how AI can transform your business",
+      },
+    },
   },
 
+  // ------------------------------------------------------
+  // WHAT WE OFFER
+  // ------------------------------------------------------
   whatWeOffer: {
     title: "What we offer",
     chatbots: {
       name: "AI chatbots",
-      description:
-        "AI chatbots in Romanian and Russian — instant replies, lead qualification and full WhatsApp/site integration.",
+      description: "Instant replies, lead capture and WhatsApp integration.",
     },
     websites: {
       name: "Websites",
-      description:
-        "Fast, responsive, SEO-friendly websites built for small businesses in Moldova.",
+      description: "Fast, responsive, SEO-friendly websites.",
     },
     automation: {
       name: "Automation",
-      description:
-        "CRM, WhatsApp, email and workflow automation with integrated AI logic.",
+      description: "Workflows, CRM and WhatsApp automation.",
     },
     consulting: {
       name: "Consulting",
-      description:
-        "Digital strategy, AI adoption and web consulting tailored for local businesses.",
+      description: "AI adoption and digital strategy.",
     },
   },
 
   whyAI: {
     title: "Why AI",
-    benefit1: {
-      title: "Time saved",
-      description: "Less manual work, more results.",
-    },
-    benefit2: {
-      title: "Lower costs",
-      description: "Fewer errors, more efficiency.",
-    },
-    benefit3: {
-      title: "Fast scaling",
-      description: "Processes that grow with your business.",
-    },
-    benefit4: {
-      title: "Instant response",
-      description: "Your clients get help instantly — 24/7.",
-    },
+    benefit1: { title: "Time saved", description: "Less manual work." },
+    benefit2: { title: "Lower costs", description: "More efficiency." },
+    benefit3: { title: "Fast scaling", description: "Grow effortlessly." },
+    benefit4: { title: "Instant response", description: "Help 24/7." },
   },
 
   tinkabook: {
     badge: "TinkaBook",
     title: "Online booking for beauty & service professionals",
     subtitle: "Clients book themselves — you save time",
-    priceHighlight: "First month is free",
+    priceHighlight: "First month free",
 
     bullets: {
-      bullet1: "Online booking available 24/7",
+      bullet1: "Bookings available 24/7",
       bullet2: "Automatic client reminders",
       bullet3: "History, calendar & appointment management",
     },
@@ -254,12 +254,12 @@ export const en = {
 
       question1: {
         q: "How fast do you reply?",
-        a: "We usually respond within 30–60 minutes during business hours.",
+        a: "We usually answer within 30–60 minutes.",
       },
 
       question2: {
         q: "Do you offer a demo?",
-        a: "Yes, we can show a live demo of chatbots, websites or automations in a Zoom call.",
+        a: "Yes, we can show live demos in Zoom.",
       },
     },
   },
@@ -268,7 +268,7 @@ export const en = {
     company: "T.I.N.K.A. AI",
     tagline: "— Digital. Simple. Efficient.",
     description:
-      "AI solutions, web development and automation for small businesses in Chișinău and across Moldova.",
+      "AI solutions, web development and automation for small businesses.",
     quickLinks: "Quick Links",
     home: "Home",
     solutions: "Solutions",
@@ -278,7 +278,7 @@ export const en = {
     blog: "Blog",
     caseStudies: "Case Studies",
     faq: "FAQ",
-    contactInfo: "Contact Info",
+    contactInfo: "Contact info",
     email: "office@tinka.md",
     phone: "+373 68 333 899",
     hours: "Mon–Sun 10:00–22:00",
@@ -286,4 +286,26 @@ export const en = {
     terms: "Terms & Conditions",
     copyright: `© ${new Date().getFullYear()} TINKA AI`,
   },
-}
+
+  // ------------------------------------------------------
+  // 🔵 ABOUT PAGE (missing)
+  // ------------------------------------------------------
+  aboutPage: {
+    title: "About us",
+    subtitle: "Who we are and what we do",
+    content:
+      "TINKA AI provides digital solutions, automation and web design for businesses in Moldova.",
+  },
+
+  // ------------------------------------------------------
+  // 🔵 CONTACT PAGE (missing)
+  // ------------------------------------------------------
+  contactPage: {
+    title: "Contact",
+    subtitle: "We are here to help you",
+    address: "Chișinău, Republic of Moldova",
+    emailLabel: "Email",
+    phoneLabel: "Phone",
+    formTitle: "Send us a message",
+  },
+};
