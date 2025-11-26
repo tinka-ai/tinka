@@ -23,162 +23,169 @@ export const ro = {
       "TINKA AI construiește website-uri rapide, magazine online, chatbot-uri AI și automatizări pentru companii din Chișinău și din toată Moldova.",
   },
 
-  // ✅ SECȚIUNEA OPTIMIZATĂ - SOLUȚII COMPLETE
   solutions: {
     title: "Soluții",
     subtitle: "Transformăm procesele cu AI și aplicații",
-    
+
     chatbots: {
       title: "Chatbot-uri AI inteligente",
       subtitle: "Asistență automată 24/7 care răspunde instant și convinge clienții să cumpere",
-      
+
       problem: {
         title: "Problemă",
-        description: "Clienții tăi așteaptă ore pentru răspunsuri simple, iar echipa ta pierde timp cu aceleași întrebări repetitive zilnic. Pierzi vânzări pentru că nu răspunzi suficient de rapid."
+        description:
+          "Clienții tăi așteaptă ore pentru răspunsuri simple, iar echipa ta pierde timp cu aceleași întrebări repetitive zilnic.",
       },
-      
+
       whereApplies: {
         title: "Unde se aplică",
-        description: "Perfecte pentru magazine online, SaaS, servicii profesionale și orice business care primește întrebări repetitive de la clienți.",
-        tags: ["E-commerce", "Suport clienți", "Vânzări", "Generare lead-uri", "FAQ automatizat"]
+        description:
+          "Perfecte pentru magazine online, SaaS, servicii profesionale și orice business care primește întrebări repetitive.",
+        tags: ["E-commerce", "Suport clienți", "Vânzări", "Generare lead-uri", "FAQ automatizat"],
       },
-      
+
       example: {
         title: "Exemplu",
-        description: "Un magazin online implementează chatbot AI care gestionează 150+ conversații/zi automat. Rezultat: timpul de răspuns scade de la 4 ore la 30 secunde, iar vânzările cresc cu 28% în prima lună."
+        description:
+          "Un magazin online implementează chatbot AI care gestionează 150+ conversații/zi automat. Rezultat: timpul de răspuns scade de la 4 ore la 30 secunde.",
       },
-      
+
       features: {
         title: "Ce poate face:",
         list: [
-          "Răspunde instant 24/7, inclusiv weekenduri și sărbători",
-          "Gestionează conversații multiple simultan (fără limită)",
-          "Se învață din conversații și devine mai inteligent în timp",
-          "Integrare cu WhatsApp, Facebook Messenger, site-ul tău",
-          "Colectează date de contact și generează lead-uri calificate",
-          "Escaladează conversațiile complexe către echipa ta"
-        ]
+          "Răspunde instant 24/7",
+          "Gestionează conversații multiple simultan",
+          "Învață din date și se optimizează cu timpul",
+          "Integrare WhatsApp, Messenger și website",
+          "Generează lead-uri calificate",
+          "Transfer către operator uman când este necesar",
+        ],
       },
-      
+
       cta: {
         primary: "Programează demo gratuit",
-        secondary: "Vezi cum funcționează un chatbot AI personalizat pentru businessul tău - demo de 15 minute, fără obligații"
-      }
+        secondary:
+          "Vezi cum funcționează un chatbot AI personalizat pentru businessul tău – demo de 15 minute",
+      },
     },
 
     websites: {
       title: "Website-uri cu AI",
       subtitle: "Site-uri moderne care convertesc vizitatori în clienți",
-      
+
       problem: {
         title: "Problemă",
-        description: "Site-ul tău este lent, nu apare în Google și nu convinge vizitatorii să devină clienți. Pierzi oportunități zilnic."
+        description:
+          "Site-ul tău este lent, neoptimizat și nu transformă vizitatorii în clienți.",
       },
-      
+
       whereApplies: {
         title: "Unde se aplică",
-        description: "Landing pages pentru campanii, magazine online performante, site-uri corporative cu AI integrat.",
-        tags: ["Landing pages", "Magazine online", "Prezentări corporative", "Portofolii", "Site-uri SEO"]
+        description:
+          "Landing pages, magazine online, site-uri corporative, portofolii.",
+        tags: ["Landing", "E-commerce", "SEO", "Corporate", "Portofoliu"],
       },
-      
+
       example: {
         title: "Exemplu",
-        description: "Website optimizat cu încărcare sub 2 secunde, recomandări AI personalizate și chat automat - crește conversiile cu 40% și apare pe prima pagină Google în 60 de zile."
+        description:
+          "Website optimizat cu încărcare sub 2 secunde și recomandări AI personalizate – crește conversiile cu 40%.",
       },
-      
+
       features: {
         title: "Ce include:",
         list: [
-          "Design modern, responsive pe toate dispozitivele",
-          "Viteză de încărcare optimizată (scor 90+ PageSpeed)",
-          "SEO local optimizat pentru Moldova și Chișinău",
-          "Chatbot AI integrat pentru capturare lead-uri",
-          "Analytics și rapoarte de performanță",
-          "Administrare simplă, fără cunoștințe tehnice"
-        ]
+          "Design modern și responsive",
+          "Optimizare viteză (scor 90+ PageSpeed)",
+          "SEO local avansat pentru Moldova",
+          "Chatbot AI integrat",
+          "Analytics și rapoarte automate",
+        ],
       },
-      
+
       cta: {
         primary: "Solicită ofertă personalizată",
-        secondary: "Discutăm despre proiectul tău și îți oferim o estimare gratuită în 24h"
-      }
+        secondary: "Primești o propunere în 24h",
+      },
     },
 
     automation: {
       title: "Automatizări inteligente",
-      subtitle: "Automatizează task-uri repetitive și economisește 20+ ore/săptămână",
-      
+      subtitle: "Economisești 20+ ore pe săptămână cu procese automate",
+
       problem: {
         title: "Problemă",
-        description: "Echipa ta pierde ore prețioase cu sarcini repetitive: introducere date, răspunsuri email, procesare comenzi. Timpul ar putea fi folosit strategic."
+        description:
+          "Echipa ta pierde timp prețios cu sarcini repetitive și introducere manuală de date.",
       },
-      
+
       whereApplies: {
         title: "Unde se aplică",
-        description: "Automatizare email marketing, procesare comenzi, sincronizare CRM, rapoarte automate, workflow-uri interne.",
-        tags: ["Email marketing", "CRM", "Procesare comenzi", "Rapoarte", "Workflow-uri"]
+        description:
+          "Automatizare email, CRM, comenzi, rapoarte, notificări interne.",
+        tags: ["CRM", "Email", "Comenzi", "Rapoarte", "Workflow-uri"],
       },
-      
+
       example: {
         title: "Exemplu",
-        description: "Automatizare completă: comenzile noi din site intră automat în CRM, clientul primește email de confirmare, echipa primește notificare WhatsApp, iar factura se generează automat - zero intervenție manuală."
+        description:
+          "Comenzile noi intră automat în CRM, clientul primește confirmare, iar echipa primește notificare WhatsApp.",
       },
-      
+
       features: {
         title: "Ce automatizăm:",
         list: [
-          "Email-uri automate (welcome, follow-up, abandonare coș)",
-          "Sincronizare date între aplicații (CRM, shop, contabilitate)",
-          "Procesare și rutare comenzi automate",
-          "Generare rapoarte și dashboard-uri în timp real",
-          "Notificări WhatsApp/Telegram pentru echipă",
-          "Workflow-uri personalizate pentru procesele tale"
-        ]
+          "Email-uri automate și secvențe",
+          "Sincronizare CRM–shop",
+          "Generare facturi",
+          "Rapoarte zilnice automate",
+          "Notificări WhatsApp/Telegram",
+        ],
       },
-      
+
       cta: {
         primary: "Analizează procesele tale",
-        secondary: "Identificăm împreună ce poți automatiza - audit gratuit de 30 minute"
-      }
+        secondary: "Audit gratuit de 30 minute",
+      },
     },
 
     consulting: {
       title: "Consultanță AI & Digital",
-      subtitle: "Strategie clară pentru implementarea AI în businessul tău",
-      
+      subtitle: "Strategie clară pentru adoptarea AI în business",
+
       problem: {
         title: "Problemă",
-        description: "Știi că AI poate ajuta businessul tău, dar nu știi de unde să începi, ce instrumente să folosești sau cum să implementezi corect."
+        description: "Nu știi de unde să începi cu AI sau ce instrumente să alegi.",
       },
-      
+
       whereApplies: {
         title: "Unde ajutăm",
-        description: "Strategie AI, implementare soluții, training echipă, optimizare procese digitale.",
-        tags: ["Strategie AI", "Implementare", "Training", "Optimizare", "Transformare digitală"]
+        description: "Strategie, implementare, training, suport continuu.",
+        tags: ["AI Strategy", "Implementare", "Training", "Optimizare"],
       },
-      
+
       example: {
         title: "Exemplu",
-        description: "Consultanță completă pentru un restaurant: implementare sistem de comenzi online cu chatbot AI, automatizare rezervări și meniu digital cu recomandări personalizate - totul funcțional în 45 zile."
+        description:
+          "Consultanță completă pentru restaurant: sistem comenzi online, rezervări automate, chatbot AI.",
       },
-      
+
       features: {
         title: "Ce primești:",
         list: [
-          "Audit complet al proceselor tale actuale",
-          "Strategie AI personalizată cu pași concreți",
-          "Recomandări de instrumente și tehnologii",
-          "Implementare ghidată pas cu pas",
-          "Training pentru echipa ta (în română/rusă)",
-          "Suport continuu 3 luni post-implementare"
-        ]
+          "Audit complet",
+          "Strategie personalizată",
+          "Implementare ghidată",
+          "Training echipă",
+          "Suport 3 luni",
+        ],
       },
-      
+
       cta: {
         primary: "Rezervă consultanță gratuită",
-        secondary: "60 minute pentru a descoperi cum AI poate transforma businessul tău"
-      }
-    }
+        secondary: "60 minute de claritate totală",
+      },
+    },
   },
 
   whatWeOffer: {
@@ -186,22 +193,22 @@ export const ro = {
     chatbots: {
       name: "Chatbot-uri AI",
       description:
-        "Chatbot-uri AI în română și rusă — răspunsuri instant, calificare lead-uri și integrare completă WhatsApp/site.",
+        "Chatbot-uri AI în română și rusă – răspunsuri instant, lead-uri și integrare WhatsApp/site.",
     },
     websites: {
       name: "Website-uri",
       description:
-        "Website-uri rapide, responsive, SEO-friendly construite pentru afaceri mici din Moldova.",
+        "Website-uri rapide, responsive și optimizate pentru Moldova.",
     },
     automation: {
       name: "Automatizări",
       description:
-        "Automatizări CRM, WhatsApp, email și workflow cu logică AI integrată.",
+        "Automatizări CRM, email și workflow cu inteligență artificială.",
     },
     consulting: {
       name: "Consultanță",
       description:
-        "Strategie digitală, adoptare AI și consultanță web adaptate businessurilor locale.",
+        "Strategie digitală și consultanță AI pentru businessuri locale.",
     },
   },
 
@@ -209,19 +216,19 @@ export const ro = {
     title: "De ce AI",
     benefit1: {
       title: "Timp economisit",
-      description: "Mai puțină muncă manuală, mai multe rezultate.",
+      description: "Mai puțină muncă manuală, mai mult rezultat.",
     },
     benefit2: {
       title: "Costuri reduse",
-      description: "Mai puține erori, mai multă eficiență.",
+      description: "Automatizarea reduce timp și erori.",
     },
     benefit3: {
       title: "Scalare rapidă",
-      description: "Procese care cresc odată cu businessul tău.",
+      description: "Procesele cresc odată cu businessul tău.",
     },
     benefit4: {
       title: "Răspuns instant",
-      description: "Clienții tăi primesc ajutor instant — 24/7.",
+      description: "Disponibil 24/7 pentru clienții tăi.",
     },
   },
 
@@ -242,7 +249,7 @@ export const ro = {
     form: {
       description: "Completează formularul pentru a primi acces demo.",
       successDemoCredentials:
-        "Detaliile de conectare demo vor fi trimise pe email-ul tău.",
+        "Detaliile de conectare demo vor fi trimise pe email.",
     },
 
     ctaScroll: "Solicită demo",
@@ -259,7 +266,7 @@ export const ro = {
 
       question2: {
         q: "Oferiți o demonstrație?",
-        a: "Da, putem arăta un demo live pentru chatbot-uri, website-uri sau automatizări într-un apel Zoom.",
+        a: "Da, putem arăta un demo live pentru orice soluție într-un apel Zoom.",
       },
     },
   },
@@ -285,5 +292,23 @@ export const ro = {
     privacy: "Politica de Confidențialitate",
     terms: "Termeni și Condiții",
     copyright: `© ${new Date().getFullYear()} TINKA AI`,
+  },
+
+  // 🔵 ABOUT PAGE
+  aboutPage: {
+    title: "Despre noi",
+    subtitle: "Cine suntem și ce facem",
+    content:
+      "TINKA AI oferă soluții digitale, automatizare și web design pentru afaceri din Moldova.",
+  },
+
+  // 🔵 CONTACT PAGE
+  contactPage: {
+    title: "Contact",
+    subtitle: "Suntem aici pentru a te ajuta",
+    address: "Chișinău, Republica Moldova",
+    emailLabel: "Email",
+    phoneLabel: "Telefon",
+    formTitle: "Trimite-ne un mesaj",
   },
 }
