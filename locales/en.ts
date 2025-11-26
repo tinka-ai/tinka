@@ -7,7 +7,7 @@ export const en = {
     blog: "Blog",
     caseStudies: "Case Studies",
     privacy: "Privacy Policy",
-    terms: "Terms",
+    terms: "Terms & Conditions",
     language: "Language",
   },
 
@@ -20,30 +20,30 @@ export const en = {
     ctaSecondary: "Contact us",
     badge: "Digital. Simple. Efficient.",
     description:
-      "TINKA AI builds fast websites, online stores, AI chatbots and automation flows for companies in Chișinău and across Moldova.",
+      "TINKA AI builds fast websites, online stores, AI chatbots and automation tools for companies in Chișinău and across Moldova.",
   },
 
   whatWeOffer: {
     title: "What we offer",
     chatbots: {
-      name: "AI Chatbots",
+      name: "AI chatbots",
       description:
-        "AI chatbots in Romanian and Russian for businesses — 24/7 support, sales assistance and seamless integrations.",
+        "AI chatbots in Romanian and Russian — instant replies, lead qualification and full WhatsApp/site integration.",
     },
     websites: {
       name: "Websites",
       description:
-        "Website creation and web design — fast, responsive and SEO-optimized websites for SMEs.",
+        "Fast, responsive, SEO-friendly websites built for small businesses in Moldova.",
     },
     automation: {
       name: "Automation",
       description:
-        "Business automation — CRM, WhatsApp, email workflows and internal processes.",
+        "CRM, WhatsApp, email and workflow automation with integrated AI logic.",
     },
     consulting: {
       name: "Consulting",
       description:
-        "Digital strategy, AI consulting and business growth support for SMEs.",
+        "Digital strategy, AI adoption and web consulting tailored for local businesses.",
     },
   },
 
@@ -66,47 +66,51 @@ export const en = {
       description: "Your clients get help instantly — 24/7.",
     },
   },
-tinkabook: {
+
+  tinkabook: {
     badge: "TinkaBook",
-    title: "Online booking for stylists and service providers",
+    title: "Online booking for beauty & service professionals",
     subtitle: "Clients book themselves — you save time",
-    priceHighlight: "First month free",
+    priceHighlight: "First month is free",
 
     bullets: {
-      bullet1: "24/7 online booking",
+      bullet1: "Online booking available 24/7",
       bullet2: "Automatic client reminders",
-      bullet3: "Visit history & schedule management",
+      bullet3: "History, calendar & appointment management",
     },
 
-    ctaVisit: "Visit TinkaBook website",
+    ctaVisit: "Visit TinkaBook",
 
     form: {
-      description: "Fill the form to get demo access.",
+      description: "Fill in the form to receive demo access.",
       successDemoCredentials:
         "Demo login details will be sent to your email.",
     },
 
     ctaScroll: "Request demo",
+  },
+
   contact: {
     faq: {
       title: "Frequently Asked Questions",
 
       question1: {
-        q: "How fast do you usually respond?",
-        a: "Typically we reply within 30–60 minutes during working hours.",
+        q: "How fast do you reply?",
+        a: "We usually respond within 30–60 minutes during business hours.",
       },
 
       question2: {
-        q: "Do you offer demos?",
-        a: "Yes, we can show a live demo of chatbots, websites or automation flows via Zoom.",
+        q: "Do you offer a demo?",
+        a: "Yes, we can show a live demo of chatbots, websites or automations in a Zoom call.",
       },
-    }
-},
+    },
+  },
+
   footer: {
     company: "T.I.N.K.A. AI",
     tagline: "— Digital. Simple. Efficient.",
     description:
-      "AI solutions, web design, website development and automation for SMEs in Chișinău and across Moldova.",
+      "AI solutions, web development and automation for small businesses in Chișinău and across Moldova.",
     quickLinks: "Quick Links",
     home: "Home",
     solutions: "Solutions",
