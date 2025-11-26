@@ -10,12 +10,13 @@ import { Heart, Shield, Target, Users, Lightbulb } from "lucide-react"
 import CalendlyButton from "@/components/CalendlyButton"
 
 export default function AboutClient() {
-  const { t, locale } = useLocale() as any
+  const { t: tFunc, locale } = useLocale() as any
+  const t = tFunc // ✅ Acum t este obiectul dicționar
 
   const F = {
     footer: {
       company: "TINKA AI",
-      tagline: "",
+        tagline: "",
       description: "",
       quickLinks: "Link-uri rapide",
       home: "Acasă",
