@@ -82,7 +82,7 @@ export default function Page() {
 
               {/* HERO IMAGE OPTIMIZATĂ */}
               <div className="relative">
-                <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
+               <div className="absolute inset-0 -z-10 rounded-2xl bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.22),transparent_70%)] pointer-events-none will-change-transform" />
 
             <Image
   src="/image/hero-tinkaai.avif"
