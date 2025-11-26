@@ -1,12 +1,10 @@
 "use client"
-
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import { ro } from "@/locales/ro"
 import { en } from "@/locales/en"
 import { ru } from "@/locales/ru"
 
 const DICTS = { ro, en, ru } as const
-
 export type Locale = keyof typeof DICTS
 export const defaultLocale: Locale = "ro"
 
@@ -17,7 +15,6 @@ export const defaultLocale: Locale = "ro"
 function getValue(dict: any, path: string): string {
   const parts = path.split(".")
   let current = dict
-
   for (const p of parts) {
     if (current && typeof current === "object" && p in current) {
       current = current[p]
@@ -25,14 +22,14 @@ function getValue(dict: any, path: string): string {
       return `[${path}]`
     }
   }
-
   return typeof current === "string" ? current : `[${path}]`
 }
 
 type LocaleContextType = {
   locale: Locale
   setLocale: (locale: Locale) => void
-  t: (path: string) => string
+  t: any  // ✅ SCHIMBAT - acum returnează întregul dicționar
+  tString: (path: string) => string  // ✅ NOU - funcția veche pentru stringuri
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
@@ -56,11 +53,14 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  /** T("hero.title") → returnă string din dicționarul activ */
-  const t = (path: string) => getValue(DICTS[locale], path)
+  /** tString("hero.title") → returnă string din dicționarul activ */
+  const tString = (path: string) => getValue(DICTS[locale], path)
+  
+  /** t → returnează întregul dicționar pentru limba activă */
+  const t = DICTS[locale]
 
   return (
-    <LocaleContext.Provider value={{ locale, setLocale, t }}>
+    <LocaleContext.Provider value={{ locale, setLocale, t, tString }}>
       {children}
     </LocaleContext.Provider>
   )
