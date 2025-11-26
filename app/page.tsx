@@ -75,15 +75,17 @@ export default function Page() {
 
               <div className="relative">
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.18),transparent_60%)]" />
-                <Image
-                  src="/image/hero-tinkaai.webp"
-                  alt="TINKA AI – Soluții AI și Web Design în Moldova"
-                  width={880}
-                  height={700}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="w-full h-auto rounded-2xl object-cover"
-                />
+          <Image
+  src="/image/hero-tinkaai.webp"
+  alt="TINKA AI – Soluții AI și Web Design în Moldova"
+  width={880}
+  height={700}
+  priority
+  loading="eager"
+  fetchPriority="high"
+  sizes="100vw"
+  className="w-full h-auto rounded-2xl object-cover"
+/>
               </div>
 
             </div>
