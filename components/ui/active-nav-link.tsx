@@ -20,7 +20,7 @@ export default function ActiveNavLink({
       href={href}
       prefetch={false}
       aria-current={isActive ? "page" : undefined}
-      className="relative inline-block overflow-hidden h-[20px]"
+      className="relative group inline-block"
     >
       {/* ▬ MOBILE — fără efect ▬ */}
       <span className="block md:hidden text-sm font-medium text-muted-foreground hover:text-foreground">
@@ -28,20 +28,23 @@ export default function ActiveNavLink({
       </span>
 
       {/* ▬ DESKTOP — efect scroll ▬ */}
-      <span
-        className={
-          "hidden md:block transition-transform duration-300 ease-out " +
-          (isActive ? "-translate-y-full" : "hover:-translate-y-full")
-        }
-      >
-        {/* Linie 1 = text inițial gri (întotdeauna gri când nu e scroll) */}
-        <span className="block text-sm font-medium text-muted-foreground">
-          {children}
-        </span>
+      <span className="hidden md:block relative overflow-hidden h-[20px]">
+        {/* Container cu ambele texte - acesta se mișcă */}
+        <span
+          className={
+            "block transition-transform duration-300 ease-out " +
+            (isActive ? "-translate-y-full" : "group-hover:-translate-y-full")
+          }
+        >
+          {/* Linie 1 = text inițial gri */}
+          <span className="block text-sm font-medium text-muted-foreground h-[20px] leading-[20px]">
+            {children}
+          </span>
 
-        {/* Linie 2 = text alb bold (se vede după scroll - fie hover, fie active) */}
-        <span className="block text-sm font-semibold text-white">
-          {children}
+          {/* Linie 2 = text alb bold (apare după scroll) */}
+          <span className="block text-sm font-semibold text-foreground h-[20px] leading-[20px]">
+            {children}
+          </span>
         </span>
       </span>
     </Link>
