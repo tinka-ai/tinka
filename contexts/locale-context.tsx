@@ -28,8 +28,7 @@ function getValue(dict: any, path: string): string {
 type LocaleContextType = {
   locale: Locale
   setLocale: (locale: Locale) => void
-  t: any  // ✅ SCHIMBAT - acum returnează întregul dicționar
-  tString: (path: string) => string  // ✅ NOU - funcția veche pentru stringuri
+  t: any  // ✅ Poate fi și funcție și obiect
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
@@ -53,14 +52,17 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  /** tString("hero.title") → returnă string din dicționarul activ */
-  const tString = (path: string) => getValue(DICTS[locale], path)
+  // ✅ HACK: t este și funcție și obiect în același timp
+  const dict = DICTS[locale]
   
-  /** t → returnează întregul dicționar pentru limba activă */
-  const t = DICTS[locale]
+  // Creăm o funcție care are și proprietăți ale obiectului
+  const t: any = (path: string) => getValue(dict, path)
+  
+  // Adăugăm toate proprietățile dicționarului la funcție
+  Object.assign(t, dict)
 
   return (
-    <LocaleContext.Provider value={{ locale, setLocale, t, tString }}>
+    <LocaleContext.Provider value={{ locale, setLocale, t }}>
       {children}
     </LocaleContext.Provider>
   )
