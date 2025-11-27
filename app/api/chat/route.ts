@@ -2,70 +2,49 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   try {
-    const { messages, language } = await req.json()
+    const { messages, lang } = await req.json()
 
-    // Default language (fallback)
-    const lang = language || "ro"
+    const language = lang || "ro"
 
-    // SYSTEM PROMPT – versiunea finală corectă
+    const greetings: Record<string, string> = {
+      ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
+      en: "Hello! I am Ai-Tinka. How can I assist you?",
+      ru: "Здравствуйте! Я Ai-Tinka. Чем могу помочь?"
+    }
+
     const systemPrompt = {
       role: "system",
       content: `
-Ești Ai-Tinka – consultant digital multilingv.
-Răspunzi STRICT în limba selectată: "${lang}". 
-Nu folosești alte limbi în răspunsuri.
+Ești Ai-Tinka – asistent digital multilingv. Răspunzi exclusiv în: ${language}.
 
-────────────────────────
-🎯 OBIECTIVE
-– Răspunzi scurt, clar și profesionist (1–3 propoziții).
-– Pui 1–2 întrebări scurte înainte de a oferi preț exact.
-– Recomanzi una dintre soluțiile TINKA AI:
-  • Website profesional
-  • SEO Local Moldova
-  • Sistem de programări TinkaBook
-  • Chatbot AI personalizat
-  • Automatizări IMM
-  • CRM / aplicații interne
-  • Branding & identitate vizuală
+🎯 Obiectiv:
+Colectezi aceste 4 informații:
+1. nume complet
+2. telefon
+3. email
+4. descriere scurtă proiect
 
-────────────────────────
-💰 LIMITĂRI PREȚ (obligatoriu)
-• Landing page: 120–200 EUR
-• Website complet: 250–400 EUR
-• Chatbot AI: 100–200 EUR
-• SEO lunar: 80–150 EUR
-• Automatizări: 100–300 EUR
-Reducerea maximă: –20%.
+Când ai TOATE datele, răspunzi EXACT așa:
+{
+  "lead_ready": true,
+  "name": "NUME",
+  "phone": "TELEFON",
+  "email": "EMAIL",
+  "project": "DESCRIERE"
+}
 
-────────────────────────
-🧭 REGULI
-• Ton cald, profesionist, empatic.
-• Nu folosești englezisme în răspunsurile în română.
-• Nu repeți aceeași informație de mai multe ori.
-• Nu generezi paragrafe lungi (optimizare cost).
-• Nu promiți ceva nerealist.
-• Nu comuți niciodată în altă limbă.
-
-────────────────────────
-📌 SCOP FINAL
-La finalul conversației colectezi:
-• numele
-• emailul
-• telefonul
-• scurtă descriere a proiectului
-
-După colectare întrebi:
-„Vrei să-ți trimit oferta completă pe email acum?”
+IMPORTANT:
+- NU adăuga text înainte sau după JSON.
+- NU traduce cheile JSON.
+- Dacă lipsesc date, ceri politicos ce lipsește.
       `
     }
 
-    // Construim mesajele pentru model
-    const finalMessages = [
-      systemPrompt,
-      ...messages
-    ]
+    const finalMessages =
+      messages.length === 0
+        ? [systemPrompt, { role: "assistant", content: greetings[language] }]
+        : [systemPrompt, ...messages]
 
-    // Cererea către OpenAI (gpt-4.1-mini)
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -75,31 +54,19 @@ După colectare întrebi:
       body: JSON.stringify({
         model: "gpt-4.1-mini",
         input: finalMessages,
-        max_output_tokens: 250,
+        max_output_tokens: 300,
         temperature: 0.7
       })
     })
 
     const data = await response.json()
 
-    if (!response.ok) {
-      console.error("OPENAI ERROR:", data)
-      return NextResponse.json(
-        { error: "OpenAI request failed", details: data },
-        { status: 500 }
-      )
-    }
-
-    const reply = data.output_text ?? "Eroare la generarea răspunsului."
-
     return NextResponse.json({
-      choices: [
-        { message: { role: "assistant", content: reply } }
-      ]
+      bot: data.output_text || "Eroare."
     })
 
-  } catch (error) {
-    console.error("CHAT API ERROR:", error)
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
+  } catch (err) {
+    console.error(err)
+    return NextResponse.json({ error: "EROARE SERVER" }, { status: 500 })
   }
 }
