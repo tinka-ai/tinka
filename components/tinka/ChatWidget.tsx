@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { Send, X, Globe } from "lucide-react"
-import Image from "next/image"
+import TinkaAvatar from "@/components/tinka/TinkaAvatar"
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
@@ -38,7 +38,7 @@ export default function ChatWidget() {
     setMessages([...newMessages, { role: "assistant", content: reply }])
   }
 
-  // UI — alegerea limbii (prima interacțiune)
+  // UI — alegerea limbii
   if (!language && open) {
     return (
       <div className="fixed bottom-24 right-6 z-50 bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl p-5 w-80 border border-neutral-200 dark:border-neutral-700">
@@ -82,33 +82,24 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Floating Button — Avatar bubble */}
+      {/* Floating Button — AI Abstract Avatar */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 shadow-2xl p-0 rounded-full w-16 h-16 flex items-center justify-center border-4 border-white dark:border-neutral-900"
+        className="fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[3px] rounded-full w-16 h-16 flex items-center justify-center hover:scale-105 transition"
       >
-        <Image
-          src="/tinka-avatar.png"
-          alt="TINKA Avatar"
-          width={60}
-          height={60}
-          className="rounded-full"
-        />
+        <TinkaAvatar className="w-14 h-14" />
       </button>
 
       {/* Chat Window */}
       {open && (
         <div className="fixed bottom-24 right-6 w-80 h-[480px] bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden z-50 border border-neutral-200 dark:border-neutral-700">
+          
           {/* Header */}
-          <div className="bg-blue-600 text-white p-3 flex items-center gap-2">
-            <Image
-              src="/tinka-avatar.png"
-              alt="TINKA"
-              width={34}
-              height={34}
-              className="rounded-full border border-white/40"
-            />
-            <span className="font-semibold text-white">TINKA AI</span>
+          <div className="bg-slate-950 text-white p-3 flex items-center gap-2">
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-sky-400/50">
+              <TinkaAvatar className="w-full h-full" />
+            </div>
+            <span className="font-semibold text-sm">TINKA AI</span>
             <button className="ml-auto" onClick={() => setOpen(false)}>
               <X size={20} />
             </button>
