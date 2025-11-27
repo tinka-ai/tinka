@@ -1,50 +1,56 @@
 import { NextResponse } from "next/server"
 
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
+
 export async function POST(req: Request) {
   try {
     const { messages, lang } = await req.json()
 
+    // Limba selectată de user
     const language = lang || "ro"
 
-    const greetings: Record<string, string> = {
-      ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
-      en: "Hello! I am Ai-Tinka. How can I assist you?",
-      ru: "Здравствуйте! Я Ai-Tinka. Чем могу помочь?"
-    }
+    // Limitare context — ultimele 10 mesaje
+    const recentMessages = messages.slice(-10)
 
+    // Prompt profesional Ai-Tinka
     const systemPrompt = {
       role: "system",
       content: `
-Ești Ai-Tinka – asistent digital multilingv. Răspunzi exclusiv în: ${language}.
+Ești Ai-Tinka – asistentul digital oficial al TINKA AI.
 
-🎯 Obiectiv:
-Colectezi aceste 4 informații:
-1. nume complet
-2. telefon
-3. email
-4. descriere scurtă proiect
+REGULA #1:
+Răspunzi STRICT în limba: "${language}". Nu schimbi limba NICIODATĂ.
 
-Când ai TOATE datele, răspunzi EXACT așa:
-{
-  "lead_ready": true,
-  "name": "NUME",
-  "phone": "TELEFON",
-  "email": "EMAIL",
-  "project": "DESCRIERE"
-}
+REGULA #2:
+Tonul tău este scurt (1–3 propoziții), profesionist, cald, consultativ.
 
-IMPORTANT:
-- NU adăuga text înainte sau după JSON.
-- NU traduce cheile JSON.
-- Dacă lipsesc date, ceri politicos ce lipsește.
+CE FACI:
+1. Înțelegi afacerea utilizatorului.
+2. Pui întrebări scurte de clarificare.
+3. Oferi soluții TINKA AI:
+   • Website (120–400 EUR)
+   • SEO Local (80–150 EUR / lună)
+   • Chatbot AI (100–200 EUR)
+   • Automatizări IMM (100–300 EUR)
+   • TinkaBook – programări
+   • CRM/Aplicații interne
+   • Branding/Identitate
+
+4. Negociezi maxim 20%; nu scazi sub prețurile minime.
+5. La momentul potrivit, ceri:
+   – numele
+   – telefonul
+   – emailul
+   – descrierea proiectului
+
+Dacă utilizatorul oferă date de contact, confirmi politicos.
       `
     }
 
-    const finalMessages =
-      messages.length === 0
-        ? [systemPrompt, { role: "assistant", content: greetings[language] }]
-        : [systemPrompt, ...messages]
+    const finalMessages = [systemPrompt, ...recentMessages]
 
+    // OpenAI Responses API
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -54,19 +60,26 @@ IMPORTANT:
       body: JSON.stringify({
         model: "gpt-4.1-mini",
         input: finalMessages,
-        max_output_tokens: 300,
-        temperature: 0.7
+        max_output_tokens: 250,
+        temperature: 0.55
       })
     })
 
     const data = await response.json()
 
+    if (!response.ok) {
+      console.error("OPENAI ERROR:", data)
+      return NextResponse.json({ error: "OpenAI error", details: data }, { status: 500 })
+    }
+
+    const reply = data?.output_text || "Eroare răspuns."
+
     return NextResponse.json({
-      bot: data.output_text || "Eroare."
+      choices: [{ message: { role: "assistant", content: reply } }]
     })
 
   } catch (err) {
-    console.error(err)
-    return NextResponse.json({ error: "EROARE SERVER" }, { status: 500 })
+    console.error("CHAT API ERROR:", err)
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
   }
 }
