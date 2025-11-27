@@ -11,6 +11,7 @@ import "./globals.css"
 
 import Providers from "./providers"
 import Navbar from "@/components/ui/navbar"
+import ChatWidget from "@/components/tinka/ChatWidget"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tinka.md"),
@@ -204,6 +205,7 @@ export default function RootLayout({
             <footer role="contentinfo">
              <Analytics />
             </footer>
+           <ChatWidget />
           </Suspense>
         </Providers>
       </body>
