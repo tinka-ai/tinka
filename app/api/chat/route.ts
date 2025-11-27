@@ -143,7 +143,7 @@ REGULI IMPORTANTE
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-4.1-mini",
+        model: "o4-mini",
         input: finalMessages,
         max_output_tokens: 300
       })
