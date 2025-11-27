@@ -90,10 +90,25 @@ setTyping(false)
               <button
                 key={code}
                 className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700 transition"
-                onClick={() => setLanguage(code)}
-              >
-                {label}
-              </button>
+             onClick={() => {
+  setLanguage(code)
+
+  // Mesajele de salut în funcție de limbă
+  const greetings = {
+    ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
+    ru: "Привет! Я Ai-Tinka. Чем могу помочь?",
+    en: "Hello! I’m Ai-Tinka. How can I assist you?"
+  }
+
+  // Șterge conversația anterioară și arata mesajul de salut
+  setMessages([
+    { role: "assistant", content: greetings[code] }
+  ])
+}}
+>
+  {label}
+</button>
+
             ))}
           </div>
 
