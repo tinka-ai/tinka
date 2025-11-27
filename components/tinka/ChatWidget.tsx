@@ -73,13 +73,8 @@ export default function ChatWidget() {
     setInput("")
     setTyping(true)
 
-    // ---------------------------------------------------------
-    // DETECTARE DATE CONTACT (în mesajul curent)
-    // ---------------------------------------------------------
-    const rawText = trimmed.toLowerCase()
-
- // ---------------------------------------------------------
-// DETECTARE DATE CONTACT (versiune corectată)
+   // ---------------------------------------------------------
+// DETECTARE DATE CONTACT (versiune corectată, fără duplicate)
 // ---------------------------------------------------------
 
 const forbiddenWords = [
@@ -98,18 +93,18 @@ const looksLikeName = (text: string) => {
 
   if (parts.length === 0 || parts.length > 3) return false
 
-  // Ion Popescu → ok
-  // Ana-Maria Pop → ok
-  return parts.every(p => /^[A-ZĂÂÎȘȚ][a-zăâîșț]+(-[A-ZĂÂÎȘȚ][a-zăâîșț]+)?$/.test(p))
+  return parts.every(p =>
+    /^[A-ZĂÂÎȘȚ][a-zăâîșț]+(-[A-ZĂÂÎȘȚ][a-zăâîșț]+)?$/.test(p)
+  )
 }
 
 const emailMatch = rawText.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)
 const phoneMatch = rawText.match(/(\+?\d[\d\s-]{6,14}\d)/)
 const nameCandidate = looksLikeName(trimmed)
 
-// ❗ Botul consideră „lead” doar dacă e un nume real / email / telefon
 const hasContactHint = !!emailMatch || !!phoneMatch || nameCandidate
 
+// IMPORTANT: un singur nextLead
 let nextLead = { ...detectedLead }
 
 // Setăm doar dacă e valid
@@ -128,21 +123,6 @@ if (phoneMatch && isValidPhone(phoneMatch[0])) {
 if (hasContactHint) {
   setDetectedLead(nextLead)
 }
-    let nextLead = { ...detectedLead }
-
-    if (nameCandidate && isValidName(trimmed) && !nextLead.name) {
-      nextLead.name = trimmed
-    }
-    if (emailMatch && isValidEmail(emailMatch[0])) {
-      nextLead.email = emailMatch[0]
-    }
-    if (phoneMatch && isValidPhone(phoneMatch[0])) {
-      nextLead.phone = phoneMatch[0]
-    }
-
-    if (hasContactHint) {
-      setDetectedLead(nextLead)
-    }
 
 // ---------------------------------------------------------
 // RĂSPUNS AI (indiferent de lead)
