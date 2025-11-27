@@ -17,17 +17,18 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<any[]>([])
   const [typing, setTyping] = useState(false)
 
-  // PREVENIRE TRIMITERE MULTIPLA
+  // Să nu trimitem lead de 2 ori
   const [leadSent, setLeadSent] = useState(false)
 
-  // BUFFER PENTRU DATE (PUNCTUL 3)
-  const [userData, setUserData] = useState({
+  // Buffer pentru date detectate
+  const [detectedLead, setDetectedLead] = useState({
     name: "",
     email: "",
     phone: ""
   })
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
@@ -42,109 +43,195 @@ export default function ChatWidget() {
     audio.play().catch(() => {})
   }
 
+  // Helpers validare
+  const isValidName = (name: string) =>
+    name.trim().length >= 3 &&
+    /^[a-zA-ZăâîșțĂÂÎȘȚА-Яа-яёЁ\s-]+$/.test(name.trim())
+
+  const isValidEmail = (email: string) =>
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())
+
+  const isValidPhone = (phone: string) => {
+    const clean = phone.replace(/\s|-/g, "")
+    return /^(\+373\d{8}|0\d{8,9}|\+?\d{7,14})$/.test(clean)
+  }
+
   // ---------------------------------------------------------
-  // TRIMITERE MESAJ + DETECTARE + EMAIL
+  // TRIMITERE MESAJ + DETECTARE DATE + AI + LEAD
   // ---------------------------------------------------------
   const sendMessage = async () => {
-    if (!input.trim()) return
+    const trimmed = input.trim()
+    if (!trimmed) return
+
+    // Protecție anti-bot foarte simplă
+    if (trimmed.length > 800) return
 
     playSound(sendSound)
 
-    const newMessages = [...messages, { role: "user", content: input }]
+    const newMessages = [...messages, { role: "user", content: trimmed }]
     setMessages(newMessages)
     setInput("")
     setTyping(true)
 
     // ---------------------------------------------------------
-    // DETECTARE DATE UTILIZATOR (PUNCTUL 3)
+    // DETECTARE DATE CONTACT (în mesajul curent)
     // ---------------------------------------------------------
-    const text = input.toLowerCase()
+    const rawText = trimmed.toLowerCase()
 
-    const possibleEmail = text.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/)
-    const possiblePhone = text.match(/(\+?\d[\d\s-]{6,14}\d)/)
-    const possibleName =
-      text.length > 2 && !text.includes("@") && !/\d/.test(text)
+    const emailMatch = rawText.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)
+    const phoneMatch = rawText.match(/(\+?\d[\d\s-]{6,14}\d)/)
+    const nameCandidate =
+      trimmed.length >= 3 &&
+      !trimmed.includes("@") &&
+      !/\d/.test(trimmed) &&
+      /^[a-zA-ZăâîșțĂÂÎȘȚА-Яа-яёЁ\s-]+$/.test(trimmed)
 
-    let newUserData = { ...userData }
+    const hasContactHint = !!emailMatch || !!phoneMatch || nameCandidate
 
-    if (possibleName && !newUserData.name) {
-      newUserData.name = input.trim()
+    let nextLead = { ...detectedLead }
+
+    if (nameCandidate && isValidName(trimmed) && !nextLead.name) {
+      nextLead.name = trimmed
     }
-    if (possibleEmail) {
-      newUserData.email = possibleEmail[0]
+    if (emailMatch && isValidEmail(emailMatch[0])) {
+      nextLead.email = emailMatch[0]
     }
-    if (possiblePhone) {
-      newUserData.phone = possiblePhone[0]
+    if (phoneMatch && isValidPhone(phoneMatch[0])) {
+      nextLead.phone = phoneMatch[0]
     }
 
-    setUserData(newUserData)
+    if (hasContactHint) {
+      setDetectedLead(nextLead)
+    }
 
     // ---------------------------------------------------------
-    // CERERE LA OPENAI (AI-TINKA)
+    // RĂSPUNS AI (indiferent de lead)
     // ---------------------------------------------------------
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: newMessages,
-        lang: language
-      })
-    })
-
-    const data = await res.json()
-
-    const reply =
-      data?.output_text ||
-      data?.message ||
-      data?.choices?.[0]?.message?.content ||
-      "Eroare răspuns."
-
-    // UN SINGUR RĂSPUNS AI (fără dubluri)
-    setMessages((prev) => [
-      ...prev,
-      { role: "assistant", content: reply }
-    ])
-
-    setTyping(false)
-    playSound(receiveSound)
-
-    // ---------------------------------------------------------
-    // TRIMITERE LEAD (DOAR O DATĂ)
-    // ---------------------------------------------------------
-    if (
-      newUserData.name &&
-      newUserData.phone &&
-      newUserData.email &&
-      !leadSent
-    ) {
-      setLeadSent(true)
-
-      await fetch("/api/chat-send", {
+    try {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...newUserData,
-          lang: language,
-          conversation: newMessages
+          messages: newMessages,
+          lang: language
         })
       })
 
-      // Mesaj confirmare
-      const confirmations = {
-        ro: "Mulțumesc! Am transmis datele tale echipei TINKA AI. Te contactăm în scurt timp.",
-        ru: "Спасибо! Мы передали ваши данные команде TINKA AI. Мы свяжемся с вами в ближайшее время.",
-        en: "Thank you! Your details have been sent to the TINKA AI team. We will contact you shortly."
+      const data = await res.json()
+
+      const reply =
+        data?.output_text ||
+        data?.message ||
+        data?.choices?.[0]?.message?.content ||
+        "Eroare răspuns."
+
+      setMessages(prev => [
+        ...prev,
+        { role: "assistant", content: reply }
+      ])
+
+      playSound(receiveSound)
+    } catch (err) {
+      console.error("CHAT ERROR:", err)
+      setMessages(prev => [
+        ...prev,
+        {
+          role: "assistant",
+          content:
+            language === "ru"
+              ? "Произошла ошибка. Попробуйте ещё раз чуть позже."
+              : language === "en"
+              ? "An error occurred. Please try again later."
+              : "A apărut o eroare. Te rog să încerci din nou mai târziu."
+        }
+      ])
+    } finally {
+      setTyping(false)
+    }
+
+    // ---------------------------------------------------------
+    // LOGICĂ LEAD – validare + trimitere + confirmare
+    // ---------------------------------------------------------
+    if (!leadSent && hasContactHint) {
+      const nameOk = isValidName(nextLead.name)
+      const emailOk = isValidEmail(nextLead.email)
+      const phoneOk = isValidPhone(nextLead.phone)
+
+      // Dacă lipsesc câmpuri -> cerem politicos exact ce lipsește
+      if (!nameOk || !emailOk || !phoneOk) {
+        let msg = ""
+
+        if (!nameOk) {
+          msg +=
+            language === "ru"
+              ? "Как Вас зовут? "
+              : language === "en"
+              ? "What is your name? "
+              : "Cum te numești? "
+        }
+
+        if (!phoneOk) {
+          msg +=
+            language === "ru"
+              ? "Какой у Вас номер телефона? "
+              : language === "en"
+              ? "What is your phone number? "
+              : "Care este numărul tău de telefon? "
+        }
+
+        if (!emailOk) {
+          msg +=
+            language === "ru"
+              ? "Какой у Вас адрес электронной почты? "
+              : language === "en"
+              ? "What is your email address? "
+              : "Care este adresa ta de email? "
+        }
+
+        if (msg.trim().length > 0) {
+          setMessages(prev => [
+            ...prev,
+            { role: "assistant", content: msg.trim() }
+          ])
+        }
       }
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: confirmations[language || "ro"] }
-      ])
+      // Dacă toate sunt valide -> trimitem lead o singură dată
+      if (nameOk && emailOk && phoneOk) {
+        try {
+          setLeadSent(true)
+
+          await fetch("/api/chat-send", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: nextLead.name,
+              email: nextLead.email,
+              phone: nextLead.phone,
+              lang: language,
+              conversation: newMessages
+            })
+          })
+
+          const confirmations = {
+            ro: "Mulțumesc! Am transmis datele tale echipei TINKA AI. Te contactăm în scurt timp.",
+            ru: "Спасибо! Мы передали ваши данные команде TINKA AI. Мы свяжемся с вами в ближайшее время.",
+            en: "Thank you! Your details have been sent to the TINKA AI team. We will contact you shortly."
+          }
+
+          setMessages(prev => [
+            ...prev,
+            { role: "assistant", content: confirmations[language || "ro"] }
+          ])
+        } catch (err) {
+          console.error("CHAT-SEND ERROR:", err)
+        }
+      }
     }
   }
 
   // ---------------------------------------------------------
-  // SELECTARE LIMBĂ
+  // SELECTARE LIMBĂ (ecran inițial)
   // ---------------------------------------------------------
   if (!language && open) {
     return (
@@ -168,7 +255,7 @@ export default function ChatWidget() {
               onClick={() => {
                 setLanguage(code)
 
-                const greetings = {
+                const greetings: Record<string, string> = {
                   ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
                   ru: "Привет! Я Ai-Tinka. Чем могу помочь?",
                   en: "Hello! I’m Ai-Tinka. How can I assist you?"
@@ -197,7 +284,7 @@ export default function ChatWidget() {
   // ---------------------------------------------------------
   return (
     <>
-      {/* Avatar floating button */}
+      {/* Avatar plutitor */}
       <button
         onClick={() => setOpen(true)}
         className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center transition-transform ${
@@ -207,8 +294,10 @@ export default function ChatWidget() {
         <TinkaAvatar className="w-14 h-14" />
       </button>
 
-      {open && (
+      {/* Fereastra chat */}
+      {open && language && (
         <div className="fixed bottom-24 right-6 w-80 h-[480px] bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden z-50 border border-neutral-200 dark:border-neutral-700">
+          {/* Header */}
           <div className="bg-slate-950 text-white p-3 flex items-center gap-2">
             <div
               className={`w-9 h-9 rounded-full overflow-hidden border transition ${
@@ -225,6 +314,7 @@ export default function ChatWidget() {
             </button>
           </div>
 
+          {/* Mesaje */}
           <div className="flex-1 p-3 overflow-y-auto space-y-3">
             {messages.map((msg, i) => (
               <div
@@ -252,6 +342,7 @@ export default function ChatWidget() {
             <div ref={messagesEndRef} />
           </div>
 
+          {/* Input */}
           <div className="p-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
             <input
               className="flex-1 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 px-2 py-1 rounded-lg text-sm"
@@ -275,6 +366,7 @@ export default function ChatWidget() {
         </div>
       )}
 
+      {/* Animație */}
       <style>{`
         @keyframes pulseGlow {
           0% { box-shadow: 0 0 6px #38bdf8; }
