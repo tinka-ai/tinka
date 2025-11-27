@@ -2,64 +2,70 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   try {
-    const { messages, lang } = await req.json()
+    const { messages, language } = await req.json()
 
-    // Limbă selectată de utilizator
-    const language = lang || "ro"
+    // Default language (fallback)
+    const lang = language || "ro"
 
-    // Mesaj de salut instant
-    const greetings: Record<string, string> = {
-      ro: "Salut! Sunt Ai-Tinka, asistentul digital al TINKA AI. Cu ce te pot ajuta astăzi?",
-      en: "Hello! I’m Ai-Tinka, your TINKA AI digital assistant. How can I help you today?",
-      ru: "Здравствуйте! Я Ai-Tinka, цифровой помощник TINKA AI. Чем могу помочь?"
-    }
-
-    // Prompt multilingv
+    // SYSTEM PROMPT – versiunea finală corectă
     const systemPrompt = {
       role: "system",
       content: `
-Ești Ai-Tinka – asistent digital multilingv (română, engleză, rusă).
-Răspunzi STRICT în limba selectată: "${language}".
+Ești Ai-Tinka – consultant digital multilingv.
+Răspunzi STRICT în limba selectată: "${lang}". 
+Nu folosești alte limbi în răspunsuri.
 
-──────────────────────────────
+────────────────────────
 🎯 OBIECTIVE
-– înțelegi rapid afacerea clientului
-– pui 1–2 întrebări scurte pentru clarificare
-– recomanzi soluția corectă TINKA AI:
-   • Website profesionist
-   • SEO Local
-   • TinkaBook
-   • Chatbot AI
-   • Automatizări IMM
-   • CRM & Apps
-   • Branding
+– Răspunzi scurt, clar și profesionist (1–3 propoziții).
+– Pui 1–2 întrebări scurte înainte de a oferi preț exact.
+– Recomanzi una dintre soluțiile TINKA AI:
+  • Website profesional
+  • SEO Local Moldova
+  • Sistem de programări TinkaBook
+  • Chatbot AI personalizat
+  • Automatizări IMM
+  • CRM / aplicații interne
+  • Branding & identitate vizuală
 
-──────────────────────────────
-💰 PREȚURI (respectate obligatoriu)
-• Landing: 120–200 EUR
-• Website: 250–400 EUR
-• Chatbot: 100–200 EUR
-• SEO: 80–150 EUR / lună
+────────────────────────
+💰 LIMITĂRI PREȚ (obligatoriu)
+• Landing page: 120–200 EUR
+• Website complet: 250–400 EUR
+• Chatbot AI: 100–200 EUR
+• SEO lunar: 80–150 EUR
 • Automatizări: 100–300 EUR
-Negociere max: –20%.
+Reducerea maximă: –20%.
 
-──────────────────────────────
+────────────────────────
 🧭 REGULI
-• Ton scurt, cald, profesionist.
-• 1–3 propoziții per răspuns.
-• Fără explicații inutile.
-• Fără schimbări de limbă.
-• Scop: colectezi nume + email + telefon.
+• Ton cald, profesionist, empatic.
+• Nu folosești englezisme în răspunsurile în română.
+• Nu repeți aceeași informație de mai multe ori.
+• Nu generezi paragrafe lungi (optimizare cost).
+• Nu promiți ceva nerealist.
+• Nu comuți niciodată în altă limbă.
+
+────────────────────────
+📌 SCOP FINAL
+La finalul conversației colectezi:
+• numele
+• emailul
+• telefonul
+• scurtă descriere a proiectului
+
+După colectare întrebi:
+„Vrei să-ți trimit oferta completă pe email acum?”
       `
     }
 
-    // Adăugăm mesajul de salut doar dacă este prima interacțiune
-    const finalMessages =
-      messages.length === 0
-        ? [systemPrompt, { role: "assistant", content: greetings[language] }]
-        : [systemPrompt, ...messages]
+    // Construim mesajele pentru model
+    const finalMessages = [
+      systemPrompt,
+      ...messages
+    ]
 
-    // Cerere către OpenAI
+    // Cererea către OpenAI (gpt-4.1-mini)
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -84,10 +90,12 @@ Negociere max: –20%.
       )
     }
 
-    const reply = data.output_text ?? "Eroare."
+    const reply = data.output_text ?? "Eroare la generarea răspunsului."
 
     return NextResponse.json({
-      choices: [{ message: { role: "assistant", content: reply } }]
+      choices: [
+        { message: { role: "assistant", content: reply } }
+      ]
     })
 
   } catch (error) {
