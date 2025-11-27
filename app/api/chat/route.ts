@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       ru: "Здравствуйте! Я Ai-Tinka. Чем могу помочь?"
     }
 
-    // --------------------------------------------------------
+// --------------------------------------------------------
 // SYSTEM PROMPT – versiunea optimizată pentru vânzare consultativă
 // --------------------------------------------------------
 const systemPrompt = {
@@ -123,6 +123,7 @@ REGULI IMPORTANTE
 – dacă lipsește o informație → o ceri politicos  
 – dacă utilizatorul deviază → îl readuci la faza corectă  
 – dacă utilizatorul spune „nu vreau să dau datele” → continui natural, fără presiune  
+
 `
 }
     // --------------------------------------------------------
