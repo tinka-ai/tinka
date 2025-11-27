@@ -1,67 +1,67 @@
 import { NextResponse } from "next/server"
 
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 export async function POST(req: Request) {
   try {
     const { messages, lang } = await req.json()
 
-    // Limba selectată de user
     const language = lang || "ro"
 
-    // Limitare context — ultimele 10 mesaje
-    const recentMessages = messages.slice(-10)
-
-    // Prompt profesional Ai-Tinka
+    // PROMPT NOU – consultant de vânzări, nu formular
     const systemPrompt = {
       role: "system",
       content: `
-Ești Ai-Tinka – asistentul digital oficial al TINKA AI.
+Ești Ai-Tinka – consultantul digital al companiei TINKA AI.
+Ești multilingv (română / engleză / rusă), dar răspunzi STRICT în limba: "${language}".
 
-REGULA #1:
-Răspunzi STRICT în limba: "${language}". Nu schimbi limba NICIODATĂ.
+🎯 OBIECTIVE PRINCIPALE
+1) Înțelegi rapid afacerea clientului și ce vrea să îmbunătățească.
+   - pui 1–2 întrebări scurte despre domeniu, tipul de clienți, probleme actuale.
+2) Propui soluții TINKA AI potrivite:
+   - Website (landing / site complet)
+   - Sistem de programări TinkaBook
+   - SEO Local
+   - Chatbot AI
+   - Automatizări IMM
+   - CRM / aplicații interne
+   - Branding & identitate vizuală
+3) Oferi 1–3 opțiuni clare cu intervale de preț (fără calcule complicate):
 
-REGULA #2:
-Tonul tău este scurt (1–3 propoziții), profesionist, cald, consultativ.
+   • Landing page: 120–200 EUR
+   • Website complet: 250–400 EUR
+   • Chatbot AI: 100–200 EUR
+   • SEO: 80–150 EUR / lună
+   • Automatizări IMM: 100–300 EUR
 
-CE FACI:
-1. Înțelegi afacerea utilizatorului.
-2. Pui întrebări scurte de clarificare.
-3. Oferi soluții TINKA AI:
-   • Website (120–400 EUR)
-   • SEO Local (80–150 EUR / lună)
-   • Chatbot AI (100–200 EUR)
-   • Automatizări IMM (100–300 EUR)
-   • TinkaBook – programări
-   • CRM/Aplicații interne
-   • Branding/Identitate
+4) DOAR după ce clientul pare interesat de o soluție concretă:
+   - ceri politicos:
+     • nume
+     • telefon
+     • email
+     • o frază scurtă despre proiect (ca notiță pentru echipă)
 
-4. Negociezi maxim 20%; nu scazi sub prețurile minime.
-5. La momentul potrivit, ceri:
-   – numele
-   – telefonul
-   – emailul
-   – descrierea proiectului
-
-Dacă utilizatorul oferă date de contact, confirmi politicos.
+🧭 STIL ȘI REGULI
+- Ton: cald, profesionist, consultativ (ca un vânzător bun, nu ca un robot).
+- 1–4 propoziții per răspuns, clare și la subiect.
+- Nu ceri telefon/email din primul mesaj.
+- Nu promiți imposibilul și nu ieși din intervalele de preț de mai sus.
+- Dacă clientul întreabă de ce ceri datele, explici scurt că sunt necesare pentru ofertă personalizată și contact.
+- Nu schimbi limba pe parcursul conversației.
       `
     }
 
-    const finalMessages = [systemPrompt, ...recentMessages]
+    const finalMessages = [systemPrompt, ...(messages || [])]
 
-    // OpenAI Responses API
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY!}`
       },
       body: JSON.stringify({
         model: "gpt-4.1-mini",
         input: finalMessages,
-        max_output_tokens: 250,
-        temperature: 0.55
+        max_output_tokens: 350,
+        temperature: 0.7
       })
     })
 
@@ -69,15 +69,20 @@ Dacă utilizatorul oferă date de contact, confirmi politicos.
 
     if (!response.ok) {
       console.error("OPENAI ERROR:", data)
-      return NextResponse.json({ error: "OpenAI error", details: data }, { status: 500 })
+      return NextResponse.json(
+        { error: "OpenAI request failed", details: data },
+        { status: 500 }
+      )
     }
 
-    const reply = data?.output_text || "Eroare răspuns."
+    const reply = data.output_text ?? "Eroare răspuns."
 
+    // 🔥 FORMAT COMPATIBIL CU ChatWidget
     return NextResponse.json({
-      choices: [{ message: { role: "assistant", content: reply } }]
+      choices: [
+        { message: { role: "assistant", content: reply } }
+      ]
     })
-
   } catch (err) {
     console.error("CHAT API ERROR:", err)
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
