@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react"
 import { Send, X, Globe } from "lucide-react"
 import TinkaAvatar from "@/components/tinka/TinkaAvatar"
 
-// Sunete ultra-light (Base64)
 const sendSound =
   "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
 const receiveSound =
@@ -58,12 +57,12 @@ export default function ChatWidget() {
     setTyping(false)
   }
 
-  // 1. Selectarea limbii
+  // Selectare limbă (FĂRĂ BLUR)
   if (!language && open) {
     return (
       <>
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"></div>
-
+        {/* FĂRĂ blur, FĂRĂ overlay */}
+        
         <div className="fixed bottom-24 right-6 z-50 bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl p-5 w-80 border border-neutral-200 dark:border-neutral-700 animate-[fadeUp_0.25s_ease-out]">
           <div className="flex items-center mb-4 gap-2">
             <Globe size={20} className="text-neutral-700 dark:text-neutral-300" />
@@ -101,10 +100,7 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Fade background when chat is open */}
-      {open && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 animate-[fadeIn_0.3s]"></div>
-      )}
+      {/* FĂRĂ OVERLAY la chat */}
 
       {/* Floating Avatar Button */}
       <button
@@ -153,9 +149,8 @@ export default function ChatWidget() {
               </div>
             ))}
 
-            {/* Typing indicator PRO */}
             {typing && (
-              <div className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 w-14 flex justify-center">
+              <div className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 w-14 flex justify-center">
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></span>
                   <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-150"></span>
@@ -187,23 +182,15 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Animations */}
       <style>{`
         @keyframes slideUp {
           from { transform: translateY(20px); opacity: 0; }
           to { transform: translateY(0); opacity: 1; }
         }
-
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
         @keyframes pulseGlow {
           0% { box-shadow: 0 0 6px #38bdf8; }
           50% { box-shadow: 0 0 16px #38bdf8; transform: scale(1.05); }
