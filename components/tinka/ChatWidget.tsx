@@ -104,51 +104,70 @@ export default function ChatWidget() {
       setDetectedLead(nextLead)
     }
 
-    // ---------------------------------------------------------
-    // RĂSPUNS AI (indiferent de lead)
-    // ---------------------------------------------------------
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: newMessages,
-          lang: language
-        })
-      })
+// ---------------------------------------------------------
+// RĂSPUNS AI (indiferent de lead)
+// ---------------------------------------------------------
+try {
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      messages: newMessages,
+      lang: language
+    })
+  })
 
-      const data = await res.json()
+  const data = await res.json()
 
-      const reply =
-        data?.output_text ||
-        data?.message ||
-        data?.choices?.[0]?.message?.content ||
-        "Eroare răspuns."
+  // ✨ cea mai importantă fixare
+  const reply =
+    data.bot ||             // răspunsul corect
+    data.output_text ||     
+    data.message ||
+    data?.choices?.[0]?.message?.content ||
+    null
 
-      setMessages(prev => [
-        ...prev,
-        { role: "assistant", content: reply }
-      ])
+  if (!reply) {
+    // fallback elegant
+    setMessages(prev => [
+      ...prev,
+      {
+        role: "assistant",
+        content:
+          language === "ru"
+            ? "Произошла ошибка. Попробуйте ещё раз."
+            : language === "en"
+            ? "An error occurred. Please try again."
+            : "A apărut o eroare. Te rog încearcă din nou."
+      }
+    ])
+    return
+  }
 
-      playSound(receiveSound)
-    } catch (err) {
-      console.error("CHAT ERROR:", err)
-      setMessages(prev => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            language === "ru"
-              ? "Произошла ошибка. Попробуйте ещё раз чуть позже."
-              : language === "en"
-              ? "An error occurred. Please try again later."
-              : "A apărut o eroare. Te rog să încerci din nou mai târziu."
-        }
-      ])
-    } finally {
-      setTyping(false)
+  setMessages(prev => [
+    ...prev,
+    { role: "assistant", content: reply }
+  ])
+
+  playSound(receiveSound)
+
+} catch (err) {
+  console.error("CHAT ERROR:", err)
+  setMessages(prev => [
+    ...prev,
+    {
+      role: "assistant",
+      content:
+        language === "ru"
+          ? "Проблема с подключением. Попробуйте позже."
+          : language === "en"
+          ? "Connection error. Please try again later."
+          : "Eroare de conexiune. Te rog încearcă mai târziu."
     }
-
+  ])
+} finally {
+  setTyping(false)
+}
     // ---------------------------------------------------------
     // LOGICĂ LEAD – validare + trimitere + confirmare
     // ---------------------------------------------------------
