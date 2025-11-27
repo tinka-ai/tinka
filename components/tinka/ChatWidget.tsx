@@ -49,10 +49,13 @@ export default function ChatWidget() {
     })
 
 const data = await res.json()
+
 const reply =
-  data?.output_text ??
-  data?.choices?.[0]?.message?.content ??
+  data?.output_text ||               // Responses API
+  data?.message ||                   // fallback API format
+  data?.choices?.[0]?.message?.content ||  // Chat Completions
   "Eroare răspuns."
+
 
 setMessages([...newMessages, { role: "assistant", content: reply }])
 setTyping(false)
