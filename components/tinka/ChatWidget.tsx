@@ -48,7 +48,7 @@ export default function ChatWidget() {
     setTyping(true)
 
     // --------------------------
-    // 🔍 Detectare date client
+    // Detectare date client
     // --------------------------
     const text = input.toLowerCase()
 
@@ -57,7 +57,7 @@ export default function ChatWidget() {
     const possibleName =
       text.length > 2 && !text.includes("@") && !/\d/.test(text)
 
-    // Salvăm date în memorie
+    // Salveaza date în memorie
     const clientInfo = {
       name:
         possibleName && !messages.find((m) => m.role === "user" && m.name)
@@ -92,7 +92,7 @@ export default function ChatWidget() {
     setTyping(false)
 
     // --------------------------
-    // 📧 Trimitem email dacă avem toate datele
+    //  Trimitem email dacă avem toate datele
     // --------------------------
     if (clientInfo.name && clientInfo.phone && clientInfo.email) {
       await fetch("/api/chat-send", {
