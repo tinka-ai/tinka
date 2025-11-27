@@ -48,8 +48,15 @@ export default function ChatWidget() {
       body: JSON.stringify({ messages: newMessages })
     })
 
-    const data = await res.json()
-    const reply = data.choices?.[0]?.message?.content || "Eroare răspuns."
+const data = await res.json()
+const reply =
+  data?.output_text ??
+  data?.choices?.[0]?.message?.content ??
+  "Eroare răspuns."
+
+setMessages([...newMessages, { role: "assistant", content: reply }])
+setTyping(false)
+
 
     playSound(receiveSound)
 
