@@ -1,82 +1,70 @@
-// components/tinka/TinkaAvatar.tsx
 "use client"
 
-import React from "react"
-
-export default function TinkaAvatar({
-  className = "",
-}: {
-  className?: string
-}) {
+export default function TinkaAvatar({ className = "" }) {
   return (
     <div className={className}>
-      <svg
-        viewBox="0 0 120 120"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
-      >
-        {/* Orbă de energie albastră */}
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        {/* Glow energetic */}
         <defs>
-          <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#1e3a8a" stopOpacity="0.95" />
-            <stop offset="60%" stopColor="#1d4ed8" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#0f172a" stopOpacity="0" />
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.9" />
+            <stop offset="70%" stopColor="#0ea5e9" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="transparent" />
           </radialGradient>
 
-          <linearGradient id="circuit" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#d4af37" />
             <stop offset="100%" stopColor="#b8860b" />
           </linearGradient>
         </defs>
 
-        {/* Glow de fundal */}
-        <circle cx="60" cy="60" r="54" fill="url(#orbGlow)" />
+        <circle cx="60" cy="60" r="50" fill="url(#glow)">
+          <animate
+            attributeName="r"
+            values="48;50;48"
+            dur="3.5s"
+            repeatCount="indefinite"
+          />
+        </circle>
 
-        {/* Contur subtil */}
         <circle
           cx="60"
           cy="60"
           r="52"
           fill="none"
-          stroke="url(#circuit)"
-          strokeWidth="2"
-          opacity="0.8"
+          stroke="url(#gold)"
+          strokeWidth="3"
+          opacity="0.85"
         />
 
-        {/* Linii abstracte tip „neural network” */}
-        <g stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round">
-          <path d="M20 48 Q40 30 60 36 T100 40" opacity="0.7" />
-          <path d="M18 70 Q40 88 64 84 T102 76" opacity="0.55" />
-          <path d="M32 28 Q52 22 72 30 T96 54" opacity="0.35" />
-          <path d="M26 90 Q46 96 68 94 T96 88" opacity="0.35" />
+        {/* Rețea abstractă */}
+        <g stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round">
+          <path d="M25 50 Q60 20 95 50" opacity="0.5" />
+          <path d="M28 70 Q60 100 92 70" opacity="0.45" />
+          <path d="M40 30 Q60 15 80 32" opacity="0.35" />
         </g>
 
-        {/* Noduri de rețea */}
         <g fill="#38bdf8">
-          <circle cx="40" cy="34" r="2.4" />
-          <circle cx="60" cy="36" r="2.4" />
-          <circle cx="82" cy="38" r="2.4" />
-          <circle cx="44" cy="86" r="2.2" />
-          <circle cx="68" cy="84" r="2.2" />
-          <circle cx="90" cy="76" r="2.2" />
+          <circle cx="60" cy="20" r="2.5" />
+          <circle cx="40" cy="30" r="2.3" />
+          <circle cx="80" cy="32" r="2.3" />
         </g>
 
-        {/* „Nucleu” AI abstract – fără față, doar energie */}
+        {/* Nucleu AI */}
         <circle
           cx="60"
           cy="60"
-          r="20"
+          r="22"
           fill="#020617"
-          stroke="url(#circuit)"
+          stroke="url(#gold)"
           strokeWidth="2"
+          opacity="0.9"
         />
-        <g stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round">
-          <path d="M50 56 Q60 48 70 56" opacity="0.9" />
-          <path d="M50 64 Q60 72 70 64" opacity="0.75" />
-        </g>
-        <g fill="#38bdf8">
-          <circle cx="52" cy="60" r="1.8" />
-          <circle cx="68" cy="60" r="1.8" />
+
+        {/* Linie abstractă în nucleu */}
+        <g stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round">
+          <path d="M48 58 Q60 50 72 58" />
+          <path d="M48 63 Q60 70 72 63" opacity="0.8" />
         </g>
       </svg>
     </div>
