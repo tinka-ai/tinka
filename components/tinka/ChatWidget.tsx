@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { Send, X, Globe } from "lucide-react"
 import TinkaAvatar from "@/components/tinka/TinkaAvatar"
 
-// Sunete simple
+// Sunete
 const sendSound =
   "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
 const receiveSound =
@@ -17,9 +17,11 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<any[]>([])
   const [typing, setTyping] = useState(false)
 
+  // Prevenire trimitere multipla lead
+  const [leadSent, setLeadSent] = useState(false)
+
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  // Auto-scroll
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
@@ -34,9 +36,9 @@ export default function ChatWidget() {
     audio.play().catch(() => {})
   }
 
-  // ---------------------------------------------
-  // TRIMITERE MESAJ + DETECTARE DATE + EMAIL
-  // ---------------------------------------------
+  // ---------------------------------------------------------
+  // TRIMITERE MESAJ + DETECTARE DATE + AI
+  // ---------------------------------------------------------
   const sendMessage = async () => {
     if (!input.trim()) return
 
@@ -47,29 +49,22 @@ export default function ChatWidget() {
     setInput("")
     setTyping(true)
 
-    // --------------------------
-    // Detectare date client
-    // --------------------------
+    // Detectare minimă
     const text = input.toLowerCase()
 
     const possibleEmail = text.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/)
     const possiblePhone = text.match(/(\+?\d[\d\s-]{6,14}\d)/)
-    const possibleName =
-      text.length > 2 && !text.includes("@") && !/\d/.test(text)
+    const possibleName = text.length > 2 && !text.includes("@") && !/\d/.test(text)
 
-    // Salveaza date în memorie
     const clientInfo = {
-      name:
-        possibleName && !messages.find((m) => m.role === "user" && m.name)
-          ? input
-          : "",
+      name: possibleName ? input : "",
       email: possibleEmail ? possibleEmail[0] : "",
-      phone: possiblePhone ? possiblePhone[0] : "",
+      phone: possiblePhone ? possiblePhone[0] : ""
     }
 
-    // --------------------------
-    // AI TINKA – Mesaj
-    // --------------------------
+    // ---------------------------------------------------------
+    // Răspuns AI
+    // ---------------------------------------------------------
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -80,21 +75,23 @@ export default function ChatWidget() {
     })
 
     const data = await res.json()
-
     const reply =
       data?.output_text ||
       data?.message ||
       data?.choices?.[0]?.message?.content ||
       "Eroare răspuns."
 
+    // eliminare duplicat — doar 1 singur mesaj AI
     setMessages([...newMessages, { role: "assistant", content: reply }])
     playSound(receiveSound)
     setTyping(false)
 
-    // --------------------------
-    //  Trimitem email dacă avem toate datele
-    // --------------------------
-    if (clientInfo.name && clientInfo.phone && clientInfo.email) {
+    // ---------------------------------------------------------
+    // Dacă avem toate datele și încă nu s-a trimis lead-ul
+    // ---------------------------------------------------------
+    if (clientInfo.name && clientInfo.phone && clientInfo.email && !leadSent) {
+      setLeadSent(true)
+
       await fetch("/api/chat-send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -104,6 +101,18 @@ export default function ChatWidget() {
           conversation: newMessages
         })
       })
+
+      // Mesaj în limba corectă
+      const confirmations = {
+        ro: "Mulțumesc! Am transmis datele tale echipei TINKA AI. Te contactăm în scurt timp.",
+        ru: "Спасибо! Мы передали ваши данные команде TINKA AI. Мы свяжемся с вами в ближайшее время.",
+        en: "Thank you! Your details have been sent to the TINKA AI team. We will contact you shortly."
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: confirmations[language || "ro"] }
+      ])
     }
   }
 
@@ -157,11 +166,11 @@ export default function ChatWidget() {
   }
 
   // ---------------------------------------------------------
-  // CHAT COMPLET
+  // CHAT WIDGET COMPLET
   // ---------------------------------------------------------
   return (
     <>
-      {/* Buton avatar */}
+      {/* AVATAR BUTTON */}
       <button
         onClick={() => setOpen(true)}
         className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center transition-transform ${
@@ -171,7 +180,7 @@ export default function ChatWidget() {
         <TinkaAvatar className="w-14 h-14" />
       </button>
 
-      {/* Fereastra chat */}
+      {/* FEREASTRA CHAT */}
       {open && (
         <div className="fixed bottom-24 right-6 w-80 h-[480px] bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden z-50 border border-neutral-200 dark:border-neutral-700">
           <div className="bg-slate-950 text-white p-3 flex items-center gap-2">
@@ -238,7 +247,6 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Animations */}
       <style>{`
         @keyframes pulseGlow {
           0% { box-shadow: 0 0 6px #38bdf8; }
