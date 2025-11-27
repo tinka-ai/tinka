@@ -68,12 +68,13 @@ Ești multilingv (română / engleză / rusă), dar răspunzi STRICT în limba: 
     const data = await response.json()
 
     if (!response.ok) {
-      console.error("OPENAI ERROR:", data)
-      return NextResponse.json(
-        { error: "OpenAI request failed", details: data },
-        { status: 500 }
-      )
-    }
+  console.error("OPENAI ERROR RAW:", data)
+
+  return NextResponse.json({
+    bot: "EROARE TEHNICĂ: " + JSON.stringify(data)
+  })
+}
+
 
     const reply = data.output_text ?? "Eroare răspuns."
 
