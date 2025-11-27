@@ -157,4 +157,24 @@
     font-weight: 600; /* echivalent font-semibold */
   }
 }
+/* ------------------------------ */
+/* ICON ANIMAȚIE TINKA AI        */
+/* ------------------------------ */
+
+.tinka-ai-icon {
+  filter: drop-shadow(0 0 6px #00c8ff80);
+  animation: tinkaPulse 2.2s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.tinka-ai-icon:hover {
+  transform: scale(1.07);
+  filter: drop-shadow(0 0 14px #00e1ff);
+}
+
+@keyframes tinkaPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 4px #00c8ff); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 12px #00e1ff); }
+ 100% { transform: scale(1); filter: drop-shadow(0 0 4px #00c8ff); }
+}
 
