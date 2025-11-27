@@ -73,56 +73,28 @@ export default function ChatWidget() {
     setInput("")
     setTyping(true)
 
-   // ---------------------------------------------------------
-// DETECTARE DATE CONTACT (versiune corectată, fără duplicate)
+ // ---------------------------------------------------------
+// DETECTARE DATE CONTACT
 // ---------------------------------------------------------
-
-const forbiddenWords = [
-  "cabinet", "salon", "firma", "companie", "business", "deschis",
-  "vreau", "am", "programare", "cosmetologic", "coafor", "beauty",
-  "servicii", "makeup", "unghii", "frumusețe", "frumusete"
-]
-
-// Nume reale: max 3 cuvinte, fiecare începe cu Majusculă
-const looksLikeName = (text: string) => {
-  const lower = text.toLowerCase()
-
-  if (forbiddenWords.some(w => lower.includes(w))) return false
-
-  const parts = text.trim().split(/\s+/)
-
-  if (parts.length === 0 || parts.length > 3) return false
-
-  return parts.every(p =>
-    /^[A-ZĂÂÎȘȚ][a-zăâîșț]+(-[A-ZĂÂÎȘȚ][a-zăâîșț]+)?$/.test(p)
-  )
-}
-
 const emailMatch = rawText.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)
 const phoneMatch = rawText.match(/(\+?\d[\d\s-]{6,14}\d)/)
-const nameCandidate = looksLikeName(trimmed)
+const nameCandidate =
+  trimmed.length >= 3 &&
+  !trimmed.includes("@") &&
+  !/\d/.test(trimmed) &&
+  /^[a-zA-ZăâîșțĂÂÎȘȚА-Яа-яёЁ\s-]+$/.test(trimmed)
 
 const hasContactHint = !!emailMatch || !!phoneMatch || nameCandidate
 
-// IMPORTANT: un singur nextLead
 let nextLead = { ...detectedLead }
 
 // Setăm doar dacă e valid
-if (nameCandidate && !nextLead.name) {
-  nextLead.name = trimmed
-}
+if (nameCandidate && !nextLead.name) nextLead.name = trimmed
+if (emailMatch && isValidEmail(emailMatch[0])) nextLead.email = emailMatch[0]
+if (phoneMatch && isValidPhone(phoneMatch[0])) nextLead.phone = phoneMatch[0]
 
-if (emailMatch && isValidEmail(emailMatch[0])) {
-  nextLead.email = emailMatch[0]
-}
+if (hasContactHint) setDetectedLead(nextLead)
 
-if (phoneMatch && isValidPhone(phoneMatch[0])) {
-  nextLead.phone = phoneMatch[0]
-}
-
-if (hasContactHint) {
-  setDetectedLead(nextLead)
-}
 
 // ---------------------------------------------------------
 // RĂSPUNS AI (indiferent de lead)
