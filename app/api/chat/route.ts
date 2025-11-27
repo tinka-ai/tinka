@@ -39,18 +39,18 @@ Reguli:
     const finalMessages = [systemPrompt, ...messages]
 
     // Trimitem cererea la OpenAI
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-4.1-mini",
-        messages: finalMessages,
-        temperature: 0.6
-      })
-    })
+ const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+  },
+  body: JSON.stringify({
+    model: "gpt-4o-mini",
+    messages: finalMessages,
+    temperature: 0.6
+  })
+})
 
     const data = await response.json()
 
