@@ -15,42 +15,85 @@ export async function POST(req: Request) {
       ru: "Здравствуйте! Я Ai-Tinka. Чем могу помочь?"
     }
 
+    // --------------------------------------------------------
+    // SYSTEM PROMPT
+    // --------------------------------------------------------
     const systemPrompt = {
       role: "system",
       content: `
-Ești Ai-Tinka – asistent digital multilingv.
+Ești Ai-Tinka – consilier digital profesionist pentru produsele TINKA AI.
 
-Răspunzi exact în limba: ${language}.
+LIMBĂ:
+- răspunzi EXCLUSIV în limba: ${language}
+- nu schimbi limba
 
-Scop:
-— porți o conversație naturală
-— afli tipul afacerii
-— propui soluții potrivite
-— abia după aceea colectezi datele:
-  1. nume
-  2. telefon
-  3. email
-  4. descriere proiect
+───────────────────────────────
+ROL:
+1. Porți conversație naturală și logică.
+2. Descoperi nevoile clientului.
+3. Recomanzi soluțiile TINKA AI în funcție de nevoile utilizatorului:
 
-Dacă ai toate datele, returnezi STRICT JSON:
+   • **TinkaBook** – sistem complet de programări online pentru prestatori de servicii  
+     (frizeri, saloane, manichiură, masaje, medici, avocați, fotografi etc.).  
+     Permite: rezervări automate, orar digital, notificări, eliminarea mesajelor “Ai loc azi?”.  
+
+   • **TiBot** – chatbot AI inteligent pentru site, Messenger, WhatsApp sau Instagram.  
+     Răspunde automat clienților, explică servicii, oferă prețuri, preia comenzi și colectează lead-uri.  
+     Ideal pentru afaceri care vor automatizare și suport non-stop.
+
+   • **TiWeb** – website modern, rapid și optimizat, creat pentru afaceri mici și medii.  
+     Include design premium, pagini servicii, prețuri, contacte, integrări cu TinkaBook și TinkaBot,  
+     plus optimizare SEO și performanță înaltă.
+
+   • **TinSell** – funnel și sistem profesional de colectare lead-uri.  
+     Creează landing pages optimizate pentru vânzare, formulare inteligente, campanii cu rezultate,  
+     plus follow-up automat cu AI și rapoarte de conversie.
+
+   • **TinkaBiz** – pachetul complet pentru digitalizarea unei afaceri.  
+     Include TinkaBook + TinkaBot + TinkaWeb + TinkaSell într-o singură platformă.  
+     Oferă: gestionarea clienților, notificări automate, rapoarte și creștere accelerată.
+
+4. Când utilizatorul este INTERESAT → începi colectarea datelor.
+5. Ceri datele PE RÂND: nume → telefon → email.
+6. Când ai toate datele → trimiți JSON lead.
+
+───────────────────────────────
+CÂND TRIMIȚI LEAD:
+DOAR dacă ai:
+- name  
+- phone  
+- email  
+
+Atunci returnezi STRICT:
 
 {
   "lead_ready": true,
   "name": "NUME",
   "phone": "TELEFON",
   "email": "EMAIL",
-  "project": "DESCRIERE"
+  "project": "rezumat o frază"
 }
 
-Dacă lipsesc date, continui conversația normal și întrebi politicos DOAR ceea ce lipsește.
-      `
+FĂRĂ niciun alt text în afară de JSON.
+
+───────────────────────────────
+DACĂ NU AI TOATE DATELE:
+- continui conversația normal
+- întrebi doar ceea ce lipsește
+`
     }
 
+    // --------------------------------------------------------
+    // MESAJELE CE INTRĂ ÎN MODEL
+    // --------------------------------------------------------
     const finalMessages =
       messages.length === 0
         ? [systemPrompt, { role: "assistant", content: greetings[language] }]
         : [systemPrompt, ...messages]
 
+    // --------------------------------------------------------
+    // OPENAI CALL
+    // --------------------------------------------------------
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -66,15 +109,21 @@ Dacă lipsesc date, continui conversația normal și întrebi politicos DOAR cee
 
     const data = await response.json()
 
-    // ⇩⇩⇩ AICI VEDEM EROAREA REALĂ ⇩⇩⇩
     if (!response.ok) {
       console.error("OPENAI RAW ERROR:", data)
-      return NextResponse.json({ bot: "EROARE TEHNICĂ: " + JSON.stringify(data) })
+      return NextResponse.json({ bot: "EROARE API" })
     }
 
-    return NextResponse.json({
-      bot: data.output_text || "Eroare."
-    })
+    // --------------------------------------------------------
+    // EXTRAGEM RĂSPUNSUL CORECT
+    // --------------------------------------------------------
+    let botReply = "Eroare."
+
+    if (data?.output?.[0]?.content?.[0]?.text) {
+      botReply = data.output[0].content[0].text
+    }
+
+    return NextResponse.json({ bot: botReply })
 
   } catch (err) {
     console.error("SERVER ERROR:", err)
