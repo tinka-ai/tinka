@@ -325,14 +325,14 @@ try {
     <>
       {/* Avatar plutitor */}
       <button
-        onClick={() => setOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center transition-transform ${
-          typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
-        }`}
-      >
-       <TinkaAvatar className="tinka-ai-icon w-14 h-14" />
-      </button>
-
+  onClick={() => setOpen(true)}
+  aria-label="Deschide asistentul Ai-Tinka"
+  className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center transition-transform ${
+    typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
+  }`}
+>
+  <TinkaAvatar className="tinka-ai-icon w-14 h-14" />
+</button>
       {/* Fereastra chat */}
       {open && language && (
         <div className="fixed bottom-24 right-6 w-80 h-[480px] bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden z-50 border border-neutral-200 dark:border-neutral-700">
