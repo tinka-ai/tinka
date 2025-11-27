@@ -1,34 +1,54 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    
-    // Validare de bază
-    if (!body.name || !body.email || !body.message) {
+
+    const { name, phone, email, project } = body
+
+    if (!name || !email || !project) {
       return NextResponse.json(
-        { error: 'Câmpuri obligatorii lipsă' },
+        { error: "Missing required fields" },
         { status: 400 }
       )
     }
 
-    // Aici poți adăuga logica pentru trimiterea emailului
-    // De exemplu, folosind nodemailer, SendGrid, Resend, etc.
-    
-    // Pentru moment, returnăm success
-    console.log('Contact form submission:', body)
-    
-    // În producție, integrează cu un serviciu de email
-    // Exemplu: await sendEmail(body)
-    
+    // --- CONFIGURARE SMTP TOPHOST ---
+    const transporter = nodemailer.createTransport({
+      host: "mail.tinka.md",  // sau mail.domainul-tau.md
+      port: 465,
+      secure: true,
+      auth: {
+        user: "office@tinka.md",
+        pass: process.env.MAIL_PASS, // IMPORTANT: adaugi parola în .env
+      },
+    })
+
+    // Email care ajunge la tine
+    await transporter.sendMail({
+      from: `"Ai-Tinka" <office@tinka.md>`,
+      to: "office@tinka.md",
+      subject: "Lead nou de pe Ai-Tinka",
+      html: `
+        <h2>Lead nou primit prin chatbot</h2>
+        <p><strong>Nume:</strong> ${name}</p>
+        <p><strong>Telefon:</strong> ${phone}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Proiect:</strong> ${project}</p>
+        <br>
+        <small>Acest mesaj a fost trimis automat de Ai-Tinka.</small>
+      `,
+    })
+
     return NextResponse.json(
-      { success: true, message: 'Mesaj trimis cu succes' },
+      { success: true, message: "Email trimis cu succes" },
       { status: 200 }
     )
   } catch (error) {
-    console.error('Error processing contact form:', error)
+    console.error("Eroare trimitere email:", error)
     return NextResponse.json(
-      { error: 'Eroare la procesarea formularului' },
+      { error: "Eroare la trimiterea emailului" },
       { status: 500 }
     )
   }
