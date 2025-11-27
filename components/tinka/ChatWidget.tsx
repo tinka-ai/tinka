@@ -310,7 +310,7 @@ try {
           typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
         }`}
       >
-        <TinkaAvatar className="w-14 h-14" />
+       <TinkaAvatar className="tinka-ai-icon w-14 h-14" />
       </button>
 
       {/* Fereastra chat */}
