@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { Send, X, Globe } from "lucide-react"
 import TinkaAvatar from "@/components/tinka/TinkaAvatar"
 
+// Sunete click
 const sendSound =
   "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
 const receiveSound =
@@ -18,6 +19,7 @@ export default function ChatWidget() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
+  // Auto scroll
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
@@ -26,12 +28,14 @@ export default function ChatWidget() {
     scrollToBottom()
   }, [messages])
 
+  // Play sound
   const playSound = (src: string) => {
     const audio = new Audio(src)
     audio.volume = 0.35
     audio.play().catch(() => {})
   }
 
+  // Trimite mesaj
   const sendMessage = async () => {
     if (!input.trim()) return
 
@@ -45,35 +49,34 @@ export default function ChatWidget() {
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: newMessages })
+      body: JSON.stringify({
+        messages: newMessages,
+        lang: language              // 🔥 TRIMIT LIMBA SELECTATĂ
+      })
     })
 
-const data = await res.json()
+    const data = await res.json()
 
-const reply =
-  data?.output_text ||               // Responses API
-  data?.message ||                   // fallback API format
-  data?.choices?.[0]?.message?.content ||  // Chat Completions
-  "Eroare răspuns."
-
-
-setMessages([...newMessages, { role: "assistant", content: reply }])
-setTyping(false)
-
-
-    playSound(receiveSound)
+    const reply =
+      data?.output_text ||
+      data?.message ||
+      data?.choices?.[0]?.message?.content ||
+      "Eroare răspuns."
 
     setMessages([...newMessages, { role: "assistant", content: reply }])
     setTyping(false)
+
+    playSound(receiveSound)
   }
 
-  // Selectare limbă (FĂRĂ BLUR)
+  // Dacă nu e selectată limba — afişăm selectorul
   if (!language && open) {
     return (
       <>
-        {/* FĂRĂ blur, FĂRĂ overlay */}
-        
-        <div className="fixed bottom-24 right-6 z-50 bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl p-5 w-80 border border-neutral-200 dark:border-neutral-700 animate-[fadeUp_0.25s_ease-out]">
+        <div className="fixed bottom-24 right-6 z-50 bg-white dark:bg-neutral-900 
+          shadow-2xl rounded-2xl p-5 w-80 border border-neutral-200 
+          dark:border-neutral-700 animate-[fadeUp_0.25s_ease-out]">
+
           <div className="flex items-center mb-4 gap-2">
             <Globe size={20} className="text-neutral-700 dark:text-neutral-300" />
             <h3 className="font-semibold text-neutral-800 dark:text-neutral-200">
@@ -89,32 +92,31 @@ setTyping(false)
             ].map(([code, label]) => (
               <button
                 key={code}
-                className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700 transition"
-             onClick={() => {
-  setLanguage(code)
+                className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 
+                  dark:text-neutral-300 p-2 rounded-lg hover:bg-neutral-200 
+                  dark:hover:bg-neutral-700 transition"
+                onClick={() => {
+                  setLanguage(code)
 
-  // Mesajele de salut în funcție de limbă
-  const greetings = {
-    ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
-    ru: "Привет! Я Ai-Tinka. Чем могу помочь?",
-    en: "Hello! I’m Ai-Tinka. How can I assist you?"
-  }
+                  const greetings = {
+                    ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
+                    ru: "Привет! Я Ai-Tinka. Чем могу помочь?",
+                    en: "Hello! I’m Ai-Tinka. How can I assist you?"
+                  }
 
-  // Șterge conversația anterioară și arata mesajul de salut
-  setMessages([
-    { role: "assistant", content: greetings[code] }
-  ])
-}}
->
-  {label}
-</button>
-
+                  // Resetăm conversația & adăugăm salutul
+                  setMessages([{ role: "assistant", content: greetings[code] }])
+                }}
+              >
+                {label}
+              </button>
             ))}
           </div>
 
           <button
             onClick={() => setOpen(false)}
-            className="absolute top-3 right-3 text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200"
+            className="absolute top-3 right-3 text-neutral-500 hover:text-neutral-800 
+              dark:hover:text-neutral-200"
           >
             <X size={18} />
           </button>
@@ -123,43 +125,45 @@ setTyping(false)
     )
   }
 
+  // CHAT COMPLET
   return (
     <>
-      {/* FĂRĂ OVERLAY la chat */}
-
-      {/* Floating Avatar Button */}
+      {/* Buton avatar plutitor */}
       <button
         onClick={() => setOpen(true)}
         className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 
-          bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center 
-          transition-transform ${
+          bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 
+          flex items-center justify-center transition-transform ${
             typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
           }`}
       >
         <TinkaAvatar className="w-14 h-14" />
       </button>
 
-      {/* Chat Window */}
+      {/* Fereastra chat */}
       {open && (
-        <div className="fixed bottom-24 right-6 w-80 h-[480px] bg-white dark:bg-neutral-900 shadow-2xl 
-          rounded-2xl flex flex-col overflow-hidden z-50 border border-neutral-200 dark:border-neutral-700
+        <div className="fixed bottom-24 right-6 w-80 h-[480px] bg-white 
+          dark:bg-neutral-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden 
+          z-50 border border-neutral-200 dark:border-neutral-700 
           animate-[slideUp_0.3s_ease-out]">
 
           {/* Header */}
           <div className="bg-slate-950 text-white p-3 flex items-center gap-2 shadow-md">
-            <div className={`w-9 h-9 rounded-full overflow-hidden border transition ${
-              typing ? "border-sky-400 shadow-[0_0_10px_#38bdf8]" : "border-sky-400/40"
-            }`}>
+            <div
+              className={`w-9 h-9 rounded-full overflow-hidden border transition ${
+                typing ? "border-sky-400 shadow-[0_0_10px_#38bdf8]" : "border-sky-400/40"
+              }`}
+            >
               <TinkaAvatar className="w-full h-full" />
             </div>
-            <span className="font-semibold text-sm">TINKA AI</span>
+            <span className="font-semibold text-sm">Ai-Tinka</span>
 
             <button className="ml-auto" onClick={() => setOpen(false)}>
               <X size={20} />
             </button>
           </div>
 
-          {/* Messages */}
+          {/* Mesaje */}
           <div className="flex-1 p-3 overflow-y-auto space-y-3">
             {messages.map((msg, i) => (
               <div
@@ -191,11 +195,17 @@ setTyping(false)
           <div className="p-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
             <input
               className="flex-1 border border-neutral-300 dark:border-neutral-700 
-              bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 
-              px-2 py-1 rounded-lg text-sm"
+                bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 
+                px-2 py-1 rounded-lg text-sm"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Scrie un mesaj..."
+              placeholder={
+                language === "ro"
+                  ? "Scrie un mesaj..."
+                  : language === "ru"
+                  ? "Введите сообщение..."
+                  : "Type a message..."
+              }
             />
             <button
               onClick={sendMessage}
