@@ -8,25 +8,27 @@ export async function POST(req: Request) {
     const { messages, lang } = await req.json();
     const language = lang || "ro";
 
-    const systemPrompt = `
-Ești Ai-Tinka – consilier digital profesionist pentru produsele TINKA AI.
-Răspunzi EXCLUSIV în limba: ${language}.
-Nu schimbi limba.
-    `;
+    const greetings: Record<string, string> = {
+      ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
+      en: "Hello! I am Ai-Tinka. How can I assist you?",
+      ru: "Здравствуйте! Я Ai-Tinka. Чем могу помочь?",
+    };
 
-    // --- Mesajul USER ---
-    const lastUserMessage =
-      messages?.length > 0
-        ? messages[messages.length - 1].content
-        : "Salut!";
+    const systemPrompt = {
+      role: "system",
+      content: `Ești Ai-Tinka – consilier digital profesionist pentru produsele TINKA AI.
+Răspunzi exclusiv în limba: ${language}.`,
+    };
 
-    // --- INPUT conform cu API-ul /responses ---
-    const prompt = `
-${systemPrompt}
+    const finalMessages =
+      messages.length === 0
+        ? [systemPrompt, { role: "assistant", content: greetings[language] }]
+        : [systemPrompt, ...messages];
 
-USER:
-${lastUserMessage}
-    `;
+    // Conversie mesaje → text (obligatoriu pentru Responses API)
+    const serialized = finalMessages
+      .map((m) => `${m.role.toUpperCase()}: ${m.content}`)
+      .join("\n\n");
 
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
@@ -36,7 +38,7 @@ ${lastUserMessage}
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        input: prompt,
+        input: serialized,
         max_output_tokens: 300,
         temperature: 0.7,
       }),
@@ -45,21 +47,19 @@ ${lastUserMessage}
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("OPENAI ERROR:", data);
+      console.error("OPENAI RAW ERROR:", data);
       return NextResponse.json({ bot: "Eroare API" });
     }
 
-    // --- Extragem corect textul ---
     const botReply =
-      data.output?.[0]?.content ??
       data.output_text ??
-      "Eroare procesare răspuns.";
+      data.message ??
+      data?.choices?.[0]?.message?.content ??
+      "Eroare.";
 
     return NextResponse.json({ bot: botReply.trim() });
   } catch (err) {
     console.error("SERVER ERROR:", err);
-    return NextResponse.json({
-      bot: "Eroare server. Încearcă din nou.",
-    });
+    return NextResponse.json({ bot: "Eroare server. Încearcă din nou." });
   }
 }
