@@ -43,7 +43,6 @@
     "@tsparticles/engine": "latest",
     "@tsparticles/react": "latest",
     "@tsparticles/slim": "latest",
-    "@vercel/analytics": "latest",
     "autoprefixer": "^10.4.20",
     "canvas-confetti": "latest",
     "class-variance-authority": "^0.7.1",
