@@ -57,44 +57,55 @@ export default function ChatWidget() {
   }
 
   // ---------------------------------------------------------
-  // TRIMITERE MESAJ + DETECTARE DATE + AI + LEAD
-  // ---------------------------------------------------------
-  const sendMessage = async () => {
-    const trimmed = input.trim()
-    if (!trimmed) return
-
-    // Protecție anti-bot foarte simplă
-    if (trimmed.length > 800) return
-
-    playSound(sendSound)
-
-    const newMessages = [...messages, { role: "user", content: trimmed }]
-    setMessages(newMessages)
-    setInput("")
-    setTyping(true)
-
- // ---------------------------------------------------------
-// DETECTARE DATE CONTACT
+// TRIMITERE MESAJ + DETECTARE DATE + AI + LEAD
 // ---------------------------------------------------------
-const emailMatch = rawText.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)
-const phoneMatch = rawText.match(/(\+?\d[\d\s-]{6,14}\d)/)
-const nameCandidate =
-  trimmed.length >= 3 &&
-  !trimmed.includes("@") &&
-  !/\d/.test(trimmed) &&
-  /^[a-zA-ZăâîșțĂÂÎȘȚА-Яа-яёЁ\s-]+$/.test(trimmed)
+const sendMessage = async () => {
+  const trimmed = input.trim()
+  if (!trimmed) return
 
-const hasContactHint = !!emailMatch || !!phoneMatch || nameCandidate
+  // Protecție anti-bot
+  if (trimmed.length > 800) return
 
-let nextLead = { ...detectedLead }
+  playSound(sendSound)
 
-// Setăm doar dacă e valid
-if (nameCandidate && !nextLead.name) nextLead.name = trimmed
-if (emailMatch && isValidEmail(emailMatch[0])) nextLead.email = emailMatch[0]
-if (phoneMatch && isValidPhone(phoneMatch[0])) nextLead.phone = phoneMatch[0]
+  const newMessages = [...messages, { role: "user", content: trimmed }]
+  setMessages(newMessages)
+  setInput("")
+  setTyping(true)
 
-if (hasContactHint) setDetectedLead(nextLead)
+  // ---------------------------------------------------------
+  // DETECTARE DATE CONTACT (corect)
+  // ---------------------------------------------------------
+  const rawText = trimmed.toLowerCase()   //  <<< LIPSEA ACEASTĂ LINIE
 
+  const emailMatch = rawText.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)
+  const phoneMatch = rawText.match(/(\+?\d[\d\s-]{6,14}\d)/)
+
+  const nameCandidate =
+    trimmed.length >= 3 &&
+    !trimmed.includes("@") &&
+    !/\d/.test(trimmed) &&
+    /^[a-zA-ZăâîșțĂÂÎȘȚА-Яа-яёЁ\s-]+$/.test(trimmed)
+
+  const hasContactHint = !!emailMatch || !!phoneMatch || nameCandidate
+
+  let nextLead = { ...detectedLead }
+
+  if (nameCandidate && isValidName(trimmed) && !nextLead.name) {
+    nextLead.name = trimmed
+  }
+
+  if (emailMatch && isValidEmail(emailMatch[0])) {
+    nextLead.email = emailMatch[0]
+  }
+
+  if (phoneMatch && isValidPhone(phoneMatch[0])) {
+    nextLead.phone = phoneMatch[0]
+  }
+
+  if (hasContactHint) {
+    setDetectedLead(nextLead)
+  }
 
 // ---------------------------------------------------------
 // RĂSPUNS AI (indiferent de lead)
