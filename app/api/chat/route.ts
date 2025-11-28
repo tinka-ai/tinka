@@ -22,43 +22,18 @@ export async function POST(req: Request) {
 🎯 Limbă: răspunzi exclusiv în limba: ${language}.
 Nu schimbi limba.
 
-────────────────────────────────────────
-🌟 ROL GENERAL
-Ești consultant de vânzări, NU operator de call center.
-Porți conversația natural, calm, empatic, profesionist.
-Nu ceri număr de telefon sau email înainte ca utilizatorul să confirme că:
-1) a primit soluțiile,  
-2) a discutat prețul,  
-3) ACCEPTĂ oferta.  
-
-────────────────────────────────────────
-STRUCTURA OBLIGATORIE A CONVERSAȚIEI
-Asistentul trebuie să respecte strict cele 6 etape:
-
-FAZA 1 — EXPLORARE / DISCOVERY (3–6 schimburi)
-Pui întrebări naturale, una câte una despre afacerea lor.
-
-FAZA 2 — CLARIFICARE
-Rezumi pe scurt ce ai înțeles și ceri confirmare.
-
-FAZA 3 — SOLUȚII PERSONALIZATE
-Recomanzi: TinkaBook, TinkaBot, TinkaWeb, TinkaSell, TinkaBiz.
-
+────────── STRATEGIE DE CONVERSAȚIE ──────────
+FAZA 1 — EXPLORARE (întrebări naturale, una câte una)
+FAZA 2 — CLARIFICARE (rezumi și ceri confirmare)
+FAZA 3 — SOLUȚII (TinkaBook, TinkaBot, TinkaWeb, TinkaSell, TinkaBiz)
 FAZA 4 — PREȚ & NEGOCIERE
-Prezinți prețul orientativ și negociezi rezonabil.
-
-FAZA 5 — SOLICITAREA DATELOR
-Doar după acceptare ceri: nume, telefon, email (UNA CÂTE UNA).
-
+FAZA 5 — DATE CONTACT (numai DUPĂ ACCEPTARE)
 FAZA 6 — GENERARE LEAD
-Când ai toate datele, generezi JSON-ul.
 
-────────────────────────────────────────
-REGULI IMPORTANTE
-– nu ceri contact prea repede  
-– nu pui mai mult de 1 întrebare odată  
-– ești empatic, profesionist, calm  
-– dacă utilizatorul deviază → îl readuci la faza corectă
+Reguli:
+– nu ceri date prea repede  
+– nu pui 2 întrebări în același mesaj  
+– te porți natural, empatic, profesionist
 `
     }
 
@@ -67,18 +42,17 @@ REGULI IMPORTANTE
         ? [systemPrompt, { role: "assistant", content: greetings[language] }]
         : [systemPrompt, ...messages]
 
-    // ✅ ENDPOINT CORECT
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    // 🔥 CORECP → Unified Completions API
+    const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
       },
-      // ✅ BODY CORECT
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        messages: finalMessages,
-        max_tokens: 300,
+        input: finalMessages,
+        max_output_tokens: 300,
         temperature: 0.7
       })
     })
@@ -87,24 +61,28 @@ REGULI IMPORTANTE
 
     if (!response.ok) {
       console.error("OPENAI RAW ERROR:", data)
-      return NextResponse.json({ 
-        bot: language === "ro" ? "Eroare API" : language === "ru" ? "Ошибка API" : "API Error"
+      return NextResponse.json({
+        bot:
+          language === "ro"
+            ? "Eroare API"
+            : language === "ru"
+            ? "Ошибка API"
+            : "API Error"
       })
     }
 
-    // ✅ PARSING CORECT
-    let botReply = "Eroare."
+    // 🔥 Parsare CORECTĂ după noul API
+    const botReply =
+      data.output_text ??
+      data.message ??
+      data?.choices?.[0]?.message?.content ??
+      "Eroare."
 
-    if (data?.choices?.[0]?.message?.content) {
-      botReply = data.choices[0].message.content.trim()
-    }
-
-    return NextResponse.json({ bot: botReply })
-
+    return NextResponse.json({ bot: botReply.trim() })
   } catch (err) {
     console.error("SERVER ERROR:", err)
-    return NextResponse.json({ 
-      bot: "Eroare server. Încearcă din nou." 
+    return NextResponse.json({
+      bot: "Eroare server. Încearcă din nou."
     })
   }
 }
