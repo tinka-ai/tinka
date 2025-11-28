@@ -202,7 +202,6 @@ export default function RootLayout({
             </main>
 
             <footer role="contentinfo">
-             <Analytics />
             </footer>
            <ChatWidget />
           </Suspense>
