@@ -4,9 +4,7 @@ export const dynamic = "force-dynamic"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
-  try {
-    // 🔥 DEBUG: verificăm dacă Netlify încarcă cheia
-    console.log("DEBUG OPENAI KEY:", process.env.OPENAI_API_KEY ? "LOADED" : "MISSING")
+  console.log("DEBUG OPENAI KEY LOADED =>", !!process.env.OPENAI_API_KEY)
 
     const { messages, lang } = await req.json()
 
