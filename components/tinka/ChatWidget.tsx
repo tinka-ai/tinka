@@ -56,7 +56,16 @@ export default function ChatWidget() {
     try {
       const trimmed = input.trim()
       if (!trimmed) return
-      if (trimmed.length > 800) return
+      if (trimmed.length > 800) {
+        alert(
+          language === "ru"
+            ? "Сообщение слишком длинное (макс. 800 символов)"
+            : language === "en"
+            ? "Message too long (max 800 characters)"
+            : "Mesaj prea lung (max 800 caractere)"
+        )
+        return
+      }
 
       playSound(sendSound)
 
@@ -106,32 +115,19 @@ export default function ChatWidget() {
         })
       })
 
-      const data = await res.json()
+      if (!res.ok) {
+        throw new Error(`API returned ${res.status}`)
+      }
 
-      const reply =
-        data.bot ||
-        data.output_text ||
-        data.message ||
-        data?.choices?.[0]?.message?.content ||
-        null
+      const data = await res.json()
+      const reply = data.bot
 
       if (!reply) {
-        setMessages(prev => [
-          ...prev,
-          {
-            role: "assistant",
-            content:
-              language === "ru"
-                ? "Произошла ошибка."
-                : language === "en"
-                ? "An error occurred."
-                : "A apărut o eroare."
-          }
-        ])
-      } else {
-        setMessages(prev => [...prev, { role: "assistant", content: reply }])
-        playSound(receiveSound)
+        throw new Error("No bot response received")
       }
+
+      setMessages(prev => [...prev, { role: "assistant", content: reply }])
+      playSound(receiveSound)
 
       // ----------------------------------------
       // Lead complet → trimitem o singură dată
@@ -204,8 +200,30 @@ export default function ChatWidget() {
       }
     } catch (err) {
       console.error("CHAT ERROR:", err)
+      
+      const errorMsg = {
+        ro: "A apărut o eroare. Te rog încearcă din nou.",
+        ru: "Произошла ошибка. Попробуйте снова.",
+        en: "An error occurred. Please try again."
+      }
+
+      setMessages(prev => [
+        ...prev,
+        {
+          role: "assistant",
+          content: errorMsg[language || "ro"]
+        }
+      ])
     } finally {
       setTyping(false)
+    }
+  }
+
+  // Handle Enter key
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault()
+      sendMessage()
     }
   }
 
@@ -218,7 +236,7 @@ export default function ChatWidget() {
         <div className="flex items-center mb-4 gap-2">
           <Globe size={20} className="text-neutral-700 dark:text-neutral-300" />
           <h3 className="font-semibold text-neutral-800 dark:text-neutral-200">
-            Alege limba
+            Alege limba / Choose language
           </h3>
         </div>
 
@@ -230,14 +248,14 @@ export default function ChatWidget() {
           ].map(([code, label]) => (
             <button
               key={code}
-              className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700 transition"
+              className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 p-3 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700 transition font-medium"
               onClick={() => {
                 setLanguage(code)
 
                 const g = {
                   ro: "Salut! Eu sunt Ai-Tinka. Cu ce te pot ajuta?",
                   ru: "Привет! Я Ai-Tinka. Чем могу помочь?",
-                  en: "Hello! I’m Ai-Tinka. How can I assist you?"
+                  en: "Hello! I'm Ai-Tinka. How can I assist you?"
                 }
 
                 setMessages([{ role: "assistant", content: g[code] }])
@@ -250,7 +268,8 @@ export default function ChatWidget() {
 
         <button
           onClick={() => setOpen(false)}
-          className="absolute top-3 right-3 text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200"
+          className="absolute top-3 right-3 text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200 transition"
+          aria-label="Close"
         >
           <X size={18} />
         </button>
@@ -264,15 +283,17 @@ export default function ChatWidget() {
   return (
     <>
       {/* Avatar plutitor */}
-      <button
-        onClick={() => setOpen(true)}
-        aria-label="Deschide Ai-Tinka"
-        className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center transition-transform ${
-          typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
-        }`}
-      >
-        <TinkaAvatar className="tinka-ai-icon w-14 h-14" />
-      </button>
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          aria-label="Deschide Ai-Tinka"
+          className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center transition-transform ${
+            typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
+          }`}
+        >
+          <TinkaAvatar className="tinka-ai-icon w-14 h-14" />
+        </button>
+      )}
 
       {/* Fereastră chat */}
       {open && language && (
@@ -288,7 +309,11 @@ export default function ChatWidget() {
               <TinkaAvatar className="w-full h-full" />
             </div>
             <span className="font-semibold text-sm">Ai-Tinka</span>
-            <button className="ml-auto" onClick={() => setOpen(false)}>
+            <button 
+              className="ml-auto hover:bg-white/10 p-1 rounded transition" 
+              onClick={() => setOpen(false)}
+              aria-label="Close chat"
+            >
               <X size={20} />
             </button>
           </div>
@@ -311,8 +336,8 @@ export default function ChatWidget() {
               <div className="p-2 bg-neutral-200 dark:bg-neutral-800 w-14 rounded-lg flex justify-center">
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></span>
-                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-150"></span>
-                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-300"></span>
+                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:0.15s]"></span>
+                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:0.3s]"></span>
                 </div>
               </div>
             )}
@@ -322,9 +347,11 @@ export default function ChatWidget() {
 
           <div className="p-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
             <input
-              className="flex-1 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 px-2 py-1 rounded-lg text-sm"
+              className="flex-1 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={input}
               onChange={e => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
+              disabled={typing}
               placeholder={
                 language === "ro"
                   ? "Scrie un mesaj..."
@@ -335,7 +362,9 @@ export default function ChatWidget() {
             />
             <button
               onClick={sendMessage}
-              className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg"
+              disabled={typing || !input.trim()}
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white p-2 rounded-lg transition"
+              aria-label="Send message"
             >
               <Send size={18} />
             </button>
