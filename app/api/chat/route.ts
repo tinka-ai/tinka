@@ -1,4 +1,3 @@
-// app/api/chat/route.ts
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -42,7 +41,19 @@ Tonul tău: profesionist dar accesibil, empatic și orientat spre soluții.`,
         ? [{ role: "assistant", content: greetings[language] }]
         : [systemPrompt, ...messages];
 
-    // CORECT: folosim /v1/chat/completions (nu /v1/responses care nu există)
+    // Verifică dacă există API key
+    if (!process.env.OPENAI_API_KEY) {
+      console.error("OPENAI_API_KEY is not set");
+      return NextResponse.json({
+        bot: "DEBUG: API key not found in environment",
+      });
+    }
+
+    console.log("=== CALLING OPENAI ===");
+    console.log("Model: gpt-4o-mini");
+    console.log("Messages count:", finalMessages.length);
+
+    // Apel către OpenAI
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -60,27 +71,28 @@ Tonul tău: profesionist dar accesibil, empatic și orientat spre soluții.`,
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("OPENAI ERROR:", data);
-      const errorMsg = {
-        ro: "Eroare la conectarea cu AI. Te rog încearcă din nou.",
-        en: "Error connecting to AI. Please try again.",
-        ru: "Ошибка подключения к AI. Попробуйте снова.",
-      };
-      return NextResponse.json({ bot: errorMsg[language] });
+      console.error("=== OPENAI ERROR ===");
+      console.error("Status:", response.status);
+      console.error("Response:", JSON.stringify(data, null, 2));
+      
+      // RETURNEAZĂ EROAREA EXACTĂ (pentru debug)
+      return NextResponse.json({ 
+        bot: `🔍 DEBUG ERROR:\n\nStatus: ${response.status}\n\nDetalii: ${JSON.stringify(data, null, 2)}`
+      });
     }
+
+    console.log("=== OPENAI SUCCESS ===");
 
     // Extragem răspunsul corect din structura OpenAI
     const botReply = data.choices?.[0]?.message?.content ?? "Eroare.";
 
     return NextResponse.json({ bot: botReply.trim() });
-  } catch (err) {
-    console.error("SERVER ERROR:", err);
-    const language = "ro"; // fallback
-    const errorMsg = {
-      ro: "Eroare server. Te rog încearcă din nou.",
-      en: "Server error. Please try again.",
-      ru: "Ошибка сервера. Попробуйте снова.",
-    };
-    return NextResponse.json({ bot: errorMsg[language] });
+  } catch (err: any) {
+    console.error("=== SERVER ERROR ===");
+    console.error("Error:", err);
+    
+    return NextResponse.json({ 
+      bot: `🔍 DEBUG SERVER ERROR:\n\n${err.message}`
+    });
   }
 }
