@@ -14,7 +14,6 @@ export async function POST(req: Request) {
       ru: "Здравствуйте! Я Ai-Tinka. Чем могу помочь?",
     };
 
-    // Mesaj de sistem cu contextul complet
     const systemPrompt = {
       role: "system",
       content: `Ești Ai-Tinka – consilier digital profesionist pentru produsele TINKA AI.
@@ -35,13 +34,11 @@ PRODUSE TINKA AI:
 Tonul tău: profesionist dar accesibil, empatic și orientat spre soluții.`,
     };
 
-    // Construim array-ul de mesaje pentru OpenAI
     const finalMessages =
       messages.length === 0
         ? [{ role: "assistant", content: greetings[language] }]
         : [systemPrompt, ...messages];
 
-    // Verifică dacă există API key
     if (!process.env.OPENAI_API_KEY) {
       console.error("OPENAI_API_KEY is not set");
       return NextResponse.json({
@@ -49,16 +46,26 @@ Tonul tău: profesionist dar accesibil, empatic și orientat spre soluții.`,
       });
     }
 
-    console.log("=== CALLING OPENAI ===");
-    console.log("Model: gpt-4o-mini");
-    console.log("Messages count:", finalMessages.length);
+    // Construiește ID-urile cu prefixe corecte
+    const orgId = process.env.OPENAI_ORGANIZATION_ID?.startsWith("org-")
+      ? process.env.OPENAI_ORGANIZATION_ID
+      : `org-${process.env.OPENAI_ORGANIZATION_ID}`;
 
-    // Apel către OpenAI
+    const projectId = process.env.OPENAI_PROJECT_ID?.startsWith("proj")
+      ? process.env.OPENAI_PROJECT_ID
+      : `proj_${process.env.OPENAI_PROJECT_ID}`;
+
+    console.log("=== CALLING OPENAI ===");
+    console.log("Organization:", orgId);
+    console.log("Project:", projectId);
+
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "OpenAI-Organization": orgId,
+        "OpenAI-Project": projectId,
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
@@ -75,7 +82,6 @@ Tonul tău: profesionist dar accesibil, empatic și orientat spre soluții.`,
       console.error("Status:", response.status);
       console.error("Response:", JSON.stringify(data, null, 2));
       
-      // RETURNEAZĂ EROAREA EXACTĂ (pentru debug)
       return NextResponse.json({ 
         bot: `🔍 DEBUG ERROR:\n\nStatus: ${response.status}\n\nDetalii: ${JSON.stringify(data, null, 2)}`
       });
@@ -83,7 +89,6 @@ Tonul tău: profesionist dar accesibil, empatic și orientat spre soluții.`,
 
     console.log("=== OPENAI SUCCESS ===");
 
-    // Extragem răspunsul corect din structura OpenAI
     const botReply = data.choices?.[0]?.message?.content ?? "Eroare.";
 
     return NextResponse.json({ bot: botReply.trim() });
