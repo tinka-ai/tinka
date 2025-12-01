@@ -1,9 +1,13 @@
 // app/api/chat/route.ts
+
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
+  defaultHeaders: {
+    "OpenAI-Beta": "assistants=v2"
+  }
 });
 
 export async function POST(req: Request) {
@@ -13,25 +17,20 @@ export async function POST(req: Request) {
     const response = await client.responses.create({
       model: "gpt-4o-mini",
       assistant_id: process.env.TINKA_ASSISTANT_ID!,
-      input: message,
-      extra_headers: {
-        "OpenAI-Beta": "assistants=v2",
-      },
+      input: message
     });
 
-    const output =
-      response.output_text ||
-      "Îmi pare rău, nu am reușit să generez un răspuns.";
+    return NextResponse.json({
+      reply: response.output_text
+    });
 
-    return NextResponse.json({ reply: output });
   } catch (error: any) {
     console.error("AI ERROR:", error);
-
     return NextResponse.json(
       {
         error: true,
         message: "AI failed",
-        details: error?.error || error?.message,
+        details: error?.response ?? error?.message
       },
       { status: 500 }
     );
