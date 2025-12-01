@@ -45,21 +45,19 @@ export default function ChatWidget() {
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: newMessages })
+      body: JSON.stringify({
+        messages: newMessages,
+        language: language   // 🔥 Trimitem limba selectată
+      })
     })
 
-const data = await res.json()
+    const data = await res.json()
 
-const reply =
-  data?.output_text ||               // Responses API
-  data?.message ||                   // fallback API format
-  data?.choices?.[0]?.message?.content ||  // Chat Completions
-  "Eroare răspuns."
-
-
-setMessages([...newMessages, { role: "assistant", content: reply }])
-setTyping(false)
-
+    const reply =
+      data?.output_text ||
+      data?.message ||
+      data?.choices?.[0]?.message?.content ||
+      "Eroare răspuns."
 
     playSound(receiveSound)
 
@@ -67,12 +65,15 @@ setTyping(false)
     setTyping(false)
   }
 
-  // Selectare limbă (FĂRĂ BLUR)
+  // ENTER to send
+  const handleKeyDown = (e: any) => {
+    if (e.key === "Enter") sendMessage()
+  }
+
+  // Selectare limbă
   if (!language && open) {
     return (
       <>
-        {/* FĂRĂ blur, FĂRĂ overlay */}
-        
         <div className="fixed bottom-24 right-6 z-50 bg-white dark:bg-neutral-900 shadow-2xl rounded-2xl p-5 w-80 border border-neutral-200 dark:border-neutral-700 animate-[fadeUp_0.25s_ease-out]">
           <div className="flex items-center mb-4 gap-2">
             <Globe size={20} className="text-neutral-700 dark:text-neutral-300" />
@@ -110,16 +111,12 @@ setTyping(false)
 
   return (
     <>
-      {/* FĂRĂ OVERLAY la chat */}
-
       {/* Floating Avatar Button */}
       <button
         onClick={() => setOpen(true)}
         className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 
           bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center 
-          transition-transform ${
-            typing ? "animate-[pulseGlow_1.6s_infinite]" : "hover:scale-105"
-          }`}
+          transition-transform neon-pulse`}
       >
         <TinkaAvatar className="w-14 h-14" />
       </button>
@@ -132,9 +129,7 @@ setTyping(false)
 
           {/* Header */}
           <div className="bg-slate-950 text-white p-3 flex items-center gap-2 shadow-md">
-            <div className={`w-9 h-9 rounded-full overflow-hidden border transition ${
-              typing ? "border-sky-400 shadow-[0_0_10px_#38bdf8]" : "border-sky-400/40"
-            }`}>
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-sky-400 shadow-[0_0_8px_#38bdf8]">
               <TinkaAvatar className="w-full h-full" />
             </div>
             <span className="font-semibold text-sm">TINKA AI</span>
@@ -180,6 +175,7 @@ setTyping(false)
               px-2 py-1 rounded-lg text-sm"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Scrie un mesaj..."
             />
             <button
@@ -201,10 +197,13 @@ setTyping(false)
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseGlow {
-          0% { box-shadow: 0 0 6px #38bdf8; }
-          50% { box-shadow: 0 0 16px #38bdf8; transform: scale(1.05); }
-          100% { box-shadow: 0 0 6px #38bdf8; }
+        @keyframes neonPulse {
+          0% { box-shadow: 0 0 5px #0ff, 0 0 10px #00eaff; }
+          50% { box-shadow: 0 0 15px #0ff, 0 0 25px #00eaff; transform: scale(1.05); }
+          100% { box-shadow: 0 0 5px #0ff, 0 0 10px #00eaff; }
+        }
+        .neon-pulse {
+          animation: neonPulse 1.8s infinite ease-in-out;
         }
       `}</style>
     </>
