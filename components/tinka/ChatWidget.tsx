@@ -29,16 +29,19 @@ export default function ChatWidget() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg text-white flex items-center justify-center z-50 transition"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg text-white flex items-center justify-center z-50 transition text-3xl"
       >
-        💬
+        🧠
       </button>
 
       {/* Chat window */}
       {open && (
         <div className="fixed bottom-24 right-6 w-80 h-96 bg-white border border-gray-200 shadow-2xl rounded-xl flex flex-col z-50 overflow-hidden">
-          <div className="bg-blue-600 text-white p-3 font-semibold text-center">
-            AiTinka – Asistent Digital
+          
+          {/* HEADER — TINKA-AI */}
+          <div className="bg-blue-600 text-white p-3 text-center flex items-center justify-center gap-2">
+            <span className="text-xl">🧠</span>
+            <span className="font-bold tracking-wide">Tinka-AI</span>
           </div>
 
           <div className="flex-1 p-3 overflow-y-auto space-y-3 bg-gray-50">
