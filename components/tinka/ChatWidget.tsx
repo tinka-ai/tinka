@@ -47,16 +47,16 @@ export default function ChatWidget() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         messages: newMessages,
-        language: language   // 🔥 Trimitem limba selectată
+        language: language
       })
     })
 
     const data = await res.json()
 
     const reply =
+      data?.reply ||
       data?.output_text ||
       data?.message ||
-      data?.choices?.[0]?.message?.content ||
       "Eroare răspuns."
 
     playSound(receiveSound)
@@ -70,7 +70,7 @@ export default function ChatWidget() {
     if (e.key === "Enter") sendMessage()
   }
 
-  // Selectare limbă
+  // Selectare limbă + greeting automat
   if (!language && open) {
     return (
       <>
@@ -91,7 +91,36 @@ export default function ChatWidget() {
               <button
                 key={code}
                 className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700 transition"
-                onClick={() => setLanguage(code)}
+                onClick={() => {
+                  setLanguage(code)
+
+                  // GREETING AUTOMAT
+                  if (code === "ro") {
+                    setMessages([
+                      {
+                        role: "assistant",
+                        content:
+                          "Salut! Eu sunt Tinka AI, consultantul tău digital. Spune-mi pe scurt ce îți dorești să primești — mai mulți clienți, un site mai bun, automatizări sau altceva? 🙂"
+                      }
+                    ])
+                  } else if (code === "ru") {
+                    setMessages([
+                      {
+                        role: "assistant",
+                        content:
+                          "Здравствуйте! Я Tinka AI, ваш цифровой консультант. Расскажите, чего желаете достичь — больше клиентов, удобный своременный сайт, автоматизацию или что-то ещё? 🙂"
+                      }
+                    ])
+                  } else {
+                    setMessages([
+                      {
+                        role: "assistant",
+                        content:
+                          "Hi! I’m Tinka AI, the digital consultant. Tell me briefly what you’d like to achieve — more clients, a better website, automations, or something else? 🙂"
+                      }
+                    ])
+                  }
+                }}
               >
                 {label}
               </button>
@@ -114,9 +143,9 @@ export default function ChatWidget() {
       {/* Floating Avatar Button */}
       <button
         onClick={() => setOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 
+        className="fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 
           bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center 
-          transition-transform neon-pulse`}
+          transition-transform neon-pulse"
       >
         <TinkaAvatar className="w-14 h-14" />
       </button>
