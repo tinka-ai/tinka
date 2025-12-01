@@ -1,72 +1,71 @@
-"use client"
+// components/tinka/TinkaAvatar.tsx
 
 export default function TinkaAvatar({ className = "" }) {
   return (
-    <div className={className}>
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        {/* Glow energetic */}
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.9" />
-            <stop offset="70%" stopColor="#0ea5e9" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="transparent" />
-          </radialGradient>
+    <svg
+      className={className}
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Glow */}
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
 
-          <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d4af37" />
-            <stop offset="100%" stopColor="#b8860b" />
-          </linearGradient>
-        </defs>
+      {/* Background circle */}
+      <circle
+        cx="100"
+        cy="100"
+        r="88"
+        stroke="#38bdf8"
+        strokeWidth="6"
+        fill="none"
+        filter="url(#glow)"
+      />
 
-        <circle cx="60" cy="60" r="50" fill="url(#glow)">
-          <animate
-            attributeName="r"
-            values="48;50;48"
-            dur="3.5s"
-            repeatCount="indefinite"
-          />
-        </circle>
+      {/* Brain Circuit */}
+      <path
+        d="
+        M70 60 
+        C40 80, 40 120, 70 140
+        L90 140 
+        L90 115 
+        C60 110, 60 90, 90 85
+        L90 60 
+        Z
 
-        <circle
-          cx="60"
-          cy="60"
-          r="52"
-          fill="none"
-          stroke="url(#gold)"
-          strokeWidth="3"
-          opacity="0.85"
-        />
+        M130 60
+        C160 80, 160 120, 130 140
+        L110 140
+        L110 115
+        C140 110, 140 90, 110 85
+        L110 60
+        Z
 
-        {/* Rețea abstractă */}
-        <g stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round">
-          <path d="M25 50 Q60 20 95 50" opacity="0.5" />
-          <path d="M28 70 Q60 100 92 70" opacity="0.45" />
-          <path d="M40 30 Q60 15 80 32" opacity="0.35" />
-        </g>
+        M90 85 L110 85
+        M90 115 L110 115
+        "
+        stroke="#38bdf8"
+        strokeWidth="6"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        filter="url(#glow)"
+      />
 
-        <g fill="#38bdf8">
-          <circle cx="60" cy="20" r="2.5" />
-          <circle cx="40" cy="30" r="2.3" />
-          <circle cx="80" cy="32" r="2.3" />
-        </g>
-
-        {/* Nucleu AI */}
-        <circle
-          cx="60"
-          cy="60"
-          r="22"
-          fill="#020617"
-          stroke="url(#gold)"
-          strokeWidth="2"
-          opacity="0.9"
-        />
-
-        {/* Linie abstractă în nucleu */}
-        <g stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round">
-          <path d="M48 58 Q60 50 72 58" />
-          <path d="M48 63 Q60 70 72 63" opacity="0.8" />
-        </g>
-      </svg>
-    </div>
-  )
+      {/* Dots (neural nodes) */}
+      <circle cx="90" cy="60" r="6" fill="#38bdf8" filter="url(#glow)" />
+      <circle cx="110" cy="60" r="6" fill="#38bdf8" filter="url(#glow)" />
+      <circle cx="90" cy="140" r="6" fill="#38bdf8" filter="url(#glow)" />
+      <circle cx="110" cy="140" r="6" fill="#38bdf8" filter="url(#glow)" />
+      <circle cx="100" cy="85" r="6" fill="#38bdf8" filter="url(#glow)" />
+      <circle cx="100" cy="115" r="6" fill="#38bdf8" filter="url(#glow)" />
+    </svg>
+  );
 }
