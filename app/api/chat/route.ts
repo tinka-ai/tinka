@@ -11,45 +11,35 @@ const client = new OpenAI({
 
 export async function POST(req: Request) {
   try {
+    // frontend trimite: { messages: [...], language }
     const { messages, language } = await req.json();
 
-    if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json({ error: true, message: "Invalid messages format" }, { status: 400 });
-    }
+    // Convertim mesajele în formatul cerut de Responses API
+    const inputMessages = messages.map((m: any) => ({
+      role: m.role,
+      content: m.content
+    }));
 
-    // 🔥 Instrucțiuni în funcție de limba selectată
-    const languageInstruction = {
-      ro: "Răspunde exclusiv în limba română, într-un stil politicos, prietenos și profesionist.",
-      ru: "Отвечай исключительно на русском языке, вежливо и профессионально.",
-      en: "Respond strictly in English, in a helpful, friendly, professional tone."
-    }[language || "ro"];
-
-    // 🔥 Construim input-ul pentru Responses API
-    const input = [
-      {
-        role: "system",
-        content: `
-Tu ești TINKA AI, asistentul digital al companiei TINKA AI Moldova. 
-Răspunde într-o manieră clară, profesionistă, concisă.
-${languageInstruction}
-        `.trim()
-      },
-      ...messages.map((m: any) => ({
-        role: m.role,
-        content: m.content
-      }))
-    ];
-
-    // 🔥 Rulăm asistentul
     const response = await client.responses.create({
-      model: "gpt-4o", // model complet și corect
+      model: "gpt-4o",
       assistant_id: process.env.TINKA_ASSISTANT_ID!,
-      input
+      input: [
+        ...inputMessages,
+        {
+          role: "user",
+          content: `User language=${language}. Continue conversation in this language.`
+        }
+      ]
     });
 
-    const reply = response.output_text || "Îmi pare rău, nu am putut genera un răspuns.";
+    // Responses API returnează textul în output_text
+    const reply =
+      response.output_text ||
+      "Îmi pare rău, nu pot genera un răspuns în acest moment.";
 
-    return NextResponse.json({ reply });
+    return NextResponse.json({
+      reply
+    });
 
   } catch (error: any) {
     console.error("AI ERROR:", error);
@@ -58,7 +48,7 @@ ${languageInstruction}
       {
         error: true,
         message: "AI failed",
-        details: error?.error || error?.message
+        details: error?.response || error?.message
       },
       { status: 500 }
     );
