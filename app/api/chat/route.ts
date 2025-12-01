@@ -1,30 +1,54 @@
 // app/api/chat/route.ts
+import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-export async function POST(req: Request) {
-  try {
-    const { message } = await req.json();
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-    if (!message) {
-      return Response.json({ error: "Message required" }, { status: 400 });
+export async function POST(req: Request) {
+  const { thread_id, message } = await req.json();
+
+  try {
+    // 1. Thread
+    const thread = thread_id
+      ? { id: thread_id }
+      : await client.beta.threads.create();
+
+    // 2. mesajul userului
+    await client.beta.threads.messages.create(thread.id, {
+      role: "user",
+      content: message,
+    });
+
+    // 3. Assistantul AiTinka
+    const run = await client.beta.threads.runs.create(thread.id, {
+      assistant_id: "asst_VqzRBO3gzxzAf3M51t25PgQn", 
+    });
+
+    // 4. Așteptăm răspunsul
+    let completed;
+    while (!completed) {
+      const check = await client.beta.threads.runs.retrieve(
+        thread.id,
+        run.id
+      );
+      if (check.status === "completed") {
+        completed = true;
+      } else {
+        await new Promise((res) => setTimeout(res, 1000));
+      }
     }
 
-    const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY!,
-    });
+    // 5. Luăm mesajul
+    const messages = await client.beta.threads.messages.list(thread.id);
+    const last = messages.data[0].content[0].text.value;
 
-    const response = await client.responses.create({
-      model: "gpt-4.1-mini",
-      prompt: {
-        id: "pmpt_692c1b1b28a08195bbd6a8430b46404a04215f08f30a67fb",
-        version: "1",
-      },
-      input: message,
+    return NextResponse.json({
+      reply: last,
+      thread_id: thread.id,
     });
-
-    return Response.json({ reply: response.output_text });
   } catch (err) {
-    console.error(err);
-    return Response.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
