@@ -143,14 +143,6 @@ REGULI CRITICE
 
 IMPORTANT: Fii scurt, concret, prietenos. Vorbește ca un om normal, nu ca un bot!`
 
-STRUCTURĂ CONVERSAȚIE:
-1. EXPLORARE - pui întrebări despre afacerea lor (UNA singură pe răspuns)
-2. CLARIFICARE - rezumi ce ai înțeles
-3. SOLUȚII - recomanzi TinkaBook/TinkaBot/TinkaWeb/TinkaSell/TinkaBiz
-4. PREȚ - prezinți și negociezi
-
-
-
     const finalMessages =
       messages.length === 0
         ? [
