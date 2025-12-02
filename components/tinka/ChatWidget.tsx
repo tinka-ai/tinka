@@ -42,27 +42,64 @@ export default function ChatWidget() {
     setInput("")
     setTyping(true)
 
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: newMessages,
-        language: language
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: newMessages,
+          lang: language  // ✅ Trimitem "lang", nu "language"
+        })
       })
-    })
 
-    const data = await res.json()
+      const data = await res.json()
+      
+      console.log("📥 API Response:", data)
 
-    const reply =
-      data?.reply ||
-      data?.output_text ||
-      data?.message ||
-      "Eroare răspuns."
+      // ✅ API-ul returnează "bot", nu "reply"
+      const reply = data?.bot?.trim()
 
-    playSound(receiveSound)
+      if (!reply || reply.length === 0) {
+        console.error("❌ Empty bot reply:", data)
+        setMessages([
+          ...newMessages,
+          {
+            role: "assistant",
+            content:
+              language === "ru"
+                ? "Произошла ошибка. Попробуйте ещё раз."
+                : language === "en"
+                ? "An error occurred. Please try again."
+                : "A apărut o eroare. Te rog încearcă din nou."
+          }
+        ])
+        setTyping(false)
+        return
+      }
 
-    setMessages([...newMessages, { role: "assistant", content: reply }])
-    setTyping(false)
+      console.log("✅ Bot reply:", reply)
+
+      playSound(receiveSound)
+
+      setMessages([...newMessages, { role: "assistant", content: reply }])
+
+    } catch (error) {
+      console.error("❌ Fetch error:", error)
+      setMessages([
+        ...newMessages,
+        {
+          role: "assistant",
+          content:
+            language === "ru"
+              ? "Ошибка сети. Попробуйте позже."
+              : language === "en"
+              ? "Network error. Try again later."
+              : "Eroare de conexiune. Încearcă mai târziu."
+        }
+      ])
+    } finally {
+      setTyping(false)
+    }
   }
 
   // ENTER to send
@@ -116,7 +153,7 @@ export default function ChatWidget() {
                       {
                         role: "assistant",
                         content:
-                          "Hi! I’m Tinka AI, the digital consultant. Tell me briefly what you’d like to achieve — more clients, a better website, automations, or something else? 🙂"
+                          "Hi! I'm Tinka AI, the digital consultant. Tell me briefly what you'd like to achieve — more clients, a better website, automations, or something else? 🙂"
                       }
                     ])
                   }
