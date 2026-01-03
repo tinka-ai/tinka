@@ -1,4 +1,3 @@
-// app/portfolio/page.tsx
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -19,8 +18,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "https://tinka.md/portfolio",
-    // dacă NU ai prefix routing, scoate complet languages (altfel e SEO/UX greșit)
-    // dacă vei activa /en și /ru mai târziu, le pui înapoi.
   },
 
   openGraph: {
@@ -55,7 +52,8 @@ function PortfolioJSONLD() {
     "@type": "CollectionPage",
     url: "https://tinka.md/portfolio",
     name: "TINKA AI – Portofoliu",
-    description: "Colecție de proiecte SaaS și aplicații web realizate de TINKA AI.",
+    description:
+      "Colecție de proiecte SaaS și aplicații web realizate de TINKA AI.",
     isPartOf: {
       "@type": "WebSite",
       name: "TINKA AI",
