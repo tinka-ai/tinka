@@ -1,9 +1,11 @@
-// components/ui/navbar.tsx — SERVER COMPONENT, FĂRĂ server-i18n
+// components/ui/navbar.tsx — SERVER COMPONENT
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from "lucide-react"
+
 import ActiveNavLink from "./active-nav-link"
 import { PlainNavLink } from "./navbar-locale-switcher"
+import T from "@/components/T"
 
 export default function Navbar() {
   return (
@@ -24,16 +26,33 @@ export default function Navbar() {
               width={150}
               height={56}
               className="rounded-md"
+              priority
             />
             <span className="sr-only">TINKA AI</span>
           </Link>
 
           {/* NAVIGATION */}
           <nav className="hidden md:flex items-center gap-6">
-            <ActiveNavLink href="/">{`Acasă`}</ActiveNavLink>
-            <ActiveNavLink href="/solutions">{`Soluții`}</ActiveNavLink>
-            <ActiveNavLink href="/about">{`Despre`}</ActiveNavLink>
-            <ActiveNavLink href="/contact">{`Contact`}</ActiveNavLink>
+            <ActiveNavLink href="/">
+              <T k="nav.home" />
+            </ActiveNavLink>
+
+            <ActiveNavLink href="/solutions">
+              <T k="nav.solutions" />
+            </ActiveNavLink>
+
+            <ActiveNavLink href="/about">
+              <T k="nav.about" />
+            </ActiveNavLink>
+
+            {/* 🔵 PAGINA NOUĂ: PORTOFOLIU / PROJECTS */}
+            <ActiveNavLink href="/portfolio">
+              <T k="nav.portfolio" />
+            </ActiveNavLink>
+
+            <ActiveNavLink href="/contact">
+              <T k="nav.contact" />
+            </ActiveNavLink>
           </nav>
 
           {/* LANGUAGE SWITCH */}
