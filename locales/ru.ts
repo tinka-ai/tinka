@@ -3,6 +3,7 @@ export const ru = {
     home: "Главная",
     solutions: "Решения",
     about: "О нас",
+    portfolio: "Проекты",
     contact: "Контакты",
     blog: "Блог",
     caseStudies: "Кейсы",
