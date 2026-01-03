@@ -19,10 +19,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "https://tinka.md/portfolio",
-    languages: {
-      "ro-MD": "https://tinka.md/portfolio",
-      "en-US": "https://tinka.md/en/portfolio",
-      "ru-MD": "https://tinka.md/ru/portfolio",
     },
   },
 
