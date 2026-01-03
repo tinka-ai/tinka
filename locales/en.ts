@@ -10,8 +10,7 @@ export const en = {
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
     language: "Language",
-    saasProjects: "SaaS Projects",
-  },
+   },
 
   hero: {
     title: "AI Solutions & Web Design in Moldova",
@@ -312,9 +311,9 @@ export const en = {
   },
   
   // ------------------------------------------------------
-  // 🔵 SaaS Project PAGE (adaugat)
+  // 🔵 PORTFOLIO PAGE (adaugat)
   // ------------------------------------------------------
-  saasProjectsPage: {
+  ProjectsPage: {
   title: "SaaS Projects",
   subtitle: "A portfolio of SaaS products and web applications built by TINKA AI.",
   note: "The portfolio is hosted on tinkaweb.md and displayed here as an embedded page.",
