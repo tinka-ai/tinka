@@ -322,4 +322,4 @@ portfolioPage: {
   openButton: "Deschide portofoliul complet",
   fallback: "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
 },
-}
+};
