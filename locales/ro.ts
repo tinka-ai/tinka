@@ -30,7 +30,8 @@ export const ro = {
 
     chatbots: {
       title: "Chatbot-uri AI inteligente",
-      subtitle: "Asistență automată 24/7 care răspunde instant și convinge clienții să cumpere",
+      subtitle:
+        "Asistență automată 24/7 care răspunde instant și convinge clienții să cumpere",
 
       problem: {
         title: "Problemă",
@@ -42,7 +43,13 @@ export const ro = {
         title: "Unde se aplică",
         description:
           "Perfecte pentru magazine online, SaaS, servicii profesionale și orice business care primește întrebări repetitive.",
-        tags: ["E-commerce", "Suport clienți", "Vânzări", "Generare lead-uri", "FAQ automatizat"],
+        tags: [
+          "E-commerce",
+          "Suport clienți",
+          "Vânzări",
+          "Generare lead-uri",
+          "FAQ automatizat",
+        ],
       },
 
       example: {
@@ -82,7 +89,8 @@ export const ro = {
 
       whereApplies: {
         title: "Unde se aplică",
-        description: "Landing pages, magazine online, site-uri corporative, portofolii.",
+        description:
+          "Landing pages, magazine online, site-uri corporative, portofolii.",
         tags: ["Landing", "E-commerce", "SEO", "Corporate", "Portofoliu"],
       },
 
@@ -121,7 +129,8 @@ export const ro = {
 
       whereApplies: {
         title: "Unde se aplică",
-        description: "Automatizare email, CRM, comenzi, rapoarte, notificări interne.",
+        description:
+          "Automatizare email, CRM, comenzi, rapoarte, notificări interne.",
         tags: ["CRM", "Email", "Comenzi", "Rapoarte", "Workflow-uri"],
       },
 
@@ -154,7 +163,8 @@ export const ro = {
 
       problem: {
         title: "Problemă",
-        description: "Nu știi de unde să începi cu AI sau ce instrumente să alegi.",
+        description:
+          "Nu știi de unde să începi cu AI sau ce instrumente să alegi.",
       },
 
       whereApplies: {
@@ -171,7 +181,13 @@ export const ro = {
 
       features: {
         title: "Ce primești:",
-        list: ["Audit complet", "Strategie personalizată", "Implementare ghidată", "Training echipă", "Suport 3 luni"],
+        list: [
+          "Audit complet",
+          "Strategie personalizată",
+          "Implementare ghidată",
+          "Training echipă",
+          "Suport 3 luni",
+        ],
       },
 
       cta: {
@@ -194,7 +210,8 @@ export const ro = {
     },
     automation: {
       name: "Automatizări",
-      description: "Automatizări CRM, email și workflow cu inteligență artificială.",
+      description:
+        "Automatizări CRM, email și workflow cu inteligență artificială.",
     },
     consulting: {
       name: "Consultanță",
@@ -204,22 +221,10 @@ export const ro = {
 
   whyAI: {
     title: "De ce AI",
-    benefit1: {
-      title: "Timp economisit",
-      description: "Mai puțină muncă manuală, mai mult rezultat.",
-    },
-    benefit2: {
-      title: "Costuri reduse",
-      description: "Automatizarea reduce timp și erori.",
-    },
-    benefit3: {
-      title: "Scalare rapidă",
-      description: "Procesele cresc odată cu businessul tău.",
-    },
-    benefit4: {
-      title: "Răspuns instant",
-      description: "Disponibil 24/7 pentru clienții tăi.",
-    },
+    benefit1: { title: "Timp economisit", description: "Mai puțină muncă manuală, mai mult rezultat." },
+    benefit2: { title: "Costuri reduse", description: "Automatizarea reduce timp și erori." },
+    benefit3: { title: "Scalare rapidă", description: "Procesele cresc odată cu businessul tău." },
+    benefit4: { title: "Răspuns instant", description: "Disponibil 24/7 pentru clienții tăi." },
   },
 
   tinkabook: {
@@ -227,32 +232,26 @@ export const ro = {
     title: "Programări online pentru saloane și servicii beauty",
     subtitle: "Clienții se programează singuri — tu economisești timp",
     priceHighlight: "Prima lună gratuită",
-
     bullets: {
       bullet1: "Programări online disponibile 24/7",
       bullet2: "Reminder-e automate pentru clienți",
       bullet3: "Istoric, calendar și gestionare programări",
     },
-
     ctaVisit: "Vizitează TinkaBook",
-
     form: {
       description: "Completează formularul pentru a primi acces demo.",
       successDemoCredentials: "Detaliile de conectare demo vor fi trimise pe email.",
     },
-
     ctaScroll: "Solicită demo",
   },
 
   contact: {
     faq: {
       title: "Întrebări Frecvente",
-
       question1: {
         q: "Cât de rapid răspundeți?",
         a: "De obicei răspundem în 30–60 minute în timpul programului de lucru.",
       },
-
       question2: {
         q: "Oferiți o demonstrație?",
         a: "Da, putem arăta un demo live pentru orice soluție într-un apel Zoom.",
@@ -283,7 +282,6 @@ export const ro = {
     copyright: `© ${new Date().getFullYear()} TINKA AI`,
   },
 
-  // ABOUT PAGE
   aboutPage: {
     title: "Despre noi",
     subtitle: "Cine suntem și ce facem",
@@ -291,7 +289,6 @@ export const ro = {
       "TINKA AI oferă soluții digitale, automatizare și web design pentru afaceri din Moldova.",
   },
 
-  // CONTACT PAGE
   contactPage: {
     title: "Contact",
     subtitle: "Suntem aici pentru a te ajuta",
@@ -301,7 +298,6 @@ export const ro = {
     formTitle: "Trimite-ne un mesaj",
   },
 
-  // PORTFOLIO PAGE
   portfolioPage: {
     title: "Portofoliu",
     subtitle: "Proiecte și produse SaaS / aplicații web realizate de TINKA AI.",
