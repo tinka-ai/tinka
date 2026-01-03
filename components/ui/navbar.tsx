@@ -1,19 +1,16 @@
-// components/ui/navbar.tsx — SERVER COMPONENT
-import Link from "next/link"
-import Image from "next/image"
-import { Globe } from "lucide-react"
-
-import ActiveNavLink from "./active-nav-link"
-import { PlainNavLink } from "./navbar-locale-switcher"
-import T from "@/components/T"
+// components/ui/navbar.tsx — SERVER COMPONENT (ok), folosește T (client) doar pentru text
+import Link from "next/link";
+import Image from "next/image";
+import { Globe } from "lucide-react";
+import ActiveNavLink from "./active-nav-link";
+import { PlainNavLink } from "./navbar-locale-switcher";
+import T from "@/components/T";
 
 export default function Navbar() {
   return (
     <header className="sticky top-4 z-50">
       <div className="mx-auto max-w-7xl px-4">
-
         <div className="flex items-center justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-md px-3 py-2">
-
           {/* LOGO */}
           <Link
             href="/"
@@ -26,33 +23,17 @@ export default function Navbar() {
               width={150}
               height={56}
               className="rounded-md"
-              priority
             />
             <span className="sr-only">TINKA AI</span>
           </Link>
 
           {/* NAVIGATION */}
           <nav className="hidden md:flex items-center gap-6">
-            <ActiveNavLink href="/">
-              <T k="nav.home" />
-            </ActiveNavLink>
-
-            <ActiveNavLink href="/solutions">
-              <T k="nav.solutions" />
-            </ActiveNavLink>
-
-            <ActiveNavLink href="/about">
-              <T k="nav.about" />
-            </ActiveNavLink>
-
-            {/* 🔵 PAGINA NOUĂ: PORTOFOLIU / PROJECTS */}
-            <ActiveNavLink href="/portfolio">
-              <T k="nav.portfolio" />
-            </ActiveNavLink>
-
-            <ActiveNavLink href="/contact">
-              <T k="nav.contact" />
-            </ActiveNavLink>
+            <ActiveNavLink href="/"><T path="nav.home" /></ActiveNavLink>
+            <ActiveNavLink href="/solutions"><T path="nav.solutions" /></ActiveNavLink>
+            <ActiveNavLink href="/portfolio"><T path="nav.portfolio" /></ActiveNavLink>
+            <ActiveNavLink href="/about"><T path="nav.about" /></ActiveNavLink>
+            <ActiveNavLink href="/contact"><T path="nav.contact" /></ActiveNavLink>
           </nav>
 
           {/* LANGUAGE SWITCH */}
@@ -70,8 +51,7 @@ export default function Navbar() {
             </p>
           </div>
         </div>
-
       </div>
     </header>
-  )
+  );
 }
