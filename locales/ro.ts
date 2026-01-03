@@ -82,8 +82,7 @@ export const ro = {
 
       whereApplies: {
         title: "Unde se aplică",
-        description:
-          "Landing pages, magazine online, site-uri corporative, portofolii.",
+        description: "Landing pages, magazine online, site-uri corporative, portofolii.",
         tags: ["Landing", "E-commerce", "SEO", "Corporate", "Portofoliu"],
       },
 
@@ -122,8 +121,7 @@ export const ro = {
 
       whereApplies: {
         title: "Unde se aplică",
-        description:
-          "Automatizare email, CRM, comenzi, rapoarte, notificări interne.",
+        description: "Automatizare email, CRM, comenzi, rapoarte, notificări interne.",
         tags: ["CRM", "Email", "Comenzi", "Rapoarte", "Workflow-uri"],
       },
 
@@ -173,13 +171,7 @@ export const ro = {
 
       features: {
         title: "Ce primești:",
-        list: [
-          "Audit complet",
-          "Strategie personalizată",
-          "Implementare ghidată",
-          "Training echipă",
-          "Suport 3 luni",
-        ],
+        list: ["Audit complet", "Strategie personalizată", "Implementare ghidată", "Training echipă", "Suport 3 luni"],
       },
 
       cta: {
@@ -198,18 +190,15 @@ export const ro = {
     },
     websites: {
       name: "Website-uri",
-      description:
-        "Website-uri rapide, responsive și optimizate pentru Moldova.",
+      description: "Website-uri rapide, responsive și optimizate pentru Moldova.",
     },
     automation: {
       name: "Automatizări",
-      description:
-        "Automatizări CRM, email și workflow cu inteligență artificială.",
+      description: "Automatizări CRM, email și workflow cu inteligență artificială.",
     },
     consulting: {
       name: "Consultanță",
-      description:
-        "Strategie digitală și consultanță AI pentru businessuri locale.",
+      description: "Strategie digitală și consultanță AI pentru businessuri locale.",
     },
   },
 
@@ -249,8 +238,7 @@ export const ro = {
 
     form: {
       description: "Completează formularul pentru a primi acces demo.",
-      successDemoCredentials:
-        "Detaliile de conectare demo vor fi trimise pe email.",
+      successDemoCredentials: "Detaliile de conectare demo vor fi trimise pe email.",
     },
 
     ctaScroll: "Solicită demo",
@@ -295,7 +283,7 @@ export const ro = {
     copyright: `© ${new Date().getFullYear()} TINKA AI`,
   },
 
-  // 🔵 ABOUT PAGE
+  // ABOUT PAGE
   aboutPage: {
     title: "Despre noi",
     subtitle: "Cine suntem și ce facem",
@@ -303,7 +291,7 @@ export const ro = {
       "TINKA AI oferă soluții digitale, automatizare și web design pentru afaceri din Moldova.",
   },
 
-  // 🔵 CONTACT PAGE
+  // CONTACT PAGE
   contactPage: {
     title: "Contact",
     subtitle: "Suntem aici pentru a te ajuta",
@@ -312,14 +300,14 @@ export const ro = {
     phoneLabel: "Telefon",
     formTitle: "Trimite-ne un mesaj",
   },
-  portfolio: "Portofoliu",
-},
-  // 🔵 PORTOFOLIO PAGE
-portfolioPage: {
-  title: "Portofoliu",
-  subtitle: "Proiecte și produse SaaS / aplicații web realizate de TINKA AI.",
-  note: "Portofoliul este găzduit pe tinkaweb.md și este afișat aici încorporat.",
-  openButton: "Deschide portofoliul complet",
-  fallback: "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
-},
-};
+
+  // PORTFOLIO PAGE
+  portfolioPage: {
+    title: "Portofoliu",
+    subtitle: "Proiecte și produse SaaS / aplicații web realizate de TINKA AI.",
+    note: "Portofoliul este găzduit pe tinkaweb.md și este afișat aici încorporat.",
+    openButton: "Deschide portofoliul complet",
+    fallback:
+      "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
+  },
+} as const;
