@@ -317,10 +317,9 @@ export const ro = {
   // 🔵 PORTOFOLIO PAGE
 portfolioPage: {
   title: "Portofoliu",
-  subtitle: "Proiecte și produse SaaS realizate de TINKA AI",
-  note: "Portofoliul este găzduit pe tinkaweb.md și este afișat aici ca pagină integrată.",
+  subtitle: "Proiecte și produse SaaS / aplicații web realizate de TINKA AI.",
+  note: "Portofoliul este găzduit pe tinkaweb.md și este afișat aici încorporat.",
   openButton: "Deschide portofoliul complet",
-  fallback:
-    "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct.",
+  fallback: "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
 },
 }
