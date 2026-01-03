@@ -24,7 +24,6 @@ export const ru = {
       "TINKA AI создает быстрые сайты, онлайн-магазины, AI-чатботы и автоматизацию процессов для компаний из Кишинёва и всей Молдовы.",
   },
 
-  // SOLUTIONS
   solutions: {
     title: "Решения",
     subtitle: "Трансформируем процессы с помощью AI и цифровых инструментов",
@@ -125,7 +124,8 @@ export const ru = {
 
       example: {
         title: "Пример",
-        description: "Сайт → CRM → WhatsApp уведомление → автосчет — полностью автоматизировано.",
+        description:
+          "Сайт → CRM → WhatsApp уведомление → автосчет — полностью автоматизировано.",
       },
 
       features: {
@@ -151,7 +151,8 @@ export const ru = {
 
       problem: {
         title: "Проблема",
-        description: "Неясно, где начинать и какие инструменты подходят вашему бизнесу.",
+        description:
+          "Неясно, где начинать и какие инструменты подходят вашему бизнесу.",
       },
 
       whereApplies: {
@@ -254,7 +255,6 @@ export const ru = {
     copyright: `© ${new Date().getFullYear()} TINKA AI`,
   },
 
-  // ABOUT PAGE
   aboutPage: {
     title: "О нас",
     subtitle: "Кто мы и чем занимаемся",
@@ -262,7 +262,6 @@ export const ru = {
       "TINKA AI предоставляет цифровые решения, автоматизацию и веб-разработку для бизнеса в Молдове.",
   },
 
-  // CONTACT PAGE
   contactPage: {
     title: "Контакты",
     subtitle: "Мы здесь, чтобы помочь вам",
@@ -272,7 +271,6 @@ export const ru = {
     formTitle: "Отправить сообщение",
   },
 
-  // PORTFOLIO PAGE
   portfolioPage: {
     title: "Портфолио",
     subtitle: "SaaS-проекты и веб-приложения, созданные TINKA AI.",
