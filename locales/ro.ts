@@ -3,6 +3,7 @@ export const ro = {
     home: "Acasă",
     solutions: "Soluții",
     about: "Despre",
+    portfolio: "Portofoliu",
     contact: "Contact",
     blog: "Blog",
     caseStudies: "Cazuri de Studiu",
