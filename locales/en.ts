@@ -10,7 +10,7 @@ export const en = {
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
     language: "Language",
-   },
+  },
 
   hero: {
     title: "AI Solutions & Web Design in Moldova",
@@ -45,7 +45,13 @@ export const en = {
         title: "Where it applies",
         description:
           "E-commerce, SaaS, beauty services, consulting, logistics, hospitality.",
-        tags: ["E-commerce", "Customer support", "Sales", "Lead generation", "FAQ automation"],
+        tags: [
+          "E-commerce",
+          "Customer support",
+          "Sales",
+          "Lead generation",
+          "FAQ automation",
+        ],
       },
 
       example: {
@@ -86,7 +92,13 @@ export const en = {
         title: "Where it applies",
         description:
           "Landing pages, corporate websites, product pages, online shops, service providers.",
-        tags: ["Landing pages", "Online stores", "Corporate websites", "Portfolio", "SEO"],
+        tags: [
+          "Landing pages",
+          "Online stores",
+          "Corporate websites",
+          "Portfolio",
+          "SEO",
+        ],
       },
 
       example: {
@@ -242,8 +254,7 @@ export const en = {
 
     form: {
       description: "Fill in the form to receive demo access.",
-      successDemoCredentials:
-        "Demo login details will be sent to your email.",
+      successDemoCredentials: "Demo login details will be sent to your email.",
     },
 
     ctaScroll: "Request demo",
@@ -268,8 +279,7 @@ export const en = {
   footer: {
     company: "T.I.N.K.A. AI",
     tagline: "— Digital. Simple. Efficient.",
-    description:
-      "AI solutions, web development and automation for small businesses.",
+    description: "AI solutions, web development and automation for small businesses.",
     quickLinks: "Quick Links",
     home: "Home",
     solutions: "Solutions",
@@ -289,7 +299,7 @@ export const en = {
   },
 
   // ------------------------------------------------------
-  // 🔵 ABOUT PAGE (missing)
+  // ABOUT PAGE
   // ------------------------------------------------------
   aboutPage: {
     title: "About us",
@@ -299,7 +309,7 @@ export const en = {
   },
 
   // ------------------------------------------------------
-  // 🔵 CONTACT PAGE (missing)
+  // CONTACT PAGE
   // ------------------------------------------------------
   contactPage: {
     title: "Contact",
@@ -309,15 +319,16 @@ export const en = {
     phoneLabel: "Phone",
     formTitle: "Send us a message",
   },
-  
+
   // ------------------------------------------------------
-  // 🔵 PORTFOLIO PAGE (adaugat)
+  // PORTFOLIO PAGE
   // ------------------------------------------------------
   portfolioPage: {
-  title: "Portfolio",
-  subtitle: "SaaS projects and web applications built by TINKA AI.",
-  note: "The portfolio is hosted on tinkaweb.md and displayed here as an embedded page.",
-  openButton: "Open full portfolio",
-  fallback: "If the portfolio cannot be embedded here (security restrictions), open it directly:",
-},
-};
+    title: "Portfolio",
+    subtitle: "SaaS projects and web applications built by TINKA AI.",
+    note: "The portfolio is hosted on tinkaweb.md and displayed here as an embedded page.",
+    openButton: "Open full portfolio",
+    fallback:
+      "If the portfolio cannot be embedded here (security restrictions), open it directly:",
+  },
+} as const;
