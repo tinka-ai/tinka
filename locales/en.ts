@@ -313,12 +313,11 @@ export const en = {
   // ------------------------------------------------------
   // 🔵 PORTFOLIO PAGE (adaugat)
   // ------------------------------------------------------
-  ProjectsPage: {
-  title: "SaaS Projects",
-  subtitle: "A portfolio of SaaS products and web applications built by TINKA AI.",
+  portfolioPage: {
+  title: "Portfolio",
+  subtitle: "SaaS projects and web applications built by TINKA AI.",
   note: "The portfolio is hosted on tinkaweb.md and displayed here as an embedded page.",
   openButton: "Open full portfolio",
-  fallback:
-    "If the portfolio cannot be embedded here (security restrictions), open it directly.",
+  fallback: "If the portfolio cannot be embedded here (security restrictions), open it directly:",
 },
 };
