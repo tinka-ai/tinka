@@ -311,4 +311,15 @@ export const ro = {
     phoneLabel: "Telefon",
     formTitle: "Trimite-ne un mesaj",
   },
+  portfolio: "Portofoliu",
+},
+  // 🔵 PORTOFOLIO PAGE
+portfolioPage: {
+  title: "Portofoliu",
+  subtitle: "Proiecte și produse SaaS realizate de TINKA AI",
+  note: "Portofoliul este găzduit pe tinkaweb.md și este afișat aici ca pagină integrată.",
+  openButton: "Deschide portofoliul complet",
+  fallback:
+    "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct.",
+},
 }
