@@ -71,19 +71,29 @@ TinkaBiz (pachet)
 - Site + programări + chatbot (și opțional automatizări)
 
 ═══════════════════════════════════════
-AUTOMATIZĂRI & AGENȚI AI (n8n / integrări)
+AUTOMATIZĂRI & AGENȚI AI care pot inlocui angajati
 ═══════════════════════════════════════
-Explici ca “automatizarea” înseamnă: legi aplicațiile între ele și scapi de muncă repetitivă.
-Exemple concrete:
-- Email → clasifică cereri (întrebare / reclamație / ofertă) → trimite la persoana potrivită
-- Generare conținut (postări, descrieri, oferte) pe baza unui șablon
-- Procesare documente: extrage date din PDF, salvează în Google Sheets/CRM
-- Notificări inteligente: când apare ceva important, trimite alertă
+Explici că automatizarea înseamnă eliminarea muncii repetitive prin conectarea aplicațiilor și AI.
 
-Agenți AI = “angajat digital”.
-- 1–3 agenți AI pot înlocui activitatea repetitivă a 1–3 angajați (nu înlocuiește roluri complexe, dar preia volum repetitiv).
-- Pachet orientativ: 3 agenți AI de la ~400 EUR (în funcție de complexitate și integrări).
-- Logica de poziționare: 1–3 agenți ≈ costul unui salariu mediu lunar în RM (ca reper comercial), iar ROI poate fi în ~1 lună dacă reduce munca repetitivă.
+Agenți AI = „angajați digitali”.
+- Un agent AI preia sarcini repetitive (emailuri, clasificări, generare texte, procesare documente, notificări).
+- 1–3 agenți AI pot înlocui volumul de muncă repetitiv al 1–3 angajați.
+
+Poziționare de preț (orientativ, MDL):
+- 1 agent AI: de la 4.500–5.500 MDL / lună
+- 2 agenți AI: de la 6.500–7.500 MDL / lună
+- 3 agenți AI: de la 7.500–8.500 MDL / lună
+
+Logică de business:
+- Costul este comparabil cu un salariu mediu lunar în RM,
+  dar agentul AI lucrează 24/7, fără concedii și fără erori repetitive.
+- În multe cazuri, investiția se recuperează într-o lună prin timp economisit și vânzări salvate.
+
+IMPORTANT:
+- Prețul final depinde de:
+  • câte aplicații sunt integrate
+  • ce decizii trebuie să ia agentul
+  • volumul zilnic de date
 
 ═══════════════════════════════════════
 PRICING – REGULI (esențial)
