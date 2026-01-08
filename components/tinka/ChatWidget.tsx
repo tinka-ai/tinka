@@ -25,24 +25,16 @@ export default function ChatWidget() {
 
   useEffect(() => {
     scrollToBottom()
-  }, [messages])
+  }, [messages, typing, showLanguageSelector])
 
-  // ✅ AUTOSTART - se deschide automat după 2 secunde
+  // ✅ AUTOSTART: se deschide automat după 2 secunde
+  // ✅ IMPORTANT: NU începe conversația până nu e aleasă limba
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true)
-      // Mesaj inițial în română
-      setMessages([
-        {
-          role: "assistant",
-          content: "Salut! 👋 Eu sunt Tinka AI, asistentul tău digital."
-        }
-      ])
-      // Arată selector de limbă după 1 secundă
-      setTimeout(() => {
-        setShowLanguageSelector(true)
-      }, 1000)
-    }, 2000) // Se deschide după 2 secunde
+      setShowLanguageSelector(true)
+      setMessages([]) // fără mesaj inițial
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -57,20 +49,18 @@ export default function ChatWidget() {
     setLanguage(code)
     setShowLanguageSelector(false)
 
-    // Greeting personalizat pe limbă
     const greetings: Record<string, string> = {
-      ro: "Perfect! Spune-mi pe scurt: ce afacere ai? 🙂",
-      ru: "Отлично! Расскажите коротко: какой у вас бизнес? 🙂",
-      en: "Great! Tell me briefly: what's your business? 🙂"
+      ro: "Salut! 👋 Alege pe scurt: ce afacere ai și ce vrei să îmbunătățești?",
+      ru: "Здравствуйте! 👋 Коротко: какой у вас бизнес и что хотите улучшить?",
+      en: "Hi! 👋 Briefly: what business do you have and what do you want to improve?"
     }
 
-    setMessages(prev => [
-      ...prev,
-      { role: "assistant", content: greetings[code] }
-    ])
+    // ✅ Abia aici începe conversația
+    setMessages([{ role: "assistant", content: greetings[code] }])
   }
 
   const sendMessage = async () => {
+    if (!language) return // ✅ nu permite înainte de limbă
     if (!input.trim()) return
 
     playSound(sendSound)
@@ -91,13 +81,9 @@ export default function ChatWidget() {
       })
 
       const data = await res.json()
-      
-      console.log("📥 API Response:", data)
-
       const reply = data?.bot?.trim()
 
-      if (!reply || reply.length === 0) {
-        console.error("❌ Empty bot reply:", data)
+      if (!reply) {
         setMessages([
           ...newMessages,
           {
@@ -110,18 +96,12 @@ export default function ChatWidget() {
                 : "A apărut o eroare. Te rog încearcă din nou."
           }
         ])
-        setTyping(false)
         return
       }
 
-      console.log("✅ Bot reply:", reply)
-
       playSound(receiveSound)
-
       setMessages([...newMessages, { role: "assistant", content: reply }])
-
     } catch (error) {
-      console.error("❌ Fetch error:", error)
       setMessages([
         ...newMessages,
         {
@@ -175,20 +155,7 @@ export default function ChatWidget() {
 
           {/* Messages */}
           <div className="flex-1 p-3 overflow-y-auto space-y-3">
-            {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`p-2 rounded-lg max-w-[85%] text-sm leading-snug transition ${
-                  msg.role === "user"
-                    ? "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 self-end ml-auto"
-                    : "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-200"
-                }`}
-              >
-                {msg.content}
-              </div>
-            ))}
-
-            {/* ✅ Selector de limbă inline */}
+            {/* ✅ Selector de limbă (mereu înainte de conversație) */}
             {showLanguageSelector && !language && (
               <div className="p-3 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-neutral-800 dark:to-neutral-700 rounded-xl border border-sky-200 dark:border-sky-700 animate-[fadeIn_0.3s_ease-out]">
                 <div className="flex items-center gap-2 mb-2">
@@ -216,6 +183,19 @@ export default function ChatWidget() {
                 </div>
               </div>
             )}
+
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                className={`p-2 rounded-lg max-w-[85%] text-sm leading-snug transition ${
+                  msg.role === "user"
+                    ? "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 self-end ml-auto"
+                    : "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-200"
+                }`}
+              >
+                {msg.content}
+              </div>
+            ))}
 
             {typing && (
               <div className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 w-14 flex justify-center">
