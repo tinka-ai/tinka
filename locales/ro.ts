@@ -26,7 +26,7 @@ export const ro = {
 
   solutions: {
     title: "Soluții",
-    subtitle: "Transformăm procesele cu AI și aplicații",
+    subtitle: "Transformăm procesele în soluții automatizate cu ajutorul AI și instrumentelor digitale — ca și cum ați avea angajați virtuali care lucrează non-stop, fără pauze, fără erori, 24/7.",
 
     chatbots: {
       title: "Chatbot-uri AI inteligente",
