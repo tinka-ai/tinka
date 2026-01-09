@@ -18,7 +18,6 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<any[]>([])
   const [typing, setTyping] = useState(false)
   const [showLanguageSelector, setShowLanguageSelector] = useState(false)
-  const [leadSent, setLeadSent] = useState(false)
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -28,36 +27,14 @@ export default function ChatWidget() {
 
   useEffect(() => {
     scrollToBottom()
-  }, [messages, typing])
+  }, [messages, typing, showLanguageSelector])
 
-  const playSound = (src: string) => {
-    const audio = new Audio(src)
-    audio.volume = 0.35
-    audio.play().catch(() => {})
-  }
-
-  const getStoredLanguage = (): Lang | null => {
-    try {
-      const v = localStorage.getItem("tinka_chat_lang")
-      if (v === "ro" || v === "ru" || v === "en") return v
-      return null
-    } catch {
-      return null
-    }
-  }
-
-  const setStoredLanguage = (code: Lang) => {
-    try {
-      localStorage.setItem("tinka_chat_lang", code)
-    } catch {}
-  }
-
-  // ✅ AUTOSTART + salut + selector limbă
+  // ✅ AUTOSTART - se deschide automat după 2 secunde
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true)
 
-      // Salutul trebuie să apară MEREU, înainte de selector
+      // ✅ 1) Mesaj de salut (fix cum ai cerut)
       setMessages([
         {
           role: "assistant",
@@ -65,69 +42,36 @@ export default function ChatWidget() {
         }
       ])
 
-      // Dacă există limbă memorată, o folosim (dar salutul rămâne)
-      const stored = getStoredLanguage()
-      if (stored) {
-        setLanguage(stored)
-        setShowLanguageSelector(false)
-        setMessages(prev => [
-          ...prev,
-          {
-            role: "assistant",
-            content:
-              stored === "ro"
-                ? "Continuăm în Română. Dacă vrei, poți schimba limba din selector."
-                : stored === "ru"
-                ? "Продолжаем на русском. Если хотите — можете сменить язык в селекторе."
-                : "Continuing in English. If you want, you can change the language in the selector."
-          }
-        ])
-      } else {
-        // arată selector după 0.8s
-        setTimeout(() => setShowLanguageSelector(true), 800)
-      }
+      // ✅ 2) Apoi arată selector limbă
+      setTimeout(() => {
+        setShowLanguageSelector(true)
+      }, 900)
     }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
 
+  const playSound = (src: string) => {
+    const audio = new Audio(src)
+    audio.volume = 0.35
+    audio.play().catch(() => {})
+  }
+
   const selectLanguage = (code: Lang) => {
     setLanguage(code)
-    setStoredLanguage(code)
     setShowLanguageSelector(false)
 
     const greetings: Record<Lang, string> = {
-      ro: "Perfect. Spune-mi pe scurt: ce afacere ai? 🙂",
-      ru: "Отлично. Скажите коротко: какой у вас бизнес? 🙂",
-      en: "Great. Tell me briefly: what business do you have? 🙂"
+      ro: "Perfect! Spune-mi pe scurt: ce afacere ai? 🙂",
+      ru: "Отлично! Расскажите коротко: какой у вас бизнес? 🙂",
+      en: "Great! Tell me briefly: what's your business? 🙂"
     }
 
     setMessages(prev => [...prev, { role: "assistant", content: greetings[code] }])
   }
 
-  const ensureSelectorVisible = () => {
-    setShowLanguageSelector(true)
-  }
-
-  // ✅ Trimite lead (conversație + ofertă)
-  const sendLeadEmail = async (payload: any) => {
-    if (leadSent) return
-    setLeadSent(true)
-
-    try {
-      await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      })
-    } catch {
-      // dacă pică emailul, nu blocăm utilizatorul; doar permitem reîncercare din conversație
-      setLeadSent(false)
-    }
-  }
-
   const sendMessage = async () => {
-    if (!language) return
+    if (!language) return // conversația nu pornește fără limbă
     if (!input.trim()) return
 
     playSound(sendSound)
@@ -148,9 +92,31 @@ export default function ChatWidget() {
       })
 
       const data = await res.json()
-      const reply = (data?.bot || "").trim()
+      console.log("📥 API Response:", data)
 
-      if (!reply) {
+      const reply = data?.bot?.trim()
+
+      // ✅ dacă backend cere trimitere lead -> trimitem automat către /api/lead
+      if (data?.action === "send_lead" && data?.lead) {
+        try {
+          await fetch("/api/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: data.lead.name,
+              email: data.lead.email,
+              phone: data.lead.phone,
+              offer_final: data.lead.offer_final,
+              conversation: data.lead.conversation
+            })
+          })
+        } catch (e) {
+          console.error("❌ Lead send failed:", e)
+        }
+      }
+
+      if (!reply || reply.length === 0) {
+        console.error("❌ Empty bot reply:", data)
         setMessages([
           ...newMessages,
           {
@@ -163,17 +129,14 @@ export default function ChatWidget() {
                 : "A apărut o eroare. Te rog încearcă din nou."
           }
         ])
+        setTyping(false)
         return
       }
 
       playSound(receiveSound)
       setMessages([...newMessages, { role: "assistant", content: reply }])
-
-      // ✅ dacă AI cere trimiterea ofertei + conversației pe email
-      if (data?.action === "send_lead" && data?.lead) {
-        await sendLeadEmail(data.lead)
-      }
     } catch (error) {
+      console.error("❌ Fetch error:", error)
       setMessages([
         ...newMessages,
         {
@@ -241,7 +204,7 @@ export default function ChatWidget() {
               </div>
             ))}
 
-            {/* ✅ Selector limbă: apare după salut, înainte de conversație */}
+            {/* ✅ Selector de limbă inline (după salut) */}
             {showLanguageSelector && !language && (
               <div className="p-3 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-neutral-800 dark:to-neutral-700 rounded-xl border border-sky-200 dark:border-sky-700 animate-[fadeIn_0.3s_ease-out]">
                 <div className="flex items-center gap-2 mb-2">
@@ -251,33 +214,25 @@ export default function ChatWidget() {
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                  {[
-                    ["ro", "🇷🇴 RO"],
-                    ["ru", "🇷🇺 RU"],
-                    ["en", "🇬🇧 EN"]
-                  ].map(([code, label]) => (
+                  {(
+                    [
+                      ["ro", "🇷🇴 RO"],
+                      ["ru", "🇷🇺 RU"],
+                      ["en", "🇬🇧 EN"]
+                    ] as const
+                  ).map(([code, label]) => (
                     <button
                       key={code}
                       className="bg-white dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 
                         py-2 px-1 rounded-lg hover:bg-sky-100 dark:hover:bg-neutral-600 
                         transition text-xs font-medium shadow-sm"
-                      onClick={() => selectLanguage(code as Lang)}
+                      onClick={() => selectLanguage(code)}
                     >
                       {label}
                     </button>
                   ))}
                 </div>
               </div>
-            )}
-
-            {/* ✅ dacă are limbă memorată, oferim opțiune de schimbare fără să stricăm regula */}
-            {language && (
-              <button
-                onClick={ensureSelectorVisible}
-                className="text-xs text-sky-600 dark:text-sky-400 underline underline-offset-2"
-              >
-                Schimbă limba
-              </button>
             )}
 
             {typing && (
