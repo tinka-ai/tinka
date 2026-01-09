@@ -29,7 +29,7 @@ export const en = {
   // ------------------------------------------------------
   solutions: {
     title: "Solutions",
-    subtitle: "Transform your processes with AI and automation",
+    subtitle: "We transform processes into automated solutions powered by AI and digital tools — as if you had virtual employees who never get tired and deliver results 24/7.",
 
     chatbots: {
       title: "Smart AI Chatbots",
