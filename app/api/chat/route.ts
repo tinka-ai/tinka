@@ -3,148 +3,193 @@ import { NextResponse } from "next/server"
 import OpenAI from "openai"
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
+  apiKey: process.env.OPENAI_API_KEY!
 })
 
-type Locale = "ro" | "ru" | "en"
+type Lang = "ro" | "ru" | "en"
 
-const greetings: Record<Locale, string> = {
-  ro: "Alege limba conversației ca să începem 🙂",
-  ru: "Выберите язык разговора, чтобы начать 🙂",
-  en: "Choose the conversation language to begin 🙂",
-}
-
-// Date suport (salariu mediu + curs EUR/MDL) — pot varia în timp.
-// Salariu mediu lunar (ex. NBS, Q1 2025): 14567.5 MDL. :contentReference[oaicite:0]{index=0}
-const AVG_SALARY_MDL = 14568
-// Curs EUR/MDL (BNM, exemplu 06.01.2026: 19.74). :contentReference[oaicite:1]{index=1}
-const EUR_MDL = 19.74
-
-function clampLocale(x: any): Locale {
-  return x === "ru" || x === "en" || x === "ro" ? x : "ro"
-}
-
-/**
- * Oferta “Automatizări + Agenți AI”:
- * - 1–3 agenți = echivalent salariu mediu pe economie (MDL) / lună (cerința ta)
- * - one-time setup (analiză + implementare inițială) = interval (depinde de complexitate)
- */
-function automationPricing(agentsCount: number) {
-  const agents = Math.max(1, Math.min(agentsCount || 1, 12))
-  const monthlyBase = AVG_SALARY_MDL // 1–3 agenți = 1 salariu mediu
-  const multiplier = agents <= 3 ? 1 : Math.ceil(agents / 3) // 4–6 = 2x, 7–9 = 3x, etc.
-  const monthly = monthlyBase * multiplier
-
-  // Setup “de la” (one-time) – păstrăm interval ca să nu inventăm ore exacte din aer.
-  const setupFrom = 8000 * multiplier
-  const setupTo = 18000 * multiplier
-
-  const anchor3AgentsFromEur = 400
-  const anchor3AgentsFromMdl = Math.round(anchor3AgentsFromEur * EUR_MDL)
-
-  return {
-    agents,
-    monthly_mdl: monthly,
-    setup_mdl_range: [setupFrom, setupTo],
-    anchor_3agents_from_mdl: anchor3AgentsFromMdl,
-  }
+function safeString(v: any) {
+  return typeof v === "string" ? v : ""
 }
 
 export async function POST(req: Request) {
-  try {
-    const { messages, lang } = await req.json()
-    const language = clampLocale(lang)
+  let language: Lang = "ro"
 
-    // Dacă widget-ul trimite conversația fără limbă, întoarcem “stop” (nu pornim).
-    if (!lang) {
-      return NextResponse.json({
-        ok: true,
-        reply: greetings[language],
-        require_language: true,
-      })
+  try {
+    const body = await req.json()
+    const messages = Array.isArray(body?.messages) ? body.messages : []
+    language = (body?.lang as Lang) || "ro"
+
+    const greetings: Record<Lang, string> = {
+      ro: "Salut! Eu sunt Tinka AI. Cu ce te pot ajuta?",
+      en: "Hello! I’m Tinka AI. How can I help?",
+      ru: "Здравствуйте! Я Tinka AI. Чем помочь?"
     }
 
-    // Knowledge + reguli (include și conceptul TINKA: Technologies • Innovation • Networking • Knowledge • Automation)
+    // ✅ Pricing constants (MDL implicit)
+    // Pentru automatizări “AI agents”: tu ai spus 3 agenți ~ 400 EUR.
+    // Ca să fie controlabil și corect, punem curs ca variabilă de mediu.
+    // Dacă nu e setată, folosim 20 MDL/EUR doar ca fallback.
+    const EUR_MDL = Number(process.env.EUR_MDL_RATE || 20)
+
+    const baseAutomation3AgentsMDL = Math.round(400 * EUR_MDL)
+
     const systemPrompt = `
-Ești TINKA AI (Technologies • Innovation • Networking • Knowledge • Automation) — consultant de vânzări prietenos, concret și orientat pe decizie finală.
+Ești TINKA AI – consultant digital pentru IMM-uri din Republica Moldova.
+Conceptul firmei: Technologies • Innovation • Networking • Knowledge • Automation.
 
-Limbă: ${language}
+Limbă conversație: ${language}
+Monedă implicită: MDL (dacă clientul cere altă monedă, răspunzi în MDL + echivalent aproximativ).
 
-REGULI FIXE:
-- Max 2 propoziții scurte per mesaj.
-- Max 1 întrebare per mesaj.
-- Zero jargon.
-- Nu porni conversația dacă nu e aleasă limba.
-- Nu inventa cifre “din aer”. Dacă îți lipsesc date, ceri 1 singură informație clară.
+═══════════════════════════════════════
+STIL
+═══════════════════════════════════════
+- Vorbești natural, prietenos, clar.
+- În mod normal: scurt (max 2 propoziții).
+- EXCEPȚIE: când dai ofertă / calcul preț → ai voie 4–6 linii scurte tip “Oferta: …” (fără povești lungi).
 
-OBIECTIV:
-- Condu conversația spre o decizie: (1) accept ofertă, (2) cerere demo/întâlnire, sau (3) variantă mai simplă.
-- Dacă utilizatorul confirmă “accept oferta”, atunci ceri Nume + Telefon + Email pentru contract / caiet de sarcini.
+═══════════════════════════════════════
+REGULI DE INTEROGARE
+═══════════════════════════════════════
+- Pui o singură întrebare pe mesaj.
+- Dacă utilizatorul nu dă date, respecți și continui fără presiune.
+- Nu inventezi cifre “din aer”: dacă lipsește un input, spui “estimare” și ceri 1 detaliu.
 
-PRODUSE (explică simplu):
-- TinkaBook: programări online 24/7 (de la 99 MDL/lună)
-- TinkaBot: chatbot pe site (de la 1.999 MDL/lună)
-- TinkaWeb: website (de la 5.999 MDL plată unică)
-- TinkaSell: landing + captare lead-uri (de la 59 €/lună)
-- TinkaBiz: pachet personalizat
+═══════════════════════════════════════
+PRODUSE
+═══════════════════════════════════════
+TinkaBook:
+- programări online 24/7 (de la 99 MDL/lună)
 
-AUTOMATIZĂRI + AGENȚI AI (în MDL implicit):
-- 1–3 agenți AI = echivalentul unui salariu mediu pe economie / lună (valoare de referință: ${AVG_SALARY_MDL} MDL/lună).
-- “De la 400 EUR pentru 3 agenți” este un reper de piață (~${Math.round(400 * EUR_MDL)} MDL la curs ~${EUR_MDL}).
-- Explică ROI: clientul poate recupera în ~1 lună prin înlocuirea a ~1–3 angajați pe sarcini repetitive (fără promisiuni absolute).
+TinkaBot:
+- chatbot AI pentru site + lead-uri (de la 1.999 MDL/lună)
 
-NEGOCIERE:
-- Nu reduci prețul direct; ajustezi pachetul (suport, număr agenți, integrări, volum, SLA).
-- Dacă zice “e scump”, oferi 1 variantă mai light și întrebi 1 lucru (ex: “Câți oameni vrei să înlocuiești: 1, 2 sau 3?”).
+TinkaWeb:
+- website modern (de la 5.999 MDL plată unică)
 
-FORMAT OUTPUT (obligatoriu):
-Răspunzi DOAR în JSON valid, cu cheile:
-{
-  "reply": "text scurt (max 2 propoziții)",
-  "stage": "discovery|clarify|offer|negotiate|close",
-  "offer": null sau {
-    "type": "subscription|one_time|automation",
-    "title": "…",
-    "monthly_mdl": number|null,
-    "one_time_mdl": number|null,
-    "setup_mdl_range": [number, number]|null,
-    "items": ["…","…"],
-    "assumptions": ["…"],
-    "next_step": "…"
-  }
-}
+TinkaSell:
+- pagini de ofertă + captare lead-uri (de la 59€/lună echivalent MDL)
+
+TinkaBiz:
+- pachet (site + programări + chatbot), preț personalizat (începe de la un prag sănătos)
+
+AUTOMATIZĂRI (n8n + AI):
+- “Agenți AI” care înlocuiesc munca repetitivă (emailuri, CRM, facturi, rapoarte, suport).
+- 3 agenți AI: de la ${baseAutomation3AgentsMDL} MDL (echivalent ~400€). 
+- Regula ta: 1 agent ≈ 1 angajat (argument ROI: se recuperează rapid dacă elimină 1 post).
+
+═══════════════════════════════════════
+PRICING & NEGOCIERE (OBLIGATORIU)
+═══════════════════════════════════════
+Principiu:
+Prețul = Costuri reale (podea) + marjă + risc + valoare pentru client.
+Nu scazi prețul direct. Ajustezi pachetul:
+- suport mai mic / ore incluse mai puține / fără modificări / fazare pe etape.
+
+Când clientul zice “prea scump”:
+- oferi 2 opțiuni: (1) pachet redus, (2) implementare în etape.
+Când compară cu “100 MDL”:
+- explici diferența: generic vs responsabilitate + integrare + suport + impact.
+
+═══════════════════════════════════════
+CÂND DAI OFERTĂ (FORMAT)
+═══════════════════════════════════════
+Răspunzi așa:
+Oferta:
+1) Recomandare: [produs/soluție]
+2) Preț: [MDL / lună] sau [MDL one-time]
+3) Include: [3 puncte]
+4) Opțiune mai ieftină: [ce se taie]
+Întrebare (una): “Câte puncte de lucru ai?” / “Cât trafic ai?” / “Vrei suport lunar sau proiect one-time?”
+
+═══════════════════════════════════════
+DECIZIE FINALĂ + EMAIL (OBLIGATORIU)
+═══════════════════════════════════════
+Scop: clientul ia o decizie.
+Dacă clientul CONFIRMĂ explicit oferta (“accept”, “da”, “ok”, “mergem”, “confirm”):
+1) Ceri: nume + telefon + email (în 1 întrebare: “Lasă-mi nume, telefon și email.”)
+2) După ce le primești, pregătești un rezumat final (Oferta finală acceptată + pașii următori)
+3) Marchezi pentru sistem: SEND_LEAD cu:
+   - name, phone, email
+   - offer_final (text scurt)
+   - conversation (ultimele mesaje relevante)
+
+IMPORTANT:
+Nu promiți că “trimiți tu email” ca acțiune internă. Doar incluzi markerul SEND_LEAD pentru sistem.
+
+Format marker final (doar când ai toate datele):
+[SEND_LEAD]
+{"name":"...","phone":"...","email":"...","offer_final":"...","conversation":"..."}
+[/SEND_LEAD]
 `
 
     const finalMessages =
-      Array.isArray(messages) && messages.length > 0
-        ? [{ role: "system", content: systemPrompt }, ...messages]
-        : [{ role: "system", content: systemPrompt }, { role: "user", content: "Începe." }]
+      messages.length === 0
+        ? [
+            { role: "system", content: systemPrompt },
+            { role: "assistant", content: greetings[language] }
+          ]
+        : [{ role: "system", content: systemPrompt }, ...messages]
 
     const response = await client.chat.completions.create({
       model: "gpt-4o-mini",
       messages: finalMessages,
-      max_tokens: 350,
-      temperature: 0.4,
+      max_tokens: 450,
+      temperature: 0.7
     })
 
-    const raw = response.choices[0]?.message?.content?.trim() || ""
+    let botReply = response.choices[0]?.message?.content || ""
+    botReply = safeString(botReply)
 
-    // Parse JSON robust: dacă modelul greșește, fallback “safe reply”
-    let parsed: any = null
-    try {
-      parsed = JSON.parse(raw)
-    } catch {
-      parsed = { reply: raw || "Spune-mi pe scurt ce ai nevoie 🙂", stage: "discovery", offer: null }
+    // ✅ Detect marker SEND_LEAD
+    const leadStart = botReply.indexOf("[SEND_LEAD]")
+    const leadEnd = botReply.indexOf("[/SEND_LEAD]")
+
+    if (leadStart !== -1 && leadEnd !== -1 && leadEnd > leadStart) {
+      const jsonPart = botReply
+        .slice(leadStart + "[SEND_LEAD]".length, leadEnd)
+        .trim()
+
+      let lead: any = null
+      try {
+        lead = JSON.parse(jsonPart)
+      } catch {
+        // dacă parse-ul pică, returnăm răspunsul normal fără acțiune
+        return NextResponse.json({ bot: botReply.replace(/\[SEND_LEAD\][\s\S]*?\[\/SEND_LEAD\]/, "").trim() })
+      }
+
+      // curățăm markerul din textul afișat utilizatorului
+      const cleaned = botReply.replace(/\[SEND_LEAD\][\s\S]*?\[\/SEND_LEAD\]/, "").trim()
+
+      // payload către /api/lead
+      const leadPayload = {
+        name: safeString(lead?.name),
+        email: safeString(lead?.email),
+        phone: safeString(lead?.phone),
+        offer_final: safeString(lead?.offer_final),
+        conversation: safeString(lead?.conversation)
+      }
+
+      return NextResponse.json({
+        bot: cleaned,
+        action: "send_lead",
+        lead: leadPayload
+      })
     }
 
-    // Dacă user întreabă de automatizări și nu dă nr agenți, putem ancora rapid cu 1–3 agenți.
-    // (Nu forțăm; doar avem helper aici dacă vrei să îl folosești ulterior.)
-    // const price = automationPricing(3)
-
-    return NextResponse.json({ ok: true, ...parsed })
+    return NextResponse.json({ bot: botReply })
   } catch (error: any) {
     return NextResponse.json(
-      { ok: false, reply: "Eroare server. Încearcă din nou.", stage: "discovery", offer: null, error: true, details: error?.message },
+      {
+        bot:
+          language === "ro"
+            ? "Eroare server. Încearcă din nou."
+            : language === "ru"
+            ? "Ошибка сервера. Попробуйте снова."
+            : "Server error. Try again.",
+        error: true,
+        details: error?.message
+      },
       { status: 500 }
     )
   }
