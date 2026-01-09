@@ -1,67 +1,34 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { Send, X, Globe, CheckCircle } from "lucide-react"
+import { Send, X, Globe } from "lucide-react"
 import TinkaAvatar from "@/components/tinka/TinkaAvatar"
 
-type Locale = "ro" | "ru" | "en"
+const sendSound =
+  "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
+const receiveSound =
+  "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
 
-type Offer = {
-  type: "subscription" | "one_time" | "automation"
-  title: string
-  monthly_mdl: number | null
-  one_time_mdl: number | null
-  setup_mdl_range: [number, number] | null
-  items: string[]
-  assumptions: string[]
-  next_step: string
-}
-
-type ApiReply = {
-  ok: boolean
-  reply: string
-  stage?: string
-  offer?: Offer | null
-  require_language?: boolean
-}
-
-const sendSound = "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
-const receiveSound = "data:audio/mp3;base64,SUQzAwAAAAAAF1RTU0UAAAAPAAADTGF2ZjU2LjI0LjEwMAAAAAAAAAAAAAAA//tQxAADB..."
+type Lang = "ro" | "ru" | "en"
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
-  const [language, setLanguage] = useState<Locale | null>(null)
-
+  const [language, setLanguage] = useState<Lang | null>(null)
   const [input, setInput] = useState("")
-  const [messages, setMessages] = useState<{ role: "user" | "assistant"; content: string }[]>([])
+  const [messages, setMessages] = useState<any[]>([])
   const [typing, setTyping] = useState(false)
   const [showLanguageSelector, setShowLanguageSelector] = useState(false)
-
-  const [pendingOffer, setPendingOffer] = useState<Offer | null>(null)
-
-  // lead capture (după accept)
-  const [showLeadForm, setShowLeadForm] = useState(false)
-  const [leadName, setLeadName] = useState("")
-  const [leadPhone, setLeadPhone] = useState("")
-  const [leadEmail, setLeadEmail] = useState("")
-  const [sendingLead, setSendingLead] = useState(false)
   const [leadSent, setLeadSent] = useState(false)
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  const scrollToBottom = () => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  useEffect(() => scrollToBottom(), [messages, pendingOffer, showLeadForm])
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
 
-  // Autostart: se deschide fereastra și cere limba (fără mesaj de “conversație” până nu aleg)
   useEffect(() => {
-    const t = setTimeout(() => {
-      setOpen(true)
-      setMessages([]) // fără greeting înainte de limbă
-      setShowLanguageSelector(true)
-      setPendingOffer(null)
-    }, 2000)
-    return () => clearTimeout(t)
-  }, [])
+    scrollToBottom()
+  }, [messages, typing])
 
   const playSound = (src: string) => {
     const audio = new Audio(src)
@@ -69,20 +36,94 @@ export default function ChatWidget() {
     audio.play().catch(() => {})
   }
 
-  const selectLanguage = (code: Locale) => {
-    setLanguage(code)
-    setShowLanguageSelector(false)
-    setLeadSent(false)
-    setShowLeadForm(false)
-    setPendingOffer(null)
+  const getStoredLanguage = (): Lang | null => {
+    try {
+      const v = localStorage.getItem("tinka_chat_lang")
+      if (v === "ro" || v === "ru" || v === "en") return v
+      return null
+    } catch {
+      return null
+    }
+  }
 
-    const greetings: Record<Locale, string> = {
-      ro: "Perfect 🙂 Ce afacere ai și ce vrei să rezolvăm?",
-      ru: "Отлично 🙂 Какой у вас бизнес и что нужно решить?",
-      en: "Great 🙂 What business do you have and what should we fix?",
+  const setStoredLanguage = (code: Lang) => {
+    try {
+      localStorage.setItem("tinka_chat_lang", code)
+    } catch {}
+  }
+
+  // ✅ AUTOSTART + salut + selector limbă
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true)
+
+      // Salutul trebuie să apară MEREU, înainte de selector
+      setMessages([
+        {
+          role: "assistant",
+          content: "Salut! 👋 Eu sunt Tinka AI, asistentul tău digital."
+        }
+      ])
+
+      // Dacă există limbă memorată, o folosim (dar salutul rămâne)
+      const stored = getStoredLanguage()
+      if (stored) {
+        setLanguage(stored)
+        setShowLanguageSelector(false)
+        setMessages(prev => [
+          ...prev,
+          {
+            role: "assistant",
+            content:
+              stored === "ro"
+                ? "Continuăm în Română. Dacă vrei, poți schimba limba din selector."
+                : stored === "ru"
+                ? "Продолжаем на русском. Если хотите — можете сменить язык в селекторе."
+                : "Continuing in English. If you want, you can change the language in the selector."
+          }
+        ])
+      } else {
+        // arată selector după 0.8s
+        setTimeout(() => setShowLanguageSelector(true), 800)
+      }
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  const selectLanguage = (code: Lang) => {
+    setLanguage(code)
+    setStoredLanguage(code)
+    setShowLanguageSelector(false)
+
+    const greetings: Record<Lang, string> = {
+      ro: "Perfect. Spune-mi pe scurt: ce afacere ai? 🙂",
+      ru: "Отлично. Скажите коротко: какой у вас бизнес? 🙂",
+      en: "Great. Tell me briefly: what business do you have? 🙂"
     }
 
-    setMessages([{ role: "assistant", content: greetings[code] }])
+    setMessages(prev => [...prev, { role: "assistant", content: greetings[code] }])
+  }
+
+  const ensureSelectorVisible = () => {
+    setShowLanguageSelector(true)
+  }
+
+  // ✅ Trimite lead (conversație + ofertă)
+  const sendLeadEmail = async (payload: any) => {
+    if (leadSent) return
+    setLeadSent(true)
+
+    try {
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+    } catch {
+      // dacă pică emailul, nu blocăm utilizatorul; doar permitem reîncercare din conversație
+      setLeadSent(false)
+    }
   }
 
   const sendMessage = async () => {
@@ -91,7 +132,7 @@ export default function ChatWidget() {
 
     playSound(sendSound)
 
-    const newMessages = [...messages, { role: "user" as const, content: input }]
+    const newMessages = [...messages, { role: "user", content: input }]
     setMessages(newMessages)
     setInput("")
     setTyping(true)
@@ -100,34 +141,50 @@ export default function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMessages, lang: language }),
+        body: JSON.stringify({
+          messages: newMessages,
+          lang: language
+        })
       })
 
-      const data: ApiReply = await res.json()
-      const reply = (data?.reply || "").trim()
+      const data = await res.json()
+      const reply = (data?.bot || "").trim()
 
       if (!reply) {
         setMessages([
           ...newMessages,
-          { role: "assistant", content: language === "ru" ? "Ошибка. Попробуйте ещё раз." : language === "en" ? "Error. Try again." : "Eroare. Încearcă din nou." },
+          {
+            role: "assistant",
+            content:
+              language === "ru"
+                ? "Произошла ошибка. Попробуйте ещё раз."
+                : language === "en"
+                ? "An error occurred. Please try again."
+                : "A apărut o eroare. Te rog încearcă din nou."
+          }
         ])
-        setTyping(false)
         return
       }
 
       playSound(receiveSound)
       setMessages([...newMessages, { role: "assistant", content: reply }])
 
-      // dacă vine ofertă structurată, o afișăm
-      if (data?.offer) {
-        setPendingOffer(data.offer)
-      } else {
-        setPendingOffer(null)
+      // ✅ dacă AI cere trimiterea ofertei + conversației pe email
+      if (data?.action === "send_lead" && data?.lead) {
+        await sendLeadEmail(data.lead)
       }
-    } catch (e) {
+    } catch (error) {
       setMessages([
         ...newMessages,
-        { role: "assistant", content: language === "ru" ? "Ошибка сети. Попробуйте позже." : language === "en" ? "Network error. Try later." : "Eroare de conexiune. Încearcă mai târziu." },
+        {
+          role: "assistant",
+          content:
+            language === "ru"
+              ? "Ошибка сети. Попробуйте позже."
+              : language === "en"
+              ? "Network error. Try again later."
+              : "Eroare de conexiune. Încearcă mai târziu."
+        }
       ])
     } finally {
       setTyping(false)
@@ -136,52 +193,6 @@ export default function ChatWidget() {
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter") sendMessage()
-  }
-
-  const acceptOffer = () => {
-    // Accept explicit -> cerem date
-    setShowLeadForm(true)
-  }
-
-  const submitLead = async () => {
-    if (!pendingOffer) return
-    if (!leadName.trim() || !leadPhone.trim() || !leadEmail.trim()) return
-
-    setSendingLead(true)
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: leadName.trim(),
-          phone: leadPhone.trim(),
-          email: leadEmail.trim(),
-          acceptedAt: new Date().toISOString(),
-          offer: pendingOffer,
-          conversation: messages,
-        }),
-      })
-
-      const data = await res.json()
-      if (data?.success) {
-        setLeadSent(true)
-        setShowLeadForm(false)
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content:
-              language === "ru"
-                ? "Готово ✅ Я передал(а) заявку команде; вас скоро наберут."
-                : language === "en"
-                ? "Done ✅ I sent everything to the team; they’ll contact you soon."
-                : "Gata ✅ Am trimis totul echipei; te contactăm în scurt timp.",
-          },
-        ])
-      }
-    } finally {
-      setSendingLead(false)
-    }
   }
 
   return (
@@ -216,28 +227,41 @@ export default function ChatWidget() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 p-3 overflow-y-auto space-y-3 flex flex-col">
-            {/* Selector de limbă = primul pas obligatoriu */}
+          <div className="flex-1 p-3 overflow-y-auto space-y-3">
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                className={`p-2 rounded-lg max-w-[85%] text-sm leading-snug transition ${
+                  msg.role === "user"
+                    ? "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 self-end ml-auto"
+                    : "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-200"
+                }`}
+              >
+                {msg.content}
+              </div>
+            ))}
+
+            {/* ✅ Selector limbă: apare după salut, înainte de conversație */}
             {showLanguageSelector && !language && (
               <div className="p-3 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-neutral-800 dark:to-neutral-700 rounded-xl border border-sky-200 dark:border-sky-700 animate-[fadeIn_0.3s_ease-out]">
                 <div className="flex items-center gap-2 mb-2">
                   <Globe size={16} className="text-sky-600 dark:text-sky-400" />
                   <span className="text-xs font-semibold text-neutral-700 dark:text-neutral-300">
-                    Alege limba conversației ca să începem:
+                    Alege limba conversației:
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                  {([
+                  {[
                     ["ro", "🇷🇴 RO"],
                     ["ru", "🇷🇺 RU"],
-                    ["en", "🇬🇧 EN"],
-                  ] as const).map(([code, label]) => (
+                    ["en", "🇬🇧 EN"]
+                  ].map(([code, label]) => (
                     <button
                       key={code}
                       className="bg-white dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 
                         py-2 px-1 rounded-lg hover:bg-sky-100 dark:hover:bg-neutral-600 
                         transition text-xs font-medium shadow-sm"
-                      onClick={() => selectLanguage(code)}
+                      onClick={() => selectLanguage(code as Lang)}
                     >
                       {label}
                     </button>
@@ -246,92 +270,18 @@ export default function ChatWidget() {
               </div>
             )}
 
-            {/* Conversația */}
-            {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`p-2 rounded-lg max-w-[85%] text-sm leading-snug transition ${
-                  msg.role === "user"
-                    ? "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 self-end ml-auto"
-                    : "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-200 self-start"
-                }`}
+            {/* ✅ dacă are limbă memorată, oferim opțiune de schimbare fără să stricăm regula */}
+            {language && (
+              <button
+                onClick={ensureSelectorVisible}
+                className="text-xs text-sky-600 dark:text-sky-400 underline underline-offset-2"
               >
-                {msg.content}
-              </div>
-            ))}
-
-            {/* Card ofertă (dacă există) */}
-            {pendingOffer && !showLeadForm && !leadSent && (
-              <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30">
-                <div className="text-sm font-semibold mb-1">{pendingOffer.title}</div>
-
-                <div className="text-xs space-y-1">
-                  {pendingOffer.monthly_mdl != null && <div>Abonament: <b>{pendingOffer.monthly_mdl} MDL/lună</b></div>}
-                  {pendingOffer.one_time_mdl != null && <div>Plată unică: <b>{pendingOffer.one_time_mdl} MDL</b></div>}
-                  {pendingOffer.setup_mdl_range && (
-                    <div>Setup: <b>{pendingOffer.setup_mdl_range[0]}–{pendingOffer.setup_mdl_range[1]} MDL</b></div>
-                  )}
-                  {pendingOffer.items?.length > 0 && (
-                    <div className="mt-2">
-                      <div className="font-semibold">Include:</div>
-                      <ul className="list-disc pl-4">
-                        {pendingOffer.items.slice(0, 6).map((x, idx) => <li key={idx}>{x}</li>)}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-
-                <button
-                  onClick={acceptOffer}
-                  className="mt-3 w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-lg text-sm font-medium"
-                >
-                  <CheckCircle size={18} /> Accept oferta
-                </button>
-              </div>
-            )}
-
-            {/* Formular lead după accept */}
-            {showLeadForm && pendingOffer && (
-              <div className="p-3 rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/30">
-                <div className="text-sm font-semibold mb-2">
-                  Perfect — trimitem oferta la echipă ✅
-                </div>
-
-                <div className="space-y-2">
-                  <input
-                    className="w-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-2 py-2 rounded-lg text-sm"
-                    placeholder="Nume"
-                    value={leadName}
-                    onChange={(e) => setLeadName(e.target.value)}
-                  />
-                  <input
-                    className="w-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-2 py-2 rounded-lg text-sm"
-                    placeholder="Telefon"
-                    value={leadPhone}
-                    onChange={(e) => setLeadPhone(e.target.value)}
-                  />
-                  <input
-                    className="w-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-2 py-2 rounded-lg text-sm"
-                    placeholder="Email"
-                    value={leadEmail}
-                    onChange={(e) => setLeadEmail(e.target.value)}
-                  />
-
-                  <button
-                    onClick={submitLead}
-                    disabled={sendingLead || !leadName.trim() || !leadPhone.trim() || !leadEmail.trim()}
-                    className={`w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm font-medium ${
-                      sendingLead ? "opacity-60 cursor-not-allowed" : ""
-                    }`}
-                  >
-                    {sendingLead ? "Se trimite..." : "Trimite către echipă"}
-                  </button>
-                </div>
-              </div>
+                Schimbă limba
+              </button>
             )}
 
             {typing && (
-              <div className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 w-14 flex justify-center self-start">
+              <div className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 w-14 flex justify-center">
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></span>
                   <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-150"></span>
@@ -343,22 +293,34 @@ export default function ChatWidget() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input: blocat până nu e aleasă limba */}
+          {/* Input - disabled până nu alege limba */}
           <div className="p-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
             <input
               className={`flex-1 border border-neutral-300 dark:border-neutral-700 
               bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 
-              px-2 py-1 rounded-lg text-sm transition ${!language ? "opacity-50 cursor-not-allowed" : ""}`}
+              px-2 py-1 rounded-lg text-sm transition ${
+                !language ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder={!language ? "Alege limba mai întâi..." : language === "ru" ? "Введите сообщение..." : language === "en" ? "Type a message..." : "Scrie un mesaj..."}
+              placeholder={
+                !language
+                  ? "Alege limba mai întâi..."
+                  : language === "ro"
+                  ? "Scrie un mesaj..."
+                  : language === "ru"
+                  ? "Введите сообщение..."
+                  : "Type a message..."
+              }
               disabled={!language}
             />
             <button
               onClick={sendMessage}
               disabled={!language}
-              className={`bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg shadow transition ${!language ? "opacity-50 cursor-not-allowed" : ""}`}
+              className={`bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg shadow transition ${
+                !language ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               <Send size={18} />
             </button>
@@ -367,14 +329,22 @@ export default function ChatWidget() {
       )}
 
       <style>{`
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideUp {
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
         @keyframes neonPulse {
           0% { box-shadow: 0 0 5px #0ff, 0 0 10px #00eaff; }
           50% { box-shadow: 0 0 15px #0ff, 0 0 25px #00eaff; transform: scale(1.05); }
           100% { box-shadow: 0 0 5px #0ff, 0 0 10px #00eaff; }
         }
-        .neon-pulse { animation: neonPulse 1.8s infinite ease-in-out; }
+        .neon-pulse {
+          animation: neonPulse 1.8s infinite ease-in-out;
+        }
       `}</style>
     </>
   )
