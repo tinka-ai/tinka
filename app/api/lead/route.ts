@@ -1,6 +1,13 @@
-// app/api/lead/route.ts
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+
+const escapeHtml = (s: string) =>
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
 
 export async function POST(req: Request) {
   try {
@@ -10,13 +17,10 @@ export async function POST(req: Request) {
     const email = body?.email
     const phone = body?.phone
 
-    // Nou:
-    const conversation = body?.conversation // array of {role, content}
-    const offer = body?.offer // obiect oferta
-    const acceptedAt = body?.acceptedAt
-
-    // Vechi:
-    const message = body?.message
+    // message (vechi) + câmpuri noi
+    const message = body?.message || ""
+    const offer_final = body?.offer_final || ""
+    const conversation = body?.conversation || ""
 
     if (!name || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
@@ -28,68 +32,39 @@ export async function POST(req: Request) {
       secure: true,
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
+        pass: process.env.SMTP_PASS
+      }
     })
 
-    const transcriptHtml = Array.isArray(conversation)
-      ? conversation
-          .map((m: any) => {
-            const who = m?.role === "user" ? "Client" : "TINKA AI"
-            const text = String(m?.content ?? "").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-            return `<p><strong>${who}:</strong> ${text}</p>`
-          })
-          .join("")
-      : "<p>(nu a fost transmis transcriptul)</p>"
+    const html = `
+      <h2>📩 Lead nou generat prin chatbotul TINKA AI</h2>
+      <p><strong>Nume:</strong> ${escapeHtml(String(name))}</p>
+      <p><strong>Email:</strong> ${escapeHtml(String(email))}</p>
+      <p><strong>Telefon:</strong> ${escapeHtml(String(phone))}</p>
 
-    const offerHtml = offer
-      ? `
-        <h3>✅ Ofertă acceptată</h3>
-        <p><strong>Tip:</strong> ${offer.type || "-"}</p>
-        <p><strong>Titlu:</strong> ${offer.title || "-"}</p>
-        ${offer.monthly_mdl != null ? `<p><strong>Abonament:</strong> ${offer.monthly_mdl} MDL / lună</p>` : ""}
-        ${offer.one_time_mdl != null ? `<p><strong>Plată unică:</strong> ${offer.one_time_mdl} MDL</p>` : ""}
-        ${
-          Array.isArray(offer.setup_mdl_range)
-            ? `<p><strong>Setup:</strong> ${offer.setup_mdl_range[0]}–${offer.setup_mdl_range[1]} MDL (o singură dată)</p>`
-            : ""
-        }
-        ${
-          Array.isArray(offer.items)
-            ? `<p><strong>Include:</strong><br>${offer.items.map((x: string) => `• ${x}`).join("<br>")}</p>`
-            : ""
-        }
-        ${
-          Array.isArray(offer.assumptions)
-            ? `<p><strong>Presupuneri:</strong><br>${offer.assumptions.map((x: string) => `• ${x}`).join("<br>")}</p>`
-            : ""
-        }
-        <p><strong>Următorul pas:</strong> ${offer.next_step || "-"}</p>
-      `
-      : ""
+      ${message ? `<p><strong>Mesaj:</strong> ${escapeHtml(String(message))}</p>` : ""}
+
+      ${offer_final ? `
+        <hr/>
+        <h3>✅ Oferta finală acceptată</h3>
+        <pre style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:8px;">${escapeHtml(String(offer_final))}</pre>
+      ` : ""}
+
+      ${conversation ? `
+        <hr/>
+        <h3>🗨️ Conversație</h3>
+        <pre style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:8px;">${escapeHtml(String(conversation))}</pre>
+      ` : ""}
+
+      <hr/>
+      <p>Trimis automat din Tinka.md</p>
+    `
 
     await transporter.sendMail({
       from: `"TINKA AI" <${process.env.SMTP_USER}>`,
       to: process.env.TO_EMAIL, // tinka.ai.srl@gmail.com
-      subject: "✅ Ofertă acceptată / Lead nou din TINKA AI",
-      html: `
-        <h2>Lead nou din chatbot</h2>
-        <p><strong>Nume:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Telefon:</strong> ${phone}</p>
-        ${acceptedAt ? `<p><strong>Acceptat la:</strong> ${acceptedAt}</p>` : ""}
-        ${message ? `<p><strong>Mesaj:</strong> ${message}</p>` : ""}
-
-        <hr>
-        ${offerHtml}
-        <hr>
-
-        <h3>💬 Transcript conversație</h3>
-        ${transcriptHtml}
-
-        <hr>
-        <p>Acest email a fost generat automat din conversația AI de pe site.</p>
-      `,
+      subject: "📩 Lead nou + ofertă acceptată (TINKA AI)",
+      html
     })
 
     return NextResponse.json({ success: true })
