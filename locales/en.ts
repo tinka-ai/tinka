@@ -230,6 +230,10 @@ export const en = {
     },
   },
 
+  offer: {
+    cta: "Request a quote",
+  },
+  
   whyAI: {
     title: "Why AI",
     benefit1: { title: "Time saved", description: "Less manual work." },
