@@ -16,6 +16,10 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "https://tinka.md/about",
+    languages: {
+      "x-default": "https://tinka.md/about",
+      "ro": "https://tinka.md/about",
+    },
   },
 
   openGraph: {
@@ -26,5 +30,21 @@ export const metadata: Metadata = {
     siteName: "TINKA AI",
     locale: "ro_MD",
     type: "website",
+    images: [
+      {
+        url: "https://tinka.md/og/about-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TINKA AI – Despre echipa noastră",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Despre TINKA AI – Soluții Digitale pentru companii",
+    description:
+      "Descoperă cine suntem, cum lucrăm și ce soluții aducem pentru afacerile din Moldova.",
+    images: ["https://tinka.md/og/about-og.jpg"],
   },
 }

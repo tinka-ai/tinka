@@ -13,13 +13,12 @@ export default function Head() {
           },
           {
             "@type": "ListItem",
-            "position": 2",
+            "position": 2,
             "name": "Despre",
             "item": "https://tinka.md/about"
           }
         ]
       },
-
       {
         "@type": "AboutPage",
         "name": "Despre TINKA AI",
@@ -30,13 +29,12 @@ export default function Head() {
           "@id": "https://tinka.md/#business"
         }
       },
-
       {
         "@type": "Organization",
         "@id": "https://tinka.md/#business",
         "name": "TINKA AI",
         "url": "https://tinka.md",
-        "logo": "https://tinka.md/tinka-og-image.jpg",
+        "logo": "https://tinka.md/image/og-image.webp",
         "email": "office@tinka.md",
         "telephone": "+37368333899",
         "description":
@@ -44,7 +42,7 @@ export default function Head() {
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Chișinău",
-          "addressCountry": "Moldova"
+          "addressCountry": "MD"
         },
         "sameAs": [
           "https://www.facebook.com/tinka.ai",
