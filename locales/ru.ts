@@ -195,6 +195,10 @@ export const ru = {
     consulting: { name: "Консультации", description: "Стратегия и внедрение." },
   },
 
+  offer: {
+    cta: "Запросить предложение",
+  },
+  
   whyAI: {
     title: "Почему AI",
     benefit1: { title: "Экономия времени", description: "Меньше рутины." },
