@@ -1,206 +1,180 @@
-// app/terms/page.tsx
-import type { Metadata } from "next"
-import Link from "next/link"
+//pagina principala
+"use client";
 
-export const metadata: Metadata = {
-  title: "Termeni și Condiții | TINKA AI",
-  description:
-    "Termenii și condițiile de utilizare a serviciilor TINKA AI – agenție digitală din Republica Moldova specializată în web design, chatbot AI și automatizări.",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: "https://tinka.md/terms",
-    languages: {
-      "x-default": "https://tinka.md/terms",
-      "ro": "https://tinka.md/terms",
-    },
-  },
-  openGraph: {
-    title: "Termeni și Condiții | TINKA AI",
-    description: "Termenii și condițiile de utilizare a serviciilor TINKA AI.",
-    url: "https://tinka.md/terms",
-    siteName: "TINKA AI",
-    locale: "ro_MD",
-    type: "website",
-  },
+import type React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import Eye from "lucide-react/dist/esm/icons/eye";
+import Puzzle from "lucide-react/dist/esm/icons/puzzle";
+import Waves from "lucide-react/dist/esm/icons/waves";
+import FlaskConical from "lucide-react/dist/esm/icons/flask-conical";
+import Link2 from "lucide-react/dist/esm/icons/link-2";
+
+import Footer from "@/components/ui/footer";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+
+import LocalePageClient from "@/components/LocalePageClient";
+import T from "@/components/T";
+
+/* ⚡ OPTIMIZARE – încărcăm JS doar când e nevoie */
+const OfferCTA = dynamic(
+  () => import("@/components/offer/OfferCTA"),
+  { ssr: false, loading: () => null }
+);
+
+const TinkaBookSection = dynamic(
+  () => import("@/components/sections/TinkaBookSection"),
+  { ssr: false, loading: () => null }
+);
+
+export default function Page() {
+  const fx =
+    "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md";
+
+  return (
+    <LocalePageClient>
+      <main id="main-content">
+
+        {/* HERO */}
+        <section
+          id="acasa"
+          aria-label="Pagina principală – introducere"
+          className="relative overflow-hidden border-b border-white/5"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
+
+              {/* TEXT HERO */}
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
+                  <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
+                  <T path="hero.subtitle" />
+                </div>
+
+                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent will-change-transform">
+                  <T path="hero.title" />
+                </h1>
+
+                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
+                  <T path="whatWeOffer.title" />
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
+                    <Link href="/solutions">
+                      <T path="hero.ctaPrimary" />
+                      <ArrowRight className="ms-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+
+                  {/* CTA Lazy-loaded */}
+                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
+                </div>
+              </div>
+
+              {/* HERO IMAGE OPTIMIZATĂ */}
+              <div className="relative">
+               <div className="absolute inset-0 -z-10 rounded-2xl bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.22),transparent_70%)] pointer-events-none will-change-transform" />
+
+            <Image
+  src="/image/hero-tinkaai.avif"
+  alt="TINKA AI – Soluții AI și Web Design în Moldova"
+  width={880}
+  height={700}
+  priority
+  loading="eager"
+  quality={70}
+  sizes="(max-width:480px) 100vw, (max-width:768px) 90vw, (max-width:1200px) 50vw, 880px"
+  className="w-full h-auto rounded-2xl object-cover will-change-transform"
+  style={{ contentVisibility: "auto" }}
+/>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* WHY AI */}
+        <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+              <T path="whyAI.title" />
+            </h2>
+
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={<T path="whyAI.benefit1.title" />} text={<T path="whyAI.benefit1.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={<T path="whyAI.benefit2.title" />} text={<T path="whyAI.benefit2.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={<T path="whyAI.benefit3.title" />} text={<T path="whyAI.benefit3.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={<T path="whyAI.benefit4.title" />} text={<T path="whyAI.benefit4.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+            </ul>
+          </div>
+        </section>
+
+        {/* TINKA BOOK – lazy loading */}
+        <TinkaBookSection fx={fx} />
+
+        {/* FAQ */}
+        <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <h3 className="text-2xl font-bold text-gray-200">
+              <T path="contact.faq.title" />
+            </h3>
+
+            <Accordion type="single" collapsible className="mt-6">
+              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger><T path="contact.faq.question1.q" /></AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  <T path="contact.faq.question1.a" />
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+                <AccordionTrigger><T path="contact.faq.question2.q" /></AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  <T path="contact.faq.question2.a" />
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+
+      </main>
+
+      {/* FOOTER */}
+      <Footer />
+
+    </LocalePageClient>
+  );
 }
 
-export default function TermsPage() {
+function Feature({ fx, icon, title, text, link, learnMore }: any) {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-24">
-        <div className="max-w-4xl mx-auto">
-
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            ← Acasă
-          </Link>
-
-          <h1 className="text-4xl font-bold text-foreground mb-2">
-            Termeni și Condiții
-          </h1>
-          <p className="text-sm text-muted-foreground mb-10">
-            Ultima actualizare: Martie 2025
-          </p>
-
-          <article className="prose prose-invert max-w-none space-y-8 text-muted-foreground">
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">1. Acceptarea Termenilor</h2>
-              <p>
-                Prin accesarea și utilizarea website-ului tinka.md și a serviciilor oferite de TINKA AI,
-                confirmați că ați citit, înțeles și acceptați prezentii Termeni și Condiții. Dacă nu
-                sunteți de acord, vă rugăm să nu utilizați serviciile noastre.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">2. Descrierea Serviciilor</h2>
-              <p>TINKA AI oferă următoarele servicii:</p>
-              <ul className="list-disc pl-6 space-y-1 mt-2">
-                <li>Creare și design website-uri profesionale</li>
-                <li>Dezvoltare și integrare chatbot-uri AI</li>
-                <li>Automatizări business și integrări software</li>
-                <li>Consultanță digitală și strategie online</li>
-                <li>Magazine online și soluții e-commerce</li>
-                <li>Optimizare SEO și marketing digital</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">3. Comenzi și Contracte</h2>
-              <p>
-                3.1. Fiecare proiect este supus unui contract individual semnat de ambele părți,
-                care specifică scopul, termenele, costul și condițiile de livrare.
-              </p>
-              <p className="mt-2">
-                3.2. Comanda devine fermă după confirmarea în scris (email sau contract semnat) și
-                achitarea avansului convenit.
-              </p>
-              <p className="mt-2">
-                3.3. Modificările de scop solicitate după semnarea contractului pot atrage costuri
-                și termene suplimentare.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">4. Prețuri și Plăți</h2>
-              <p>
-                4.1. Prețurile sunt stabilite individual, în funcție de complexitatea proiectului,
-                și sunt indicate în oferta/contractul transmis clientului.
-              </p>
-              <p className="mt-2">
-                4.2. Plata se efectuează conform graficului stabilit în contract (de regulă: avans
-                + plată finală la livrare).
-              </p>
-              <p className="mt-2">
-                4.3. Toate prețurile sunt exprimate în MDL sau EUR și includ TVA acolo unde este
-                aplicabil conform legislației Republicii Moldova.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">5. Drepturi de Proprietate Intelectuală</h2>
-              <p>
-                5.1. La finalizarea plății integrale, drepturile de autor asupra produsului livrat
-                (cod, design, conținut creat de TINKA AI) se transferă clientului, cu excepția
-                componentelor terțe (biblioteci, teme, plugin-uri) care rămân sub licențele lor
-                originale.
-              </p>
-              <p className="mt-2">
-                5.2. TINKA AI își rezervă dreptul de a prezenta proiectul în portofoliu, cu acordul
-                clientului.
-              </p>
-              <p className="mt-2">
-                5.3. Clientul garantează că materialele furnizate (logo, texte, imagini) nu
-                încalcă drepturile terților.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">6. Garanție și Suport</h2>
-              <p>
-                6.1. TINKA AI oferă o perioadă de garanție de 30 de zile pentru corectarea
-                erorilor tehnice apărute din vina noastră după livrare.
-              </p>
-              <p className="mt-2">
-                6.2. Serviciile de suport și mentenanță pe termen lung sunt disponibile prin
-                pachete separate, stabilite contractual.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">7. Limitarea Răspunderii</h2>
-              <p>
-                7.1. TINKA AI nu este responsabilă pentru pierderi indirecte, pierderi de profit,
-                pierderi de date sau daune rezultate din utilizarea sau imposibilitatea utilizării
-                serviciilor noastre, în afara cazurilor prevăzute de lege.
-              </p>
-              <p className="mt-2">
-                7.2. Răspunderea maximă a TINKA AI este limitată la valoarea contractului aferent
-                proiectului în cauză.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">8. Confidențialitate</h2>
-              <p>
-                Colectarea și prelucrarea datelor cu caracter personal sunt descrise în{" "}
-                <Link href="/privacy" className="text-sky-400 hover:underline">
-                  Politica de Confidențialitate
-                </Link>
-                , care face parte integrantă din acești Termeni.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">9. Modificarea Termenilor</h2>
-              <p>
-                TINKA AI își rezervă dreptul de a modifica acești Termeni și Condiții în orice
-                moment. Modificările vor fi publicate pe această pagină cu data actualizării.
-                Continuarea utilizării serviciilor după publicarea modificărilor constituie
-                acceptarea noilor termeni.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">10. Legea Aplicabilă</h2>
-              <p>
-                Acești Termeni sunt guvernați de legislația Republicii Moldova. Orice litigiu va
-                fi soluționat pe cale amiabilă sau, în caz de eșec, de instanțele competente din
-                Republica Moldova.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4">11. Contact</h2>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Email: <a href="mailto:office@tinka.md" className="text-sky-400 hover:underline">office@tinka.md</a></li>
-                <li>Telefon: <a href="tel:+37368333899" className="text-sky-400 hover:underline">+373 68 333 899</a></li>
-                <li>Adresa: Chișinău, Republica Moldova</li>
-              </ul>
-            </section>
-
-          </article>
-
-          <div className="mt-10 rounded-lg border border-border p-4 text-sm text-muted-foreground">
-            <p>
-              Întrebări despre acești Termeni?{" "}
-              <a
-                href="mailto:office@tinka.md?subject=Intrebare%20Termeni%20si%20Conditii"
-                className="text-sky-400 hover:underline"
-              >
-                Scrie-ne la office@tinka.md
-              </a>
-            </p>
-          </div>
-
+    <li className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}>
+      <div className="flex items-center gap-3">
+        <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">
+          {icon}
         </div>
+        <h3 className="font-semibold text-gray-300 text-lg">{title}</h3>
       </div>
-    </div>
-  )
+
+      <p className="mt-2 text-sm text-gray-300">{text}</p>
+
+      <Link
+        href={link}
+        className="mt-3 inline-flex items-center gap-2 text-sky-300 text-sm hover:text-white transition-colors"
+      >
+        <Link2 className="h-4 w-4" />
+        {learnMore}
+      </Link>
+    </li>
+  );
 }
