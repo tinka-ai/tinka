@@ -191,6 +191,67 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* JSON-LD FAQPage — citit de Google și AI-uri (ChatGPT, Perplexity, Gemini) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Ce servicii oferă TINKA AI?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "TINKA AI oferă web design, chatbot-uri AI, automatizări business, consultanță digitală și platforma TinkaBook pentru programări online. Toate serviciile sunt adaptate pentru companii din Republica Moldova.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Cât costă un site web la TINKA AI?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Prețurile sunt stabilite individual în funcție de complexitate. TINKA AI oferă prețuri accesibile pentru piața din Moldova, cu evaluare gratuită în 24 de ore.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Cât durează crearea unui site web?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Un proiect pilot durează 2–4 săptămâni. Site-uri simple pot fi livrate în 5–7 zile lucrătoare.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "TINKA AI face chatbot-uri AI pentru WhatsApp?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Da, TINKA AI dezvoltă chatbot-uri AI integrate pe WhatsApp, Messenger și site web, disponibile 24/7 pentru suport clienți și generare de lead-uri.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Ce este TinkaBook?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "TinkaBook este o platformă SaaS de programări online dezvoltată de TINKA AI, destinată salonelor de frumusețe, cabinetelor medicale și liber-profesioniștilor din Moldova.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "TINKA AI lucrează și cu companii din afara Moldovei?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Da, TINKA AI oferă servicii remote pentru companii din România, Europa de Est și diaspora moldovenească.",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
 
       {/* GA4 */}
