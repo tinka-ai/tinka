@@ -1,0 +1,41 @@
+# TINKA AI
+
+> TINKA AI este o agenție digitală din Republica Moldova specializată în web design, chatbot-uri AI, automatizări business și soluții digitale pentru IMM-uri.
+
+## Servicii principale
+
+- **Web Design & Development** — Site-uri moderne, rapide, optimizate SEO, cu PageSpeed 90+
+- **Chatbot AI** — Chatbot-uri inteligente integrate pe site, WhatsApp și Messenger, disponibile 24/7
+- **Automatizări Business** — Fluxuri automate CRM, email, notificări WhatsApp, procesare comenzi
+- **Consultanță Digitală** — Strategie AI, audit procese, implementare și training pentru echipe
+- **TinkaBook** — Platformă SaaS de programări online pentru saloane și liber-profesioniști
+
+## Despre companie
+
+- **Nume:** TINKA AI (T.I.N.K.A. AI SRL)
+- **Locație:** Chișinău, Republica Moldova
+- **Website:** https://tinka.md
+- **Email:** office@tinka.md
+- **Telefon:** +373 68 333 899
+- **Zona de activitate:** Republica Moldova, cu servicii remote pentru Europa de Est
+
+## De ce TINKA AI
+
+- Prețuri accesibile adaptate pieței din Moldova
+- Livrare rapidă — proiecte pilot în 2–4 săptămâni
+- Suport în română, rusă și engleză
+- Garanție 30 zile pe toate proiectele
+- Fără vendor lock-in
+
+## Produse SaaS proprii
+
+- **TinkaBook** (tinkaweb.md) — sistem de programări online pentru saloane de frumusețe, cabinete medicale și liber-profesioniști din Moldova
+
+## Linkuri utile
+
+- Servicii: https://tinka.md/solutions
+- Portofoliu: https://tinka.md/portfolio
+- Despre: https://tinka.md/about
+- Contact: https://tinka.md/contact
+- Termeni: https://tinka.md/terms
+- Confidențialitate: https://tinka.md/privacy
