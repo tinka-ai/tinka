@@ -32,6 +32,7 @@ export default function Navbar() {
             <ActiveNavLink href="/"><T path="nav.home" /></ActiveNavLink>
             <ActiveNavLink href="/solutions"><T path="nav.solutions" /></ActiveNavLink>
             <ActiveNavLink href="/portfolio"><T path="nav.portfolio" /></ActiveNavLink>
+            <ActiveNavLink href="/blog"><T path="nav.blog" /></ActiveNavLink>
             <ActiveNavLink href="/about"><T path="nav.about" /></ActiveNavLink>
             <ActiveNavLink href="/contact"><T path="nav.contact" /></ActiveNavLink>
           </nav>
