@@ -274,9 +274,8 @@ export default function CumpararePage() {
               Transfer Bancar — MAIB
             </div>
             {[
-              ["IBAN", "MD__ AGRNMD2X0000000000000"], // ← înlocuiește cu IBAN real!
-              ["Beneficiar", "TINKA AI SRL"],
-              ["Suma", "490 MDL"],
+              ["IBAN", "MD93AG000000022516940454"], 
+              ["Suma", "199 MDL"],
               ["Referință", "numele tău + TINKA"],
             ].map(([k, v]) => (
               <div key={k} style={{ fontSize: ".84rem", marginBottom: 5, color: "#888" }}>
