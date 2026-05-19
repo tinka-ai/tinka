@@ -369,4 +369,53 @@ export const ru = {
     },
     contact: "Вопросы? Напишите нам на",
   },
+
+  // ------------------------------------------------------
+  // СТРАНИЦА ЗАГРУЗКИ
+  // ------------------------------------------------------
+  download: {
+    badge: "Бесплатная загрузка",
+    title: "Скачать",
+    titleHighlight: "TINKA AI",
+    subtitle: "Все продукты TINKA AI доступны для скачивания. Тестируйте бесплатно перед покупкой.",
+    freeTrialNote: "Все продукты включают бесплатный пробный период.",
+    products: {
+      transcriber: {
+        name: "TINKA AI Transcriber",
+        tagline: "Аудио → Текст с AI",
+        description: "Превращает любые аудиофайлы в текст. Работает 100% офлайн, приватно, без подписки.",
+        trial: "3 дня бесплатно",
+        version: "v1.0.0",
+        os: "Windows 10/11",
+        buyLink: "/cumparare",
+        buyLabel: "Купить лицензию — 199 MDL",
+        portable: {
+          label: "Портативная версия",
+          desc: "Запускается напрямую, без установки. Идеально для рабочих ПК.",
+          size: "~210 МБ",
+          url: "https://github.com/tinka-ai/tinka/releases/download/untagged-0adec273a1b3eda204b0/TINKA.Transcriber.portable.exe",
+          sha256: "548a24282ee1af0865d853a005e5537f9f0dbc4354864ded574acd9ba5f52dac",
+        },
+        installer: {
+          label: "Установщик Windows",
+          desc: "Классическая установка с мастером. Ярлык в меню Пуск и на рабочем столе.",
+          size: "~210 МБ",
+          url: "https://github.com/tinka-ai/tinka/releases/download/untagged-0adec273a1b3eda204b0/TINKA_AI_Transcriber_Setup_v1.0.exe",
+          sha256: "509bf1f65a6de3f3c8eab0361387e9ffea743e70e6dde3d9c2668af0f815e924",
+        },
+      },
+    },
+    verify: {
+      title: "Проверка целостности файла",
+      desc: "Рекомендуем проверить хэш SHA256 после загрузки, чтобы убедиться, что файл не был изменён.",
+      howTo: "Как проверить в Windows (PowerShell):",
+      command: 'Get-FileHash "путь\\к\\файлу.exe" -Algorithm SHA256',
+      compare: "Сравните результат с хэшем, указанным выше.",
+    },
+    sha256Label: "SHA256:",
+    copyHash: "Копировать",
+    hashCopied: "Скопировано!",
+    downloadBtn: "Скачать",
+    comingSoon: "Скоро",
+  },
 } as const;
