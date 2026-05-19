@@ -253,9 +253,9 @@ export default function CumpararePage() {
 
           <div style={{ marginTop: 12, fontSize: ".78rem", color: "#444", lineHeight: 1.6 }}>
             💬 {c.contact}{" "}
-            <a href="mailto:contact@tinka.md"
+            <a href="mailto:office@tinka.md"
                style={{ color: "#8B6914", textDecoration: "none" }}>
-              contact@tinka.md
+              office@tinka.md
             </a>
           </div>
         </Card>
