@@ -40,9 +40,9 @@
     "@radix-ui/react-toggle-group": "1.1.1",
     "@splinetool/react-spline": "latest",
     "@splinetool/runtime": "latest",
-    "@tsparticles/engine": "latest",
-    "@tsparticles/react": "latest",
-    "@tsparticles/slim": "latest",
+    "@tsparticles/engine": "3.7.1",
+    "@tsparticles/react": "3.0.0",
+    "@tsparticles/slim": "3.7.1",
     "autoprefixer": "^10.4.20",
     "canvas-confetti": "latest",
     "class-variance-authority": "^0.7.1",
@@ -83,7 +83,7 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": "18.x"
   },
   "packageManager": "pnpm@9.12.3"
 }
