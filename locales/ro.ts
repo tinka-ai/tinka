@@ -389,4 +389,53 @@ export const ro = {
     },
     contact: "Întrebări? Scrie-ne la",
   },
+
+  // ------------------------------------------------------
+  // PAGINA DOWNLOAD
+  // ------------------------------------------------------
+  download: {
+    badge: "Descărcare gratuită",
+    title: "Descarcă",
+    titleHighlight: "TINKA AI",
+    subtitle: "Toate produsele TINKA AI disponibile pentru descărcare. Testează gratuit înainte de cumpărare.",
+    freeTrialNote: "Toate produsele includ o perioadă de testare gratuită.",
+    products: {
+      transcriber: {
+        name: "TINKA AI Transcriber",
+        tagline: "Audio → Text cu AI",
+        description: "Transformă orice fișier audio în text. Funcționează 100% offline, privat, fără abonament.",
+        trial: "3 zile gratuit",
+        version: "v1.0.0",
+        os: "Windows 10/11",
+        buyLink: "/cumparare",
+        buyLabel: "Cumpără licență — 199 MDL",
+        portable: {
+          label: "Versiune Portabilă",
+          desc: "Rulează direct, fără instalare. Ideal pentru PC de serviciu.",
+          size: "~210 MB",
+          url: "https://github.com/tinka-ai/tinka/releases/download/untagged-0adec273a1b3eda204b0/TINKA.Transcriber.portable.exe",
+          sha256: "548a24282ee1af0865d853a005e5537f9f0dbc4354864ded574acd9ba5f52dac",
+        },
+        installer: {
+          label: "Instalator Windows",
+          desc: "Instalare clasică cu wizard. Shortcut în Start Menu și Desktop.",
+          size: "~210 MB",
+          url: "https://github.com/tinka-ai/tinka/releases/download/untagged-0adec273a1b3eda204b0/TINKA_AI_Transcriber_Setup_v1.0.exe",
+          sha256: "509bf1f65a6de3f3c8eab0361387e9ffea743e70e6dde3d9c2668af0f815e924",
+        },
+      },
+    },
+    verify: {
+      title: "Verificare integritate fișier",
+      desc: "Recomandăm verificarea hash-ului SHA256 după descărcare pentru a confirma că fișierul nu a fost modificat.",
+      howTo: "Cum verifici în Windows (PowerShell):",
+      command: 'Get-FileHash "calea\catre\fisier.exe" -Algorithm SHA256',
+      compare: "Compară rezultatul cu hash-ul afișat mai sus.",
+    },
+    sha256Label: "SHA256:",
+    copyHash: "Copiază",
+    hashCopied: "Copiat!",
+    downloadBtn: "Descarcă",
+    comingSoon: "În curând",
+  },
 } as const;
