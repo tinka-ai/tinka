@@ -306,4 +306,90 @@ export const ro = {
     fallback:
       "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
   },
+
+  // ------------------------------------------------------
+  // PAGINA CUMPĂRARE — TINKA AI Transcriber
+  // ------------------------------------------------------
+  cumparare: {
+    badge: "Disponibil acum",
+    title: "TINKA AI",
+    titleHighlight: "Transcriber",
+    subtitle: "Transformă orice fișier audio în text cu ajutorul inteligenței artificiale. Funcționează 100% offline, pe calculatorul tău.",
+    features: {
+      formats: "MP3, WAV, M4A, OGG, FLAC",
+      languages: "10+ limbi, auto-detect",
+      export: "Export TXT + SRT",
+      offline: "100% offline, privat",
+      noSub: "Fără abonament",
+    },
+    trial: "3 zile gratuit",
+    trialDesc: "Descarcă aplicația și testează gratuit 3 zile înainte de cumpărare. Dacă ești mulțumit, revino aici și activează licența pe viață.",
+    price: {
+      label: "Licență pe Viață",
+      currency: "MDL",
+      period: "Plată unică · Fără abonament",
+      benefits: [
+        "Licență permanentă — plătești o singură dată",
+        "Toate actualizările viitoare incluse gratuit",
+        "Funcționează 100% offline — datele rămân la tine",
+        "Suport pentru română, engleză, rusă + 7 alte limbi",
+        "Export TXT, SRT (subtitrări) și TXT cu timestamps",
+        "Suport tehnic via email — contact@tinka.md",
+      ],
+      note: "Licența este legată de calculatorul tău (Machine ID). Pentru transfer pe alt calculator, contactează-ne.",
+    },
+    howItWorks: {
+      title: "Cum funcționează",
+      steps: [
+        ["Completează formularul", "cu datele tale și Machine ID-ul din aplicație"],
+        ["Efectuează plata", "prin transfer bancar la IBAN-ul indicat, cu referința comenzii tale"],
+        ["Primești cheia", "pe email în maxim 2 ore lucrătoare după confirmarea plății"],
+        ["Activezi", "cheia în aplicație → Licență activă pe viață ✅"],
+      ],
+    },
+    machineIdHint: {
+      title: "Unde găsesc Machine ID-ul?",
+      desc: "Deschide TINKA AI Transcriber → apasă butonul 🔑 Activează licența → copiază ID-ul afișat în căsuța gri.",
+    },
+    form: {
+      title: "Completează Comanda",
+      name: "Nume și Prenume *",
+      namePlaceholder: "Ion Popescu",
+      email: "Email *",
+      emailPlaceholder: "ion@exemplu.md",
+      emailHint: "Cheia de licență va fi trimisă pe acest email.",
+      phone: "Telefon (opțional)",
+      phonePlaceholder: "+373 69 000 000",
+      machineId: "Machine ID *",
+      machineIdPlaceholder: "a1b2c3d4e5f6...",
+      machineIdHint: "⚠ Introdu Machine ID-ul exact din aplicație. Cheia generată va funcționa doar pe acel calculator.",
+      message: "Mesaj (opțional)",
+      messagePlaceholder: "Factură, altceva...",
+      submit: "Trimite Comanda",
+      sending: "Se trimite...",
+      successTitle: "Comanda a fost înregistrată!",
+      successDesc: "Îți vom trimite instrucțiunile de plată pe email în câteva minute. Cheia de licență va sosi în maxim 2 ore după confirmarea plății.",
+      errorGeneric: "A apărut o eroare. Te rugăm să ne contactezi la contact@tinka.md",
+    },
+    bank: {
+      orDirect: "sau plătește direct",
+      title: "Transfer Bancar — MAIB",
+      copyIban: "📋 Copiază IBAN",
+      ibanCopied: "IBAN copiat!",
+      fields: {
+        bank: "Bancă",
+        iban: "IBAN",
+        beneficiary: "Beneficiar",
+        amount: "Suma",
+        reference: "Referință",
+      },
+      values: {
+        bank: "MAIB",
+        beneficiary: "TINKA AI SRL",
+        amount: "490 MDL",
+        reference: "numele tău + TINKA",
+      },
+    },
+    contact: "Întrebări? Scrie-ne la",
+  },
 } as const;
