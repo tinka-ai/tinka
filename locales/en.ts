@@ -397,4 +397,53 @@ export const en = {
     },
     contact: "Questions? Write to us at",
   },
+
+  // ------------------------------------------------------
+  // DOWNLOAD PAGE
+  // ------------------------------------------------------
+  download: {
+    badge: "Free download",
+    title: "Download",
+    titleHighlight: "TINKA AI",
+    subtitle: "All TINKA AI products available for download. Try for free before purchasing.",
+    freeTrialNote: "All products include a free trial period.",
+    products: {
+      transcriber: {
+        name: "TINKA AI Transcriber",
+        tagline: "Audio → Text with AI",
+        description: "Transform any audio file into text. Works 100% offline, private, no subscription.",
+        trial: "3 days free",
+        version: "v1.0.0",
+        os: "Windows 10/11",
+        buyLink: "/cumparare",
+        buyLabel: "Buy license — 199 MDL",
+        portable: {
+          label: "Portable Version",
+          desc: "Run directly, no installation needed. Ideal for work PCs.",
+          size: "~210 MB",
+          url: "https://github.com/tinka-ai/tinka/releases/download/untagged-0adec273a1b3eda204b0/TINKA.Transcriber.portable.exe",
+          sha256: "548a24282ee1af0865d853a005e5537f9f0dbc4354864ded574acd9ba5f52dac",
+        },
+        installer: {
+          label: "Windows Installer",
+          desc: "Classic installation with wizard. Start Menu and Desktop shortcut.",
+          size: "~210 MB",
+          url: "https://github.com/tinka-ai/tinka/releases/download/untagged-0adec273a1b3eda204b0/TINKA_AI_Transcriber_Setup_v1.0.exe",
+          sha256: "509bf1f65a6de3f3c8eab0361387e9ffea743e70e6dde3d9c2668af0f815e924",
+        },
+      },
+    },
+    verify: {
+      title: "File integrity verification",
+      desc: "We recommend verifying the SHA256 hash after downloading to confirm the file has not been modified.",
+      howTo: "How to verify on Windows (PowerShell):",
+      command: 'Get-FileHash "path\\to\\file.exe" -Algorithm SHA256',
+      compare: "Compare the result with the hash shown above.",
+    },
+    sha256Label: "SHA256:",
+    copyHash: "Copy",
+    hashCopied: "Copied!",
+    downloadBtn: "Download",
+    comingSoon: "Coming soon",
+  },
 } as const;
