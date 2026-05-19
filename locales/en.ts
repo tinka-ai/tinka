@@ -24,9 +24,6 @@ export const en = {
       "TINKA AI builds fast websites, online stores, AI chatbots and automation tools for companies in Chișinău and across Moldova.",
   },
 
-  // ------------------------------------------------------
-  // SOLUTIONS
-  // ------------------------------------------------------
   solutions: {
     title: "Solutions",
     subtitle: "We transform processes into automated solutions powered by AI and digital tools — as if you had virtual employees who never get tired and deliver results 24/7.",
@@ -85,7 +82,7 @@ export const en = {
       problem: {
         title: "Problem",
         description:
-          "Your site loads slowly, ranks poorly on Google, and doesn’t turn visitors into paying customers.",
+          "Your site loads slowly, ranks poorly on Google, and doesn't turn visitors into paying customers.",
       },
 
       whereApplies: {
@@ -173,7 +170,7 @@ export const en = {
       problem: {
         title: "Problem",
         description:
-          "You know AI can help, but don’t know where to start or which tools to choose.",
+          "You know AI can help, but don't know where to start or which tools to choose.",
       },
 
       whereApplies: {
@@ -207,9 +204,6 @@ export const en = {
     },
   },
 
-  // ------------------------------------------------------
-  // WHAT WE OFFER
-  // ------------------------------------------------------
   whatWeOffer: {
     title: "What we offer",
     chatbots: {
@@ -233,7 +227,7 @@ export const en = {
   offer: {
     cta: "Request a quote",
   },
-  
+
   whyAI: {
     title: "Why AI",
     benefit1: { title: "Time saved", description: "Less manual work." },
@@ -247,32 +241,26 @@ export const en = {
     title: "Online booking for beauty & service professionals",
     subtitle: "Clients book themselves — you save time",
     priceHighlight: "First month free",
-
     bullets: {
       bullet1: "Bookings available 24/7",
       bullet2: "Automatic client reminders",
       bullet3: "History, calendar & appointment management",
     },
-
     ctaVisit: "Visit TinkaBook",
-
     form: {
       description: "Fill in the form to receive demo access.",
       successDemoCredentials: "Demo login details will be sent to your email.",
     },
-
     ctaScroll: "Request demo",
   },
 
   contact: {
     faq: {
       title: "Frequently Asked Questions",
-
       question1: {
         q: "How fast do you reply?",
         a: "We usually answer within 30–60 minutes.",
       },
-
       question2: {
         q: "Do you offer a demo?",
         a: "Yes, we can show live demos in Zoom.",
@@ -302,9 +290,6 @@ export const en = {
     copyright: `© ${new Date().getFullYear()} TINKA AI`,
   },
 
-  // ------------------------------------------------------
-  // ABOUT PAGE
-  // ------------------------------------------------------
   aboutPage: {
     title: "About us",
     subtitle: "Who we are and what we do",
@@ -312,9 +297,6 @@ export const en = {
       "TINKA AI provides digital solutions, automation and web design for businesses in Moldova.",
   },
 
-  // ------------------------------------------------------
-  // CONTACT PAGE
-  // ------------------------------------------------------
   contactPage: {
     title: "Contact",
     subtitle: "We are here to help you",
@@ -324,9 +306,6 @@ export const en = {
     formTitle: "Send us a message",
   },
 
-  // ------------------------------------------------------
-  // PORTFOLIO PAGE
-  // ------------------------------------------------------
   portfolioPage: {
     title: "Portfolio",
     subtitle: "SaaS projects and web applications built by TINKA AI.",
@@ -334,5 +313,91 @@ export const en = {
     openButton: "Open full portfolio",
     fallback:
       "If the portfolio cannot be embedded here (security restrictions), open it directly:",
+  },
+
+  // ------------------------------------------------------
+  // PURCHASE PAGE — TINKA AI Transcriber
+  // ------------------------------------------------------
+  cumparare: {
+    badge: "Available now",
+    title: "TINKA AI",
+    titleHighlight: "Transcriber",
+    subtitle: "Transform any audio file into text using artificial intelligence. Works 100% offline on your computer.",
+    features: {
+      formats: "MP3, WAV, M4A, OGG, FLAC",
+      languages: "10+ languages, auto-detect",
+      export: "TXT + SRT export",
+      offline: "100% offline, private",
+      noSub: "No subscription",
+    },
+    trial: "3 days free",
+    trialDesc: "Download the app and test it free for 3 days. If you're satisfied, come back here and activate the lifetime license.",
+    price: {
+      label: "Lifetime License",
+      currency: "MDL",
+      period: "One-time payment · No subscription",
+      benefits: [
+        "Permanent license — pay once",
+        "All future updates included for free",
+        "Works 100% offline — your data stays with you",
+        "Support for Romanian, English, Russian + 7 more languages",
+        "TXT, SRT (subtitles) and timestamped TXT export",
+        "Technical support via email — contact@tinka.md",
+      ],
+      note: "The license is tied to your computer (Machine ID). For transfer to another computer, contact us.",
+    },
+    howItWorks: {
+      title: "How it works",
+      steps: [
+        ["Fill out the form", "with your details and the Machine ID from the app"],
+        ["Make the payment", "via bank transfer to the IBAN shown, with your order reference"],
+        ["Receive your key", "by email within 2 business hours after payment confirmation"],
+        ["Activate", "the key in the app → Lifetime license active ✅"],
+      ],
+    },
+    machineIdHint: {
+      title: "Where do I find the Machine ID?",
+      desc: "Open TINKA AI Transcriber → click the 🔑 Activate license button → copy the ID shown in the gray box.",
+    },
+    form: {
+      title: "Complete Your Order",
+      name: "Full Name *",
+      namePlaceholder: "John Smith",
+      email: "Email *",
+      emailPlaceholder: "john@example.com",
+      emailHint: "The license key will be sent to this email.",
+      phone: "Phone (optional)",
+      phonePlaceholder: "+1 555 000 0000",
+      machineId: "Machine ID *",
+      machineIdPlaceholder: "a1b2c3d4e5f6...",
+      machineIdHint: "⚠ Enter the Machine ID exactly as shown in the app. The generated key will only work on that computer.",
+      message: "Message (optional)",
+      messagePlaceholder: "Invoice, other...",
+      submit: "Place Order",
+      sending: "Sending...",
+      successTitle: "Order registered!",
+      successDesc: "We'll send you payment instructions by email in a few minutes. The license key will arrive within 2 hours of payment confirmation.",
+      errorGeneric: "An error occurred. Please contact us at contact@tinka.md",
+    },
+    bank: {
+      orDirect: "or pay directly",
+      title: "Bank Transfer — MAIB",
+      copyIban: "📋 Copy IBAN",
+      ibanCopied: "IBAN copied!",
+      fields: {
+        bank: "Bank",
+        iban: "IBAN",
+        beneficiary: "Beneficiary",
+        amount: "Amount",
+        reference: "Reference",
+      },
+      values: {
+        bank: "MAIB",
+        beneficiary: "TINKA AI SRL",
+        amount: "490 MDL",
+        reference: "your name + TINKA",
+      },
+    },
+    contact: "Questions? Write to us at",
   },
 } as const;
