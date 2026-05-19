@@ -5,14 +5,14 @@ import { useState } from "react"
 import { useLocale } from "@/contexts/locale-context"
 
 const GOLD = "#C9A84C"
-const IBAN = "MD__ AGRNMD2X0000000000000" // ← înlocuiește cu IBAN-ul real!
+const IBAN = "MD93AG000000022516940454" // ← înlocuiește cu IBAN-ul real!
 
 export default function CumpararePage() {
   const { t } = useLocale()
   const c = t.cumparare
 
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", machineId: "", message: ""
+    name: "", email: "", machineId: ""
   })
   const [loading, setLoading]       = useState(false)
   const [sent, setSent]             = useState(false)
@@ -108,7 +108,7 @@ export default function CumpararePage() {
             <Label>{c.price.label}</Label>
             <div style={{ marginBottom: 4 }}>
               <span style={{ fontFamily: "Georgia,serif", fontSize: "2.8rem",
-                             fontWeight: 700, color: GOLD }}>490</span>
+                             fontWeight: 700, color: GOLD }}>199</span>
               <span style={{ color: "#8B6914", fontSize: "1rem", marginLeft: 6 }}>
                 {c.price.currency}
               </span>
@@ -180,10 +180,7 @@ export default function CumpararePage() {
                        value={form.email} onChange={set("email")} required style={iStyle} />
                 <Hint>{c.form.emailHint}</Hint>
               </Field>
-              <Field label={c.form.phone}>
-                <input type="tel" placeholder={c.form.phonePlaceholder}
-                       value={form.phone} onChange={set("phone")} style={iStyle} />
-              </Field>
+
               <Field label={c.form.machineId}>
                 <input placeholder={c.form.machineIdPlaceholder}
                        value={form.machineId} onChange={set("machineId")}
@@ -192,10 +189,7 @@ export default function CumpararePage() {
                                 fontSize: ".85rem", color: GOLD }} />
                 <Hint>{c.form.machineIdHint}</Hint>
               </Field>
-              <Field label={c.form.message}>
-                <input placeholder={c.form.messagePlaceholder}
-                       value={form.message} onChange={set("message")} style={iStyle} />
-              </Field>
+
               {error && (
                 <div style={{ background: "rgba(229,57,53,.08)",
                               border: "1px solid rgba(229,57,53,.3)",
@@ -204,6 +198,16 @@ export default function CumpararePage() {
                   {error}
                 </div>
               )}
+              <div style={{
+                fontSize: ".76rem", color: "#888", lineHeight: 1.7,
+                background: "#0a0a0a", border: "1px solid #2a2010",
+                borderRadius: 8, padding: "12px 14px", marginBottom: 12,
+              }}>
+                <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                  <span style={{ color: "#C9A84C", flexShrink: 0, marginTop: 1 }}>🔒</span>
+                  <span>{c.form.gdprNote}</span>
+                </div>
+              </div>
               <button type="submit" disabled={loading} style={{
                 width: "100%", background: loading ? "#333" : GOLD,
                 color: loading ? "#888" : "#080808", border: "none",
