@@ -2,15 +2,14 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  NODE_VERSION = "18"
+  NEXT_PRIVATE_TARGET = "server"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
 [functions]
   external_node_modules = ["openai", "nodemailer"]
   node_bundler = "esbuild"
-  included_files = ["app/api/**"]
-
-# Dezactivează Edge Functions pentru API routes
-# Folosim Netlify Functions normale pentru compatibilitate cu OpenAI
-[build.environment]
-  NEXT_PRIVATE_TARGET = "server"
+  included_files = ["app/api/**", "lib/**"]
