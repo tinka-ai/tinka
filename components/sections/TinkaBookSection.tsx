@@ -16,15 +16,13 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
   const [error, setError] = useState<"consent" | null>(null);
 
   const [formData, setFormData] = useState({
-    name: "",
     phone: "",
     email: "",
     activity: "",
-    contactPref: "",
-    links: "",
     language: "",
     honeypot: "",
     consent: false,
+    phoneConsent: false,
   });
 
   // închidere cu ESC
@@ -54,7 +52,7 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
     // honeypot anti-bot
     if (formData.honeypot) return;
 
-    // consimțământ obligatoriu – mesaj din traduceri
+    // consimțământ obligatoriu
     if (!formData.consent) {
       setError("consent");
       return;
@@ -62,16 +60,23 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
 
     setStatus("submitting");
 
+    // Textul complet al consimțământului afișat utilizatorului
+    const consentText = t?.tinkabook?.form?.consentText || ""
+
     try {
       const res = await fetch("/api/tinkabook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
-          consentText: "TinkaBook privacy consent",
+          email: formData.email,
+          activity: formData.activity,
+          language: formData.language,
+          phone: formData.phoneConsent ? formData.phone : null,
+          phoneConsent: formData.phoneConsent,
+          honeypot: formData.honeypot,
+          consentText,
           uiLanguage: typeof navigator !== "undefined" ? navigator.language : "unknown",
-          sourcePage: "Homepage – secțiunea TinkaBook",
-          subjectPrefix: "[TinkaBook] Cerere nouă",
+          sourcePage: typeof window !== "undefined" ? window.location.href : "tinka.md",
         }),
       });
 
@@ -81,15 +86,13 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
       setError(null);
 
       setFormData({
-        name: "",
         phone: "",
         email: "",
         activity: "",
-        contactPref: "",
-        links: "",
         language: "",
         honeypot: "",
         consent: false,
+        phoneConsent: false,
       });
     } catch (err) {
       setStatus("error");
@@ -254,36 +257,20 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                     </select>
                   </div>
 
-                  {/* Telefon + Email */}
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs text-gray-300 mb-1">
-                        <T path="tinkabook.form.fields.phone" /> *
-                      </label>
-                      <input
-                        required
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                        placeholder={t?.tinkabook?.form?.placeholders?.phone ?? ""}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs text-gray-300 mb-1">
-                        <T path="tinkabook.form.fields.email" /> *
-                      </label>
-                      <input
-                        required
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                        placeholder={t?.tinkabook?.form?.placeholders?.email ?? ""}
-                      />
-                    </div>
+                  {/* Email */}
+                  <div>
+                    <label className="block text-xs text-gray-300 mb-1">
+                      <T path="tinkabook.form.fields.email" /> *
+                    </label>
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
+                      placeholder={t?.tinkabook?.form?.placeholders?.email ?? ""}
+                    />
                   </div>
 
                   {/* Activitate */}
@@ -302,44 +289,27 @@ export default function TinkaBookSection({ fx }: { fx: string }) {
                     />
                   </div>
 
-                  {/* Preferințe contact */}
-                  <div>
-                    <label className="block text-xs text-gray-300 mb-1">
-                      <T path="tinkabook.form.fields.contactPref" />
+                  {/* Telefon opțional + consimțământ telefonic */}
+                  <div className="rounded-md border border-white/10 bg-black/20 p-3 space-y-2">
+                    <label className="flex items-start gap-2 text-xs text-gray-200 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="phoneConsent"
+                        checked={formData.phoneConsent}
+                        onChange={handleChange}
+                        className="mt-0.5 h-4 w-4 rounded border-white/30 bg-black/40"
+                      />
+                      <span><T path="tinkabook.form.fields.phoneConsent" /></span>
                     </label>
-                    <select
-                      name="contactPref"
-                      value={formData.contactPref}
-                      onChange={handleChange}
-                      className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                    >
-                      <option value="">
-                        {t?.tinkabook?.form?.placeholders?.contactPref ?? ""}
-                      </option>
-                      <option value="phone">
-                        {t?.tinkabook?.form?.contactPrefOptions?.phone ?? "Telefon"}
-                      </option>
-                      <option value="email">
-                        {t?.tinkabook?.form?.contactPrefOptions?.email ?? "Email"}
-                      </option>
-                      <option value="whatsapp">
-                        {t?.tinkabook?.form?.contactPrefOptions?.whatsapp ?? "WhatsApp"}
-                      </option>
-                    </select>
-                  </div>
-
-                  {/* Linkuri */}
-                  <div>
-                    <label className="block text-xs text-gray-300 mb-1">
-                      <T path="tinkabook.form.fields.links" />
-                    </label>
-                    <input
-                      name="links"
-                      value={formData.links}
-                      onChange={handleChange}
-                      className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
-                      placeholder={t?.tinkabook?.form?.placeholders?.links ?? ""}
-                    />
+                    {formData.phoneConsent && (
+                      <input
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full rounded-md bg-black/40 border border-white/15 px-3 py-2 text-sm text-gray-100"
+                        placeholder={t?.tinkabook?.form?.placeholders?.phone ?? "+373 69 000 000"}
+                      />
+                    )}
                   </div>
 
                   {/* GDPR TEXT */}
