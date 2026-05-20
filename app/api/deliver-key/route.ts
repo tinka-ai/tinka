@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     })
 
     // Trimite emailul cu cheia
-    await sendLicenseKey({ name: order.name, email: order.email, licenseKey })
+    await sendLicenseKey({ email: order.email, licenseKey })
 
     return NextResponse.json({
       success: true,
