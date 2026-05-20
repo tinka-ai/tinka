@@ -238,11 +238,29 @@ export const ro = {
       bullet3: "Istoric, calendar și gestionare programări",
     },
     ctaVisit: "Vizitează TinkaBook",
-    form: {
-      description: "Completează formularul pentru a primi acces demo.",
-      successDemoCredentials: "Detaliile de conectare demo vor fi trimise pe email.",
-    },
     ctaScroll: "Solicită demo",
+    form: {
+      title: "Solicită acces demo",
+      description: "Completează formularul pentru a primi acces demo.",
+      successTitle: "Cerere trimisă cu succes!",
+      successBody: "Îți vom trimite datele de conectare demo în scurt timp.",
+      successDemoCredentials: "Detaliile de conectare demo vor fi trimise pe email.",
+      successDemoLinkText: "Accesează TinkaBook",
+      fields: {
+        language: "Limba preferată",
+        phone: "Telefon",
+        phoneConsent: "Doresc să fiu contactat telefonic pentru asistență",
+        email: "Email",
+        activity: "Tipul activității (salon, cosmetică, manichiură etc.)",
+      },
+      consentTitle: "Consimțământ",
+      consentText: "Datele tale (email, telefon) sunt folosite exclusiv pentru a-ți oferi acces demo la TinkaBook. Nu sunt partajate cu terți.",
+      consentLabel: "Accept prelucrarea datelor conform politicii de confidențialitate",
+      consentRequired: "Trebuie să accepți pentru a continua",
+      submit: "Trimite cererea",
+      submitting: "Se trimite...",
+      error: "A apărut o eroare. Te rugăm să încerci din nou.",
+    },
   },
 
   contact: {
@@ -439,4 +457,165 @@ export const ro = {
     downloadBtn: "Descarcă",
     comingSoon: "În curând",
   },
+  technologies: { title: "Tehnologii", subtitle: "Stack modern, stabil și rapid." },
+
+  specialOffer: {
+    badge: "Ofertă",
+    title: "Pachet Quick-Launch",
+    description: "Site + chatbot + automatizări esențiale în 14 zile.",
+    cta: "Cere ofertă",
+  },
+
+  offer: {
+    cta: "Cere ofertă",
+    title: "Cere ofertă — Pachet Quick-Launch",
+    subtitle: "Completează cât poți — e suficient pentru a propune soluția potrivită.",
+    cancel: "Renunță",
+    submit: "Trimite",
+    close: "Închide",
+    successTitle: "Mulțumim! Formularul a fost trimis.",
+    successBody: "TINKA AI va analiza răspunsurile și va reveni cu propunerea. Ți-am trimis și un email.",
+    error: "A apărut o eroare. Încearcă din nou.",
+
+    sections: {
+      contact: "Contact",
+      business: "Afacere",
+      goals: "Obiective & KPI",
+      website: "Website",
+      bot: "Chatbot",
+      automation: "Automatizări",
+      constraints: "Constrângeri",
+    },
+
+    fields: {
+      name: "Nume",
+      email: "Email",
+      phone: "Telefon",
+      company: "Companie",
+      region: "Regiune",
+
+      about: "Descriere scurtă a afacerii",
+      audience: "Public țintă / client ideal",
+      problems: "Probleme / blocaje actuale",
+
+      websiteGoals: "Obiectivul site-ului",
+      kpi: "KPI (de ex. conversii, lead-uri/lună)",
+
+      features: "Funcționalități necesare",
+      content: "Conținut",
+      branding: "Branding",
+      refs: "Referințe (site-uri care îți plac)",
+      integrations: "Integrări (CRM, ERP, plăți etc.)",
+      domain: "Domeniu",
+
+      botChannels: "Canale chatbot",
+      botRole: "Rolul chatbot-ului",
+      botLangs: "Limbi (ex. ro, ru, en)",
+      kb: "Bază de cunoștințe (docs, linkuri, FAQ)",
+
+      automations: "Automatizări",
+      other: "Alte cerințe",
+
+      deadline: "Deadline dorit",
+      budget: "Buget",
+      notes: "Note",
+
+      gdpr: "Sunt de acord cu prelucrarea datelor pentru ofertare",
+    },
+
+    placeholders: {
+      region: "Țară / oraș / fus orar",
+      about: "Ce oferiți? Ce vă diferențiază?",
+      audience: "Cine cumpără? Ce nevoie acoperiți?",
+      problems: "Unde dor azi? (lead-uri puține, suport lent etc.)",
+      kpi: "Ex.: 50 lead-uri/lună, 5% conversie",
+      content: "Aveți texte/foto sau le pregătim noi?",
+      branding: "Aveți identitate vizuală sau doriți propuneri?",
+      integrations: "Ex.: Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
+      domain: "Aveți domeniu sau îl cumpărăm noi?",
+      refs: "https://site1.com, https://site2.com …",
+      botLangs: "ro, ru, en",
+      kb: "Linkuri către PDF/Docs/FAQ sau încărcăm ulterior",
+      other: "Orice alte detalii utile",
+      deadline: "Ex.: 2–4 săptămâni",
+      budget: "Alege un interval",
+      notes: "Detalii suplimentare",
+    },
+
+    options: {
+      websiteGoals: {
+        leads: "Generare lead-uri",
+        ecom: "E-commerce",
+        brand: "Brand & încredere",
+        info: "Informațional & prezentare",
+        support: "Suport clienți",
+      },
+      features: {
+        blog: "Blog / Noutăți",
+        portfolio: "Portofoliu / Studii de caz",
+        form: "Formulare custom",
+        booking: "Programări / Rezervări",
+        payments: "Plăți online",
+        ecommerce: "Magazin online",
+        multilang: "Multilingv",
+        gdpr: "Politici / GDPR",
+        analytics: "Analytics / Evenimente",
+      },
+      content: { have: "Am conținut", need: "Am nevoie de conținut" },
+      branding: { have: "Am branding", need: "Am nevoie de branding" },
+      domain: { have: "Am domeniu", need: "Am nevoie de domeniu" },
+
+      botChannels: {
+        site: "Website",
+        whatsapp: "WhatsApp",
+        facebook: "Facebook Messenger",
+        telegram: "Telegram",
+        viber: "Viber",
+      },
+      botRole: {
+        sales: "Vânzări / calificare",
+        support: "Suport clienți",
+        faq: "FAQ",
+        booking: "Programări",
+      },
+      automations: {
+        crm: "Integrare CRM",
+        qualify: "Calificare automată",
+        notify: "Notificări Email/WhatsApp",
+        schedule: "Programare automată",
+        followup: "Secvențe follow-up",
+        newsletter: "Newsletter / campanii",
+        other: "Altele",
+      },
+      budget: {
+        lt1k: "< 10.000 MDL",
+        "1to5": "10.000–50.000 MDL",
+        "5to10": "50.000–100.000 MDL",
+        gt10: "> 100.000 MDL",
+      },
+    },
+  },
+
+  about: {
+    title: "Despre TINKA AI",
+    subtitle: "Construim produse digitale rapide și fiabile.",
+    content: "Suntem orientați pe rezultat: aplicații web SaaS, automatizări și asistenți AI pentru IMM-uri.",
+    values: {
+      value1: "Transparență și comunicare clară.",
+      value2: "Viteză de execuție și calitate.",
+      value3: "Parteneriat pe termen lung.",
+    },
+  },
+
+  privacy: {
+    title: "Politica de Confidențialitate",
+    updated: "Ultima actualizare",
+    intro: "Respectăm datele tale și folosim doar informațiile strict necesare pentru a oferi serviciile.",
+  },
+
+  terms: {
+    title: "Termeni & Condiții",
+    intro: "Prin utilizarea site-ului accepți termenii și condițiile. Te rugăm să citești cu atenție.",
+  },
+
 } as const;
