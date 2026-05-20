@@ -4,8 +4,8 @@
 import { useState, useEffect, useCallback } from "react"
 
 type Order = {
-  id: string; createdAt: string; name: string; email: string
-  phone?: string; machineId: string; message?: string
+  id: string; createdAt: string; email: string
+  machineId: string
   status: "pending" | "paid" | "delivered" | "cancelled"
   licenseKey?: string; deliveredAt?: string; amount: number; currency: string
 }
@@ -167,9 +167,7 @@ export default function AdminPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr",
                             gap: "8px 20px" }}>
                 {[
-                  ["Nume", o.name],
                   ["Email", o.email],
-                  ["Telefon", o.phone || "—"],
                   ["Sumă", `${o.amount} ${o.currency}`],
                 ].map(([k, v]) => (
                   <div key={k}>
