@@ -107,8 +107,7 @@ export async function POST(req: Request) {
 
         <h3>1. Date solicitant</h3>
         <p><b>Email:</b> ${escapeHtml(email)}</p>
-        <p><b>Domeniu activitate:</b><br/>${escapeHtml(activity).replace(/
-/g, "<br/>")}</p>
+        <p><b>Domeniu activitate:</b><br/>${escapeHtml(activity).split("\n").join("<br/>")}</p>
         <p><b>Limba preferată:</b> ${escapeHtml(language || "—")}</p>
         ${phoneConsent && phone
           ? `<p><b>Telefon:</b> ${escapeHtml(phone)} <em>(client a consimțit explicit contactul telefonic)</em></p>`
