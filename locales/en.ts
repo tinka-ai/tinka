@@ -361,15 +361,16 @@ export const en = {
     },
     form: {
       title: "Complete Your Order",
-      name: "Name *",
-      namePlaceholder: "John Smith",
       email: "Email *",
       emailPlaceholder: "john@example.com",
       emailHint: "The license key will be sent to this email.",
       machineId: "Machine ID *",
       machineIdPlaceholder: "a1b2c3d4e5f6...",
-      machineIdHint: "⚠ Copy the Machine ID exactly from the app. The key will only work on that computer.",
-      gdprNote: "Data collected (name, email, Machine ID) is processed by TINKA AI SRL under Art. 6.1.b LP195/2024 (contract performance), solely to generate and deliver your license key. Not shared with third parties. Retained for 3 years (legal obligation), then deleted. You have the right to access, rectification, erasure and portability — contact us at contact@tinka.md or file a complaint with CNPDCP (cnpdcp.md).",
+      machineIdHint: "Copy the Machine ID from the app → 🔑 Activate license button → Copy ID. Must be exactly 32 characters.",
+      machineIdError: "Invalid Machine ID — must be exactly 32 characters (digits 0-9 and letters a-f). Use the Copy button in the app.",
+      machineIdFormat: "Format: 32 hex characters (e.g. a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4)",
+      machineIdAutoDetected: "Your computer has been identified automatically. Nothing to do.",
+      gdprNote: "Data collected (email, Machine ID) is processed by TINKA AI SRL under Art. 6.1.b LP195/2024 (contract performance), solely to generate and deliver your license key. Not shared with third parties. Retained for 3 years (legal obligation), then deleted. You have the right to access, rectification, erasure and portability — contact us at contact@tinka.md or file a complaint with CNPDCP (cnpdcp.md).",
       submit: "Place Order",
       sending: "Sending...",
       successTitle: "Order registered!",
@@ -402,10 +403,10 @@ export const en = {
   // DOWNLOAD PAGE
   // ------------------------------------------------------
   download: {
-    badge: "Free download",
-    title: "Download",
-    titleHighlight: "TINKA AI",
-    subtitle: "All TINKA AI products available for download. Try for free before purchasing.",
+    badge: "Tinkora — TINKA AI Products",
+    title: "Welcome to",
+    titleHighlight: "Tinkora",
+    subtitle: "Your digital tools from TINKA AI. Download, try for free and activate when ready.",
     freeTrialNote: "All products include a free trial period.",
     products: {
       transcriber: {
