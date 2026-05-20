@@ -18,11 +18,11 @@ const ADMIN = process.env.TO_EMAIL || process.env.SMTP_USER || ""
 
 // ── 1. Confirmare comandă → client ───────────────────────────────────────────
 export async function sendOrderConfirmation({
-  name, email, orderId,
+  email, orderId,
 }: {
-  name: string; email: string; orderId: string
+  email: string; orderId: string
 }) {
-  const ref = `${name.split(" ")[0].toUpperCase()} TINKA ${orderId.slice(0, 6).toUpperCase()}`
+  const ref = `TINKA-${orderId.slice(0, 8).toUpperCase()}`
 
   await transporter.sendMail({
     from: FROM,
@@ -66,7 +66,7 @@ export async function sendOrderConfirmation({
     <div class="tag">digital simplu eficient</div>
   </div>
   <div class="body">
-    <h2>Bună ziua, ${name}! 👋</h2>
+    <h2>Bună ziua! 👋</h2>
     <p>Comanda ta pentru <strong style="color:#f0f0f0">TINKA AI Transcriber — Licență pe Viață</strong>
     a fost înregistrată.</p>
 
@@ -80,7 +80,7 @@ export async function sendOrderConfirmation({
 
     <div class="bank">
       <div class="br"><span style="color:#666">Bancă:</span> <strong>MAIB</strong></div>
-      <div class="br"><span style="color:#666">IBAN:</span> <strong>MD__ AGRNMD2X0000000000000</strong></div>
+      <div class="br"><span style="color:#666">IBAN:</span> <strong>MD93AG000000022516940454</strong></div>
       <div class="br"><span style="color:#666">Beneficiar:</span> <strong>TINKA AI SRL</strong></div>
       <div class="br"><span style="color:#666">Suma:</span> <strong>490 MDL</strong></div>
       <div class="br"><span style="color:#666">Referință:</span> <strong>${ref}</strong></div>
@@ -112,9 +112,9 @@ export async function sendOrderConfirmation({
 
 // ── 2. Cheie de licență → client ─────────────────────────────────────────────
 export async function sendLicenseKey({
-  name, email, licenseKey,
+  email, licenseKey,
 }: {
-  name: string; email: string; licenseKey: string
+  email: string; licenseKey: string
 }) {
   await transporter.sendMail({
     from: FROM,
@@ -158,7 +158,7 @@ export async function sendLicenseKey({
     <div class="tag">digital simplu eficient</div>
   </div>
   <div class="body">
-    <h2>Felicitări, ${name}! 🎉</h2>
+    <h2>Felicitări! 🎉</h2>
     <p>Plata a fost confirmată. Mai jos găsești cheia ta de licență pentru
     <strong style="color:#f0f0f0">TINKA AI Transcriber</strong>.</p>
 
@@ -203,31 +203,24 @@ export async function sendLicenseKey({
 
 // ── 3. Notificare internă → tu ────────────────────────────────────────────────
 export async function sendAdminNotification({
-  name, email, machineId, orderId, phone, message,
+  email, machineId, orderId,
 }: {
-  name: string; email: string; machineId: string
-  orderId: string; phone?: string; message?: string
+  email: string; machineId: string; orderId: string
 }) {
   await transporter.sendMail({
     from: FROM,
     to: ADMIN,
-    subject: `🛒 Comandă nouă TINKA AI — ${name}`,
+    subject: `🛒 Comandă nouă TINKA AI — ${orderId.slice(0,8).toUpperCase()}`,
     html: `
 <div style="font-family:monospace;background:#0a0a0a;color:#ccc;padding:24px;border-radius:10px;">
   <h2 style="color:#C9A84C;margin:0 0 20px">🛒 Comandă nouă — TINKA AI Transcriber</h2>
   <table style="width:100%;border-collapse:collapse;font-size:.88rem;">
     <tr><td style="color:#666;padding:5px 0;width:110px;">ID:</td>
         <td style="color:#C9A84C;">#${orderId.slice(0, 8).toUpperCase()}</td></tr>
-    <tr><td style="color:#666;padding:5px 0;">Nume:</td>
-        <td style="color:#f0f0f0;">${name}</td></tr>
     <tr><td style="color:#666;padding:5px 0;">Email:</td>
         <td><a href="mailto:${email}" style="color:#C9A84C;">${email}</a></td></tr>
-    <tr><td style="color:#666;padding:5px 0;">Telefon:</td>
-        <td style="color:#f0f0f0;">${phone || "—"}</td></tr>
     <tr><td style="color:#666;padding:5px 0;">Machine ID:</td>
         <td style="color:#C9A84C;font-size:.82rem;word-break:break-all;">${machineId}</td></tr>
-    <tr><td style="color:#666;padding:5px 0;">Mesaj:</td>
-        <td style="color:#f0f0f0;">${message || "—"}</td></tr>
     <tr><td style="color:#666;padding:5px 0;">Sumă:</td>
         <td style="color:#4CAF50;font-weight:700;">490 MDL</td></tr>
   </table>
