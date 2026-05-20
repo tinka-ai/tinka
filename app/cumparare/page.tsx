@@ -1,7 +1,8 @@
 "use client"
 // app/cumparare/page.tsx
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { useLocale } from "@/contexts/locale-context"
 
 const GOLD = "#C9A84C"
@@ -10,26 +11,64 @@ const IBAN = "MD93AG000000022516940454" // ← înlocuiește cu IBAN-ul real!
 export default function CumpararePage() {
   const { t } = useLocale()
   const c = t.cumparare
+  const searchParams = useSearchParams()
 
-  const [form, setForm] = useState({
-    name: "", email: "", machineId: ""
-  })
+  const [form, setForm] = useState({ email: "", machineId: "" })
+  const [machineIdError, setMachineIdError] = useState("")
+  const [machineIdValid, setMachineIdValid] = useState<boolean | null>(null)
+  const [midFromUrl, setMidFromUrl] = useState(false)
+
+  // Citește Machine ID din URL (?mid=...) — trimis automat din aplicație
+  useEffect(() => {
+    const mid = searchParams.get("mid")
+    if (mid && /^[0-9a-f]{32}$/i.test(mid.trim())) {
+      setForm(f => ({ ...f, machineId: mid.trim().toLowerCase() }))
+      setMachineIdValid(true)
+      setMidFromUrl(true)
+    }
+  }, [searchParams])
   const [loading, setLoading]       = useState(false)
   const [sent, setSent]             = useState(false)
   const [error, setError]           = useState("")
   const [ibanCopied, setIbanCopied] = useState(false)
 
-  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
-    setForm(f => ({ ...f, [k]: e.target.value }))
+  const MACHINE_ID_RE = /^[0-9a-f]{32}$/i
+
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value
+    setForm(f => ({ ...f, [k]: val }))
+    if (k === "machineId") {
+      const clean = val.trim()
+      if (clean.length === 0) {
+        setMachineIdError("")
+        setMachineIdValid(null)
+      } else if (clean.length < 32) {
+        setMachineIdError(`${clean.length}/32`)
+        setMachineIdValid(false)
+      } else if (!MACHINE_ID_RE.test(clean)) {
+        setMachineIdError(c.form.machineIdError)
+        setMachineIdValid(false)
+      } else {
+        setMachineIdError("")
+        setMachineIdValid(true)
+      }
+    }
+  }
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
+    // Validare client-side Machine ID
+    if (!MACHINE_ID_RE.test(form.machineId.trim())) {
+      setMachineIdError(c.form.machineIdError)
+      setMachineIdValid(false)
+      return
+    }
     setError(""); setLoading(true)
     try {
       const res = await fetch("/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ email: form.email, machineId: form.machineId }),
       })
       const data = await res.json()
       if (data.success) setSent(true)
@@ -171,24 +210,68 @@ export default function CumpararePage() {
             </div>
           ) : (
             <form onSubmit={submit}>
-              <Field label={c.form.name}>
-                <input placeholder={c.form.namePlaceholder} value={form.name}
-                       onChange={set("name")} required style={iStyle} />
-              </Field>
               <Field label={c.form.email}>
                 <input type="email" placeholder={c.form.emailPlaceholder}
                        value={form.email} onChange={set("email")} required style={iStyle} />
                 <Hint>{c.form.emailHint}</Hint>
               </Field>
 
-              <Field label={c.form.machineId}>
-                <input placeholder={c.form.machineIdPlaceholder}
-                       value={form.machineId} onChange={set("machineId")}
-                       required spellCheck={false} autoComplete="off"
-                       style={{ ...iStyle, fontFamily: "monospace",
-                                fontSize: ".85rem", color: GOLD }} />
-                <Hint>{c.form.machineIdHint}</Hint>
-              </Field>
+              {/* Machine ID — ascuns dacă vine din aplicație, vizibil dacă e manual */}
+              {midFromUrl ? (
+                <>
+                  {/* Câmp ascuns — utilizatorul nu trebuie să știe */}
+                  <input type="hidden" value={form.machineId} />
+                  {/* Confirmare vizuală discretă */}
+                  <div style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    background: "rgba(76,175,80,.06)",
+                    border: "1px solid rgba(76,175,80,.2)",
+                    borderRadius: 8, padding: "8px 12px", marginBottom: 14,
+                    fontSize: ".82rem", color: "#4CAF50",
+                  }}>
+                    <span>✅</span>
+                    <span>{c.form.machineIdAutoDetected}</span>
+                  </div>
+                </>
+              ) : (
+                <Field label={c.form.machineId}>
+                  <div style={{ position: "relative" }}>
+                    <input placeholder={c.form.machineIdPlaceholder}
+                           value={form.machineId} onChange={set("machineId")}
+                           required spellCheck={false} autoComplete="off"
+                           style={{
+                             ...iStyle, fontFamily: "monospace",
+                             fontSize: ".85rem", color: GOLD,
+                             borderColor: machineIdValid === true
+                               ? "#4CAF50"
+                               : machineIdValid === false
+                               ? "#e53935" : "#222",
+                             paddingRight: "36px",
+                           }} />
+                    {machineIdValid === true && (
+                      <span style={{ position: "absolute", right: 10,
+                                     top: "50%", transform: "translateY(-50%)",
+                                     color: "#4CAF50", fontSize: "1rem" }}>✓</span>
+                    )}
+                    {machineIdValid === false && (
+                      <span style={{ position: "absolute", right: 10,
+                                     top: "50%", transform: "translateY(-50%)",
+                                     color: "#e53935", fontSize: "1rem" }}>✗</span>
+                    )}
+                  </div>
+                  {machineIdError && (
+                    <div style={{ fontSize: ".74rem", color: "#e53935",
+                                  marginTop: 4, lineHeight: 1.4 }}>
+                      {machineIdError}
+                    </div>
+                  )}
+                  {!machineIdError && <Hint>{c.form.machineIdHint}</Hint>}
+                  <div style={{ fontSize: ".7rem", color: "#444",
+                                marginTop: 4, fontFamily: "monospace" }}>
+                    {c.form.machineIdFormat}
+                  </div>
+                </Field>
+              )}
 
               {error && (
                 <div style={{ background: "rgba(229,57,53,.08)",
@@ -253,9 +336,9 @@ export default function CumpararePage() {
 
           <div style={{ marginTop: 12, fontSize: ".78rem", color: "#444", lineHeight: 1.6 }}>
             💬 {c.contact}{" "}
-            <a href="mailto:office@tinka.md"
+            <a href="mailto:contact@tinka.md"
                style={{ color: "#8B6914", textDecoration: "none" }}>
-              office@tinka.md
+              contact@tinka.md
             </a>
           </div>
         </Card>
