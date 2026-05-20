@@ -353,15 +353,16 @@ export const ro = {
     },
     form: {
       title: "Completează Comanda",
-      name: "Nume *",
-      namePlaceholder: "Ion Popescu",
       email: "Email *",
       emailPlaceholder: "ion@exemplu.md",
       emailHint: "Cheia de licență va fi trimisă pe acest email.",
       machineId: "Machine ID *",
       machineIdPlaceholder: "a1b2c3d4e5f6...",
-      machineIdHint: "⚠ Copiază Machine ID-ul exact din aplicație. Cheia va funcționa doar pe acel calculator.",
-      gdprNote: "Datele colectate (nume, email, Machine ID) sunt prelucrate de TINKA AI SRL în temeiul Art. 6.1.b LP195/2024 (executare contract), exclusiv pentru generarea și livrarea cheii de licență. Nu sunt partajate cu terți. Se păstrează 3 ani (obligație fiscală), după care sunt șterse. Ai dreptul la acces, rectificare, ștergere și portabilitate — scrie-ne la contact@tinka.md sau depune plângere la CNPDCP (cnpdcp.md).",
+      machineIdHint: "Copiază Machine ID-ul din aplicație → butonul 🔑 Activează licența → Copiază ID. Trebuie să fie exact 32 de caractere.",
+      machineIdError: "Machine ID invalid — trebuie să fie exact 32 caractere (cifre 0-9 și litere a-f). Folosește butonul Copiază din aplicație.",
+      machineIdFormat: "Format: 32 caractere hex (ex: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4)",
+      machineIdAutoDetected: "Calculatorul tău a fost identificat automat. Nu trebuie să faci nimic.",
+      gdprNote: "Datele colectate (email, Machine ID) sunt prelucrate de TINKA AI SRL în temeiul Art. 6.1.b LP195/2024 (executare contract), exclusiv pentru generarea și livrarea cheii de licență. Nu sunt partajate cu terți. Se păstrează 3 ani (obligație fiscală), după care sunt șterse. Ai dreptul la acces, rectificare, ștergere și portabilitate — scrie-ne la contact@tinka.md sau depune plângere la CNPDCP (cnpdcp.md).",
       submit: "Trimite Comanda",
       sending: "Se trimite...",
       successTitle: "Comanda a fost înregistrată!",
@@ -394,10 +395,10 @@ export const ro = {
   // PAGINA DOWNLOAD
   // ------------------------------------------------------
   download: {
-    badge: "Descărcare gratuită",
-    title: "Descarcă",
-    titleHighlight: "TINKA AI",
-    subtitle: "Toate produsele TINKA AI disponibile pentru descărcare. Testează gratuit înainte de cumpărare.",
+    badge: "Tinkora — TINKA AI Products",
+    title: "Bine ai venit în",
+    titleHighlight: "Tinkora",
+    subtitle: "Instrumentele tale digitale de la TINKA AI. Descarcă, testează gratuit și activează când ești gata.",
     freeTrialNote: "Toate produsele includ o perioadă de testare gratuită.",
     products: {
       transcriber: {
