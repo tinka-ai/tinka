@@ -330,8 +330,8 @@ export const ro = {
     tinkaBookDesc: "Sistem de programări online pentru saloane și servicii beauty. Prima lună gratuită.",
     comingSoonDesc: "CRM inteligent cu AI pentru afaceri mici din Moldova. Lansare în curând.",
     inDevelopment: "În dezvoltare",
-    vialaDesc: "VIALA reimaginează modul în care oamenii se conectează — emoțional, autentic și inteligent. Un produs AI care înțelege nu doar ce spui, ci și ce simți.",
-    vialaTease: "✦ Ceva se naște. Ceva ce nu ai mai văzut. Curând.",
+    vialaDesc: "Sănătatea ta și a familiei tale. Grijă permanentă. VIALA ține cont chiar dacă tu uiți.",
+    vialaTease: "✦ Ai uitat vreodată ceva important? VIALA nu uită. Curând.",
     openButton: "Deschide portofoliul complet",
     fallback:
       "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",

@@ -338,8 +338,8 @@ export const en = {
     tinkaBookDesc: "Online booking system for beauty salons and services. First month free.",
     comingSoonDesc: "Intelligent AI CRM for small businesses in Moldova. Launching soon.",
     inDevelopment: "In development",
-    vialaDesc: "VIALA reimagines the way people connect — emotionally, authentically and intelligently. An AI product that understands not just what you say, but what you feel.",
-    vialaTease: "✦ Something is being born. Something you've never seen before. Coming soon.",
+    vialaDesc: "Your health and your family's. Permanent care. VIALA keeps track even when you forget.",
+    vialaTease: "✦ Have you ever forgotten something important? VIALA never forgets. Coming soon.",
     openButton: "Open full portfolio",
     fallback:
       "If the portfolio cannot be embedded here (security restrictions), open it directly:",
