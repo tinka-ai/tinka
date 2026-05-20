@@ -329,6 +329,9 @@ export const ro = {
     transcriberDesc: "Transformă orice fișier audio în text cu Whisper AI. Funcționează 100% offline, privat, fără abonament.",
     tinkaBookDesc: "Sistem de programări online pentru saloane și servicii beauty. Prima lună gratuită.",
     comingSoonDesc: "CRM inteligent cu AI pentru afaceri mici din Moldova. Lansare în curând.",
+    inDevelopment: "În dezvoltare",
+    vialaDesc: "VIALA reimaginează modul în care oamenii se conectează — emoțional, autentic și inteligent. Un produs AI care înțelege nu doar ce spui, ci și ce simți.",
+    vialaTease: "✦ Ceva se naște. Ceva ce nu ai mai văzut. Curând.",
     openButton: "Deschide portofoliul complet",
     fallback:
       "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
