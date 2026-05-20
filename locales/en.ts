@@ -247,11 +247,29 @@ export const en = {
       bullet3: "History, calendar & appointment management",
     },
     ctaVisit: "Visit TinkaBook",
-    form: {
-      description: "Fill in the form to receive demo access.",
-      successDemoCredentials: "Demo login details will be sent to your email.",
-    },
     ctaScroll: "Request demo",
+    form: {
+      title: "Request demo access",
+      description: "Fill in the form to receive demo access.",
+      successTitle: "Request sent successfully!",
+      successBody: "We will send you the demo login details shortly.",
+      successDemoCredentials: "Demo login details will be sent to your email.",
+      successDemoLinkText: "Access TinkaBook",
+      fields: {
+        language: "Preferred language",
+        phone: "Telefon",
+        phoneConsent: "I wish to be contacted by phone for assistance",
+        email: "Email",
+        activity: "Type of activity (salon, cosmetics, nails, etc.)",
+      },
+      consentTitle: "Consent",
+      consentText: "Your data (email, phone) is used solely to provide you with demo access to TinkaBook. Not shared with third parties.",
+      consentLabel: "I accept data processing according to the privacy policy",
+      consentRequired: "You must accept to continue",
+      submit: "Send request",
+      submitting: "Sending...",
+      error: "An error occurred. Please try again.",
+    },
   },
 
   contact: {
@@ -447,4 +465,72 @@ export const en = {
     downloadBtn: "Download",
     comingSoon: "Coming soon",
   },
+  technologies: { title: "Technologies", subtitle: "Modern, stable, and fast tooling." },
+
+  specialOffer: {
+    badge: "Offer",
+    title: "Quick-Launch Package",
+    description: "Website + chatbot + essential automations in 14 days.",
+    cta: "Request a quote",
+  },
+
+  about: {
+    hero: {
+      title: "About TINKA AI",
+      subtitle: "We build fast and reliable digital products.",
+    },
+    mission: {
+      title: "Our Mission",
+      description:
+        "We’re result-driven: SaaS web apps, automations, and AI assistants for SMEs.",
+    },
+    values: {
+      title: "Our values",
+      value1: "Transparency and clear communication.",
+      value2: "Execution speed and quality.",
+      value3: "Long-term partnership.",
+    },
+    team: {
+      title: "A small team focused on impact",
+      text:
+        "We work in compact implementation squads, directly with your stakeholders, to shorten feedback loops.",
+    },
+    cta: {
+      title: "Want to see what AI can do in your company?",
+      description: "We propose a 60-minute quick audit and 3 opportunities with immediate impact.",
+      button: "Schedule a call",
+    },
+    labels: {
+      mission: "Mission",
+      approach: "Approach",
+      letsTalk: "Let's talk",
+    },
+  },
+
+  privacy: {
+    title: "Privacy Policy",
+    updated: "Last updated",
+    intro:
+      "We respect your data and only use information strictly required to provide our services.",
+  },
+
+  terms: {
+    title: "Terms & Conditions",
+    intro:
+      "By using this site you accept the terms and conditions. Please read carefully.",
+  },
+
+  faq: {
+    title: "FAQ",
+    subtitle: "Quick answers",
+    question1: { q: "How do we start?", a: "Write to us and we’ll schedule a call." },
+    question2: { q: "Delivery time?", a: "Typically 2–6 weeks depending on scope." },
+    question3: { q: "Payments & contract?", a: "Yes: contract + invoice; 30% upfront." },
+    question4: { q: "Maintenance?", a: "We offer maintenance packages." },
+    question5: { q: "Own hosting?", a: "Possible, or we can host for you." },
+    question6: { q: "Tech stack?", a: "From classic to modern." },
+    question7: { q: "Languages?", a: "Support in Romanian, Russian, English." },
+    question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
+  },
+
 } as const;
