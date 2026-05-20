@@ -36,6 +36,11 @@ const TinkaBookSection = dynamic(
   { ssr: false, loading: () => null }
 );
 
+const TinkaTranscriberSection = dynamic(
+  () => import("@/components/sections/TinkaTranscriberSection"),
+  { ssr: false, loading: () => null }
+);
+
 export default function Page() {
   const fx =
     "transition-shadow duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(56,189,248,0.35),0_0_28px_6px_rgba(168,85,247,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400/70 rounded-md";
@@ -121,6 +126,9 @@ export default function Page() {
 
         {/* TINKA BOOK – lazy loading */}
         <TinkaBookSection fx={fx} />
+
+        {/* TINKA TRANSCRIBER – lazy loading */}
+        <TinkaTranscriberSection fx={fx} />
 
         {/* FAQ */}
         <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
