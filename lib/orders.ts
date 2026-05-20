@@ -10,7 +10,6 @@ import { randomUUID } from "crypto"
 export interface Order {
   id: string
   createdAt: string
-  name: string
   email: string
   phone?: string
   machineId: string
