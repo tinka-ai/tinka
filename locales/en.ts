@@ -10,6 +10,7 @@ export const en = {
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
     language: "Language",
+    tinkora: "Tinkora",
   },
 
   hero: {
@@ -328,6 +329,14 @@ export const en = {
     title: "Portfolio",
     subtitle: "SaaS projects and web applications built by TINKA AI.",
     note: "The portfolio is hosted on tinkaweb.md and displayed here as an embedded page.",
+    tinkoraTitle: "Our Products",
+    available: "Available",
+    comingSoon: "Coming soon",
+    downloadBtn: "Download",
+    visitBtn: "Visit",
+    transcriberDesc: "Transform any audio file into text with Whisper AI. Works 100% offline, private, no subscription.",
+    tinkaBookDesc: "Online booking system for beauty salons and services. First month free.",
+    comingSoonDesc: "Intelligent AI CRM for small businesses in Moldova. Launching soon.",
     openButton: "Open full portfolio",
     fallback:
       "If the portfolio cannot be embedded here (security restrictions), open it directly:",
@@ -533,4 +542,26 @@ export const en = {
     question8: { q: "Personal data?", a: "We follow GDPR and best practices." },
   },
 
+
+  // ------------------------------------------------------
+  // TINKA AI TRANSCRIBER — Homepage Section
+  // ------------------------------------------------------
+  transcriber: {
+    badge: "TINKA AI Product",
+    title: "TINKA AI",
+    titleHighlight: "Transcriber",
+    subtitle: "Transform any audio file into text with local AI. No cloud, no subscription.",
+    priceLabel: "lifetime license",
+    trial: "3 days free",
+    offline: "100% offline",
+    downloadBtn: "Download free",
+    buyBtn: "Buy license — 199 MDL",
+    licenseNote: "Per-device license · One-time payment · Updates included",
+    features: {
+      feature1: { title: "MP3, WAV, M4A, OGG, FLAC, MP4", desc: "Supports all popular audio and video formats" },
+      feature2: { title: "10+ languages, auto-detect", desc: "Romanian, English, Russian and 7 more — auto detection" },
+      feature3: { title: "100% offline & private", desc: "No files ever leave your computer" },
+      feature4: { title: "Export TXT, SRT, DOCX, PDF", desc: "Save the transcript in your preferred format" },
+    },
+  },
 } as const;

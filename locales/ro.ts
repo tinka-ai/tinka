@@ -10,6 +10,7 @@ export const ro = {
     privacy: "Confidențialitate",
     terms: "Termeni și Condiții",
     language: "Limbă",
+    tinkora: "Tinkora",
   },
 
   hero: {
@@ -320,6 +321,14 @@ export const ro = {
     title: "Portofoliu",
     subtitle: "Proiecte și produse SaaS / aplicații web realizate de TINKA AI.",
     note: "Portofoliul este găzduit pe tinkaweb.md și este afișat aici încorporat.",
+    tinkoraTitle: "Produsele noastre",
+    available: "Disponibil",
+    comingSoon: "În curând",
+    downloadBtn: "Descarcă",
+    visitBtn: "Vizitează",
+    transcriberDesc: "Transformă orice fișier audio în text cu Whisper AI. Funcționează 100% offline, privat, fără abonament.",
+    tinkaBookDesc: "Sistem de programări online pentru saloane și servicii beauty. Prima lună gratuită.",
+    comingSoonDesc: "CRM inteligent cu AI pentru afaceri mici din Moldova. Lansare în curând.",
     openButton: "Deschide portofoliul complet",
     fallback:
       "Dacă portofoliul nu poate fi afișat aici (restricții de securitate), deschide-l direct:",
@@ -618,4 +627,26 @@ export const ro = {
     intro: "Prin utilizarea site-ului accepți termenii și condițiile. Te rugăm să citești cu atenție.",
   },
 
+
+  // ------------------------------------------------------
+  // TINKA AI TRANSCRIBER — Secțiune Homepage
+  // ------------------------------------------------------
+  transcriber: {
+    badge: "Produs TINKA AI",
+    title: "TINKA AI",
+    titleHighlight: "Transcriber",
+    subtitle: "Transformă orice fișier audio în text cu AI local. Fără cloud, fără abonament.",
+    priceLabel: "licență pe viață",
+    trial: "3 zile gratuit",
+    offline: "100% offline",
+    downloadBtn: "Descarcă gratuit",
+    buyBtn: "Cumpără licență — 199 MDL",
+    licenseNote: "Licență per calculator · Plată unică · Actualizări incluse",
+    features: {
+      feature1: { title: "MP3, WAV, M4A, OGG, FLAC, MP4", desc: "Suportă toate formatele audio și video populare" },
+      feature2: { title: "10+ limbi, auto-detect", desc: "Română, engleză, rusă și alte 7 limbi — detectare automată" },
+      feature3: { title: "100% offline și privat", desc: "Niciun fișier nu pleacă de pe calculatorul tău" },
+      feature4: { title: "Export TXT, SRT, DOCX, PDF", desc: "Salvează transcrierea în formatul preferat" },
+    },
+  },
 } as const;
