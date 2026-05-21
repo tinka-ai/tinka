@@ -70,7 +70,7 @@ export default function PortfolioClient() {
               <div>
                 <span className="text-2xl">🎙</span>
                 <h3 className="mt-2 font-bold text-white text-lg">TINKA Transcriber</h3>
-                <p className="text-xs text-amber-400 mt-0.5">Audio → Text, Offline </p>
+                <p className="text-xs text-amber-400 mt-0.5">Audio → Text cu AI local</p>
               </div>
               <span className="text-xs rounded-full border border-green-500/30 bg-green-500/10 text-green-400 px-2 py-0.5">
                 <T path="portfolioPage.available" />
