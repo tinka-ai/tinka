@@ -22,9 +22,8 @@ export const metadata = {
   alternates: {
     canonical: "https://tinka.md/contact",
     languages: {
-      "ro-MD": "https://tinka.md/contact",
-      "en-US": "https://tinka.md/en/contact",
-      "ru-MD": "https://tinka.md/ru/contact",
+      "x-default": "https://tinka.md/contact",
+      "ro": "https://tinka.md/contact",
     },
   },
 
@@ -35,11 +34,10 @@ export const metadata = {
     url: "https://tinka.md/contact",
     siteName: "TINKA AI",
     locale: "ro_MD",
-    alternateLocale: ["en_US", "ru_MD"],
     type: "website",
     images: [
       {
-        url: "https://tinka.md/og/contact-og.jpg",
+        url: "https://tinka.md/image/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Contact TINKA AI Moldova",
@@ -52,7 +50,7 @@ export const metadata = {
     title: "Contact TINKA AI – Soluții Digitale pentru Afaceri",
     description:
       "Scrie-ne pentru website-uri moderne, chatboturi AI și automatizări business.",
-    images: ["https://tinka.md/og/contact-og.jpg"],
+    images: ["https://tinka.md/image/og-image.webp"],
   },
 };
 
@@ -68,8 +66,8 @@ function ContactJSONLD() {
       url: "https://tinka.md",
       email: "office@tinka.md",
       telephone: "+37368333899",
-      logo: "https://tinka.md/tinka-og-image.jpg",
-      image: "https://tinka.md/tinka-og-image.jpg",
+      logo: "https://tinka.md/image/og-image.webp",
+      image: "https://tinka.md/image/og-image.webp",
 
       sameAs: [
         "https://www.facebook.com/tinka.ai",

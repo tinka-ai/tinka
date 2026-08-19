@@ -1,16 +1,9 @@
 "use client"
 
-import type React from "react"
-import { useState } from "react"
 import Link from "next/link"
-import { Mail, Phone, Clock, MapPin, Send, CheckCircle, AlertTriangle, MessageCircle } from "lucide-react"
+import { Mail, Phone, Clock, MapPin, MessageCircle } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { useLocale } from "@/contexts/locale-context"
 
@@ -18,6 +11,7 @@ const TRANSLATIONS = {
   ro: {
     contactTitle: "Contact",
     contactSubtitle: "Hai să vorbim despre proiectul tău.",
+    directContactNote: "Nu colectăm date prin formular. Sună-ne sau scrie-ne direct — răspundem rapid.",
     infoTitle: "Informații de contact",
     infoEmail: "Email",
     infoPhone: "Telefon",
@@ -96,6 +90,7 @@ const TRANSLATIONS = {
   en: {
     contactTitle: "Contact",
     contactSubtitle: "Let's talk about your project.",
+    directContactNote: "We don't collect data through a form. Call or email us directly — we reply fast.",
     infoTitle: "Contact details",
     infoEmail: "Email",
     infoPhone: "Phone",
@@ -174,6 +169,7 @@ const TRANSLATIONS = {
   ru: {
     contactTitle: "Контакты",
     contactSubtitle: "Давайте поговорим о вашем проекте.",
+    directContactNote: "Мы не собираем данные через форму. Позвоните или напишите нам напрямую — отвечаем быстро.",
     infoTitle: "Контактная информация",
     infoEmail: "Email",
     infoPhone: "Телефон",
@@ -254,61 +250,7 @@ export default function ContactClient() {
   const { locale } = useLocale() as any
   const L = (TRANSLATIONS as any)[locale] ?? TRANSLATIONS.ro
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    budget: "",
-    message: "",
-  })
-  const [loading, setLoading] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
   const phoneNumber = "37368333899" // fără +
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
-
-    try {
-      const payload = {
-        "form-name": "contact",
-        ...formData,
-      }
-
-      const res = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(payload as any).toString(),
-      })
-
-      if (!res.ok) throw new Error("Form submit error")
-
-      setSubmitted(true)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        budget: "",
-        message: "",
-      })
-      setTimeout(() => setSubmitted(false), 7000)
-    } catch (err: any) {
-      setError(err?.message || "Eroare la trimitere")
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -329,15 +271,18 @@ export default function ContactClient() {
       {/* Contact */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
+          <div className="max-w-2xl mx-auto space-y-6">
             {/* Info */}
-            <div className="lg:col-span-1 space-y-6">
+            <div>
               <Card className="bg-card/80 backdrop-blur-sm border-border">
-                <CardContent className="p-6 space-y-6">
+                <CardContent className="p-8 space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">
+                    <h3 className="text-xl font-bold text-foreground mb-2">
                       {L.infoTitle}
                     </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {L.directContactNote}
+                    </p>
                   </div>
 
                   <div className="space-y-4">
@@ -452,172 +397,6 @@ export default function ContactClient() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {L.quickDescription}
                   </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Form */}
-            <div className="lg:col-span-2">
-              <Card className="bg-card/80 backdrop-blur-sm border-border">
-                <CardContent className="p-8">
-                  {submitted ? (
-                    <div className="text-center py-12 space-y-4">
-                      <div className="h-16 w-16 bg-emerald-500/15 rounded-full flex items-center justify-center mx-auto">
-                        <CheckCircle className="h-8 w-8 text-emerald-500" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-foreground">
-                        {L.formSuccessTitle}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {L.formSuccessMessage}
-                      </p>
-                    </div>
-                  ) : (
-                    <form
-                      name="contact"
-                      method="POST"
-                      data-netlify="true"
-                      data-netlify-honeypot="bot-field"
-                      onSubmit={handleSubmit}
-                      className="space-y-6"
-                    >
-                      {/* Netlify hidden */}
-                      <input type="hidden" name="form-name" value="contact" />
-                      <div style={{ display: "none" }}>
-                        <input name="bot-field" />
-                      </div>
-
-                      {/* Hidden for Selects */}
-                      <input type="hidden" name="service" value={formData.service} />
-                      <input type="hidden" name="budget" value={formData.budget} />
-
-                      {error && (
-                        <div className="flex items-start gap-3 rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm">
-                          <AlertTriangle className="h-4 w-4 mt-0.5 text-destructive" />
-                          <p className="text-destructive">
-                            {error}.{" "}
-                            <a className="underline" href={`mailto:${L.footerEmail}`}>
-                              {L.footerEmail}
-                            </a>
-                          </p>
-                        </div>
-                      )}
-
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <Label htmlFor="name">{L.formName}</Label>
-                          <Input
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={(e) => handleChange("name", e.target.value)}
-                            required
-                            placeholder={L.formNamePlaceholder}
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="email">{L.formEmail}</Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={(e) => handleChange("email", e.target.value)}
-                            required
-                            placeholder={L.formEmailPlaceholder}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <Label htmlFor="phone">{L.formPhone}</Label>
-                          <Input
-                            id="phone"
-                            name="phone"
-                            type="tel"
-                            value={formData.phone}
-                            onChange={(e) => handleChange("phone", e.target.value)}
-                            placeholder={L.formPhonePlaceholder}
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="company">{L.formCompany}</Label>
-                          <Input
-                            id="company"
-                            name="company"
-                            value={formData.company}
-                            onChange={(e) => handleChange("company", e.target.value)}
-                            placeholder={L.formCompanyPlaceholder}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <Label htmlFor="service">{L.formService}</Label>
-                          <Select
-                            value={formData.service}
-                            onValueChange={(value) => handleChange("service", value)}
-                          >
-                            <SelectTrigger id="service">
-                              <SelectValue placeholder={L.formServicePlaceholder} />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="chatbot">{L.serviceChatbot}</SelectItem>
-                              <SelectItem value="website">{L.serviceWebsite}</SelectItem>
-                              <SelectItem value="automation">{L.serviceAutomation}</SelectItem>
-                              <SelectItem value="consulting">{L.serviceConsulting}</SelectItem>
-                              <SelectItem value="other">{L.serviceOther}</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="budget">{L.formBudget}</Label>
-                          <Select
-                            value={formData.budget}
-                            onValueChange={(value) => handleChange("budget", value)}
-                          >
-                            <SelectTrigger id="budget">
-                              <SelectValue placeholder={L.formBudgetPlaceholder} />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="under-1000">{L.budget1}</SelectItem>
-                              <SelectItem value="1000-5000">{L.budget2}</SelectItem>
-                              <SelectItem value="5000-10000">{L.budget3}</SelectItem>
-                              <SelectItem value="over-10000">{L.budget4}</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="message">{L.formMessage}</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={(e) => handleChange("message", e.target.value)}
-                          required
-                          rows={6}
-                          placeholder={L.formMessagePlaceholder}
-                        />
-                      </div>
-
-                      <Button
-                        type="submit"
-                        size="lg"
-                        disabled={loading}
-                        className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                      >
-                        {loading ? L.formSending : L.formSubmit}
-                        <Send className="ml-2 h-4 w-4" />
-                      </Button>
-                    </form>
-                  )}
                 </CardContent>
               </Card>
             </div>

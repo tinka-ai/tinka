@@ -121,7 +121,6 @@ export async function POST(req: Request) {
       ${table({
         name,
         email,
-        phone: clean(data.phone),
         company,
         region: clean(data.region),
       })}

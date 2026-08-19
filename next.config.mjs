@@ -8,7 +8,9 @@ const nextConfig = {
   },
 
   images: {
-    unoptimized: true,
+    // Optimizare activă — Netlify (@netlify/plugin-nextjs) suportă nativ
+    // optimizarea imaginilor Next.js (resize automat, AVIF/WebP, srcset).
+    formats: ["image/avif", "image/webp"],
   },
 
   experimental: {

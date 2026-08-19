@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { articles } from "./blog/blogData"
+import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://tinka.md"
@@ -18,20 +19,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/portfolio",   priority: 0.8, changeFrequency: "monthly" },
     { path: "/blog",        priority: 0.9, changeFrequency: "weekly"  },
 
-    // ── Tinkora — produse ──────────────────────────────────────
-    { path: "/download",    priority: 0.9, changeFrequency: "weekly"  },
-    { path: "/cumparare",   priority: 0.9, changeFrequency: "monthly" },
+    // ── Tinkora — produse (ascunse temporar din sitemap cât timp TRANSCRIBER_ENABLED === false) ──
+    ...(TRANSCRIBER_ENABLED ? [
+      { path: "/download",    priority: 0.9, changeFrequency: "weekly"  } as const,
+      { path: "/cumparare",   priority: 0.9, changeFrequency: "monthly" } as const,
+    ] : []),
 
     // ── Legal ─────────────────────────────────────────────────
     { path: "/privacy",     priority: 0.4, changeFrequency: "yearly"  },
     { path: "/terms",       priority: 0.4, changeFrequency: "yearly"  },
   ]
 
+  // NOTĂ: site-ul afișează EN/RU doar client-side (comutator de limbă), fără
+  // URL-uri separate per limbă — deci nu există încă pagini distincte pe care
+  // Google le poate indexa în engleză/rusă. Declararea unor alternates hreflang
+  // "en"/"ru" către exact același URL ca "ro" e invalidă (hreflang cere URL-uri
+  // distincte per limbă) și poate genera erori în Search Console, așa că le-am
+  // scos până când site-ul are rute reale /en/ și /ru/ cu conținut randat pe server.
   const languages = {
     "x-default": "",
     "ro": "",
-    "en": "",
-    "ru": "",
   }
 
   const staticEntries = staticPages.map(({ path, priority, changeFrequency }) => ({

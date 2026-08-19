@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://tinka.md/og/solutions-og.jpg",
+        url: "https://tinka.md/image/og-image.webp",
         width: 1200,
         height: 630,
       },

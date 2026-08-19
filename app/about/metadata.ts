@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://tinka.md/og/about-og.jpg",
+        url: "https://tinka.md/image/og-image.webp",
         width: 1200,
         height: 630,
         alt: "TINKA AI – Despre echipa noastră",
@@ -45,6 +45,6 @@ export const metadata: Metadata = {
     title: "Despre TINKA AI – Soluții Digitale pentru companii",
     description:
       "Descoperă cine suntem, cum lucrăm și ce soluții aducem pentru afacerile din Moldova.",
-    images: ["https://tinka.md/og/about-og.jpg"],
+    images: ["https://tinka.md/image/og-image.webp"],
   },
 }

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US", "ru_MD"],
     images: [
       {
-        url: "https://tinka.md/og/portfolio-og.jpg",
+        url: "https://tinka.md/image/og-image.webp",
         width: 1200,
         height: 630,
         alt: "TINKA AI – Portofoliu",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Portofoliu – TINKA AI",
     description: "Proiecte și produse SaaS realizate de TINKA AI.",
-    images: ["https://tinka.md/og/portfolio-og.jpg"],
+    images: ["https://tinka.md/image/og-image.webp"],
   },
 };
 

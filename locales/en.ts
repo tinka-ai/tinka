@@ -227,6 +227,134 @@ export const en = {
 
   offer: {
     cta: "Request a quote",
+    title: "Request a quote — Quick-Launch Package",
+    subtitle: "Fill in what you can — that's enough for us to propose the right solution.",
+    cancel: "Cancel",
+    submit: "Send",
+    close: "Close",
+    successTitle: "Thank you! Your request has been sent.",
+    successBody: "TINKA AI will review your answers and get back with a proposal. We've also sent you an email.",
+    error: "An error occurred. Please try again.",
+
+    contactNote: "Only email is required — we collect the strict minimum needed to prepare your quote.",
+
+    sections: {
+      contact: "Contact",
+      business: "Business",
+      goals: "Goals & KPIs",
+      website: "Website",
+      bot: "Chatbot",
+      automation: "Automations",
+      constraints: "Constraints",
+    },
+
+    fields: {
+      name: "Name",
+      email: "Email",
+      company: "Company",
+      region: "Region",
+
+      about: "Short business description",
+      audience: "Target audience / ideal client",
+      problems: "Current problems / bottlenecks",
+
+      websiteGoals: "Website goal",
+      kpi: "KPI (e.g. conversions, leads/month)",
+
+      features: "Required features",
+      content: "Content",
+      branding: "Branding",
+      refs: "References (sites you like)",
+      integrations: "Integrations (CRM, ERP, payments, etc.)",
+      domain: "Domain",
+
+      botChannels: "Chatbot channels",
+      botRole: "Chatbot role",
+      botLangs: "Languages (e.g. ro, ru, en)",
+      kb: "Knowledge base (docs, links, FAQ)",
+
+      automations: "Automations",
+      other: "Other requirements",
+
+      deadline: "Desired deadline",
+      budget: "Budget",
+      notes: "Notes",
+
+      gdpr: "I agree to data processing for the purpose of this quote",
+      gdprNote: "The details you enter here (name, email, company) are used only to prepare and send the requested quote, by email. They are not stored in a database or shared with third parties. You have the right to access, correct or delete your data — contact us at office@tinka.md.",
+    },
+
+    placeholders: {
+      region: "Country / city / timezone",
+      about: "What do you offer? What sets you apart?",
+      audience: "Who buys? What need do you address?",
+      problems: "Where does it hurt today? (few leads, slow support, etc.)",
+      kpi: "e.g. 50 leads/month, 5% conversion",
+      content: "Do you have copy/photos, or should we prepare them?",
+      branding: "Do you have a visual identity, or want proposals?",
+      integrations: "e.g. Stripe, PayPal, HubSpot, 1C, Bitrix24, Mailchimp",
+      domain: "Do you have a domain, or should we buy one?",
+      refs: "https://site1.com, https://site2.com …",
+      botLangs: "ro, ru, en",
+      kb: "Links to PDF/Docs/FAQ, or we upload later",
+      other: "Any other useful details",
+      deadline: "e.g. 2–4 weeks",
+      budget: "Choose a range",
+      notes: "Additional details",
+    },
+
+    options: {
+      websiteGoals: {
+        leads: "Lead generation",
+        ecom: "E-commerce",
+        brand: "Brand & trust",
+        info: "Informational & showcase",
+        support: "Customer support",
+      },
+      features: {
+        blog: "Blog / News",
+        portfolio: "Portfolio / Case studies",
+        form: "Custom forms",
+        booking: "Booking / Reservations",
+        payments: "Online payments",
+        ecommerce: "Online store",
+        multilang: "Multilingual",
+        gdpr: "Policies / GDPR",
+        analytics: "Analytics / Events",
+      },
+      content: { have: "I have content", need: "I need content" },
+      branding: { have: "I have branding", need: "I need branding" },
+      domain: { have: "I have a domain", need: "I need a domain" },
+
+      botChannels: {
+        site: "Website",
+        whatsapp: "WhatsApp",
+        facebook: "Facebook Messenger",
+        telegram: "Telegram",
+        viber: "Viber",
+      },
+      botRole: {
+        sales: "Sales / qualification",
+        support: "Customer support",
+        faq: "FAQ",
+        booking: "Bookings",
+      },
+      automations: {
+        crm: "CRM integration",
+        qualify: "Automatic qualification",
+        notify: "Email/WhatsApp notifications",
+        schedule: "Automatic scheduling",
+        followup: "Follow-up sequences",
+        newsletter: "Newsletter / campaigns",
+        other: "Other",
+      },
+      budget: {
+        lt1k: "< €500",
+        "1to5": "€500–€2,500",
+        "5to10": "€2,500–€5,000",
+        gt10: "> €5,000",
+      },
+    },
   },
 
   whyAI: {

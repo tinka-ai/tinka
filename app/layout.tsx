@@ -4,13 +4,13 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Suspense } from "react"
-import Script from "next/script"
 
 import "./globals.css"
 
 import Providers from "./providers"
 import Navbar from "@/components/ui/navbar"
 import ChatWidget from "@/components/tinka/ChatWidget"
+import CookieConsent from "@/components/CookieConsent"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tinka.md"),
@@ -254,20 +254,6 @@ export default function RootLayout({
         />
       </head>
 
-      {/* GA4 */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-MLE4N46EN9"
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-MLE4N46EN9');
-        `}
-      </Script>
-
       <body
         className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
       >
@@ -285,6 +271,7 @@ export default function RootLayout({
             <footer role="contentinfo">
             </footer>
            <ChatWidget />
+           <CookieConsent />
           </Suspense>
         </Providers>
       </body>

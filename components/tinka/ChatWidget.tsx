@@ -11,6 +11,39 @@ const receiveSound =
 
 type Lang = "ro" | "ru" | "en"
 
+// Text de consimțământ (bifă) afișat înainte de a trimite datele mai departe.
+// Colectăm strict minimul necesar: emailul e obligatoriu, nume/telefon doar dacă
+// utilizatorul le-a oferit singur în conversație.
+const CONSENT_TEXT: Record<
+  Lang,
+  { title: string; note: string; checkbox: string; confirm: string; cancel: string; sent: string }
+> = {
+  ro: {
+    title: "Confirmă trimiterea",
+    note: "Trimitem către TINKA AI doar datele minime necesare pentru a reveni cu oferta. Nu sunt partajate cu terți.",
+    checkbox: "Sunt de acord cu prelucrarea datelor de mai sus pentru a primi oferta solicitată.",
+    confirm: "Trimite",
+    cancel: "Renunță",
+    sent: "✅ Trimis! Revenim cât mai curând, inclusiv pe email.",
+  },
+  ru: {
+    title: "Подтвердите отправку",
+    note: "Мы отправим TINKA AI только минимум данных, необходимых для ответа с предложением. Данные не передаются третьим лицам.",
+    checkbox: "Я согласен на обработку указанных данных для получения предложения.",
+    confirm: "Отправить",
+    cancel: "Отмена",
+    sent: "✅ Отправлено! Скоро ответим, в том числе на email.",
+  },
+  en: {
+    title: "Confirm sending",
+    note: "We'll send TINKA AI only the minimum data needed to follow up with a quote. Not shared with third parties.",
+    checkbox: "I agree to the processing of the above data to receive the requested quote.",
+    confirm: "Send",
+    cancel: "Cancel",
+    sent: "✅ Sent! We'll get back to you soon, including by email.",
+  },
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [language, setLanguage] = useState<Lang | null>(null)
@@ -18,6 +51,9 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<any[]>([])
   const [typing, setTyping] = useState(false)
   const [showLanguageSelector, setShowLanguageSelector] = useState(false)
+  const [pendingLead, setPendingLead] = useState<any | null>(null)
+  const [consentChecked, setConsentChecked] = useState(false)
+  const [leadSending, setLeadSending] = useState(false)
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -27,7 +63,7 @@ export default function ChatWidget() {
 
   useEffect(() => {
     scrollToBottom()
-  }, [messages, typing, showLanguageSelector])
+  }, [messages, typing, showLanguageSelector, pendingLead])
 
   // ✅ AUTOSTART - se deschide automat după 2 secunde
   useEffect(() => {
@@ -96,23 +132,11 @@ export default function ChatWidget() {
 
       const reply = data?.bot?.trim()
 
-      // ✅ dacă backend cere trimitere lead -> trimitem automat către /api/lead
+      // ✅ dacă backend semnalează un lead -> NU trimitem automat.
+      // Arătăm un card de consimțământ (bifă) și trimitem doar după confirmarea explicită.
       if (data?.action === "send_lead" && data?.lead) {
-        try {
-          await fetch("/api/lead", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: data.lead.name,
-              email: data.lead.email,
-              phone: data.lead.phone,
-              offer_final: data.lead.offer_final,
-              conversation: data.lead.conversation
-            })
-          })
-        } catch (e) {
-          console.error("❌ Lead send failed:", e)
-        }
+        setPendingLead(data.lead)
+        setConsentChecked(false)
       }
 
       if (!reply || reply.length === 0) {
@@ -156,6 +180,43 @@ export default function ChatWidget() {
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter") sendMessage()
+  }
+
+  // ✅ Trimite lead-ul DOAR după bifa explicită de consimțământ.
+  // Includem textul exact al consimțământului + momentul (client) — pentru
+  // demonstrarea acordului (Art. 7(1) GDPR), pe lângă timestamp-ul + IP-ul
+  // capturate server-side în /api/lead.
+  const confirmSendLead = async () => {
+    if (!pendingLead || !consentChecked || leadSending) return
+    const lang = language ?? "ro"
+    setLeadSending(true)
+    try {
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: pendingLead.name,
+          email: pendingLead.email,
+          phone: pendingLead.phone,
+          offer_final: pendingLead.offer_final,
+          conversation: pendingLead.conversation,
+          consentText: CONSENT_TEXT[lang].checkbox,
+          consentGivenAt: new Date().toISOString(),
+        })
+      })
+      setMessages(prev => [...prev, { role: "assistant", content: CONSENT_TEXT[lang].sent }])
+    } catch (e) {
+      console.error("❌ Lead send failed:", e)
+    } finally {
+      setLeadSending(false)
+      setPendingLead(null)
+      setConsentChecked(false)
+    }
+  }
+
+  const cancelSendLead = () => {
+    setPendingLead(null)
+    setConsentChecked(false)
   }
 
   return (
@@ -231,6 +292,52 @@ export default function ChatWidget() {
                       {label}
                     </button>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {/* ✅ Card de consimțământ — apare doar când AI-ul are datele minime (email) și
+                cere confirmare explicită înainte de a trimite orice mai departe. */}
+            {pendingLead && (
+              <div className="p-3 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-neutral-800 dark:to-neutral-700 rounded-xl border border-sky-200 dark:border-sky-700 animate-[fadeIn_0.3s_ease-out] space-y-2">
+                <div className="text-xs font-semibold text-neutral-700 dark:text-neutral-300">
+                  {CONSENT_TEXT[language ?? "ro"].title}
+                </div>
+                <div className="text-[11px] text-neutral-600 dark:text-neutral-400 leading-snug">
+                  {CONSENT_TEXT[language ?? "ro"].note}
+                </div>
+                <div className="text-[11px] text-neutral-700 dark:text-neutral-300 bg-white/60 dark:bg-neutral-900/40 rounded-lg px-2 py-1.5">
+                  {pendingLead.email && <div>📧 {pendingLead.email}</div>}
+                  {pendingLead.name && <div>👤 {pendingLead.name}</div>}
+                  {pendingLead.phone && <div>📞 {pendingLead.phone}</div>}
+                </div>
+                <label className="flex items-start gap-2 text-[11px] text-neutral-700 dark:text-neutral-300 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={consentChecked}
+                    onChange={(e) => setConsentChecked(e.target.checked)}
+                    className="mt-0.5"
+                  />
+                  <span>{CONSENT_TEXT[language ?? "ro"].checkbox}</span>
+                </label>
+                <div className="flex gap-2 pt-1">
+                  <button
+                    onClick={cancelSendLead}
+                    className="flex-1 text-[11px] py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 hover:bg-white/50 dark:hover:bg-neutral-600 transition"
+                  >
+                    {CONSENT_TEXT[language ?? "ro"].cancel}
+                  </button>
+                  <button
+                    onClick={confirmSendLead}
+                    disabled={!consentChecked || leadSending}
+                    className={`flex-1 text-[11px] py-1.5 rounded-lg font-semibold transition ${
+                      consentChecked && !leadSending
+                        ? "bg-sky-500 hover:bg-sky-400 text-white"
+                        : "bg-neutral-300 dark:bg-neutral-600 text-neutral-500 cursor-not-allowed"
+                    }`}
+                  >
+                    {leadSending ? "…" : CONSENT_TEXT[language ?? "ro"].confirm}
+                  </button>
                 </div>
               </div>
             )}

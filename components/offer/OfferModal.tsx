@@ -124,6 +124,9 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
             {/* CONTACT */}
             <section className="space-y-4">
               <h3 className="text-lg font-semibold">{L?.sections?.contact}</h3>
+              {L?.contactNote && (
+                <p className="text-xs text-muted-foreground">{L.contactNote}</p>
+              )}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="name">{L.fields.name}</Label>
@@ -136,16 +139,11 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
                 </div>
 
                 <div>
-                  <Label htmlFor="phone">{L.fields.phone}</Label>
-                  <Input id="phone" name="phone" placeholder="+373…" />
-                </div>
-
-                <div>
                   <Label htmlFor="company">{L.fields.company}</Label>
                   <Input id="company" name="company" placeholder="Company SRL" />
                 </div>
 
-                <div className="md:col-span-2">
+                <div>
                   <Label htmlFor="region">{L.fields.region}</Label>
                   <Input id="region" name="region" placeholder={L.placeholders.region} />
                 </div>
@@ -374,10 +372,15 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
 
               </div>
 
-              <label className="flex items-center gap-2 text-sm">
-                <Checkbox name="gdpr" required />
-                <span>{L.fields.gdpr}</span>
-              </label>
+              <div className="space-y-2">
+                <label className="flex items-center gap-2 text-sm">
+                  <Checkbox name="gdpr" required />
+                  <span>{L.fields.gdpr}</span>
+                </label>
+                {L?.fields?.gdprNote && (
+                  <p className="text-xs text-muted-foreground pl-6">{L.fields.gdprNote}</p>
+                )}
+              </div>
 
             </section>
 

@@ -499,10 +499,11 @@ export const ro = {
       constraints: "Constrângeri",
     },
 
+    contactNote: "Doar emailul este obligatoriu — colectăm strict minimul necesar pentru a-ți pregăti o ofertă.",
+
     fields: {
       name: "Nume",
       email: "Email",
-      phone: "Telefon",
       company: "Companie",
       region: "Regiune",
 
@@ -533,6 +534,7 @@ export const ro = {
       notes: "Note",
 
       gdpr: "Sunt de acord cu prelucrarea datelor pentru ofertare",
+      gdprNote: "Datele completate aici (nume, email, companie) sunt folosite exclusiv pentru a pregăti și trimite oferta solicitată, prin email. Nu sunt stocate într-o bază de date și nu sunt partajate cu terți. Ai dreptul la acces, rectificare și ștergere — scrie-ne la office@tinka.md.",
     },
 
     placeholders: {

@@ -24,6 +24,7 @@ import {
 
 import LocalePageClient from "@/components/LocalePageClient";
 import T from "@/components/T";
+import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags";
 
 /* ⚡ OPTIMIZARE – încărcăm JS doar când e nevoie */
 const OfferCTA = dynamic(
@@ -127,8 +128,8 @@ export default function Page() {
         {/* TINKA BOOK – lazy loading */}
         <TinkaBookSection fx={fx} />
 
-        {/* TINKA TRANSCRIBER – lazy loading */}
-        <TinkaTranscriberSection fx={fx} />
+        {/* TINKA TRANSCRIBER – lazy loading (ascuns temporar, vezi lib/featureFlags.ts) */}
+        {TRANSCRIBER_ENABLED && <TinkaTranscriberSection fx={fx} />}
 
         {/* FAQ */}
         <section id="faq" className="py-12 sm:py-16 border-b border-white/5">

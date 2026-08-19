@@ -2,7 +2,9 @@
 // app/download/page.tsx
 
 import { useState } from "react"
+import Link from "next/link"
 import { useLocale } from "@/contexts/locale-context"
+import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags"
 
 const GOLD = "#C9A84C"
 const GOLD_DIM = "#8B6914"
@@ -18,6 +20,38 @@ export default function DownloadPage() {
       setCopiedHash(hash)
       setTimeout(() => setCopiedHash(null), 2000)
     })
+  }
+
+  // TINKA AI Transcriber — temporar indisponibil (bug în curs de rezolvare)
+  // Pune TRANSCRIBER_ENABLED = true în lib/featureFlags.ts pentru a reactiva pagina.
+  if (!TRANSCRIBER_ENABLED) {
+    return (
+      <main style={{
+        minHeight: "100vh", background: "#080808", color: "#f0f0f0",
+        fontFamily: "var(--font-geist-sans, Helvetica, sans-serif)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: "80px 20px 60px", textAlign: "center",
+      }}>
+        <div style={{ maxWidth: 480 }}>
+          <div style={{ fontSize: "2.5rem", marginBottom: 16 }}>🛠️</div>
+          <h1 style={{ fontSize: "1.8rem", fontWeight: 700, marginBottom: 12 }}>
+            Produs temporar indisponibil
+          </h1>
+          <p style={{ color: "#888", fontSize: "1rem", lineHeight: 1.7, marginBottom: 28 }}>
+            TINKA AI Transcriber este momentan în mentenanță. Revenim în curând cu o
+            versiune îmbunătățită. Pentru întrebări, ne poți contacta la{" "}
+            <a href="mailto:office@tinka.md" style={{ color: GOLD }}>office@tinka.md</a>.
+          </p>
+          <Link href="/" style={{
+            display: "inline-block", background: GOLD, color: "#080808",
+            textDecoration: "none", fontWeight: 700, fontSize: ".9rem",
+            padding: "10px 24px", borderRadius: 8,
+          }}>
+            ← Înapoi la pagina principală
+          </Link>
+        </div>
+      </main>
+    )
   }
 
   return (

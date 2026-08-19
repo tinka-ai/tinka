@@ -18,6 +18,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t.description,
     alternates: {
       canonical: `https://tinka.md/blog/${params.slug}`,
+      languages: {
+        "x-default": `https://tinka.md/blog/${params.slug}`,
+        "ro": `https://tinka.md/blog/${params.slug}`,
+      },
     },
     openGraph: {
       title: t.title,
@@ -27,6 +31,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: "ro_MD",
       type: "article",
       publishedTime: article.date,
+      images: [
+        {
+          url: "https://tinka.md/image/og-image.webp",
+          width: 1200,
+          height: 630,
+          alt: t.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.title,
+      description: t.description,
+      images: ["https://tinka.md/image/og-image.webp"],
     },
   }
 }

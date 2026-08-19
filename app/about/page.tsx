@@ -23,9 +23,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://tinka.md/about",
     languages: {
-      "ro-MD": "https://tinka.md/about",
-      "en-US": "https://tinka.md/en/about",
-      "ru-MD": "https://tinka.md/ru/about",
+      "x-default": "https://tinka.md/about",
+      "ro": "https://tinka.md/about",
     },
   },
 
@@ -37,10 +36,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "TINKA AI",
     locale: "ro_MD",
-    alternateLocale: ["en_US", "ru_MD"],
     images: [
       {
-        url: "https://tinka.md/og/about-og.jpg",
+        url: "https://tinka.md/image/og-image.webp",
         width: 1200,
         height: 630,
         alt: "TINKA AI – Despre echipa noastră",
@@ -53,7 +51,7 @@ export const metadata: Metadata = {
     title: "Despre TINKA AI – Soluții Digitale pentru companii",
     description:
       "Descoperă cine suntem, cum lucrăm și ce soluții aducem pentru afacerile din Moldova.",
-    images: ["https://tinka.md/og/about-og.jpg"],
+    images: ["https://tinka.md/image/og-image.webp"],
   },
 };
 
@@ -68,8 +66,8 @@ function AboutJSONLD() {
       "@type": "Organization",
       name: "TINKA AI",
       url: "https://tinka.md",
-      logo: "https://tinka.md/tinka-og-image.jpg",
-      image: "https://tinka.md/tinka-og-image.jpg",
+      logo: "https://tinka.md/image/og-image.webp",
+      image: "https://tinka.md/image/og-image.webp",
       description:
         "TINKA AI este o agenție digitală din Moldova specializată în Web Design, AI, chatbot-uri și automatizări pentru afaceri.",
       email: "office@tinka.md",

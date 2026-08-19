@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import T from "@/components/T";
+import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags";
 
 const PORTFOLIO_URL = "https://tinkaweb.md";
 
@@ -64,7 +65,8 @@ export default function PortfolioClient() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {/* TINKA Transcriber */}
+          {/* TINKA Transcriber — ascuns temporar, vezi lib/featureFlags.ts */}
+          {TRANSCRIBER_ENABLED && (
           <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent p-6 flex flex-col gap-4">
             <div className="flex items-start justify-between">
               <div>
@@ -94,6 +96,7 @@ export default function PortfolioClient() {
               </Link>
             </div>
           </div>
+          )}
 
           {/* TinkaBook */}
           <div className="rounded-2xl border border-sky-500/20 bg-gradient-to-br from-sky-500/5 to-transparent p-6 flex flex-col gap-4">

@@ -28,6 +28,8 @@ export async function POST(req: Request) {
   try {
     const body = await req.json()
 
+    // Minim necesar: doar emailul e obligatoriu. Nume/telefon sunt opționale —
+    // le includem doar dacă vizitatorul le-a oferit singur în conversație.
     const name = clamp(asString(body?.name).trim(), 120)
     const email = clamp(asString(body?.email).trim(), 160)
     const phone = clamp(normalizePhone(asString(body?.phone)), 80)
@@ -37,9 +39,30 @@ export async function POST(req: Request) {
     const offer_final = clamp(asString(body?.offer_final).trim(), 6000)
     const conversation = clamp(asString(body?.conversation).trim(), 12000)
 
-    if (!name || !email || !phone) {
+    // Dovada consimțământului (Art. 7(1) GDPR — "able to demonstrate that the
+    // data subject has consented"): textul exact afișat + momentul bifării,
+    // trimise de client, plus timestamp-ul de server + IP-ul, capturate aici,
+    // ca sursă autoritativă. Totul e păstrat în corpul emailului (server SMTP +
+    // inbox-ul destinatarului = evidență cu timestamp, suficientă pentru
+    // volumul unei afaceri mici; nu necesită bază de date separată).
+    const consentText = clamp(asString(body?.consentText).trim(), 500)
+    const consentGivenAtClient = clamp(asString(body?.consentGivenAt).trim(), 40)
+    const consentGivenAtServer = new Date().toISOString()
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("x-real-ip") ||
+      "unknown"
+
+    if (!email || !email.includes("@")) {
       return NextResponse.json(
-        { error: "Missing required fields (name, email, phone)" },
+        { error: "Missing or invalid required field (email)" },
+        { status: 400 }
+      )
+    }
+
+    if (!consentText) {
+      return NextResponse.json(
+        { error: "Missing consent confirmation" },
         { status: 400 }
       )
     }
@@ -70,9 +93,16 @@ export async function POST(req: Request) {
       <div style="font-family:Arial,Helvetica,sans-serif;line-height:1.45;color:#111;">
         <h2 style="margin:0 0 10px;">📩 Lead nou (TINKA AI)</h2>
 
-        <p style="margin:0 0 6px;"><strong>Nume:</strong> ${escapeHtml(name)}</p>
         <p style="margin:0 0 6px;"><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p style="margin:0 0 12px;"><strong>Telefon:</strong> ${escapeHtml(phone)}</p>
+        ${name ? `<p style="margin:0 0 6px;"><strong>Nume:</strong> ${escapeHtml(name)}</p>` : ""}
+        ${phone ? `<p style="margin:0 0 12px;"><strong>Telefon:</strong> ${escapeHtml(phone)}</p>` : ""}
+
+        <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0;" />
+        <h3 style="margin:0 0 8px;">✅ Dovadă consimțământ (GDPR Art. 7.1)</h3>
+        <p style="margin:0 0 4px;font-size:13px;"><strong>Text agreat:</strong> ${escapeHtml(consentText)}</p>
+        <p style="margin:0 0 4px;font-size:13px;"><strong>Bifat de client la:</strong> ${escapeHtml(consentGivenAtClient || "—")}</p>
+        <p style="margin:0 0 4px;font-size:13px;"><strong>Înregistrat pe server la:</strong> ${escapeHtml(consentGivenAtServer)}</p>
+        <p style="margin:0 0 4px;font-size:13px;"><strong>IP vizitator:</strong> ${escapeHtml(ip)}</p>
 
         ${
           message
@@ -116,6 +146,28 @@ export async function POST(req: Request) {
       replyTo: email, // util: dai reply direct clientului
       html,
     })
+
+    // Copie de confirmare către client — și propria lui dovadă a ce a acceptat și când.
+    try {
+      await transporter.sendMail({
+        from: `"TINKA AI" <${SMTP_USER}>`,
+        to: email,
+        subject: "TINKA AI – Am primit solicitarea ta",
+        html: `
+          <div style="font-family:Arial,Helvetica,sans-serif;line-height:1.45;color:#111;">
+            <p>Bună${name ? " " + escapeHtml(name) : ""},</p>
+            <p>Mulțumim pentru mesajul trimis către <b>TINKA AI</b>. Revenim rapid.</p>
+            <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0;" />
+            <p style="font-size:13px;color:#555;"><strong>Ai confirmat:</strong> ${escapeHtml(consentText)}</p>
+            <p style="font-size:13px;color:#555;"><strong>La data:</strong> ${escapeHtml(consentGivenAtServer)}</p>
+            <p style="font-size:12px;color:#888;margin-top:16px;">Ai dreptul la acces, rectificare și ștergere a datelor — scrie-ne la office@tinka.md.</p>
+          </div>
+        `,
+      })
+    } catch (e) {
+      // Nu blocăm fluxul principal dacă emailul de confirmare eșuează.
+      console.error("LEAD confirmation email failed:", e)
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
