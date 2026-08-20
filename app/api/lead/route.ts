@@ -1,6 +1,7 @@
 // app/api/lead/route.ts
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin"
 
 const escapeHtml = (s: string) =>
   s
@@ -65,6 +66,29 @@ export async function POST(req: Request) {
         { error: "Missing consent confirmation" },
         { status: 400 }
       )
+    }
+
+    // Dovadă durabilă și căutabilă a consimțământului — separată de email,
+    // ca să poată fi verificată oricând din panoul admin (/admin/consimtaminte).
+    // Nu blocăm trimiterea emailului dacă Supabase nu e configurat sau eșuează.
+    try {
+      const supabase = getSupabaseAdmin()
+      if (supabase) {
+        await supabase.from("consents").insert({
+          source: "chatbot",
+          email,
+          name: name || null,
+          phone: phone || null,
+          consent_text: consentText,
+          consent_given_at_client: consentGivenAtClient || null,
+          consent_given_at_server: consentGivenAtServer,
+          ip,
+          offer_final: offer_final || null,
+          conversation: conversation || null,
+        })
+      }
+    } catch (e) {
+      console.error("Supabase consent insert failed:", e)
     }
 
     const SMTP_USER = process.env.SMTP_USER

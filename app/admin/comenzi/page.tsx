@@ -87,7 +87,15 @@ export default function AdminPage() {
             Admin — Comenzi Transcriber
           </div>
         </div>
-        <button onClick={() => fetchOrders()} style={S.btnSm}>🔄 Actualizează</button>
+        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+          <a href="/admin" style={{ fontSize: ".78rem", color: "#666" }}>
+            ← Admin
+          </a>
+          <a href="/admin/consimtaminte" style={{ fontSize: ".78rem", color: "#666" }}>
+            Consimțăminte →
+          </a>
+          <button onClick={() => fetchOrders()} style={S.btnSm}>🔄 Actualizează</button>
+        </div>
       </div>
 
       {/* Stats */}
