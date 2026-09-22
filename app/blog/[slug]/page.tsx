@@ -3,30 +3,32 @@ import type { Metadata } from "next"
 import { articles } from "../blogData"
 import ArticleClient from "./ArticleClient"
 
-type Props = { params: { slug: string } }
+// Next.js 15: params este acum o Promise, trebuie facut await inainte de folosire.
+type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const article = articles.find((a) => a.slug === params.slug)
+  const { slug } = await params
+  const article = articles.find((a) => a.slug === slug)
   if (!article) return {}
   const t = article.translations.ro
   return {
     title: `${t.title} | TINKA AI Blog`,
     description: t.description,
     alternates: {
-      canonical: `https://tinka.md/blog/${params.slug}`,
+      canonical: `https://tinka.md/blog/${slug}`,
       languages: {
-        "x-default": `https://tinka.md/blog/${params.slug}`,
-        "ro": `https://tinka.md/blog/${params.slug}`,
+        "x-default": `https://tinka.md/blog/${slug}`,
+        "ro": `https://tinka.md/blog/${slug}`,
       },
     },
     openGraph: {
       title: t.title,
       description: t.description,
-      url: `https://tinka.md/blog/${params.slug}`,
+      url: `https://tinka.md/blog/${slug}`,
       siteName: "TINKA AI",
       locale: "ro_MD",
       type: "article",
@@ -49,8 +51,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ArticlePage({ params }: Props) {
-  const article = articles.find((a) => a.slug === params.slug)
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params
+  const article = articles.find((a) => a.slug === slug)
   if (!article) notFound()
   return <ArticleClient article={article} />
 }
