@@ -246,3 +246,121 @@
   .marquee-track { animation: none; }
 }
 
+/* ------------------------------ */
+/* SISTEM VIZUAL "ARTĂ AI" — folosit pe About/Contact ca sa scoata paginile */
+/* din monotonia cardurilor gri plate: badge-uri colorate, panouri cu imagini */
+/* generate AI, hover-lift, eyebrow pulsatoriu reutilizabil.                 */
+/* ------------------------------ */
+
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.85rem;
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 280ms ease;
+}
+.icon-badge-amber {
+  background: linear-gradient(135deg, rgba(255, 154, 86, 0.24), rgba(255, 154, 86, 0.05));
+  box-shadow: 0 0 0 1px rgba(255, 154, 86, 0.3) inset, 0 10px 26px -14px rgba(255, 154, 86, 0.65);
+  color: #ff9a56;
+}
+.icon-badge-violet {
+  background: linear-gradient(135deg, rgba(139, 142, 245, 0.24), rgba(139, 142, 245, 0.05));
+  box-shadow: 0 0 0 1px rgba(139, 142, 245, 0.3) inset, 0 10px 26px -14px rgba(139, 142, 245, 0.65);
+  color: #8b8ef5;
+}
+.icon-badge-cyan {
+  background: linear-gradient(135deg, rgba(111, 217, 255, 0.24), rgba(111, 217, 255, 0.05));
+  box-shadow: 0 0 0 1px rgba(111, 217, 255, 0.3) inset, 0 10px 26px -14px rgba(111, 217, 255, 0.65);
+  color: #6fd9ff;
+}
+.icon-badge-pink {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.24), rgba(244, 114, 182, 0.05));
+  box-shadow: 0 0 0 1px rgba(244, 114, 182, 0.3) inset, 0 10px 26px -14px rgba(244, 114, 182, 0.65);
+  color: #f472b6;
+}
+.group:hover .icon-badge,
+.icon-badge:hover {
+  transform: translateY(-2px) scale(1.08) rotate(-3deg);
+}
+
+/* Chip-uri de tip Badge recolorate pe brand, in loc de pastila gri plata */
+.brand-chip-amber {
+  background: linear-gradient(135deg, rgba(255, 154, 86, 0.2), rgba(255, 154, 86, 0.08));
+  color: #ffb87a;
+  border: 1px solid rgba(255, 154, 86, 0.35);
+}
+.brand-chip-cyan {
+  background: linear-gradient(135deg, rgba(111, 217, 255, 0.2), rgba(111, 217, 255, 0.08));
+  color: #8fe3ff;
+  border: 1px solid rgba(111, 217, 255, 0.35);
+}
+
+/* Panou pentru ilustrațiile generate AI (About/Contact hero) — ecoul */
+/* vizual al .visual-panel din hero-ul 3D de pe homepage. */
+.art-panel {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid #23243447;
+  background: radial-gradient(ellipse 80% 65% at 50% 40%, #171526 0%, #0d0e17 70%);
+  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.7);
+}
+.art-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.art-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 75% 60% at 50% 100%, rgba(10, 11, 18, 0.55) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Eyebrow cu punct pulsatoriu, reutilizabil oriunde pe site (nu doar in heroul 3D) */
+.eyebrow-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.eyebrow-pulse::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0.6em 0.05em currentColor;
+  animation: eyebrowBlink 2.6s ease-in-out infinite;
+}
+@keyframes eyebrowBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* Hover-lift generic pentru carduri — inlocuieste "sumbru si static" cu o */
+/* reactie fina la hover, consistenta pe toate cardurile din pagina. */
+.hover-lift {
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 280ms ease, border-color 280ms ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 52px -28px rgba(0, 0, 0, 0.6);
+}
+
+/* Blob-uri de fundal glow, decorative, folosite in spatele hero-urilor */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow-pulse::before { animation: none; }
+  .icon-badge, .hover-lift { transition: none; }
+}
+

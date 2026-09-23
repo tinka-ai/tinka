@@ -10,6 +10,9 @@ import { useLocale } from "@/contexts/locale-context"
 import CalendlyButton from "@/components/CalendlyButton"
 import { Reveal } from "@/components/ui/reveal"
 
+const ABOUT_ART_URL =
+  "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/73511d02-2b42-4432-95f6-86fb3965580c.png"
+
 const ABOUT_TEXT = {
   ro: {
     heroTitle: "Despre TINKA AI",
@@ -170,24 +173,37 @@ export default function AboutClient() {
   const L = (ABOUT_TEXT as any)[locale] ?? ABOUT_TEXT.ro
 
   const values = [
-    { icon: Target, text: L.value1 },
-    { icon: Shield, text: L.value2 },
-    { icon: Heart, text: L.value3 },
+    { icon: Target, text: L.value1, color: "amber" as const },
+    { icon: Shield, text: L.value2, color: "violet" as const },
+    { icon: Heart, text: L.value3, color: "cyan" as const },
   ].filter((v) => Boolean(v.text))
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-background">
-        <div className="container mx-auto px-4">
-          <Reveal className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
-              {L.heroTitle}
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {L.heroSubtitle}
-            </p>
-          </Reveal>
+      <section className="relative pt-32 pb-20 bg-background overflow-hidden">
+        <div className="glow-blob w-[26rem] h-[26rem] -top-20 -left-24 bg-[#ff9a56]/10" />
+        <div className="glow-blob w-[24rem] h-[24rem] top-10 -right-16 bg-[#8b8ef5]/10" />
+        <div className="container relative mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <Reveal className="space-y-6 text-center lg:text-left">
+              <span className="eyebrow-pulse font-mono text-xs uppercase tracking-[0.22em] text-[#ff9a56]">
+                TINKA AI
+              </span>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-balance bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                {L.heroTitle}
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                {L.heroSubtitle}
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <div className="art-panel aspect-[4/3]">
+                <img src={ABOUT_ART_URL} alt="" aria-hidden="true" loading="eager" />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -195,12 +211,12 @@ export default function AboutClient() {
       <section className="pb-10 bg-background">
         <div className="container mx-auto px-4">
           <Reveal className="max-w-4xl mx-auto">
-            <Card className="bg-card/80 backdrop-blur-sm border-border">
+            <Card className="bg-card/80 backdrop-blur-sm border-border hover-lift">
               <CardContent className="p-8 md:p-12 space-y-4">
-                <Badge className="bg-primary-foreground text-primary">
+                <Badge variant="outline" className="brand-chip-amber">
                   {L.missionLabel}
                 </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
                   {L.missionTitle}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -213,10 +229,11 @@ export default function AboutClient() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 bg-muted/30 overflow-hidden">
+        <div className="glow-blob w-[22rem] h-[22rem] top-0 left-1/2 -translate-x-1/2 bg-[#6fd9ff]/8" />
+        <div className="container relative mx-auto px-4">
           <Reveal className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-sky-300 to-violet-400 bg-clip-text text-transparent">
               {L.valuesTitle}
             </h2>
           </Reveal>
@@ -226,10 +243,10 @@ export default function AboutClient() {
               const Icon = v.icon
               return (
                 <Reveal key={i} delay={i * 0.08}>
-                  <Card className="bg-card/80 backdrop-blur-sm border-border hover:border-primary-foreground/50 transition-all">
+                  <Card className="group bg-card/80 backdrop-blur-sm border-border hover-lift hover:border-white/20 transition-colors">
                     <CardContent className="p-6 space-y-4">
-                      <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-primary-foreground" />
+                      <div className={`icon-badge icon-badge-${v.color} h-12 w-12`}>
+                        <Icon className="h-6 w-6" />
                       </div>
                       <p className="text-muted-foreground leading-relaxed">
                         {v.text}
@@ -248,10 +265,10 @@ export default function AboutClient() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             <Reveal>
-              <Card className="bg-card/80 backdrop-blur-sm border-border h-full">
+              <Card className="group bg-card/80 backdrop-blur-sm border-border hover-lift hover:border-white/20 transition-colors h-full">
                 <CardContent className="p-8 space-y-4">
-                  <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                    <Users className="h-6 w-6 text-primary-foreground" />
+                  <div className="icon-badge icon-badge-violet h-12 w-12">
+                    <Users className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">
                     {L.teamTitle}
@@ -264,10 +281,10 @@ export default function AboutClient() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <Card className="bg-card/80 backdrop-blur-sm border-border h-full">
+              <Card className="group bg-card/80 backdrop-blur-sm border-border hover-lift hover:border-white/20 transition-colors h-full">
                 <CardContent className="p-8 space-y-4">
-                  <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                    <Lightbulb className="h-6 w-6 text-primary-foreground" />
+                  <div className="icon-badge icon-badge-amber h-12 w-12">
+                    <Lightbulb className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">
                     {L.approachLabel}
@@ -283,12 +300,13 @@ export default function AboutClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 bg-muted/30 overflow-hidden">
+        <div className="glow-blob w-[28rem] h-[28rem] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ff9a56]/8" />
+        <div className="container relative mx-auto px-4">
           <Reveal className="max-w-3xl mx-auto">
-            <Card className="bg-gradient-to-br from-primary-foreground/10 to-chart-4/10 border-primary-foreground/30">
+            <Card className="bg-gradient-to-br from-[#ff9a56]/10 via-transparent to-[#8b8ef5]/10 border-[#8b8ef5]/25 hover-lift">
               <CardContent className="p-12 text-center space-y-6">
-                <Badge className="bg-primary-foreground text-primary">
+                <Badge variant="outline" className="brand-chip-cyan">
                   {L.letsTalkLabel}
                 </Badge>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">

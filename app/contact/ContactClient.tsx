@@ -8,6 +8,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useLocale } from "@/contexts/locale-context"
 import { Reveal } from "@/components/ui/reveal"
 
+const CONTACT_ART_URL =
+  "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/7ee00e38-f1a3-40cc-8324-f5a15ee62b90.png"
+
 const TRANSLATIONS = {
   ro: {
     contactTitle: "Contact",
@@ -256,16 +259,29 @@ export default function ContactClient() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-background">
-        <div className="container mx-auto px-4">
-          <Reveal className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
-              {L.contactTitle}
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {L.contactSubtitle}
-            </p>
-          </Reveal>
+      <section className="relative pt-32 pb-20 bg-background overflow-hidden">
+        <div className="glow-blob w-[26rem] h-[26rem] -top-20 -right-24 bg-[#6fd9ff]/10" />
+        <div className="glow-blob w-[24rem] h-[24rem] top-10 -left-16 bg-[#8b8ef5]/10" />
+        <div className="container relative mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <Reveal className="space-y-6 text-center lg:text-left">
+              <span className="eyebrow-pulse font-mono text-xs uppercase tracking-[0.22em] text-[#6fd9ff]">
+                TINKA AI
+              </span>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-balance bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                {L.contactTitle}
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                {L.contactSubtitle}
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <div className="art-panel aspect-[4/3]">
+                <img src={CONTACT_ART_URL} alt="" aria-hidden="true" loading="eager" />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -274,8 +290,8 @@ export default function ContactClient() {
         <div className="container mx-auto px-4">
           <Reveal className="max-w-2xl mx-auto space-y-6">
             {/* Info */}
-            <div>
-              <Card className="bg-card/80 backdrop-blur-sm border-border">
+            <div className="space-y-6">
+              <Card className="bg-card/80 backdrop-blur-sm border-border hover-lift">
                 <CardContent className="p-8 space-y-6">
                   <div>
                     <h3 className="text-xl font-bold text-foreground mb-2">
@@ -288,8 +304,8 @@ export default function ContactClient() {
 
                   <div className="space-y-4">
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-5 w-5 text-primary-foreground" />
+                      <div className="icon-badge icon-badge-amber h-10 w-10 flex-shrink-0">
+                        <Mail className="h-5 w-5" />
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">
@@ -305,8 +321,8 @@ export default function ContactClient() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-5 w-5 text-primary-foreground" />
+                      <div className="icon-badge icon-badge-cyan h-10 w-10 flex-shrink-0">
+                        <Phone className="h-5 w-5" />
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">
@@ -322,8 +338,8 @@ export default function ContactClient() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Clock className="h-5 w-5 text-primary-foreground" />
+                      <div className="icon-badge icon-badge-violet h-10 w-10 flex-shrink-0">
+                        <Clock className="h-5 w-5" />
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">
@@ -336,8 +352,8 @@ export default function ContactClient() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-5 w-5 text-primary-foreground" />
+                      <div className="icon-badge icon-badge-pink h-10 w-10 flex-shrink-0">
+                        <MapPin className="h-5 w-5" />
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-sm mb-1">
@@ -351,8 +367,8 @@ export default function ContactClient() {
 
                     {/* Mesagerie */}
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 bg-primary-foreground/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MessageCircle className="h-5 w-5 text-primary-foreground" />
+                      <div className="icon-badge icon-badge-amber h-10 w-10 flex-shrink-0">
+                        <MessageCircle className="h-5 w-5" />
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold text-foreground text-sm mb-2">
@@ -390,7 +406,7 @@ export default function ContactClient() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-primary-foreground/10 to-chart-4/10 border-primary-foreground/30">
+              <Card className="bg-gradient-to-br from-[#6fd9ff]/10 via-transparent to-[#8b8ef5]/10 border-[#6fd9ff]/25 hover-lift">
                 <CardContent className="p-6 space-y-3">
                   <h3 className="text-lg font-bold text-foreground">
                     {L.quickTitle}
@@ -406,11 +422,12 @@ export default function ContactClient() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 bg-muted/30 overflow-hidden">
+        <div className="glow-blob w-[22rem] h-[22rem] top-0 left-1/2 -translate-x-1/2 bg-[#8b8ef5]/8" />
+        <div className="container relative mx-auto px-4">
           <Reveal className="max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-sky-300 to-violet-400 bg-clip-text text-transparent">
                 {L.faqTitle}
               </h2>
               <p className="text-lg text-muted-foreground">{L.faqSubtitle}</p>
