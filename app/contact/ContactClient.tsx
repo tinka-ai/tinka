@@ -6,6 +6,7 @@ import { Mail, Phone, Clock, MapPin, MessageCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { useLocale } from "@/contexts/locale-context"
+import { Reveal } from "@/components/ui/reveal"
 
 const TRANSLATIONS = {
   ro: {
@@ -257,21 +258,21 @@ export default function ContactClient() {
       {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <Reveal className="max-w-3xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
               {L.contactTitle}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               {L.contactSubtitle}
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Contact */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto space-y-6">
+          <Reveal className="max-w-2xl mx-auto space-y-6">
             {/* Info */}
             <div>
               <Card className="bg-card/80 backdrop-blur-sm border-border">
@@ -400,14 +401,14 @@ export default function ContactClient() {
                 </CardContent>
               </Card>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <Reveal className="max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 {L.faqTitle}
@@ -431,7 +432,7 @@ export default function ContactClient() {
                 </Accordion>
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </section>
 

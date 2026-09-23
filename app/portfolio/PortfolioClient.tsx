@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import T from "@/components/T";
 import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags";
+import { Reveal } from "@/components/ui/reveal";
 
 const PORTFOLIO_URL = "https://tinkaweb.md";
 
 export default function PortfolioClient() {
   return (
     <main className="mx-auto max-w-7xl px-4 pt-28 pb-16">
-      <div className="mb-8">
+      <Reveal className="mb-8">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
           <T path="portfolioPage.title" />
         </h1>
@@ -32,7 +34,7 @@ export default function PortfolioClient() {
             <T path="portfolioPage.note" />
           </p>
         </div>
-      </div>
+      </Reveal>
 
       <div className="rounded-2xl border border-border bg-card/40 overflow-hidden">
         <iframe
@@ -53,7 +55,7 @@ export default function PortfolioClient() {
 
       {/* ── TINKORA — Produsele TINKA AI ── */}
       <div className="mt-16 border-t border-white/5 pt-12">
-        <div className="flex items-center gap-3 mb-8">
+        <Reveal className="flex items-center gap-3 mb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs text-amber-400">
             <span className="h-2 w-2 rounded-full bg-amber-400" />
             Tinkora
@@ -61,12 +63,13 @@ export default function PortfolioClient() {
           <h2 className="text-2xl font-bold text-white">
             <T path="portfolioPage.tinkoraTitle" />
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {/* TINKA Transcriber — ascuns temporar, vezi lib/featureFlags.ts */}
           {TRANSCRIBER_ENABLED && (
+          <Reveal>
           <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent p-6 flex flex-col gap-4">
             <div className="flex items-start justify-between">
               <div>
@@ -96,9 +99,11 @@ export default function PortfolioClient() {
               </Link>
             </div>
           </div>
+          </Reveal>
           )}
 
           {/* TinkaBook */}
+          <Reveal delay={0.08}>
           <div className="rounded-2xl border border-sky-500/20 bg-gradient-to-br from-sky-500/5 to-transparent p-6 flex flex-col gap-4">
             <div className="flex items-start justify-between">
               <div>
@@ -122,8 +127,10 @@ export default function PortfolioClient() {
               <T path="portfolioPage.visitBtn" />
             </Link>
           </div>
+          </Reveal>
 
           {/* VIALA */}
+          <Reveal delay={0.16}>
           <div className="rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-950/40 via-blue-950/30 to-transparent p-6 flex flex-col gap-4 relative overflow-hidden">
             {/* Glow effect */}
             <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-cyan-500/10 blur-2xl pointer-events-none" />
@@ -131,11 +138,13 @@ export default function PortfolioClient() {
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 {/* Logo */}
-                <img
+                <Image
                   src="/image/viala-logo-dark.png"
                   alt="VIALA"
+                  width={188}
+                  height={69}
                   className="h-8 w-auto object-contain"
-                  onError={(e) => { e.currentTarget.style.display="none" }}
+                  onError={(e) => { e.currentTarget.style.display = "none" }}
                 />
                 <p className="text-xs text-cyan-400 mt-2 font-medium tracking-wider uppercase">
                   AI Care for Human Connection
@@ -155,6 +164,7 @@ export default function PortfolioClient() {
               <T path="portfolioPage.vialaTease" />
             </div>
           </div>
+          </Reveal>
 
         </div>
       </div>

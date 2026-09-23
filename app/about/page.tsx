@@ -7,7 +7,7 @@ import Script from "next/script";
 import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
-  title: "Despre TINKA AI – Cine suntem și ce facem | TINKA AI",
+  title: "Despre TINKA AI – Cine suntem și ce facem",
   description:
     "Află povestea TINKA AI, misiunea noastră și cum ajutăm afacerile din Moldova cu web design modern, AI, automatizări și soluții digitale inteligente.",
 

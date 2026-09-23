@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import Script from "next/script"
 import { articles } from "../blogData"
 import ArticleClient from "./ArticleClient"
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {}
   const t = article.translations.ro
   return {
-    title: `${t.title} | TINKA AI Blog`,
+    title: t.title,
     description: t.description,
     alternates: {
       canonical: `https://tinka.md/blog/${slug}`,
@@ -51,9 +52,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function ArticleJSONLD({ article }: { article: (typeof articles)[number] }) {
+  const t = article.translations.ro
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: t.title,
+    description: t.description,
+    url: `https://tinka.md/blog/${article.slug}`,
+    datePublished: article.date,
+    dateModified: article.date,
+    inLanguage: "ro",
+    image: "https://tinka.md/image/og-image.webp",
+    author: { "@id": "https://tinka.md/#business" },
+    publisher: { "@id": "https://tinka.md/#business" },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://tinka.md/blog/${article.slug}`,
+    },
+  }
+
+  return (
+    <Script
+      id="article-jsonld"
+      type="application/ld+json"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  )
+}
+
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params
   const article = articles.find((a) => a.slug === slug)
   if (!article) notFound()
-  return <ArticleClient article={article} />
+  return (
+    <>
+      <ArticleJSONLD article={article} />
+      <ArticleClient article={article} />
+    </>
+  )
 }

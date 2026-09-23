@@ -23,6 +23,7 @@ import {
 
 import LocalePageClient from "@/components/LocalePageClient";
 import T from "@/components/T";
+import HeroTitle from "@/components/ui/hero-title";
 
 const OfferCTA = dynamic(
   () => import("@/components/offer/OfferCTA"),
@@ -58,9 +59,7 @@ export default function HomeClient() {
                   <T path="hero.subtitle" />
                 </div>
 
-                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent will-change-transform">
-                  <T path="hero.title" />
-                </h1>
+                <HeroTitle />
 
                 <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
                   <T path="whatWeOffer.title" />

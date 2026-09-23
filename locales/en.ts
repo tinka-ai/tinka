@@ -25,6 +25,29 @@ export const en = {
       "TINKA AI builds fast websites, online stores, AI chatbots and automation tools for companies in Chișinău and across Moldova.",
   },
 
+  aiHero: {
+    eyebrow: "TINKA AI · Software, SaaS & AI",
+    titlePrefix: "Technology that gives you a real ",
+    titleHighlight: "advantage",
+    titleSuffix: ", not just an ordinary IT solution.",
+    lede:
+      "Custom software, SaaS platforms, automation and personalized media content or an online training platform, including an AI agent — built to get your business found on Google and by AI assistants like ChatGPT, Gemini, Grok, Perplexity, Claude and more.",
+    stat1Value: "2×",
+    stat1Label: "visibility in AI search",
+    stat2Value: "MD → RO",
+    stat2Label: "regional coverage",
+    stat3Value: "#1",
+    stat3Label: "goal: new customers",
+    ctaPrimary: "Get a free audit",
+    ctaSecondary: "See how it works",
+    chipSeo: "SEO",
+    chipGeo: "GEO",
+    chipContent: "AI CONTENT",
+    chipAnalytics: "ANALYTICS",
+    fallback:
+      "WebGL isn't available in this browser — the 3D visual can't be shown here.",
+  },
+
   solutions: {
     title: "Solutions",
     subtitle: "We transform processes into automated solutions powered by AI and digital tools — as if you had virtual employees who never get tired and deliver results 24/7.",
@@ -161,6 +184,166 @@ export const en = {
       cta: {
         primary: "Analyze your processes",
         secondary: "Free 30-minute automation audit",
+      },
+    },
+
+    customSoftware: {
+      title: "Custom software",
+      subtitle: "Applications built around your process, not the other way around",
+
+      problem: {
+        title: "Problem",
+        description:
+          "Off-the-shelf tools force you to adapt your business to their workflow — leaving you with features you don't need and missing the ones you do.",
+      },
+
+      whereApplies: {
+        title: "Where it applies",
+        description:
+          "Internal CRMs, management systems, desktop or offline apps, dedicated platforms for one critical business process.",
+        tags: ["Custom CRM", "Offline software", "Desktop apps", "Internal systems", "API integrations"],
+      },
+
+      example: {
+        title: "Example",
+        description:
+          "A local distributor gets a custom CRM that unifies inventory, orders and deliveries in one screen — no monthly fees to third parties.",
+      },
+
+      features: {
+        title: "What we build:",
+        list: [
+          "Custom web and desktop applications",
+          "Bespoke CRM and ERP systems",
+          "Software that also works offline",
+          "Integrations with your existing tools (accounting, POS, inventory)",
+          "Code that stays yours — no vendor lock-in",
+        ],
+      },
+
+      cta: {
+        primary: "Talk about your project",
+        secondary: "First technical consultation is free",
+      },
+    },
+
+    saas: {
+      title: "SaaS platforms & booking",
+      subtitle: "Your digital product, ready to sell as a subscription",
+
+      problem: {
+        title: "Problem",
+        description:
+          "You have a process that could be sold as a service (bookings, scheduling, management), but no technical team or time to build it.",
+      },
+
+      whereApplies: {
+        title: "Where it applies",
+        description:
+          "Online booking platforms, QR digital menus for restaurants, self-service client portals, subscription dashboards.",
+        tags: ["Booking & scheduling", "QR digital menus", "Self-service portals", "Client dashboards", "Multi-tenant"],
+      },
+
+      example: {
+        title: "Example",
+        description:
+          "TinkaBook — our own online booking platform for salons and freelancers — started as a solution built for a single client, then became a full SaaS product.",
+      },
+
+      features: {
+        title: "What's included:",
+        list: [
+          "Multi-tenant (SaaS) architecture",
+          "Automated billing and subscriptions",
+          "Admin panel for you and your clients",
+          "Scales from 10 to 10,000 users",
+          "Ongoing maintenance and support",
+        ],
+      },
+
+      cta: {
+        primary: "See how we launch a SaaS",
+        secondary: "From idea to working product in weeks, not months",
+      },
+    },
+
+    aiContent: {
+      title: "AI-generated content & media",
+      subtitle: "Voice, video and AI avatars, ready for any channel",
+
+      problem: {
+        title: "Problem",
+        description:
+          "Classic video/audio production is slow and expensive — especially if you need content in several languages or updated often.",
+      },
+
+      whereApplies: {
+        title: "Where it applies",
+        description:
+          "Multilingual audio/video dubbing, AI avatars for presentations or customer service, electronic audio menus, voice-over and social media content.",
+        tags: ["AI audio/video dubbing", "AI avatars (digital humans)", "Electronic audio menus", "Multilingual voice-over", "AI social media content"],
+      },
+
+      example: {
+        title: "Example",
+        description:
+          "A restaurant gets an AI audio-guided menu, available in Romanian, Russian and English, without recording a single real voice.",
+      },
+
+      features: {
+        title: "What we deliver:",
+        list: [
+          "Video/audio dubbing with natural AI voices",
+          "Digital avatars for presentations or a virtual front desk",
+          "Interactive audio menus and guides",
+          "Content translation with voice cloning",
+          "AI-generated video/social content",
+        ],
+      },
+
+      cta: {
+        primary: "See AI content examples",
+        secondary: "We'll test a free sample for your business",
+      },
+    },
+
+    elearning: {
+      title: "E-learning platforms",
+      subtitle: "Your courses, structured as a digital product",
+
+      problem: {
+        title: "Problem",
+        description:
+          "You have knowledge worth selling as training or a course, but generic platforms don't fit your brand or business model.",
+      },
+
+      whereApplies: {
+        title: "Where it applies",
+        description:
+          "Custom LMS platforms, certified online courses, automated testing, corporate internal training.",
+        tags: ["LMS platforms", "Certified courses", "Automated testing", "Corporate training", "Educational video content"],
+      },
+
+      example: {
+        title: "Example",
+        description:
+          "A training company moves its courses to its own platform, with automatic progress tracking and instant certificates on completion.",
+      },
+
+      features: {
+        title: "What we build:",
+        list: [
+          "LMS platform with your brand",
+          "Automated tests and certification",
+          "Learner progress tracking",
+          "AI-assisted video/audio content",
+          "Mobile and desktop access",
+        ],
+      },
+
+      cta: {
+        primary: "Talk about your course platform",
+        secondary: "Book a 30-minute consultation",
       },
     },
 
@@ -358,7 +541,7 @@ export const en = {
   },
 
   whyAI: {
-    title: "Why AI",
+    title: "Why TINKA AI",
     benefit1: { title: "Time saved", description: "Less manual work." },
     benefit2: { title: "Lower costs", description: "More efficiency." },
     benefit3: { title: "Fast scaling", description: "Grow effortlessly." },

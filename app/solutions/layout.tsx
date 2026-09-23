@@ -2,9 +2,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Soluții Digitale & AI pentru Afaceri din Moldova | TINKA AI",
+  title: "Software Personalizat, SaaS & Soluții AI pentru Afaceri din Moldova",
   description:
-    "Chatbot-uri AI, website-uri moderne, automatizări business și consultanță digitală pentru IMM-uri din Republica Moldova.",
+    "Software personalizat, platforme SaaS, chatbot-uri AI, website-uri, automatizări, conținut AI și e-learning pentru IMM-uri din Republica Moldova.",
 
   alternates: {
     canonical: "https://tinka.md/solutions",
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Soluții Digitale & AI pentru Afaceri din Moldova",
+    title: "Software Personalizat, SaaS & Soluții AI pentru Afaceri din Moldova",
     description:
-      "Implementăm chatbot-uri AI, website-uri moderne și automatizări pentru companii.",
+      "Construim software personalizat, platforme SaaS, chatbot-uri AI, website-uri și automatizări pentru companii.",
     url: "https://tinka.md/solutions",
     siteName: "TINKA AI",
     type: "website",
@@ -44,7 +44,7 @@ export default function SolutionsLayout({ children }: { children: React.ReactNod
             name: "Soluții Digitale și AI – TINKA AI",
             description: "Servicii digitale oferite de TINKA AI în Moldova",
             url: "https://tinka.md/solutions",
-            numberOfItems: 4,
+            numberOfItems: 8,
             itemListElement: [
               {
                 "@type": "ListItem",
@@ -52,7 +52,7 @@ export default function SolutionsLayout({ children }: { children: React.ReactNod
                 item: {
                   "@type": "Service",
                   name: "Chatbot AI",
-                  url: "https://tinka.md/solutions#chatbot",
+                  url: "https://tinka.md/solutions#chatbots",
                   provider: { "@id": "https://tinka.md/#business" },
                 },
               },
@@ -61,14 +61,34 @@ export default function SolutionsLayout({ children }: { children: React.ReactNod
                 position: 2,
                 item: {
                   "@type": "Service",
-                  name: "Web Design",
-                  url: "https://tinka.md/solutions#website",
+                  name: "Software Personalizat",
+                  url: "https://tinka.md/solutions#customSoftware",
                   provider: { "@id": "https://tinka.md/#business" },
                 },
               },
               {
                 "@type": "ListItem",
                 position: 3,
+                item: {
+                  "@type": "Service",
+                  name: "Web Design",
+                  url: "https://tinka.md/solutions#websites",
+                  provider: { "@id": "https://tinka.md/#business" },
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 4,
+                item: {
+                  "@type": "Service",
+                  name: "Platforme SaaS & Booking",
+                  url: "https://tinka.md/solutions#saas",
+                  provider: { "@id": "https://tinka.md/#business" },
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 5,
                 item: {
                   "@type": "Service",
                   name: "Automatizări Business",
@@ -78,7 +98,27 @@ export default function SolutionsLayout({ children }: { children: React.ReactNod
               },
               {
                 "@type": "ListItem",
-                position: 4,
+                position: 6,
+                item: {
+                  "@type": "Service",
+                  name: "Conținut & Media AI",
+                  url: "https://tinka.md/solutions#aiContent",
+                  provider: { "@id": "https://tinka.md/#business" },
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 7,
+                item: {
+                  "@type": "Service",
+                  name: "Platforme E-learning",
+                  url: "https://tinka.md/solutions#elearning",
+                  provider: { "@id": "https://tinka.md/#business" },
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 8,
                 item: {
                   "@type": "Service",
                   name: "Consultanță Digitală",

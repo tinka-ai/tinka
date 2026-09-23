@@ -394,7 +394,7 @@ export default function OfferModal({ open, onOpenChange }: OfferModalProps) {
                 {L.cancel}
               </Button>
 
-              <Button type="submit" className="bg-primary-foreground text-primary">
+              <Button type="submit" className="bg-sky-500 text-white hover:bg-sky-400">
                 {sending ? LoaderSvg : SendSvg}
                 {L.submit}
               </Button>

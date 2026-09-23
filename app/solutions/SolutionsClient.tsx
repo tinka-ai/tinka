@@ -14,6 +14,10 @@ import {
   CheckCircle,
   AlertCircle,
   Target,
+  Code,
+  Cloud,
+  Sparkles,
+  GraduationCap,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -24,8 +28,12 @@ export default function SolutionsClient() {
     title: "Soluții",
     subtitle: "Transformăm procesele cu AI și aplicații",
     chatbots: {},
+    customSoftware: {},
     websites: {},
+    saas: {},
     automation: {},
+    aiContent: {},
+    elearning: {},
     consulting: {},
   }
 
@@ -38,6 +46,13 @@ export default function SolutionsClient() {
       borderColor: "border-blue-500/30",
     },
     {
+      icon: Code,
+      id: "customSoftware",
+      data: solutions.customSoftware,
+      color: "from-indigo-500/20 to-violet-500/20",
+      borderColor: "border-indigo-500/30",
+    },
+    {
       icon: Globe,
       id: "websites",
       data: solutions.websites,
@@ -45,11 +60,32 @@ export default function SolutionsClient() {
       borderColor: "border-purple-500/30",
     },
     {
+      icon: Cloud,
+      id: "saas",
+      data: solutions.saas,
+      color: "from-sky-500/20 to-blue-500/20",
+      borderColor: "border-sky-500/30",
+    },
+    {
       icon: Workflow,
       id: "automation",
       data: solutions.automation,
       color: "from-green-500/20 to-emerald-500/20",
       borderColor: "border-green-500/30",
+    },
+    {
+      icon: Sparkles,
+      id: "aiContent",
+      data: solutions.aiContent,
+      color: "from-fuchsia-500/20 to-rose-500/20",
+      borderColor: "border-fuchsia-500/30",
+    },
+    {
+      icon: GraduationCap,
+      id: "elearning",
+      data: solutions.elearning,
+      color: "from-teal-500/20 to-cyan-500/20",
+      borderColor: "border-teal-500/30",
     },
     {
       icon: Lightbulb,

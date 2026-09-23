@@ -21,7 +21,7 @@ export default function OfferCTA({
 
   const base =
     variant === "primary"
-      ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+      ? "bg-sky-500 text-white hover:bg-sky-400"
       : "bg-transparent text-foreground hover:bg-muted/40"
 
   const handleClick = () => {

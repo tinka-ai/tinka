@@ -1,9 +1,14 @@
 // app/api/chat/route.ts
 import { NextResponse } from "next/server"
 import OpenAI from "openai"
+import https from "https"
 
+// keepAlive: false — evită eroarea "Premature close" care apare când Next.js
+// dev server (HMR) invalidează conexiunile HTTP ținute deschise în timp ce
+// request-ul către OpenAI e încă în desfășurare.
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
+  httpAgent: new https.Agent({ keepAlive: false }),
 })
 
 type Lang = "ro" | "ru" | "en"

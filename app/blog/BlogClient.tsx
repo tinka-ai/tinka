@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useLocale } from "@/contexts/locale-context"
 import { articles, categories, blogUI, type Locale } from "./blogData"
 import Footer from "@/components/ui/footer"
+import { Reveal } from "@/components/ui/reveal"
 
 export default function BlogClient() {
   const { locale } = useLocale() as { locale: Locale }
@@ -15,26 +16,26 @@ export default function BlogClient() {
 
       {/* HERO */}
       <section className="pt-32 pb-16 border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center space-y-4">
+        <Reveal className="mx-auto max-w-7xl px-4 sm:px-6 text-center space-y-4">
           <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
             {ui.title}
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             {ui.subtitle}
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ARTICLES GRID */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {articles.map((article) => {
+            {articles.map((article, i) => {
               const t = article.translations[locale] ?? article.translations.ro
               const cat = (cats as any)[article.category] ?? article.category
               return (
+                <Reveal key={article.slug} delay={i * 0.08}>
                 <article
-                  key={article.slug}
                   className="group flex flex-col rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-sky-500/40 hover:bg-white/8 transition-all duration-300"
                 >
                   {/* Category + Date */}
@@ -69,6 +70,7 @@ export default function BlogClient() {
                     </div>
                   </div>
                 </article>
+                </Reveal>
               )
             })}
           </div>

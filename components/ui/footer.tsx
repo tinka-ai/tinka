@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useLocale } from "@/contexts/locale-context"
+import { Reveal } from "@/components/ui/reveal"
 
 export default function Footer() {
   const { t } = useLocale()
@@ -11,7 +12,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
 
         {/* GRID TOP */}
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        <Reveal className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           
           {/* COL 1 — COMPANY */}
           <div className="lg:col-span-1 space-y-4">
@@ -47,7 +48,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/blog">{t("footer.blog")}</Link></li>
               <li><Link href="/case-studies">{t("footer.caseStudies")}</Link></li>
-              <li><Link href="/faq">{t("footer.faq")}</Link></li>
+              <li><Link href="/#faq">{t("footer.faq")}</Link></li>
             </ul>
           </div>
 
@@ -62,7 +63,7 @@ export default function Footer() {
               <li>{t("footer.hours")}</li>
             </ul>
           </div>
-        </div>
+        </Reveal>
 
         {/* BOTTOM ROW */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">

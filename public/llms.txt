@@ -1,14 +1,17 @@
 # TINKA AI
 
-> TINKA AI este o agenție digitală din Republica Moldova specializată în web design, chatbot-uri AI, automatizări business și soluții digitale pentru IMM-uri.
+> TINKA AI este o agenție digitală din Republica Moldova specializată în software personalizat, platforme SaaS, chatbot-uri AI, website-uri, automatizări business, conținut generat cu AI și e-learning pentru IMM-uri. Website-urile sunt doar una dintre soluțiile oferite — accentul principal cade pe software personalizat construit pe procesele reale ale clientului.
 
 ## Servicii principale
 
-- **Web Design & Development** — Site-uri moderne, rapide, optimizate SEO, cu PageSpeed 90+
+- **Software personalizat** — CRM-uri interne, sisteme de gestiune, aplicații desktop și offline, integrări API, construite exact pe procesele clientului (nu soluții "de pe raft")
+- **Platforme SaaS & booking** — Platforme de rezervări/programări online (ex: TinkaBook), meniuri digitale QR pentru restaurante, portaluri self-service, dashboard-uri cu abonament, arhitectură multi-client
+- **Web Design & Development** — Site-uri moderne, rapide, optimizate SEO și GEO (vizibilitate în motoarele de căutare clasice și în motoare AI/generative), cu PageSpeed 90+
 - **Chatbot AI** — Chatbot-uri inteligente integrate pe site, WhatsApp și Messenger, disponibile 24/7
 - **Automatizări Business** — Fluxuri automate CRM, email, notificări WhatsApp, procesare comenzi
+- **Conținut & media generate cu AI** — Dublaj audio/video multilingv cu voci AI, avatare AI (digital humans) pentru prezentări sau customer service, meniuri audio electronice, voce-over, conținut video/social generat cu AI
+- **Platforme de e-learning** — Platforme LMS personalizate, cursuri online cu certificare automată, teste automate, training corporate, conținut educațional video/audio asistat de AI
 - **Consultanță Digitală** — Strategie AI, audit procese, implementare și training pentru echipe
-- **TinkaBook** — Platformă SaaS de programări online pentru saloane și liber-profesioniști
 
 ## Despre companie
 
@@ -21,15 +24,15 @@
 
 ## De ce TINKA AI
 
+- Software construit pe procesele reale ale clientului, nu șabloane generice — fără vendor lock-in, codul rămâne al clientului
 - Prețuri accesibile adaptate pieței din Moldova
 - Livrare rapidă — proiecte pilot în 2–4 săptămâni
 - Suport în română, rusă și engleză
 - Garanție 30 zile pe toate proiectele
-- Fără vendor lock-in
 
 ## Produse SaaS proprii
 
-- **TinkaBook** (tinkaweb.md) — sistem de programări online pentru saloane de frumusețe, cabinete medicale și liber-profesioniști din Moldova
+- **TinkaBook** (tinkaweb.md) — sistem de programări online pentru saloane de frumusețe, cabinete medicale și liber-profesioniști din Moldova, dezvoltat inițial ca soluție personalizată și transformat în produs SaaS
 
 ## Linkuri utile
 

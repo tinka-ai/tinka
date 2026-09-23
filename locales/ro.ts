@@ -25,6 +25,29 @@ export const ro = {
       "TINKA AI construiește website-uri rapide, magazine online, chatbot-uri AI și automatizări pentru companii din Chișinău și din toată Moldova.",
   },
 
+  aiHero: {
+    eyebrow: "TINKA AI · Software, SaaS & AI",
+    titlePrefix: "Tehnologia care îți dă un ",
+    titleHighlight: "avantaj real",
+    titleSuffix: ", nu doar o soluție IT obișnuită.",
+    lede:
+      "Software personalizat, platforme SaaS, automatizări și conținut media personalizat sau platformă de instruire on-line, inclusiv cu AI agent — construite ca afacerea ta să fie găsită și în Google, și de asistenții AI precum ChatGPT, Gemini, Grok, Perplexity, Claude etc.",
+    stat1Value: "2×",
+    stat1Label: "vizibilitate în căutări AI",
+    stat2Value: "MD → RO",
+    stat2Label: "acoperire regională",
+    stat3Value: "#1",
+    stat3Label: "obiectiv: clienți noi",
+    ctaPrimary: "Solicită un audit gratuit",
+    ctaSecondary: "Vezi cum funcționează",
+    chipSeo: "SEO",
+    chipGeo: "GEO",
+    chipContent: "CONȚINUT AI",
+    chipAnalytics: "ANALIZĂ",
+    fallback:
+      "WebGL nu e disponibil în acest browser — vizualul 3D nu poate fi afișat aici.",
+  },
+
   solutions: {
     title: "Soluții",
     subtitle: "Transformăm procesele în soluții automatizate cu ajutorul AI și instrumentelor digitale — ca și cum ați avea angajați virtuali care lucrează non-stop, fără pauze, fără erori, 24/7.",
@@ -158,6 +181,166 @@ export const ro = {
       },
     },
 
+    customSoftware: {
+      title: "Software personalizat",
+      subtitle: "Aplicații construite exact pe procesele tale, nu invers",
+
+      problem: {
+        title: "Problemă",
+        description:
+          "Soluțiile standard „de pe raft” te obligă să-ți adaptezi businessul la program, nu programul la business — și rămân module de care nu ai nevoie și lipsesc cele de care chiar ai nevoie.",
+      },
+
+      whereApplies: {
+        title: "Unde se aplică",
+        description:
+          "CRM-uri interne, sisteme de gestiune, aplicații desktop sau offline, platforme dedicate pentru un singur proces critic al afacerii tale.",
+        tags: ["CRM personalizat", "Software offline", "Aplicații desktop", "Sisteme interne", "Integrări API"],
+      },
+
+      example: {
+        title: "Exemplu",
+        description:
+          "Un distribuitor local primește un CRM personalizat care unifică stocul, comenzile și livrările într-un singur ecran — fără abonamente lunare către terți.",
+      },
+
+      features: {
+        title: "Ce construim:",
+        list: [
+          "Aplicații web și desktop la comandă",
+          "CRM-uri și ERP-uri personalizate",
+          "Software care funcționează și offline",
+          "Integrări cu sistemele existente (contabilitate, POS, stoc)",
+          "Cod care rămâne al tău, fără vendor lock-in",
+        ],
+      },
+
+      cta: {
+        primary: "Discută despre proiectul tău",
+        secondary: "Prima consultație tehnică e gratuită",
+      },
+    },
+
+    saas: {
+      title: "Platforme SaaS & booking",
+      subtitle: "Produsul tău digital, gata să fie vândut ca abonament",
+
+      problem: {
+        title: "Problemă",
+        description:
+          "Ai un proces care s-ar putea vinde ca serviciu (programări, rezervări, gestiune), dar nu ai echipă tehnică sau timp să-l construiești.",
+      },
+
+      whereApplies: {
+        title: "Unde se aplică",
+        description:
+          "Platforme de rezervări online, meniuri digitale QR pentru restaurante, portaluri self-service pentru clienți, dashboard-uri cu abonament.",
+        tags: ["Booking & programări", "Meniuri digitale QR", "Portaluri self-service", "Dashboard-uri client", "Multi-tenant"],
+      },
+
+      example: {
+        title: "Exemplu",
+        description:
+          "TinkaBook — platforma noastră proprie de programări online pentru saloane și liber-profesioniști — a pornit ca soluție construită pentru un singur client, apoi a devenit produs SaaS complet.",
+      },
+
+      features: {
+        title: "Ce include:",
+        list: [
+          "Arhitectură multi-client (SaaS)",
+          "Facturare și abonamente automate",
+          "Panou de administrare pentru tine și clienții tăi",
+          "Scalabil de la 10 la 10.000 de utilizatori",
+          "Mentenanță și suport continuu",
+        ],
+      },
+
+      cta: {
+        primary: "Vezi cum pornim un SaaS",
+        secondary: "De la idee la produs funcțional în săptămâni, nu luni",
+      },
+    },
+
+    aiContent: {
+      title: "Conținut & media generate cu AI",
+      subtitle: "Voce, video și avatare AI, gata pentru orice canal",
+
+      problem: {
+        title: "Problemă",
+        description:
+          "Producția video/audio clasică e scumpă și lentă — mai ales dacă ai nevoie de conținut în mai multe limbi sau actualizat des.",
+      },
+
+      whereApplies: {
+        title: "Unde se aplică",
+        description:
+          "Dublaj audio/video multilingv, avatare AI pentru prezentări sau customer service, meniuri audio electronice, voce-over și conținut pentru social media.",
+        tags: ["Dublaj AI audio/video", "Avatare AI (digital humans)", "Meniuri audio electronice", "Voce-over multilingv", "Conținut social media AI"],
+      },
+
+      example: {
+        title: "Exemplu",
+        description:
+          "Un restaurant primește un meniu cu ghid audio AI, disponibil în română, rusă și engleză, fără să înregistreze o singură voce reală.",
+      },
+
+      features: {
+        title: "Ce livrăm:",
+        list: [
+          "Dublaj video/audio cu voci AI naturale",
+          "Avatare digitale pentru prezentări sau recepție virtuală",
+          "Meniuri și ghiduri audio interactive",
+          "Traduceri de conținut cu voce clonată",
+          "Conținut video/social generat cu AI",
+        ],
+      },
+
+      cta: {
+        primary: "Vezi exemple de conținut AI",
+        secondary: "Testăm gratuit o mostră pentru afacerea ta",
+      },
+    },
+
+    elearning: {
+      title: "Platforme de e-learning",
+      subtitle: "Cursurile tale, structurate ca produs digital",
+
+      problem: {
+        title: "Problemă",
+        description:
+          "Ai cunoștințe de vândut ca training sau curs, dar platformele generice nu se potrivesc cu brandul sau modelul tău de business.",
+      },
+
+      whereApplies: {
+        title: "Unde se aplică",
+        description:
+          "Platforme LMS personalizate, cursuri online cu certificare, teste automate, training intern pentru companii.",
+        tags: ["Platforme LMS", "Cursuri cu certificare", "Teste automate", "Training corporate", "Conținut video educațional"],
+      },
+
+      example: {
+        title: "Exemplu",
+        description:
+          "O companie de training își mută cursurile într-o platformă proprie, cu progres urmărit automat și certificate generate instant la finalizare.",
+      },
+
+      features: {
+        title: "Ce construim:",
+        list: [
+          "Platformă LMS cu brandul tău",
+          "Teste și certificări automate",
+          "Urmărirea progresului cursanților",
+          "Conținut video/audio asistat de AI",
+          "Acces pe mobil și desktop",
+        ],
+      },
+
+      cta: {
+        primary: "Discută despre platforma ta de cursuri",
+        secondary: "Programează o consultație de 30 minute",
+      },
+    },
+
     consulting: {
       title: "Consultanță AI & Digital",
       subtitle: "Strategie clară pentru adoptarea AI în business",
@@ -221,7 +404,7 @@ export const ro = {
   },
 
   whyAI: {
-    title: "De ce AI",
+    title: "De ce TINKA AI",
     benefit1: { title: "Timp economisit", description: "Mai puțină muncă manuală, mai mult rezultat." },
     benefit2: { title: "Costuri reduse", description: "Automatizarea reduce timp și erori." },
     benefit3: { title: "Scalare rapidă", description: "Procesele cresc odată cu businessul tău." },

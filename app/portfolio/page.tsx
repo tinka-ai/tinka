@@ -6,7 +6,7 @@ import Script from "next/script";
 import PortfolioClient from "./PortfolioClient";
 
 export const metadata: Metadata = {
-  title: "Portofoliu – Proiecte și produse SaaS | TINKA AI",
+  title: "Portofoliu – Proiecte și produse SaaS",
   description:
     "Vezi portofoliul TINKA AI: proiecte SaaS, aplicații web și soluții digitale realizate pentru clienți din Moldova.",
 

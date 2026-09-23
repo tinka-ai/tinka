@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0 0 0);
+  --background: #0a0b12;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.05 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -48,7 +48,7 @@
 }
 
 .dark {
-  --background: oklch(0 0 0);
+  --background: #0a0b12;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.05 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -145,6 +145,48 @@
   }
   body {
     @apply bg-background text-foreground;
+    position: relative;
+  }
+
+  /* Fundal ambiental "viu" — respiră continuu pe toate paginile, ca un
+     semnal permanent de prezență AI, nu doar o intrare care se termină. */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  body::before {
+    background: radial-gradient(ellipse 60% 45% at 78% 20%, #1b1430 0%, transparent 60%);
+    animation: aiBreatheA 18s ease-in-out infinite;
+  }
+  body::after {
+    background: radial-gradient(ellipse 50% 40% at 10% 85%, #10192a 0%, transparent 60%);
+    animation: aiBreatheB 22s ease-in-out infinite;
+  }
+  #main-content,
+  header,
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes aiBreatheA {
+    0%, 100% { opacity: 0.85; transform: scale(1) translate(0, 0); }
+    50% { opacity: 1; transform: scale(1.12) translate(-2%, 2%); }
+  }
+  @keyframes aiBreatheB {
+    0%, 100% { opacity: 0.75; transform: scale(1) translate(0, 0); }
+    50% { opacity: 1; transform: scale(1.15) translate(2%, -2%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+      animation: none;
+    }
   }
 
   /* Hover smooth de la regular la bold pe item-urile din meniu */
@@ -176,5 +218,31 @@
   0% { transform: scale(1); filter: drop-shadow(0 0 4px #00c8ff); }
   50% { transform: scale(1.05); filter: drop-shadow(0 0 12px #00e1ff); }
  100% { transform: scale(1); filter: drop-shadow(0 0 4px #00c8ff); }
+}
+
+/* Puls ambiental continuu pe iconițele-badge — semnal permanent că "AI e activ",
+   nu doar la intrarea în viewport. */
+.ai-pulse-icon {
+  animation: aiIconPulse 3.6s ease-in-out infinite;
+}
+@keyframes aiIconPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(56, 189, 248, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-pulse-icon { animation: none; }
+}
+
+/* Ticker orizontal continuu (ex: banda TECHNOLOGIES • INNOVATION • ...) —
+   conținutul e duplicat o dată în JSX, iar aici doar translatăm -50%. */
+.marquee-track {
+  animation: tinkaMarquee 22s linear infinite;
+}
+@keyframes tinkaMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }
 

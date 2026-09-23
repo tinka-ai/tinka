@@ -21,18 +21,25 @@ export const metadata: Metadata = {
   },
 
   description:
-    "TINKA AI creează site-uri moderne, chatbot-uri AI, magazine online și automatizări inteligente pentru companii și liber-profesioniști din Republica Moldova.",
+    "TINKA AI creează software personalizat, platforme SaaS, chatbot-uri AI, website-uri, automatizări, conținut AI (dublaj, avatare) și platforme e-learning pentru companii din Republica Moldova.",
 
   keywords: [
     "TINKA AI",
+    "software personalizat Moldova",
+    "dezvoltare software la comandă",
+    "CRM personalizat Moldova",
+    "platformă SaaS Moldova",
     "web design Moldova",
     "creare site Chisinau",
     "chatbot AI Moldova",
     "automatizari business Moldova",
     "digitalizare IMM Moldova",
     "programări online Moldova",
-    "magazin online Moldova",
-    "website profesional Moldova",
+    "meniu digital restaurant",
+    "dublaj AI",
+    "avatare AI",
+    "e-learning Moldova",
+    "platformă cursuri online",
   ],
 
   robots: {
@@ -58,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TINKA AI – Soluții AI & Web Design pentru Afaceri din Moldova",
     description:
-      "Website-uri moderne, chatboturi AI, SEO și automatizări pentru afaceri din Republica Moldova.",
+      "Software personalizat, platforme SaaS, website-uri, chatboturi AI, automatizări și conținut AI pentru afaceri din Republica Moldova.",
     url: "https://tinka.md/",
     siteName: "TINKA AI",
     locale: "ro_MD",
@@ -77,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TINKA AI – Soluții Digitale în Moldova",
     description:
-      "Website-uri moderne, chatboturi AI, SEO și automatizări pentru IMM-uri.",
+      "Software personalizat, platforme SaaS, website-uri, chatboturi AI și automatizări pentru IMM-uri.",
     images: ["https://tinka.md/image/og-image.webp"],
   },
 }
@@ -112,7 +119,7 @@ export default function RootLayout({
               },
               image: "https://tinka.md/image/og-image.webp",
               description:
-                "TINKA AI oferă website-uri moderne, chatbot-uri AI, SEO și automatizări pentru companii din Republica Moldova.",
+                "TINKA AI oferă software personalizat, platforme SaaS, website-uri, chatbot-uri AI, automatizări, conținut AI (dublaj, avatare) și platforme e-learning pentru companii din Republica Moldova.",
               telephone: "+37368333899",
               email: "office@tinka.md",
               address: {
@@ -143,9 +150,14 @@ export default function RootLayout({
                 name: "Republica Moldova",
               },
               makesOffer: [
+                { "@type": "Offer", name: "Software Personalizat" },
+                { "@type": "Offer", name: "Platforme SaaS & Booking" },
                 { "@type": "Offer", name: "Web Design" },
                 { "@type": "Offer", name: "Chatbot AI" },
                 { "@type": "Offer", name: "Automatizări Business" },
+                { "@type": "Offer", name: "Conținut & Media AI" },
+                { "@type": "Offer", name: "Platforme E-learning" },
+                { "@type": "Offer", name: "Consultanță Digitală" },
               ],
             }),
           }}
@@ -205,7 +217,31 @@ export default function RootLayout({
                   name: "Ce servicii oferă TINKA AI?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "TINKA AI oferă web design, chatbot-uri AI, automatizări business, consultanță digitală și platforma TinkaBook pentru programări online. Toate serviciile sunt adaptate pentru companii din Republica Moldova.",
+                    text: "TINKA AI dezvoltă în principal software personalizat (CRM-uri, aplicații desktop și offline) și platforme SaaS, plus website-uri, chatbot-uri AI, automatizări business, conținut generat cu AI (dublaj audio/video, avatare, meniuri audio), platforme de e-learning și consultanță digitală. Toate serviciile sunt adaptate pentru companii din Republica Moldova.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "TINKA AI dezvoltă software personalizat sau doar website-uri?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Website-urile sunt doar una dintre soluțiile oferite. TINKA AI dezvoltă în principal software personalizat — CRM-uri interne, sisteme de gestiune, aplicații desktop sau offline — construite exact pe procesele fiecărui client, fără vendor lock-in.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "TINKA AI face conținut generat cu AI (dublaj, avatare)?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Da. TINKA AI produce conținut și media generate cu AI: dublaj audio/video multilingv, avatare AI (digital humans) pentru prezentări sau customer service, meniuri audio electronice, voce-over și conținut video/social media.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "TINKA AI construiește platforme de e-learning?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Da. TINKA AI construiește platforme LMS personalizate, cursuri online cu certificare automată, teste automate și training corporate, cu conținut video/audio asistat de AI.",
                   },
                 },
                 {

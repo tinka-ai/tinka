@@ -65,27 +65,44 @@ export default function ChatWidget() {
     scrollToBottom()
   }, [messages, typing, showLanguageSelector, pendingLead])
 
-  // ✅ AUTOSTART - se deschide automat după 2 secunde
+  // Pornește conversația: mesaj de salut, apoi selectorul de limbă.
+  // Folosit atât de auto-deschidere, cât și de deschiderea manuală (dacă
+  // widgetul nu a pornit încă nicio conversație în sesiunea curentă).
+  const startConversation = () => {
+    setMessages([
+      {
+        role: "assistant",
+        content: "Salut! 👋 Eu sunt Tinka AI, asistentul tău digital."
+      }
+    ])
+
+    setTimeout(() => {
+      setShowLanguageSelector(true)
+    }, 900)
+  }
+
+  // ✅ AUTOSTART - se deschide automat după 2 secunde, dar o singură dată per sesiune
   useEffect(() => {
+    if (typeof window === "undefined") return
+    if (sessionStorage.getItem("tinka_chat_autoopened")) return
+
     const timer = setTimeout(() => {
+      sessionStorage.setItem("tinka_chat_autoopened", "1")
       setOpen(true)
-
-      // ✅ 1) Mesaj de salut (fix cum ai cerut)
-      setMessages([
-        {
-          role: "assistant",
-          content: "Salut! 👋 Eu sunt Tinka AI, asistentul tău digital."
-        }
-      ])
-
-      // ✅ 2) Apoi arată selector limbă
-      setTimeout(() => {
-        setShowLanguageSelector(true)
-      }, 900)
+      startConversation()
     }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
+
+  const handleOpen = () => {
+    setOpen(true)
+    // Dacă widgetul e deschis manual (autostart deja consumat sau conversația
+    // n-a pornit din alt motiv), pornim conversația acum, ca să nu rămână gol.
+    if (messages.length === 0 && !language) {
+      startConversation()
+    }
+  }
 
   const playSound = (src: string) => {
     const audio = new Audio(src)
@@ -223,9 +240,10 @@ export default function ChatWidget() {
     <>
       {/* Floating Avatar Button */}
       <button
-        onClick={() => setOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40 
-          bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center 
+        onClick={handleOpen}
+        aria-label="Deschide chatul TINKA AI"
+        className={`fixed bottom-6 right-6 z-50 shadow-2xl border border-sky-400/40
+          bg-black/70 dark:bg-black/80 p-[4px] rounded-full w-16 h-16 flex items-center justify-center
           transition-all duration-300 neon-pulse ${open ? "scale-0" : "scale-100"}`}
       >
         <TinkaAvatar className="w-14 h-14" />
@@ -245,7 +263,7 @@ export default function ChatWidget() {
             </div>
             <span className="font-semibold text-sm">TINKA AI</span>
 
-            <button className="ml-auto" onClick={() => setOpen(false)}>
+            <button className="ml-auto" onClick={() => setOpen(false)} aria-label="Închide chatul">
               <X size={20} />
             </button>
           </div>
@@ -380,7 +398,8 @@ export default function ChatWidget() {
             <button
               onClick={sendMessage}
               disabled={!language}
-              className={`bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg shadow transition ${
+              aria-label="Trimite mesajul"
+              className={`bg-sky-500 hover:bg-sky-400 text-white p-2 rounded-lg shadow transition ${
                 !language ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >

@@ -48,11 +48,29 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* SECOND ROW – ACRONYM */}
-        <div className="mt-2 hidden md:flex justify-center" aria-label="TINKA">
-          <div className="relative inline-flex items-center gap-3 rounded-full border border-border bg-card/60 backdrop-blur-md px-4 py-1">
-            <p className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-              Technologies • Innovation • Networking • Knowledge • Automation
+      </div>
+
+      {/* SECOND ROW – ACRONYM (ticker continuu, pe toată lățimea paginii) */}
+      <div className="mt-2 w-full" aria-label="TINKA">
+        <div
+          className="relative w-full overflow-hidden border-y border-border bg-card/60 backdrop-blur-md py-1.5 sm:py-2"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+          }}
+        >
+          <div className="marquee-track flex w-max items-center gap-3 whitespace-nowrap">
+            <p className="text-[9px] sm:text-[11px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-muted-foreground px-3">
+              • Technologies • Innovation • Networking • Knowledge • Automation •
+            </p>
+            <p className="text-[9px] sm:text-[11px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-muted-foreground px-3" aria-hidden="true">
+              • Technologies • Innovation • Networking • Knowledge • Automation •
+            </p>
+            <p className="text-[9px] sm:text-[11px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-muted-foreground px-3" aria-hidden="true">
+              • Technologies • Innovation • Networking • Knowledge • Automation •
+            </p>
+            <p className="text-[9px] sm:text-[11px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-muted-foreground px-3" aria-hidden="true">
+              • Technologies • Innovation • Networking • Knowledge • Automation •
             </p>
           </div>
         </div>

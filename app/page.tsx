@@ -3,10 +3,9 @@
 
 import type React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import dynamic from "next/dynamic";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 
-import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 import Eye from "lucide-react/dist/esm/icons/eye";
 import Puzzle from "lucide-react/dist/esm/icons/puzzle";
 import Waves from "lucide-react/dist/esm/icons/waves";
@@ -14,7 +13,6 @@ import FlaskConical from "lucide-react/dist/esm/icons/flask-conical";
 import Link2 from "lucide-react/dist/esm/icons/link-2";
 
 import Footer from "@/components/ui/footer";
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionItem,
@@ -24,19 +22,18 @@ import {
 
 import LocalePageClient from "@/components/LocalePageClient";
 import T from "@/components/T";
+import AiPortraitHero from "@/components/sections/AiPortraitHero";
+import { Reveal } from "@/components/ui/reveal";
 import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags";
 
+const EASE_OUT = [0.23, 1, 0.32, 1] as const;
+
+const gridVariants: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
 /* ⚡ OPTIMIZARE – încărcăm JS doar când e nevoie */
-const OfferCTA = dynamic(
-  () => import("@/components/offer/OfferCTA"),
-  { ssr: false, loading: () => null }
-);
-
-const TinkaBookSection = dynamic(
-  () => import("@/components/sections/TinkaBookSection"),
-  { ssr: false, loading: () => null }
-);
-
 const TinkaTranscriberSection = dynamic(
   () => import("@/components/sections/TinkaTranscriberSection"),
   { ssr: false, loading: () => null }
@@ -51,82 +48,33 @@ export default function Page() {
       <main id="main-content">
 
         {/* HERO */}
-        <section
-          id="acasa"
-          aria-label="Pagina principală – introducere"
-          className="relative overflow-hidden border-b border-white/5"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-10 items-center py-8 sm:py-12">
-
-              {/* TEXT HERO */}
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-                  <span className="h-3.5 w-3.5 rounded-full bg-sky-400" />
-                  <T path="hero.subtitle" />
-                </div>
-
-                <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent will-change-transform">
-                  <T path="hero.title" />
-                </h1>
-
-                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
-                  <T path="whatWeOffer.title" />
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button asChild className={`bg-sky-500 text-white hover:bg-sky-400 ${fx}`}>
-                    <Link href="/solutions">
-                      <T path="hero.ctaPrimary" />
-                      <ArrowRight className="ms-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-
-                  {/* CTA Lazy-loaded */}
-                  <OfferCTA className={`${fx} active:scale-95 transition-transform`} />
-                </div>
-              </div>
-
-              {/* HERO IMAGE OPTIMIZATĂ */}
-              <div className="relative">
-               <div className="absolute inset-0 -z-10 rounded-2xl bg-[radial-gradient(circle_at_70%_30%,rgba(56,189,248,0.22),transparent_70%)] pointer-events-none will-change-transform" />
-
-            <Image
-  src="/image/hero-tinkaai.avif"
-  alt="TINKA AI – Soluții AI și Web Design în Moldova"
-  width={880}
-  height={700}
-  priority
-  loading="eager"
-  quality={70}
-  sizes="(max-width:480px) 100vw, (max-width:768px) 90vw, (max-width:1200px) 50vw, 880px"
-  className="w-full h-auto rounded-2xl object-cover will-change-transform"
-  style={{ contentVisibility: "auto" }}
-/>
-              </div>
-
-            </div>
-          </div>
+        <section id="acasa" aria-label="Pagina principală – introducere">
+          <AiPortraitHero />
         </section>
 
         {/* WHY AI */}
         <section id="experiente" className="py-12 sm:py-16 border-b border-white/5">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
-              <T path="whyAI.title" />
-            </h2>
+            <Reveal>
+              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-400 via-sky-400 to-violet-500 bg-clip-text text-transparent">
+                <T path="whyAI.title" />
+              </h2>
+            </Reveal>
 
-            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <Feature fx={fx} icon={<Puzzle className="h-6 w-6" />} title={<T path="whyAI.benefit1.title" />} text={<T path="whyAI.benefit1.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-              <Feature fx={fx} icon={<Waves className="h-6 w-6" />} title={<T path="whyAI.benefit2.title" />} text={<T path="whyAI.benefit2.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-              <Feature fx={fx} icon={<Eye className="h-6 w-6" />} title={<T path="whyAI.benefit3.title" />} text={<T path="whyAI.benefit3.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-              <Feature fx={fx} icon={<FlaskConical className="h-6 w-6" />} title={<T path="whyAI.benefit4.title" />} text={<T path="whyAI.benefit4.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
-            </ul>
+            <motion.ul
+              className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={gridVariants}
+            >
+              <Feature fx={fx} pulseIndex={0} icon={<Puzzle className="h-6 w-6" />} title={<T path="whyAI.benefit1.title" />} text={<T path="whyAI.benefit1.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} pulseIndex={1} icon={<Waves className="h-6 w-6" />} title={<T path="whyAI.benefit2.title" />} text={<T path="whyAI.benefit2.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} pulseIndex={2} icon={<Eye className="h-6 w-6" />} title={<T path="whyAI.benefit3.title" />} text={<T path="whyAI.benefit3.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+              <Feature fx={fx} pulseIndex={3} icon={<FlaskConical className="h-6 w-6" />} title={<T path="whyAI.benefit4.title" />} text={<T path="whyAI.benefit4.description" />} link="/solutions" learnMore={<T path="hero.cta" />} />
+            </motion.ul>
           </div>
         </section>
-
-        {/* TINKA BOOK – lazy loading */}
-        <TinkaBookSection fx={fx} />
 
         {/* TINKA TRANSCRIBER – lazy loading (ascuns temporar, vezi lib/featureFlags.ts) */}
         {TRANSCRIBER_ENABLED && <TinkaTranscriberSection fx={fx} />}
@@ -134,25 +82,27 @@ export default function Page() {
         {/* FAQ */}
         <section id="faq" className="py-12 sm:py-16 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <h3 className="text-2xl font-bold text-gray-200">
-              <T path="contact.faq.title" />
-            </h3>
+            <Reveal>
+              <h3 className="text-2xl font-bold text-gray-200">
+                <T path="contact.faq.title" />
+              </h3>
 
-            <Accordion type="single" collapsible className="mt-6">
-              <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger><T path="contact.faq.question1.q" /></AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  <T path="contact.faq.question1.a" />
-                </AccordionContent>
-              </AccordionItem>
+              <Accordion type="single" collapsible className="mt-6">
+                <AccordionItem value="f1" className={`border-b border-white/10 ${fx}`}>
+                  <AccordionTrigger><T path="contact.faq.question1.q" /></AccordionTrigger>
+                  <AccordionContent className="text-gray-300">
+                    <T path="contact.faq.question1.a" />
+                  </AccordionContent>
+                </AccordionItem>
 
-              <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
-                <AccordionTrigger><T path="contact.faq.question2.q" /></AccordionTrigger>
-                <AccordionContent className="text-gray-300">
-                  <T path="contact.faq.question2.a" />
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+                <AccordionItem value="f2" className={`border-b border-white/10 ${fx}`}>
+                  <AccordionTrigger><T path="contact.faq.question2.q" /></AccordionTrigger>
+                  <AccordionContent className="text-gray-300">
+                    <T path="contact.faq.question2.a" />
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </Reveal>
           </div>
         </section>
 
@@ -165,11 +115,25 @@ export default function Page() {
   );
 }
 
-function Feature({ fx, icon, title, text, link, learnMore }: any) {
+function Feature({ fx, icon, title, text, link, learnMore, pulseIndex = 0 }: any) {
+  const reduceMotion = useReducedMotion();
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 32 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } },
+  };
+
   return (
-    <li className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}>
+    <motion.li
+      variants={itemVariants}
+      whileHover={reduceMotion ? undefined : { y: -4 }}
+      transition={{ duration: 0.2, ease: EASE_OUT }}
+      className={`p-5 rounded-xl border border-white/10 bg-white/5 ${fx}`}
+    >
       <div className="flex items-center gap-3">
-        <div className="grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400">
+        <div
+          className="ai-pulse-icon grid h-9 w-9 place-items-center rounded-md bg-white/8 text-sky-400"
+          style={{ animationDelay: `${pulseIndex * 0.18}s` }}
+        >
           {icon}
         </div>
         <h3 className="font-semibold text-gray-300 text-lg">{title}</h3>
@@ -184,6 +148,6 @@ function Feature({ fx, icon, title, text, link, learnMore }: any) {
         <Link2 className="h-4 w-4" />
         {learnMore}
       </Link>
-    </li>
+    </motion.li>
   );
 }

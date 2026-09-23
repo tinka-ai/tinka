@@ -44,6 +44,7 @@
     "@tsparticles/engine": "3.7.1",
     "@tsparticles/react": "3.0.0",
     "@tsparticles/slim": "3.7.1",
+    "@types/three": "^0.186.0",
     "autoprefixer": "^10.4.20",
     "canvas-confetti": "latest",
     "class-variance-authority": "^0.7.1",
@@ -69,6 +70,7 @@
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.186.0",
     "vaul": "^0.9.9",
     "zod": "3.25.67"
   },

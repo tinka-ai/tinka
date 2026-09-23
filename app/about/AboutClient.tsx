@@ -8,12 +8,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useLocale } from "@/contexts/locale-context"
 import CalendlyButton from "@/components/CalendlyButton"
+import { Reveal } from "@/components/ui/reveal"
 
 const ABOUT_TEXT = {
   ro: {
     heroTitle: "Despre TINKA AI",
     heroSubtitle:
-      "Construim soluții AI pragmatice: chatboți, automatizări și website-uri care aduc rezultate măsurabile pentru afacerile din Moldova.",
+      "Construim software personalizat, platforme SaaS, chatboți AI, automatizări, conținut generat cu AI și platforme e-learning — soluții pragmatice care aduc rezultate măsurabile pentru afacerile din Moldova.",
 
     missionLabel: "Misiune",
     approachLabel: "Abordare",
@@ -64,7 +65,7 @@ const ABOUT_TEXT = {
   en: {
     heroTitle: "About TINKA AI",
     heroSubtitle:
-      "We build pragmatic AI solutions: chatbots, automations and websites that deliver measurable results.",
+      "We build custom software, SaaS platforms, AI chatbots, automations, AI-generated content and e-learning platforms — pragmatic solutions that deliver measurable results.",
 
     missionLabel: "Mission",
     approachLabel: "Approach",
@@ -115,7 +116,7 @@ const ABOUT_TEXT = {
   ru: {
     heroTitle: "О компании TINKA AI",
     heroSubtitle:
-      "Мы создаём практичные AI-решения: чатботы, автоматизацию и сайты, которые дают измеримый результат.",
+      "Мы создаём индивидуальное ПО, SaaS-платформы, AI-чатботов, автоматизацию, AI-контент и платформы e-learning — практичные решения с измеримым результатом.",
 
     missionLabel: "Миссия",
     approachLabel: "Подход",
@@ -179,21 +180,21 @@ export default function AboutClient() {
       {/* Hero */}
       <section className="pt-32 pb-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <Reveal className="max-w-3xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
               {L.heroTitle}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               {L.heroSubtitle}
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Mission */}
       <section className="pb-10 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <Reveal className="max-w-4xl mx-auto">
             <Card className="bg-card/80 backdrop-blur-sm border-border">
               <CardContent className="p-8 md:p-12 space-y-4">
                 <Badge className="bg-primary-foreground text-primary">
@@ -207,36 +208,35 @@ export default function AboutClient() {
                 </p>
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Values */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
+          <Reveal className="text-center space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               {L.valuesTitle}
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {values.map((v, i) => {
               const Icon = v.icon
               return (
-                <Card
-                  key={i}
-                  className="bg-card/80 backdrop-blur-sm border-border hover:border-primary-foreground/50 transition-all"
-                >
-                  <CardContent className="p-6 space-y-4">
-                    <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {v.text}
-                    </p>
-                  </CardContent>
-                </Card>
+                <Reveal key={i} delay={i * 0.08}>
+                  <Card className="bg-card/80 backdrop-blur-sm border-border hover:border-primary-foreground/50 transition-all">
+                    <CardContent className="p-6 space-y-4">
+                      <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {v.text}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Reveal>
               )
             })}
           </div>
@@ -247,33 +247,37 @@ export default function AboutClient() {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <Card className="bg-card/80 backdrop-blur-sm border-border">
-              <CardContent className="p-8 space-y-4">
-                <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                  <Users className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  {L.teamTitle}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {L.teamText}
-                </p>
-              </CardContent>
-            </Card>
+            <Reveal>
+              <Card className="bg-card/80 backdrop-blur-sm border-border h-full">
+                <CardContent className="p-8 space-y-4">
+                  <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
+                    <Users className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {L.teamTitle}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {L.teamText}
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
 
-            <Card className="bg-card/80 backdrop-blur-sm border-border">
-              <CardContent className="p-8 space-y-4">
-                <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                  <Lightbulb className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  {L.approachLabel}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {L.approachText}
-                </p>
-              </CardContent>
-            </Card>
+            <Reveal delay={0.1}>
+              <Card className="bg-card/80 backdrop-blur-sm border-border h-full">
+                <CardContent className="p-8 space-y-4">
+                  <div className="h-12 w-12 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
+                    <Lightbulb className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {L.approachLabel}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {L.approachText}
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -281,7 +285,7 @@ export default function AboutClient() {
       {/* CTA */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+          <Reveal className="max-w-3xl mx-auto">
             <Card className="bg-gradient-to-br from-primary-foreground/10 to-chart-4/10 border-primary-foreground/30">
               <CardContent className="p-12 text-center space-y-6">
                 <Badge className="bg-primary-foreground text-primary">
@@ -313,7 +317,7 @@ export default function AboutClient() {
                 />
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </section>
 
