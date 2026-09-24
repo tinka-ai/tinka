@@ -22,6 +22,7 @@ const DATA: Record<Locale, LocaleStructuredData> = {
       "Conținut & Media AI",
       "Platforme E-learning",
       "Consultanță Digitală",
+      "Automatizare Social Media",
     ],
     breadcrumbHome: "Acasă",
     faq: [
@@ -61,6 +62,14 @@ const DATA: Record<Locale, LocaleStructuredData> = {
         q: "TINKA AI lucrează și cu companii din afara Moldovei?",
         a: "Da, TINKA AI oferă servicii remote pentru companii din România, Europa de Est și diaspora moldovenească.",
       },
+      {
+        q: "TINKA AI poate automatiza postările pe Facebook și Instagram?",
+        a: "Da. TINKA AI configurează un sistem care generează automat imagini cu AI, scrie textul postării și publică direct pe Facebook și Instagram, după un calendar stabilit — fără să fie nevoie ca cineva să stea zilnic în fața calculatorului.",
+      },
+      {
+        q: "TINKA AI face meniuri digitale sau audio pentru restaurante?",
+        a: "Da. TINKA AI creează meniuri digitale QR și meniuri cu ghid audio generat cu AI, disponibile în mai multe limbi, fără să fie nevoie de înregistrarea unei voci reale.",
+      },
     ],
   },
 
@@ -76,6 +85,7 @@ const DATA: Record<Locale, LocaleStructuredData> = {
       "AI Content & Media",
       "E-learning Platforms",
       "Digital Consulting",
+      "Social Media Automation",
     ],
     breadcrumbHome: "Home",
     faq: [
@@ -115,6 +125,14 @@ const DATA: Record<Locale, LocaleStructuredData> = {
         q: "Does TINKA AI work with companies outside Moldova?",
         a: "Yes, TINKA AI offers remote services for companies in Romania, Eastern Europe and the Moldovan diaspora.",
       },
+      {
+        q: "Can TINKA AI automate Facebook and Instagram posting?",
+        a: "Yes. TINKA AI sets up a system that automatically generates AI images, writes the post copy and publishes directly to Facebook and Instagram on a set schedule — no one needs to sit at a computer every day.",
+      },
+      {
+        q: "Does TINKA AI build digital or audio menus for restaurants?",
+        a: "Yes. TINKA AI creates QR digital menus and AI-generated audio-guided menus, available in multiple languages, without recording a single real voice.",
+      },
     ],
   },
 
@@ -130,6 +148,7 @@ const DATA: Record<Locale, LocaleStructuredData> = {
       "AI контент и медиа",
       "Платформы e-learning",
       "Цифровой консалтинг",
+      "Автоматизация социальных сетей",
     ],
     breadcrumbHome: "Главная",
     faq: [
@@ -168,6 +187,14 @@ const DATA: Record<Locale, LocaleStructuredData> = {
       {
         q: "Работает ли TINKA AI с компаниями за пределами Молдовы?",
         a: "Да, TINKA AI предоставляет удалённые услуги для компаний из Румынии, Восточной Европы и молдавской диаспоры.",
+      },
+      {
+        q: "Может ли TINKA AI автоматизировать публикации в Facebook и Instagram?",
+        a: "Да. TINKA AI настраивает систему, которая автоматически создаёт изображения с помощью AI, пишет текст поста и публикует его напрямую в Facebook и Instagram по заданному расписанию — без необходимости ежедневно сидеть за компьютером.",
+      },
+      {
+        q: "Делает ли TINKA AI цифровые или аудио-меню для ресторанов?",
+        a: "Да. TINKA AI создаёт цифровые QR-меню и аудио-меню с голосом, созданным AI, доступные на нескольких языках, без записи ни одного настоящего голоса.",
       },
     ],
   },

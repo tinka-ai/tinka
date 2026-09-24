@@ -1,7 +1,13 @@
 // app/[locale]/solutions/page.tsx — SERVER COMPONENT
 import type { Metadata } from "next"
 import type { Locale } from "@/contexts/locale-context"
+import { ro } from "@/locales/ro"
+import { en } from "@/locales/en"
+import { ru } from "@/locales/ru"
+import { SERVICES } from "./services-data"
 import SolutionsClient from "./SolutionsClient"
+
+const DICTS = { ro, en, ru }
 
 const LOCALES: Locale[] = ["ro", "en", "ru"]
 
@@ -27,41 +33,6 @@ const META: Record<Locale, { title: string; description: string }> = {
       "Индивидуальное ПО, SaaS-платформы, AI-чатботы, сайты, автоматизация, AI-контент и e-learning для малого и среднего бизнеса Молдовы.",
   },
 }
-
-const SERVICE_NAMES: Record<Locale, string[]> = {
-  ro: [
-    "Chatbot AI",
-    "Software Personalizat",
-    "Web Design",
-    "Platforme SaaS & Booking",
-    "Automatizări Business",
-    "Conținut & Media AI",
-    "Platforme E-learning",
-    "Consultanță Digitală",
-  ],
-  en: [
-    "AI Chatbot",
-    "Custom Software",
-    "Web Design",
-    "SaaS & Booking Platforms",
-    "Business Automation",
-    "AI Content & Media",
-    "E-learning Platforms",
-    "Digital Consulting",
-  ],
-  ru: [
-    "AI чатбот",
-    "Индивидуальное ПО",
-    "Веб-дизайн",
-    "SaaS и платформы бронирования",
-    "Автоматизация бизнеса",
-    "AI контент и медиа",
-    "Платформы e-learning",
-    "Цифровой консалтинг",
-  ],
-}
-
-const ANCHORS = ["chatbots", "customSoftware", "websites", "saas", "automation", "aiContent", "elearning", "consulting"]
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -96,7 +67,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function SolutionsJSONLD({ locale }: { locale: Locale }) {
   const url = urlFor(locale, "/solutions")
-  const names = SERVICE_NAMES[locale]
+  const dict = DICTS[locale] ?? DICTS.ro
+  const solutions = dict.solutions as unknown as Record<string, { title: string }>
+
   const data = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -104,14 +77,14 @@ function SolutionsJSONLD({ locale }: { locale: Locale }) {
     description: META[locale].description,
     url,
     inLanguage: locale,
-    numberOfItems: names.length,
-    itemListElement: names.map((name, i) => ({
+    numberOfItems: SERVICES.length,
+    itemListElement: SERVICES.map((service, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
         "@type": "Service",
-        name,
-        url: `${url}#${ANCHORS[i]}`,
+        name: solutions[service.key]?.title ?? service.slug,
+        url: urlFor(locale, `/solutions/${service.slug}`),
         provider: { "@id": "https://tinka.md/#business" },
       },
     })),

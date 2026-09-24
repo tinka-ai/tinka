@@ -348,19 +348,20 @@ export const ro = {
       problem: {
         title: "Problemă",
         description:
-          "Nu știi de unde să începi cu AI sau ce instrumente să alegi.",
+          "Nu știi de unde să începi cu AI sau ce instrumente să alegi, iar informația online e contradictorie sau prea generală pentru piața din Moldova.",
       },
 
       whereApplies: {
         title: "Unde ajutăm",
-        description: "Strategie, implementare, training, suport continuu.",
-        tags: ["AI Strategy", "Implementare", "Training", "Optimizare"],
+        description:
+          "Analizăm procesele reale ale afacerii tale — nu soluții generice — și recomandăm exact ce automatizări sau instrumente AI aduc rezultat măsurabil în primele 90 de zile.",
+        tags: ["AI Strategy", "Audit procese", "Implementare", "Training", "Optimizare"],
       },
 
       example: {
         title: "Exemplu",
         description:
-          "Consultanță completă pentru restaurant: sistem comenzi online, rezervări automate, chatbot AI.",
+          "Un lanț de saloane de înfrumusețare primește un plan clar: chatbot pentru programări, confirmări automate prin SMS și un dashboard cu ocuparea zilnică — implementat în etape, fără să oprească activitatea curentă.",
       },
 
       features: {
@@ -370,6 +371,7 @@ export const ro = {
           "Strategie personalizată",
           "Implementare ghidată",
           "Training echipă",
+          "Prioritizare pe ROI, nu pe hype",
           "Suport 3 luni",
         ],
       },
@@ -377,6 +379,47 @@ export const ro = {
       cta: {
         primary: "Rezervă consultanță gratuită",
         secondary: "60 minute de claritate totală",
+      },
+    },
+
+    socialMedia: {
+      title: "Automatizare postări Facebook & Instagram cu AI",
+      subtitle:
+        "Conținut și imagini generate cu AI, publicate automat, fără să stai tu în fața calculatorului",
+
+      problem: {
+        title: "Problemă",
+        description:
+          "Rețelele sociale cer postări constante ca să funcționeze, dar găsirea de idei, scrierea textului și crearea unei imagini potrivite de fiecare dată consumă ore pe săptămână — timp pe care majoritatea firmelor mici nu îl au.",
+      },
+
+      whereApplies: {
+        title: "Unde se aplică",
+        description:
+          "Pagini de Facebook și Instagram pentru orice afacere care vrea prezență constantă online, fără să angajeze un social media manager full-time.",
+        tags: ["Postări automate Facebook", "Postări automate Instagram", "Imagini generate cu AI", "Calendar de conținut", "Rotație de subiecte"],
+      },
+
+      example: {
+        title: "Exemplu",
+        description:
+          "TINKA AI folosește exact acest sistem pentru propriile pagini: de 3 ori pe săptămână, un flux automat generează o imagine potrivită temei, scrie textul și publică direct pe Facebook, alternând între sfaturi practice, statistici din domeniu, povești de succes și întrebări către audiență.",
+      },
+
+      features: {
+        title: "Ce include:",
+        list: [
+          "Generare automată de imagini potrivite fiecărei postări",
+          "Text scris în tonul brandului tău, în română",
+          "Publicare directă, fără pași manuali sau aprobare",
+          "Rotație de tipuri de conținut, ca paginile să nu pară repetitive",
+          "Programare pe zile și ore fixe, stabilite de tine",
+        ],
+      },
+
+      cta: {
+        primary: "Vezi cum putem automatiza paginile tale",
+        secondary: "Configurăm fluxul o dată, apoi rulează singur",
       },
     },
   },

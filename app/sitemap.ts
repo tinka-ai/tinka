@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { articles } from "./blog/blogData"
 import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags"
 import type { Locale } from "@/contexts/locale-context"
+import { SERVICE_SLUGS } from "./[locale]/solutions/services-data"
 
 const LOCALES: Locale[] = ["ro", "en", "ru"]
 const baseUrl = "https://tinka.md"
@@ -74,5 +75,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  return [...staticEntries, ...blogEntries]
+  // Cele 9 pagini dedicate de servicii (/solutions/<slug>) — vezi
+  // app/[locale]/solutions/services-data.ts pentru sursa unica a slug-urilor.
+  const serviceEntries = SERVICE_SLUGS.flatMap((slug) =>
+    LOCALES.map((locale) => ({
+      url: urlFor(locale, `/solutions/${slug}`),
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: alternatesFor(`/solutions/${slug}`),
+    }))
+  )
+
+  return [...staticEntries, ...blogEntries, ...serviceEntries]
 }

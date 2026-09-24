@@ -5,96 +5,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useLocale } from "@/contexts/locale-context"
-import {
-  ArrowRight,
-  Bot,
-  Globe,
-  Workflow,
-  Lightbulb,
-  CheckCircle,
-  AlertCircle,
-  Target,
-  Code,
-  Cloud,
-  Sparkles,
-  GraduationCap,
-} from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { LocaleLink as Link } from "@/components/ui/locale-link"
+import { SERVICES } from "./services-data"
 
 export default function SolutionsClient() {
   const { t } = useLocale()
 
-  const solutions = t?.solutions || {
-    title: "Soluții",
-    subtitle: "Transformăm procesele cu AI și aplicații",
-    chatbots: {},
-    customSoftware: {},
-    websites: {},
-    saas: {},
-    automation: {},
-    aiContent: {},
-    elearning: {},
-    consulting: {},
-  }
-
-  const services = [
-    {
-      icon: Bot,
-      id: "chatbots",
-      data: solutions.chatbots,
-      color: "from-blue-500/20 to-cyan-500/20",
-      borderColor: "border-blue-500/30",
-    },
-    {
-      icon: Code,
-      id: "customSoftware",
-      data: solutions.customSoftware,
-      color: "from-indigo-500/20 to-violet-500/20",
-      borderColor: "border-indigo-500/30",
-    },
-    {
-      icon: Globe,
-      id: "websites",
-      data: solutions.websites,
-      color: "from-purple-500/20 to-pink-500/20",
-      borderColor: "border-purple-500/30",
-    },
-    {
-      icon: Cloud,
-      id: "saas",
-      data: solutions.saas,
-      color: "from-sky-500/20 to-blue-500/20",
-      borderColor: "border-sky-500/30",
-    },
-    {
-      icon: Workflow,
-      id: "automation",
-      data: solutions.automation,
-      color: "from-green-500/20 to-emerald-500/20",
-      borderColor: "border-green-500/30",
-    },
-    {
-      icon: Sparkles,
-      id: "aiContent",
-      data: solutions.aiContent,
-      color: "from-fuchsia-500/20 to-rose-500/20",
-      borderColor: "border-fuchsia-500/30",
-    },
-    {
-      icon: GraduationCap,
-      id: "elearning",
-      data: solutions.elearning,
-      color: "from-teal-500/20 to-cyan-500/20",
-      borderColor: "border-teal-500/30",
-    },
-    {
-      icon: Lightbulb,
-      id: "consulting",
-      data: solutions.consulting,
-      color: "from-orange-500/20 to-yellow-500/20",
-      borderColor: "border-orange-500/30",
-    },
-  ]
+  const solutions = t?.solutions || { title: "Soluții", subtitle: "" }
 
   return (
     <div className="min-h-screen bg-background">
@@ -111,106 +29,34 @@ export default function SolutionsClient() {
         </div>
       </section>
 
-      <section className="py-24 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="space-y-32">
-            {services.map((service, index) => {
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {SERVICES.map((service) => {
+              const data = (solutions as any)[service.key] || {}
               const Icon = service.icon
-              const isEven = index % 2 === 0
               return (
-                <div key={service.id} id={service.id} className="max-w-6xl mx-auto scroll-mt-24">
-                  <div className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 items-center`}>
-                    <div className="w-full lg:w-1/3 flex justify-center">
-                      <div className={`h-32 w-32 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center border ${service.borderColor} shadow-xl`}>
-                        <Icon className="h-16 w-16 text-foreground" />
+                <Link key={service.slug} href={`/solutions/${service.slug}`} className="group block h-full">
+                  <Card className="h-full bg-card/80 backdrop-blur-sm border-border hover-lift hover:border-white/20 transition-colors">
+                    <CardContent className="p-6 space-y-4 flex flex-col h-full">
+                      <div className={`h-14 w-14 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center border ${service.borderColor}`}>
+                        <Icon className="h-7 w-7 text-foreground" />
                       </div>
-                    </div>
-                    <div className="w-full lg:w-2/3 space-y-8">
-                      <div className="space-y-4">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                          {service.data?.title || "Titlu lipsă"}
+                      <div className="space-y-2 flex-1">
+                        <h2 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                          {data.title || service.slug}
                         </h2>
-                        <p className="text-xl text-muted-foreground leading-relaxed">
-                          {service.data?.subtitle || ""}
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {data.subtitle}
                         </p>
                       </div>
-                      {service.data?.problem && (
-                        <Card className="bg-destructive/5 border-destructive/20">
-                          <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
-                              <AlertCircle className="h-6 w-6 text-destructive mt-1 flex-shrink-0" />
-                              <div className="space-y-2">
-                                <h3 className="font-bold text-foreground">{service.data.problem.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed">{service.data.problem.description}</p>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )}
-                      {service.data?.whereApplies && (
-                        <Card className="bg-primary/5 border-primary/20">
-                          <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
-                              <Target className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                              <div className="space-y-3">
-                                <h3 className="font-bold text-foreground">{service.data.whereApplies.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed">{service.data.whereApplies.description}</p>
-                                {service.data.whereApplies.tags && (
-                                  <div className="flex flex-wrap gap-2 pt-2">
-                                    {service.data.whereApplies.tags.map((tag, i) => (
-                                      <Badge key={i} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                                        {tag}
-                                      </Badge>
-                                    ))}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )}
-                      {service.data?.example && (
-                        <Card className="bg-success/5 border-success/20">
-                          <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
-                              <CheckCircle className="h-6 w-6 text-success mt-1 flex-shrink-0" />
-                              <div className="space-y-2">
-                                <h3 className="font-bold text-foreground">{service.data.example.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed">{service.data.example.description}</p>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )}
-                      {service.data?.features?.list && (
-                        <div className="space-y-4">
-                          <h3 className="text-xl font-bold text-foreground">{service.data.features.title}</h3>
-                          <div className="grid md:grid-cols-2 gap-3">
-                            {service.data.features.list.map((feature, i) => (
-                              <div key={i} className="flex items-start gap-3">
-                                <CheckCircle className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                                <p className="text-muted-foreground leading-snug">{feature}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {service.data?.cta && (
-                        <div className="pt-4 space-y-3">
-                          <Link href="/contact">
-                            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full md:w-auto">
-                              {service.data.cta.primary}
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
-                          </Link>
-                          {service.data.cta.secondary && (
-                            <p className="text-sm text-muted-foreground">{service.data.cta.secondary}</p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                        {data.cta?.primary ? data.cta.primary.split(" ").slice(0, 3).join(" ") : ""}
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
               )
             })}
           </div>
@@ -232,9 +78,6 @@ export default function SolutionsClient() {
                   Programează consultație
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </Link>
-              <Link href="/#what-we-offer">
-                <Button size="lg" variant="outline">Explorează soluțiile</Button>
               </Link>
             </div>
           </div>

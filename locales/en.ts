@@ -135,8 +135,7 @@ export const en = {
           "90+ PageSpeed score",
           "Local SEO for Moldova",
           "Integrated AI chatbot",
-          "Analytics dashboards",
-          "Easy content editing",
+          "Analytics and automated reports",
         ],
       },
 
@@ -173,11 +172,10 @@ export const en = {
         title: "What we automate:",
         list: [
           "Automatic email sequences",
-          "CRM synchronization",
-          "Order routing and processing",
-          "Real-time dashboards",
-          "Automatic WhatsApp notifications",
-          "Custom business workflows",
+          "CRM–shop synchronization",
+          "Automatic invoice generation",
+          "Daily automated reports",
+          "WhatsApp/Telegram notifications",
         ],
       },
 
@@ -354,20 +352,20 @@ export const en = {
       problem: {
         title: "Problem",
         description:
-          "You know AI can help, but don't know where to start or which tools to choose.",
+          "You know AI can help, but don't know where to start or which tools to choose, and most online advice is too generic for the Moldovan market.",
       },
 
       whereApplies: {
         title: "Where we help",
         description:
-          "AI strategy, implementation, team training, process optimization.",
-        tags: ["AI strategy", "Implementation", "Training", "Digital transformation"],
+          "We analyze your actual business processes — not generic solutions — and recommend exactly which automations or AI tools bring measurable results within the first 90 days.",
+        tags: ["AI strategy", "Process audit", "Implementation", "Training", "Digital transformation"],
       },
 
       example: {
         title: "Example",
         description:
-          "Restaurant receives a full digital transformation: AI chatbot orders, automated reservations, smart digital menu.",
+          "A beauty salon chain gets a clear plan: an AI chatbot for bookings, automated SMS confirmations and a daily occupancy dashboard — rolled out in stages, without stopping current operations.",
       },
 
       features: {
@@ -377,6 +375,7 @@ export const en = {
           "Personalized AI strategy",
           "Step-by-step implementation",
           "Team onboarding",
+          "ROI-focused, not hype-driven",
           "3 months of support",
         ],
       },
@@ -384,6 +383,47 @@ export const en = {
       cta: {
         primary: "Book free consultation",
         secondary: "Learn how AI can transform your business",
+      },
+    },
+
+    socialMedia: {
+      title: "Facebook & Instagram Posting Automation",
+      subtitle:
+        "AI-generated content and images, published automatically — no one has to sit at a computer",
+
+      problem: {
+        title: "Problem",
+        description:
+          "Social media needs constant posting to work, but coming up with ideas, writing the copy and creating a matching image every time eats up hours each week — time most small businesses don't have.",
+      },
+
+      whereApplies: {
+        title: "Where it applies",
+        description:
+          "Facebook and Instagram pages for any business that wants a steady online presence without hiring a full-time social media manager.",
+        tags: ["Automated Facebook posts", "Automated Instagram posts", "AI-generated images", "Content calendar", "Topic rotation"],
+      },
+
+      example: {
+        title: "Example",
+        description:
+          "TINKA AI runs its own pages on this exact system: three times a week, an automated flow generates a matching image, writes the copy and publishes directly to Facebook, rotating between practical tips, industry stats, success stories and audience questions.",
+      },
+
+      features: {
+        title: "What's included:",
+        list: [
+          "Automatic image generation matched to each post",
+          "Copy written in your brand's voice",
+          "Direct publishing, no manual steps or approval needed",
+          "Content-type rotation so pages don't feel repetitive",
+          "Scheduled on the days and times you choose",
+        ],
+      },
+
+      cta: {
+        primary: "See how we can automate your pages",
+        secondary: "Set up the flow once, then it runs on its own",
       },
     },
   },
