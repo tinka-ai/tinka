@@ -5,6 +5,8 @@ export type Article = {
   date: string
   readTime: number
   category: string
+  /** URL public al imaginii generate AI pentru articol (Cloudflare R2). Optional — articolele mai vechi, dinainte de pipeline-ul de generare imagini, nu au acest camp si folosesc og-image.webp ca fallback. */
+  image?: string
   translations: Record<Locale, {
     title: string
     description: string
@@ -717,6 +719,7 @@ At TINKA AI we do complete local SEO for businesses in Moldova:
     date: "2026-09-24",
     readTime: 8,
     category: "custom-software",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/01aeb806-ce69-4ba8-bc0b-2b4c9b4b267e.png",
     translations: {
       ro: {
         title: "CRM personalizat vs. abonament: cât costă cu adevărat în Moldova",

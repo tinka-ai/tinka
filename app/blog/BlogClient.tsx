@@ -38,6 +38,17 @@ export default function BlogClient() {
                 <article
                   className="group flex flex-col rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-sky-500/40 hover:bg-white/8 transition-all duration-300"
                 >
+                  {article.image && (
+                    <div className="aspect-[16/9] overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={t.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+
                   {/* Category + Date */}
                   <div className="flex items-center justify-between px-6 pt-6 pb-2">
                     <span className="text-xs font-semibold uppercase tracking-wider text-sky-400">

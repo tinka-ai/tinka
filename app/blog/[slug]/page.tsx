@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
-import Script from "next/script"
 import { articles } from "../blogData"
 import ArticleClient from "./ArticleClient"
 
@@ -16,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = articles.find((a) => a.slug === slug)
   if (!article) return {}
   const t = article.translations.ro
+  const ogImage = article.image ?? "https://tinka.md/image/og-image.webp"
   return {
     title: t.title,
     description: t.description,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: article.date,
       images: [
         {
-          url: "https://tinka.md/image/og-image.webp",
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: t.title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: t.title,
       description: t.description,
-      images: ["https://tinka.md/image/og-image.webp"],
+      images: [ogImage],
     },
   }
 }
@@ -63,7 +63,7 @@ function ArticleJSONLD({ article }: { article: (typeof articles)[number] }) {
     datePublished: article.date,
     dateModified: article.date,
     inLanguage: "ro",
-    image: "https://tinka.md/image/og-image.webp",
+    image: article.image ?? "https://tinka.md/image/og-image.webp",
     author: { "@id": "https://tinka.md/#business" },
     publisher: { "@id": "https://tinka.md/#business" },
     mainEntityOfPage: {
@@ -72,11 +72,13 @@ function ArticleJSONLD({ article }: { article: (typeof articles)[number] }) {
     },
   }
 
+  // Script simplu, randat pe server — NU next/script (acela injecteaza
+  // continutul doar client-side, in payload-ul RSC, invizibil pentru
+  // crawlerele care nu executa JS: Googlebot in unele cazuri si aproape
+  // toate crawlerele AI: GPTBot, PerplexityBot, ClaudeBot etc.).
   return (
-    <Script
-      id="article-jsonld"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   )

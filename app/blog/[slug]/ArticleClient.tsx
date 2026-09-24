@@ -121,6 +121,15 @@ export default function ArticleClient({ article }: { article: Article }) {
         </div>
       </section>
 
+      {/* HERO IMAGE */}
+      {article.image && (
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 -mt-4 mb-8">
+          <div className="art-panel aspect-[3/2]">
+            <img src={article.image} alt={t.title} loading="eager" />
+          </div>
+        </div>
+      )}
+
       {/* CONTENT */}
       <article className="py-12">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
@@ -128,30 +137,10 @@ export default function ArticleClient({ article }: { article: Article }) {
         </div>
       </article>
 
-      {/* JSON-LD Article */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: t.title,
-            description: t.description,
-            datePublished: article.date,
-            author: {
-              "@type": "Organization",
-              name: "TINKA AI",
-              url: "https://tinka.md",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "TINKA AI",
-              logo: { "@type": "ImageObject", url: "https://tinka.md/image/og-image.webp" },
-            },
-            mainEntityOfPage: { "@type": "WebPage", "@id": `https://tinka.md/blog/${article.slug}` },
-          }),
-        }}
-      />
+      {/* Schema BlogPosting (mai completa: image, inLanguage, @id-uri catre
+          entitatea business) e randata deja in page.tsx (server component) —
+          nu o mai duplicam aici ca "Article", ca sa nu emitem doua schema-uri
+          suprapuse pentru aceeasi pagina. */}
 
       {/* CTA */}
       <section className="py-12 border-t border-white/5">
