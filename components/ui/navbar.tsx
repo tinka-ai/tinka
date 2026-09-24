@@ -1,5 +1,5 @@
 // components/ui/navbar.tsx — SERVER COMPONENT (ok), folosește T (client) doar pentru text
-import Link from "next/link";
+import { LocaleLink as Link } from "./locale-link";
 import Image from "next/image";
 import { Globe } from "lucide-react";
 import ActiveNavLink from "./active-nav-link";

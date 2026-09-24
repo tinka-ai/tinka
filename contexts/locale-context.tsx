@@ -33,16 +33,27 @@ type LocaleContextType = {
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
 
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale)
+export function LocaleProvider({
+  children,
+  initialLocale = defaultLocale,
+}: {
+  children: ReactNode
+  initialLocale?: Locale
+}) {
+  // Sursa de adevar e URL-ul (segmentul /en//ru/, absent pentru ro) — vine ca
+  // prop din app/[locale]/layout.tsx. Nu mai citim din localStorage la montare:
+  // altfel o valoare veche ar suprascrie brusc limba unei pagini /en/... cu ru,
+  // dupa hidratare.
+  const [locale, setLocaleState] = useState<Locale>(initialLocale)
 
+  // La navigare client-side intre /en/... si /ru/..., layout-ul server ii
+  // trimite acestui provider un initialLocale nou, dar App Router nu
+  // remonteaza automat provider-ul doar pentru ca s-a schimbat parametrul
+  // dinamic — sincronizam explicit starea cu prop-ul (derivat mereu din URL,
+  // nu din localStorage, deci nu reintroduce bug-ul de mai sus).
   useEffect(() => {
-    if (typeof window === "undefined") return
-    const saved = window.localStorage.getItem("locale") as Locale | null
-    if (saved && saved in DICTS) {
-      setLocaleState(saved)
-    }
-  }, [])
+    setLocaleState(initialLocale)
+  }, [initialLocale])
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale)

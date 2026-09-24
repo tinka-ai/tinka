@@ -5,7 +5,7 @@ import { ReactNode, createContext, useContext, useState, useCallback } from "rea
 import dynamic from "next/dynamic"
 
 import { ThemeProvider } from "@/components/theme-provider"
-import { LocaleProvider } from "@/contexts/locale-context"
+import { LocaleProvider, type Locale } from "@/contexts/locale-context"
 
 const OfferModal = dynamic(() => import("@/components/offer/OfferModal"), {
   ssr: false,
@@ -25,7 +25,13 @@ export function useOfferModal() {
   return ctx
 }
 
-export default function Providers({ children }: { children: ReactNode }) {
+export default function Providers({
+  children,
+  initialLocale,
+}: {
+  children: ReactNode
+  initialLocale?: Locale
+}) {
   const [isOpen, setIsOpen] = useState(false)
 
   const open = useCallback(() => setIsOpen(true), [])
@@ -36,7 +42,7 @@ export default function Providers({ children }: { children: ReactNode }) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <LocaleProvider>
+      <LocaleProvider initialLocale={initialLocale}>
         <OfferCtx.Provider value={{ open, close }}>
           {children}
 

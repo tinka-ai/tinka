@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { LocaleLink as Link } from "@/components/ui/locale-link"
 import { useLocale } from "@/contexts/locale-context"
 import { Reveal } from "@/components/ui/reveal"
 

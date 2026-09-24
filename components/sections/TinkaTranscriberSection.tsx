@@ -1,7 +1,7 @@
 "use client";
 // components/sections/TinkaTranscriberSection.tsx
 
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/ui/locale-link";
 import { Download, ShoppingCart, Mic, Wifi, Lock, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import T from "@/components/T";

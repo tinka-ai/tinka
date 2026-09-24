@@ -18,44 +18,15 @@ const nextConfig = {
   },
 
   // ── Redirecturi 301 pentru URL-uri vechi ──────────────────────────────────
+  // Nota: redirecturile care stergeau /en/ si /ru/ (ramase dintr-o incercare
+  // veche cu linkuri moarte) au fost eliminate — /en/... si /ru/... sunt acum
+  // rute reale, cu continut, vezi middleware.ts + app/[locale]/.
   async redirects() {
     return [
-      // Pagini cu prefix limbă vechi (/ru/, /en/) → fără prefix
-      {
-        source: "/ru/privacy",
-        destination: "/privacy",
-        permanent: true,  // 301
-      },
-      {
-        source: "/en/privacy",
-        destination: "/privacy",
-        permanent: true,
-      },
-      {
-        source: "/ro/privacy",
-        destination: "/privacy",
-        permanent: true,
-      },
       // Pagini eliminate
       {
         source: "/case-studies",
         destination: "/portfolio",
-        permanent: true,
-      },
-      // Orice alt prefix limbă → pagina fără prefix
-      {
-        source: "/ru/:path*",
-        destination: "/:path*",
-        permanent: true,
-      },
-      {
-        source: "/en/:path*",
-        destination: "/:path*",
-        permanent: true,
-      },
-      {
-        source: "/ro/:path*",
-        destination: "/:path*",
         permanent: true,
       },
     ]

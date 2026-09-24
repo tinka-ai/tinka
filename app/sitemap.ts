@@ -1,9 +1,28 @@
 import type { MetadataRoute } from "next"
 import { articles } from "./blog/blogData"
 import { TRANSCRIBER_ENABLED } from "@/lib/featureFlags"
+import type { Locale } from "@/contexts/locale-context"
+
+const LOCALES: Locale[] = ["ro", "en", "ru"]
+const baseUrl = "https://tinka.md"
+
+function urlFor(locale: Locale, path: string) {
+  const prefix = locale === "ro" ? "" : `/${locale}`
+  return `${baseUrl}${prefix}${path}`
+}
+
+function alternatesFor(path: string) {
+  return {
+    languages: {
+      "x-default": urlFor("ro", path),
+      ro: urlFor("ro", path),
+      en: urlFor("en", path),
+      ru: urlFor("ru", path),
+    },
+  }
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://tinka.md"
   const now = new Date()
 
   const staticPages: {
@@ -30,46 +49,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/terms",       priority: 0.4, changeFrequency: "yearly"  },
   ]
 
-  // NOTĂ: site-ul afișează EN/RU doar client-side (comutator de limbă), fără
-  // URL-uri separate per limbă — deci nu există încă pagini distincte pe care
-  // Google le poate indexa în engleză/rusă. Declararea unor alternates hreflang
-  // "en"/"ru" către exact același URL ca "ro" e invalidă (hreflang cere URL-uri
-  // distincte per limbă) și poate genera erori în Search Console, așa că le-am
-  // scos până când site-ul are rute reale /en/ și /ru/ cu conținut randat pe server.
-  const languages = {
-    "x-default": "",
-    "ro": "",
-  }
+  // Fiecare pagina statica exista acum ca URL real si distinct in toate cele
+  // 3 limbi (romana fara prefix, engleza/rusa cu /en, /ru) — cate o intrare
+  // per limba, cu hreflang catre celelalte variante reale (nu mai e nevoie
+  // de comentariul defensiv anterior, care evita exact aceasta situatie cat
+  // timp nu existau rute distincte pentru en/ru).
+  const staticEntries = staticPages.flatMap(({ path, priority, changeFrequency }) =>
+    LOCALES.map((locale) => ({
+      url: urlFor(locale, path),
+      lastModified: now,
+      changeFrequency,
+      priority,
+      alternates: alternatesFor(path),
+    }))
+  )
 
-  const staticEntries = staticPages.map(({ path, priority, changeFrequency }) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: now,
-    changeFrequency,
-    priority,
-    alternates: {
-      languages: Object.fromEntries(
-        Object.keys(languages).map((lang) => [
-          lang,
-          `${baseUrl}${path}`,
-        ])
-      ),
-    },
-  }))
-
-  const blogEntries = articles.map((article) => ({
-    url: `${baseUrl}/blog/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-    alternates: {
-      languages: Object.fromEntries(
-        Object.keys(languages).map((lang) => [
-          lang,
-          `${baseUrl}/blog/${article.slug}`,
-        ])
-      ),
-    },
-  }))
+  const blogEntries = articles.flatMap((article) =>
+    LOCALES.map((locale) => ({
+      url: urlFor(locale, `/blog/${article.slug}`),
+      lastModified: new Date(article.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: alternatesFor(`/blog/${article.slug}`),
+    }))
+  )
 
   return [...staticEntries, ...blogEntries]
 }

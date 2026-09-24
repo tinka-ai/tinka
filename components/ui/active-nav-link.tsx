@@ -1,6 +1,8 @@
 "use client"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useLocale } from "@/contexts/locale-context"
+import { localizeHref } from "@/components/ui/locale-link"
 
 export default function ActiveNavLink({
   href,
@@ -10,14 +12,16 @@ export default function ActiveNavLink({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
+  const { locale } = useLocale()
+  const localizedHref = localizeHref(href, locale)
   const isActive =
-    href === "/"
+    localizedHref === "/"
       ? pathname === "/"
-      : pathname.startsWith(href)
+      : pathname.startsWith(localizedHref)
 
   return (
     <Link
-      href={href}
+      href={localizedHref}
       prefetch={false}
       aria-current={isActive ? "page" : undefined}
       className="relative group inline-block"
