@@ -708,12 +708,294 @@ At TINKA AI we do complete local SEO for businesses in Moldova:
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 4
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "cat-costa-un-crm-personalizat-in-moldova",
+    date: "2026-09-24",
+    readTime: 8,
+    category: "custom-software",
+    translations: {
+      ro: {
+        title: "CRM personalizat vs. abonament: cât costă cu adevărat în Moldova",
+        description: "Comparăm costul real dintre un abonament CRM importat (Bitrix24, HubSpot, Zoho) și un sistem personalizat, plus prețuri orientative pentru afaceri din Moldova.",
+        content: `
+## Câți bani "scurgi" lunar pe un CRM pe care nu-l deții?
+
+Dacă firma ta plătește lunar 60, 100 sau 300 de dolari pentru un CRM importat — Bitrix24, HubSpot, Zoho, Pipedrive — probabil crezi că e "costul normal de a face afaceri". Nu e.
+
+În 3 ani, acel abonament ajunge să coste **mai mult decât un sistem construit special pentru afacerea ta**, pe care îl deții definitiv, fără taxă lunară, fără curs valutar și fără limite artificiale de utilizatori.
+
+## Problema reală: Excel, caiete și CRM-uri "la pachet"
+
+Cele mai multe IMM-uri din Moldova gestionează clienții în unul din trei moduri:
+
+- **Excel sau Google Sheets** — se pierd rânduri, nu există istoric, nimeni nu știe cine a sunat ultima dată clientul
+- **Caiet de comenzi pe birou** — informația moare dacă angajatul respectiv lipsește sau pleacă din firmă
+- **CRM generic importat** — plătit lunar în USD/EUR, cu funcții 80% inutile pentru afacerea ta și 20% din ce chiar ai nevoie
+
+Toate trei variantele au același rezultat: **lead-uri pierdute, follow-up-uri uitate și decizii luate fără date reale.**
+
+## Abonament SaaS vs. sistem personalizat — comparație pe 3 ani
+
+### Ce plătești pentru un CRM importat
+Pentru o echipă de 5 utilizatori, prețurile tipice în 2026:
+
+- Bitrix24 (plan business): ~2.400–3.600 USD/3 ani
+- HubSpot (Starter, per seat): ~3.600–7.200 USD/3 ani
+- Zoho CRM (plan standard): ~2.500–4.000 USD/3 ani
+
+La aceste sume se adaugă **riscul valutar** (plătești în valută, încasezi în lei), limitări la numărul de utilizatori sau înregistrări, și faptul că, dacă renunți la abonament, **pierzi accesul la propriile date**.
+
+### Ce plătești pentru un CRM personalizat
+- Cost **unic** de dezvoltare: 800–3.500 USD, în funcție de complexitate
+- Mentenanță opțională: 30–80 USD/lună (doar dacă vrei suport continuu)
+- **Ești proprietarul codului și al datelor**, fără limită de utilizatori sau înregistrări
+
+## Ce poate face un sistem personalizat pentru afacerea ta
+
+### Gestionează clienți și istoricul complet
+Fiecare apel, ofertă, comandă și discuție — într-un singur loc, vizibil pentru toată echipa.
+
+### Generează oferte și facturi automat
+Fără copy-paste în Word sau Excel de fiecare dată.
+
+### Se integrează cu WhatsApp și Viber
+Mesajele clienților ajung direct în fișa lor din sistem, nu se pierd în telefonul unui angajat.
+
+### Funcționează și offline
+Pentru echipe de teren, depozite sau locații cu internet instabil — datele se sincronizează automat când revine conexiunea.
+
+### Oferă rapoarte reale, nu bănuieli
+Câte lead-uri intră pe lună, cine convertește cel mai bine, unde se blochează vânzarea.
+
+## Tipuri de proiecte de software personalizat și prețuri orientative
+
+| Tip proiect | Preț estimativ | Potrivit pentru |
+|-------------|----------------|------------------|
+| CRM simplu (clienți + istoric) | 800–1.500 USD | Firme mici, freelanceri, agenții |
+| CRM cu automatizări (oferte, facturi, notificări) | 1.500–3.500 USD | Firme de construcții, service-uri, distribuție |
+| Aplicație desktop offline (stoc, comenzi, gestiune) | 2.000–5.000 USD | Depozite, magazine, producție |
+| Platformă SaaS completă (multi-utilizator, roluri) | 5.000+ USD | Startup-uri, platforme cu clienți proprii |
+
+## Studiu de caz: firmă de construcții din Chișinău
+
+**Înainte:** ~200 de clienți gestionați în Excel, oferte trimise manual din Word, urmăriri de plată făcute "din memorie".
+
+**După implementarea unui CRM personalizat:**
+- Timp de pregătire ofertă: de la 40 de minute la 5 minute
+- Zero lead-uri pierdute din lipsă de follow-up
+- Rapoarte lunare generate automat, nu manual într-un weekend
+
+## Cum știi dacă afacerea ta are nevoie de software personalizat
+
+Ia în calcul un sistem propriu dacă:
+
+- Plătești deja pentru 2-3 unelte diferite (CRM, facturare, programări) care nu comunică între ele
+- Ai procese specifice afacerii tale pe care niciun CRM generic nu le acoperă din start
+- Echipa ta lucrează des fără internet stabil (teren, depozit, zone rurale)
+- Vrei să deții datele clienților tăi, nu să depinzi de un abonament străin
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu o descriere scurtă a proceselor tale
+2. Facem un audit gratuit de 30 de minute și îți spunem exact ce ar rezolva un sistem personalizat
+3. Primești o ofertă cu preț fix, nu estimare vagă
+4. Livrare în 3–6 săptămâni, în funcție de complexitate
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Индивидуальная CRM против подписки: сколько это стоит на самом деле в Молдове",
+        description: "Сравниваем реальную стоимость импортной подписки на CRM (Bitrix24, HubSpot, Zoho) и системы, разработанной под конкретный бизнес, с ориентировочными ценами для Молдовы.",
+        content: `
+## Сколько денег «утекает» ежемесячно на CRM, которой вы не владеете?
+
+Если ваша компания платит 60, 100 или 300 долларов в месяц за импортную CRM — Bitrix24, HubSpot, Zoho, Pipedrive — вы, наверное, считаете это «нормальными расходами на бизнес». Это не так.
+
+За 3 года такая подписка обходится **дороже, чем система, созданная специально под ваш бизнес**, которой вы владеете полностью, без ежемесячной платы, без валютного риска и без искусственных ограничений по числу пользователей.
+
+## Реальная проблема: Excel, тетради и CRM «из коробки»
+
+Большинство МСП в Молдове ведут учёт клиентов одним из трёх способов:
+
+- **Excel или Google Таблицы** — строки теряются, истории нет, никто не помнит, когда клиенту звонили в последний раз
+- **Тетрадь заказов на столе** — информация исчезает, если сотрудник в отпуске или уволился
+- **Готовая импортная CRM** — оплата ежемесячно в USD/EUR, 80% функций бесполезны для вашего бизнеса, а нужных 20% часто не хватает
+
+Итог одинаков во всех трёх случаях: **потерянные заявки, забытые звонки и решения без реальных данных.**
+
+## Подписка SaaS против собственной системы — сравнение за 3 года
+
+### Сколько стоит импортная CRM
+Для команды из 5 пользователей, типичные цены в 2026 году:
+
+- Bitrix24 (бизнес-план): ~2 400–3 600 USD за 3 года
+- HubSpot (Starter, за место): ~3 600–7 200 USD за 3 года
+- Zoho CRM (стандартный план): ~2 500–4 000 USD за 3 года
+
+К этим суммам добавляется **валютный риск** (платите в валюте, зарабатываете в леях), ограничения по числу пользователей или записей, и то, что при отказе от подписки **вы теряете доступ к собственным данным**.
+
+### Сколько стоит индивидуальная CRM
+- **Единоразовая** стоимость разработки: 800–3 500 USD, в зависимости от сложности
+- Опциональная поддержка: 30–80 USD/месяц (только если нужна постоянная техподдержка)
+- **Вы владеете кодом и данными**, без ограничений по пользователям или записям
+
+## Что умеет индивидуальная система для вашего бизнеса
+
+### Ведёт клиентов и полную историю
+Каждый звонок, предложение, заказ и переписка — в одном месте, видно всей команде.
+
+### Автоматически создаёт предложения и счета
+Без копирования вручную в Word или Excel каждый раз.
+
+### Интегрируется с WhatsApp и Viber
+Сообщения клиентов попадают прямо в их карточку в системе, а не теряются в телефоне сотрудника.
+
+### Работает без интернета
+Для выездных бригад, складов или точек с нестабильным интернетом — данные синхронизируются автоматически, когда связь появляется снова.
+
+### Даёт реальные отчёты, а не догадки
+Сколько заявок в месяц, кто лучше конвертирует, где теряются продажи.
+
+## Типы проектов индивидуального ПО и ориентировочные цены
+
+| Тип проекта | Ориентировочная цена | Подходит для |
+|-------------|----------------------|--------------|
+| Простая CRM (клиенты + история) | 800–1 500 USD | Малый бизнес, фрилансеры, агентства |
+| CRM с автоматизацией (предложения, счета, уведомления) | 1 500–3 500 USD | Строительные фирмы, сервисы, дистрибуция |
+| Офлайн-приложение (склад, заказы, учёт) | 2 000–5 000 USD | Склады, магазины, производство |
+| Полноценная SaaS-платформа (мультипользователь, роли) | от 5 000 USD | Стартапы, платформы с собственными клиентами |
+
+## Кейс: строительная компания в Кишинёве
+
+**До:** ~200 клиентов в Excel, предложения отправлялись вручную из Word, контроль оплат «по памяти».
+
+**После внедрения индивидуальной CRM:**
+- Время подготовки предложения: с 40 минут до 5 минут
+- Ноль потерянных заявок из-за отсутствия напоминаний
+- Ежемесячные отчёты формируются автоматически, а не вручную в выходные
+
+## Как понять, что вашему бизнесу нужно индивидуальное ПО
+
+Стоит рассмотреть собственную систему, если:
+
+- Вы уже платите за 2-3 разных инструмента (CRM, выставление счетов, запись), которые не связаны между собой
+- У вас есть специфичные процессы, которые не покрывает ни одна готовая CRM
+- Ваша команда часто работает без стабильного интернета (выезд, склад, сельская местность)
+- Вы хотите владеть данными своих клиентов, а не зависеть от иностранной подписки
+
+## Как начать
+
+1. Напишите на office@tinka.md с коротким описанием ваших процессов
+2. Проведём бесплатный аудит за 30 минут и скажем точно, что решит индивидуальная система
+3. Получите предложение с фиксированной ценой, а не расплывчатой оценкой
+4. Срок реализации: 3–6 недель, в зависимости от сложности
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Custom CRM vs. subscription: what it really costs in Moldova",
+        description: "We compare the real cost of an imported CRM subscription (Bitrix24, HubSpot, Zoho) versus a system built for your business, with sample pricing for Moldova.",
+        content: `
+## How much money are you "leaking" every month on a CRM you don't own?
+
+If your company pays 60, 100 or 300 dollars a month for an imported CRM — Bitrix24, HubSpot, Zoho, Pipedrive — you probably think that's just "the normal cost of doing business." It isn't.
+
+Over 3 years, that subscription ends up costing **more than a system built specifically for your business** — one you own outright, with no monthly fee, no exchange-rate risk and no artificial user limits.
+
+## The real problem: spreadsheets, notebooks and off-the-shelf CRMs
+
+Most SMEs in Moldova manage customers in one of three ways:
+
+- **Excel or Google Sheets** — rows get lost, there's no history, nobody knows who last called the client
+- **A paper order notebook on the desk** — the information disappears if that employee is out or leaves the company
+- **A generic imported CRM** — paid monthly in USD/EUR, with 80% features you'll never use and only 20% of what you actually need
+
+All three lead to the same result: **lost leads, forgotten follow-ups and decisions made without real data.**
+
+## SaaS subscription vs. custom system — a 3-year comparison
+
+### What you pay for an imported CRM
+For a team of 5 users, typical 2026 pricing:
+
+- Bitrix24 (business plan): ~$2,400–$3,600 over 3 years
+- HubSpot (Starter, per seat): ~$3,600–$7,200 over 3 years
+- Zoho CRM (standard plan): ~$2,500–$4,000 over 3 years
+
+On top of that comes **currency risk** (you pay in foreign currency, earn in lei), limits on users or records, and the fact that if you cancel the subscription, **you lose access to your own data**.
+
+### What you pay for a custom CRM
+- **One-time** development cost: $800–$3,500, depending on complexity
+- Optional maintenance: $30–$80/month (only if you want ongoing support)
+- **You own the code and the data**, with no limit on users or records
+
+## What a custom system can do for your business
+
+### Manages customers and their full history
+Every call, quote, order and conversation — in one place, visible to the whole team.
+
+### Generates quotes and invoices automatically
+No more copy-pasting into Word or Excel every time.
+
+### Integrates with WhatsApp and Viber
+Customer messages land directly in their record in the system, instead of getting lost on an employee's phone.
+
+### Works offline too
+For field teams, warehouses or locations with unstable internet — data syncs automatically once the connection is back.
+
+### Gives you real reports, not guesses
+How many leads come in per month, who converts best, where the sales process stalls.
+
+## Types of custom software projects and sample pricing
+
+| Project type | Estimated price | Best for |
+|--------------|------------------|----------|
+| Simple CRM (customers + history) | $800–$1,500 | Small businesses, freelancers, agencies |
+| CRM with automation (quotes, invoices, notifications) | $1,500–$3,500 | Construction firms, service businesses, distribution |
+| Offline desktop app (stock, orders, management) | $2,000–$5,000 | Warehouses, stores, production |
+| Full SaaS platform (multi-user, roles) | $5,000+ | Startups, platforms with their own customers |
+
+## Case study: construction company in Chișinău
+
+**Before:** ~200 customers managed in Excel, quotes sent manually from Word, payment follow-ups tracked "from memory."
+
+**After implementing a custom CRM:**
+- Quote preparation time: from 40 minutes down to 5 minutes
+- Zero leads lost due to missed follow-ups
+- Monthly reports generated automatically, not by hand on a weekend
+
+## How to know if your business needs custom software
+
+Consider a system of your own if:
+
+- You already pay for 2-3 different tools (CRM, invoicing, bookings) that don't talk to each other
+- You have processes specific to your business that no generic CRM covers out of the box
+- Your team often works without a stable internet connection (field work, warehouse, rural areas)
+- You want to own your customer data instead of depending on a foreign subscription
+
+## How to get started
+
+1. Email us at office@tinka.md with a short description of your processes
+2. We do a free 30-minute audit and tell you exactly what a custom system would solve
+3. You get a proposal with a fixed price, not a vague estimate
+4. Delivery in 3–6 weeks, depending on complexity
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
-  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări" },
-  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация" },
-  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation" },
+  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat" },
+  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО" },
+  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software" },
 }
 
 export const blogUI = {
