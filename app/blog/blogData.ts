@@ -993,6 +993,247 @@ Consider a system of your own if:
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 5
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "automatizare-postari-facebook-instagram-ai",
+    date: "2026-09-28",
+    readTime: 7,
+    category: "automation",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/adcabedf-9b1e-42c8-83ca-8192acc402d5.png",
+    translations: {
+      ro: {
+        title: "Automatizare postări Facebook și Instagram cu AI — publici zilnic fără să stai tu la telefon",
+        description: "Cum generezi automat imagini cu AI și programezi postări zilnice pe Facebook și Instagram pentru afacerea ta din Moldova, fără un social media manager cu normă întreagă.",
+        content: `
+## Ultima postare: acum 3 săptămâni
+
+Deschide acum pagina de Facebook a afacerii tale. Când a fost ultima postare? Dacă răspunsul e "acum câteva săptămâni" sau "nu mai știu" — nu ești singurul, dar pierzi bani în fiecare zi în care pagina tace.
+
+Clienții din Moldova verifică pagina unei afaceri **înainte** să sune sau să treacă pe acolo. O pagină cu ultima postare veche transmite un singur mesaj: "poate s-au închis". Iar concurentul care postează constant, chiar cu conținut simplu, câștigă încrederea aceea în locul tău.
+
+## De ce se oprește postarea, deși toată lumea știe că "trebuie"
+
+Problema nu e că antreprenorii nu înțeleg importanța rețelelor sociale. Problema e timpul:
+
+- Găsirea sau crearea unei imagini potrivite durează 20–40 de minute per postare
+- Scrierea unui text bun, cu hashtag-uri relevante, încă 10–15 minute
+- Postarea manuală pe Facebook ȘI Instagram, cu programare separată pe fiecare
+- Un angajat "responsabil cu rețelele" ajunge să facă asta din 2 în 2 săptămâni, când mai are timp
+
+Un social media manager freelance în Moldova costă în general **150–400 USD/lună** pentru 8–12 postări — și tot depinde de disponibilitatea unei singure persoane, care poate fi în concediu, bolnavă sau pur și simplu ocupată cu alți clienți.
+
+## Ce înseamnă automatizare social media cu AI
+
+Automatizarea nu înseamnă postări robotizate și generice. Înseamnă un sistem care face 80% din muncă automat, iar tu (sau un angajat) validezi în 5 minute pe săptămână.
+
+### Generare automată de imagini
+AI-ul creează imagini originale, potrivite brandului tău — pentru ofertă, produs nou, citat motivațional, sărbătoare locală — fără să mai cauți poze stock sau să apelezi la un designer pentru fiecare postare.
+
+### Texte și hashtag-uri adaptate pe platformă
+Textul pentru Instagram nu e identic cu cel pentru Facebook. Sistemul adaptează tonul, lungimea și hashtag-urile pentru fiecare rețea, pornind de la aceleași informații despre afacerea ta.
+
+### Calendar de publicare automat
+Postările se programează în avans — zilnic sau de câte ori decizi — și pleacă automat, la ora optimă, fără să mai deschidă nimeni Facebook manual în fiecare dimineață.
+
+## Cum arată practic, într-o săptămână obișnuită
+
+1. Luni dimineață, sistemul generează 5–7 propuneri de postări pentru săptămâna respectivă, bazate pe promoții, produse sau teme pe care le-ai stabilit
+2. Tu (sau un angajat) le validezi în 5–10 minute — aprobi, respingi sau ceri o variantă nouă
+3. Postările pleacă automat, programate pe zile și ore diferite pe Facebook și Instagram
+4. Săptămâna următoare, procesul se repetă — fără să mai cauți tu imagini sau să scrii texte de la zero
+
+Dacă vrei, sistemul se poate conecta și cu <a href="/solutions/automatizare-social-media" class="text-sky-400 hover:text-sky-300 underline">automatizarea completă a rețelelor sociale</a> pe care o construim la TINKA AI, inclusiv raportare lunară a rezultatelor.
+
+## Rezultate realiste pentru o afacere locală
+
+**Restaurant din Chișinău, 2 locații:**
+- Înainte: 2–3 postări/lună, făcute "când e timp"
+- După automatizare: postare zilnică, constantă, cu meniul zilei și oferte
+- Vizibilitate organică: +45% în 6 săptămâni
+- Timp implicat din partea echipei: sub 1 oră/săptămână, față de 4–5 ore înainte
+
+## Pachete și prețuri orientative
+
+| Pachet | Preț | Ce include |
+|--------|------|-----------|
+| Starter | 150–250 USD/lună | 3–4 postări/săptămână, o singură platformă |
+| Business | 250–450 USD/lună | Postare zilnică, Facebook + Instagram, imagini AI |
+| Pro | 450–800 USD/lună | Postare zilnică multi-platformă + raport lunar + campanii sezoniere |
+
+## Ai nevoie de automatizare dacă:
+
+- Pagina ta de Facebook sau Instagram nu are postare nouă de peste 2 săptămâni
+- Plătești deja un freelancer, dar postările vin inconstant
+- Ai mai multe locații sau branduri și nu poți ține pasul cu toate
+- Vrei prezență zilnică fără să angajezi pe cineva full-time pentru asta
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu link către pagina ta de Facebook sau Instagram
+2. Analizăm gratuit ce postezi acum și ce lipsește
+3. Îți propunem un calendar de conținut și pachetul potrivit
+4. Primele postări automate pleacă în 5–7 zile lucrătoare
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Автоматизация постов в Facebook и Instagram с AI — публикуйте ежедневно, не сидя за телефоном",
+        description: "Как автоматически генерировать изображения с помощью AI и планировать ежедневные посты в Facebook и Instagram для вашего бизнеса в Молдове, без SMM-менеджера на полную ставку.",
+        content: `
+## Последний пост: 3 недели назад
+
+Откройте сейчас страницу Facebook вашего бизнеса. Когда был последний пост? Если ответ «пару недель назад» или «уже не помню» — вы не одиноки, но каждый день молчания страницы стоит вам денег.
+
+Клиенты в Молдове проверяют страницу бизнеса **перед** тем, как позвонить или прийти. Страница с давним последним постом сообщает одно: «может, они закрылись». А конкурент, который постит стабильно, даже простой контент, забирает это доверие себе.
+
+## Почему постинг прекращается, хотя все понимают, что «надо»
+
+Проблема не в том, что предприниматели не понимают важность соцсетей. Проблема — время:
+
+- Поиск или создание подходящего изображения занимает 20–40 минут на пост
+- Написание хорошего текста с релевантными хэштегами — ещё 10–15 минут
+- Ручная публикация на Facebook И Instagram, с отдельным планированием для каждой
+- Сотрудник, «ответственный за соцсети», в итоге делает это раз в 2 недели, когда есть время
+
+SMM-фрилансер в Молдове стоит обычно **150–400 USD/месяц** за 8–12 постов — и всё равно зависит от доступности одного человека, который может быть в отпуске, болеть или просто занят другими клиентами.
+
+## Что значит автоматизация соцсетей с AI
+
+Автоматизация — это не роботизированные и однотипные посты. Это система, которая делает 80% работы автоматически, а вы (или сотрудник) утверждаете за 5 минут в неделю.
+
+### Автоматическая генерация изображений
+AI создаёт оригинальные изображения под ваш бренд — для акции, нового товара, мотивационной цитаты, местного праздника — без поиска стоковых фото и без дизайнера для каждого поста.
+
+### Тексты и хэштеги под каждую платформу
+Текст для Instagram отличается от текста для Facebook. Система адаптирует тон, длину и хэштеги под каждую сеть, отталкиваясь от одной и той же информации о вашем бизнесе.
+
+### Автоматический календарь публикаций
+Посты планируются заранее — ежедневно или с любой периодичностью, которую вы выберете — и выходят автоматически, в оптимальное время, без того, чтобы кто-то каждое утро вручную открывал Facebook.
+
+## Как это выглядит на практике, в обычную неделю
+
+1. В понедельник утром система генерирует 5–7 вариантов постов на неделю, основываясь на акциях, товарах или темах, которые вы задали
+2. Вы (или сотрудник) утверждаете их за 5–10 минут — одобряете, отклоняете или просите новый вариант
+3. Посты выходят автоматически, распределённые по дням и часам, на Facebook и Instagram
+4. На следующей неделе процесс повторяется — без поиска изображений и написания текстов с нуля
+
+При желании систему можно подключить к <a href="/ru/solutions/automatizare-social-media" class="text-sky-400 hover:text-sky-300 underline">полной автоматизации соцсетей</a>, которую мы строим в TINKA AI, включая ежемесячную отчётность по результатам.
+
+## Реалистичные результаты для локального бизнеса
+
+**Ресторан в Кишинёве, 2 точки:**
+- До: 2–3 поста/месяц, «когда есть время»
+- После автоматизации: ежедневные посты, стабильно, с меню дня и акциями
+- Органический охват: +45% за 6 недель
+- Время команды: менее 1 часа/неделю, против 4–5 часов раньше
+
+## Пакеты и ориентировочные цены
+
+| Пакет | Цена | Что включает |
+|-------|------|--------------|
+| Starter | 150–250 USD/месяц | 3–4 поста/неделю, одна платформа |
+| Business | 250–450 USD/месяц | Ежедневные посты, Facebook + Instagram, AI-изображения |
+| Pro | 450–800 USD/месяц | Ежедневные посты на нескольких платформах + ежемесячный отчёт + сезонные кампании |
+
+## Вам нужна автоматизация, если:
+
+- На странице Facebook или Instagram нет нового поста уже более 2 недель
+- Вы уже платите фрилансеру, но посты выходят нестабильно
+- У вас несколько точек или брендов, и вы не успеваете за всеми
+- Вы хотите ежедневное присутствие без найма отдельного сотрудника на полную ставку
+
+## Как начать
+
+1. Напишите на office@tinka.md со ссылкой на вашу страницу Facebook или Instagram
+2. Бесплатно анализируем, что вы публикуете сейчас и чего не хватает
+3. Предлагаем контент-календарь и подходящий пакет
+4. Первые автоматические посты выходят через 5–7 рабочих дней
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "AI Facebook & Instagram posting automation — post daily without sitting on your phone",
+        description: "How to auto-generate images with AI and schedule daily Facebook and Instagram posts for your business in Moldova, without a full-time social media manager.",
+        content: `
+## Last post: 3 weeks ago
+
+Open your business's Facebook page right now. When was the last post? If the answer is "a few weeks ago" or "I honestly don't know" — you're not alone, but every day the page stays silent is costing you customers.
+
+People in Moldova check a business's page **before** calling or walking in. A page with an old last post sends one message: "maybe they closed." Meanwhile, the competitor who posts consistently — even simple content — wins that trust instead of you.
+
+## Why posting stops, even though everyone knows it "should" happen
+
+The problem isn't that business owners don't understand social media matters. The problem is time:
+
+- Finding or creating a decent image takes 20–40 minutes per post
+- Writing a good caption with relevant hashtags takes another 10–15 minutes
+- Manually posting to Facebook AND Instagram, scheduling each separately
+- The employee "in charge of social media" ends up doing it once every two weeks, whenever there's time
+
+A freelance social media manager in Moldova typically costs **$150–$400/month** for 8–12 posts — and you're still dependent on one person's availability, who can be on vacation, sick, or simply busy with other clients.
+
+## What AI social media automation actually means
+
+Automation doesn't mean robotic, generic posts. It means a system that does 80% of the work automatically, while you (or an employee) approve it in 5 minutes a week.
+
+### Automatic image generation
+AI creates original, on-brand images — for a promotion, a new product, a motivational quote, a local holiday — without hunting for stock photos or briefing a designer for every single post.
+
+### Captions and hashtags adapted per platform
+Instagram copy isn't the same as Facebook copy. The system adapts tone, length and hashtags for each network, starting from the same information about your business.
+
+### Automatic publishing calendar
+Posts get scheduled in advance — daily, or at whatever frequency you choose — and go out automatically, at the optimal time, without anyone manually opening Facebook every morning.
+
+## What it looks like in practice, in a typical week
+
+1. Monday morning, the system generates 5–7 post ideas for the week, based on promotions, products or themes you've set
+2. You (or an employee) review them in 5–10 minutes — approve, reject, or ask for a new version
+3. Posts go out automatically, spread across days and times, on Facebook and Instagram
+4. The following week, the process repeats — without you hunting for images or writing captions from scratch
+
+If you want, the system can also connect to the <a href="/en/solutions/automatizare-social-media" class="text-sky-400 hover:text-sky-300 underline">full social media automation service</a> we build at TINKA AI, including monthly performance reporting.
+
+## Realistic results for a local business
+
+**Restaurant in Chișinău, 2 locations:**
+- Before: 2–3 posts/month, "whenever there was time"
+- After automation: daily posts, consistently, with the day's menu and offers
+- Organic reach: +45% in 6 weeks
+- Team time involved: under 1 hour/week, versus 4–5 hours before
+
+## Packages and sample pricing
+
+| Package | Price | Includes |
+|---------|-------|----------|
+| Starter | $150–$250/month | 3–4 posts/week, one platform |
+| Business | $250–$450/month | Daily posting, Facebook + Instagram, AI images |
+| Pro | $450–$800/month | Daily multi-platform posting + monthly report + seasonal campaigns |
+
+## You need automation if:
+
+- Your Facebook or Instagram page hasn't had a new post in over 2 weeks
+- You're already paying a freelancer, but posts come inconsistently
+- You have multiple locations or brands and can't keep up with all of them
+- You want a daily presence without hiring someone full-time for it
+
+## How to get started
+
+1. Email us at office@tinka.md with a link to your Facebook or Instagram page
+2. We do a free review of what you're posting now and what's missing
+3. We propose a content calendar and the right package
+4. Your first automated posts go live within 5–7 business days
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
