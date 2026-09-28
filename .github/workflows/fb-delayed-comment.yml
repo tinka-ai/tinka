@@ -30,9 +30,11 @@ jobs:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           FB_PAGE_ID: "846894275178830"
         run: |
-          # Deliberat FARA set -e: cu set -e, o comanda care esueaza in interiorul
-          # unui VAR=$(...) opreste scriptul IMEDIAT, inainte sa apuc sa citesc $?
-          # si sa afisez un mesaj util. Verificam manual codul de iesire dupa fiecare pas.
+          # GitHub porneste acest pas cu `bash -e {0}` DIN AFARA (vezi "shell:" in log) —
+          # doar stergerea liniei mele "set -e" nu il dezactiveaza, flag-ul e deja activ
+          # la nivel de proces. Trebuie anulat explicit cu set +e, altfel orice VAR=$(cmd)
+          # care esueaza omoara scriptul instant, inainte sa apuc sa citesc $? sau sa printez ceva.
+          set +e
 
           if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
             echo "::error::FB_PAGE_ACCESS_TOKEN secret is empty or not set in this repo's Settings > Secrets > Actions."
