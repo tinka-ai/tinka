@@ -1,0 +1,65 @@
+name: Facebook delayed follow-up comment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "automation/pending-fb-comment.json"
+  workflow_dispatch: {}
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait 20 minutes so the comment lands after the post has settled
+        run: sleep 1200
+
+      - name: Extract comment text from the pending file
+        run: |
+          node -e "
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('automation/pending-fb-comment.json', 'utf8'));
+            if (!data.comment_text) { console.error('MISSING_COMMENT_TEXT'); process.exit(1); }
+            fs.writeFileSync('/tmp/comment.txt', data.comment_text);
+          "
+
+      - name: Find the target post and post the comment
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          FB_PAGE_ID: "846894275178830"
+        run: |
+          set -e
+
+          RESPONSE=$(curl -s "https://graph.facebook.com/v26.0/$FB_PAGE_ID/posts?fields=id,message,created_time&limit=3&access_token=$FB_PAGE_ACCESS_TOKEN")
+
+          POST_ID=$(echo "$RESPONSE" | node -e "
+            let d = '';
+            process.stdin.on('data', c => d += c);
+            process.stdin.on('end', () => {
+              const j = JSON.parse(d);
+              if (j.error) { console.error('API_ERROR: ' + JSON.stringify(j.error)); process.exit(1); }
+              if (!j.data || !j.data.length) { console.error('NO_POSTS_FOUND'); process.exit(1); }
+              const post = j.data[0];
+              const ageMinutes = (Date.now() - new Date(post.created_time).getTime()) / 60000;
+              if (ageMinutes > 40) {
+                console.error('MOST_RECENT_POST_TOO_OLD: ' + ageMinutes.toFixed(1) + ' minutes old, refusing to comment on a possibly wrong post');
+                process.exit(1);
+              }
+              console.log(post.id);
+            });
+          ")
+
+          echo "Target post id: $POST_ID"
+
+          curl -s -X POST "https://graph.facebook.com/v26.0/$POST_ID/comments" \
+            --data-urlencode "message@/tmp/comment.txt" \
+            --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
+            -o /tmp/comment_response.json
+
+          node -e "
+            const r = require('/tmp/comment_response.json');
+            if (r.error) { console.error('COMMENT_FAILED: ' + JSON.stringify(r.error)); process.exit(1); }
+            console.log('Comment posted successfully, id: ' + r.id);
+          "
