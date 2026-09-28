@@ -30,21 +30,24 @@ jobs:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           FB_PAGE_ID: "846894275178830"
         run: |
-          set -e
+          # Deliberat FARA set -e: cu set -e, o comanda care esueaza in interiorul
+          # unui VAR=$(...) opreste scriptul IMEDIAT, inainte sa apuc sa citesc $?
+          # si sa afisez un mesaj util. Verificam manual codul de iesire dupa fiecare pas.
 
-          # Fail fast cu mesaj clar in loc de o eroare seaca de curl mai jos.
-          # Nu afisam niciodata token-ul, doar daca lipseste.
           if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
             echo "::error::FB_PAGE_ACCESS_TOKEN secret is empty or not set in this repo's Settings > Secrets > Actions."
             exit 1
           fi
 
-          HTTP_CODE=$(curl -s -o /tmp/posts_response.json -w "%{http_code}" \
-            "https://graph.facebook.com/v26.0/$FB_PAGE_ID/posts?fields=id,message,created_time&limit=3&access_token=$FB_PAGE_ACCESS_TOKEN")
+          HTTP_CODE=$(curl -sS -o /tmp/posts_response.json -w "%{http_code}" \
+            "https://graph.facebook.com/v26.0/${FB_PAGE_ID}/posts?fields=id,message,created_time&limit=3&access_token=${FB_PAGE_ACCESS_TOKEN}" \
+            2>/tmp/curl_err_1.txt)
           CURL_EXIT=$?
+          echo "curl exit code (fetch posts): $CURL_EXIT, HTTP: $HTTP_CODE"
 
           if [ "$CURL_EXIT" -ne 0 ]; then
-            echo "::error::curl failed with exit code $CURL_EXIT while fetching recent posts (network issue or malformed URL, not a Facebook API error)."
+            echo "::error::curl failed with exit code $CURL_EXIT while fetching recent posts. curl stderr:"
+            cat /tmp/curl_err_1.txt
             exit 1
           fi
           if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
@@ -66,16 +69,24 @@ jobs:
             }
             console.log(post.id);
           ")
+          NODE_EXIT=$?
+          if [ "$NODE_EXIT" -ne 0 ]; then
+            echo "::error::Could not determine target post (see message above), exit code $NODE_EXIT."
+            exit 1
+          fi
 
           echo "Target post id: $POST_ID"
 
-          HTTP_CODE=$(curl -s -o /tmp/comment_response.json -w "%{http_code}" -X POST "https://graph.facebook.com/v26.0/$POST_ID/comments" \
+          HTTP_CODE=$(curl -sS -o /tmp/comment_response.json -w "%{http_code}" -X POST "https://graph.facebook.com/v26.0/${POST_ID}/comments" \
             --data-urlencode "message@/tmp/comment.txt" \
-            --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN")
+            --data-urlencode "access_token=${FB_PAGE_ACCESS_TOKEN}" \
+            2>/tmp/curl_err_2.txt)
           CURL_EXIT=$?
+          echo "curl exit code (post comment): $CURL_EXIT, HTTP: $HTTP_CODE"
 
           if [ "$CURL_EXIT" -ne 0 ]; then
-            echo "::error::curl failed with exit code $CURL_EXIT while posting the comment (network issue or malformed URL, not a Facebook API error)."
+            echo "::error::curl failed with exit code $CURL_EXIT while posting the comment. curl stderr:"
+            cat /tmp/curl_err_2.txt
             exit 1
           fi
           if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
@@ -90,3 +101,4 @@ jobs:
             if (r.error) { console.error('COMMENT_FAILED: ' + JSON.stringify(r.error)); process.exit(1); }
             console.log('Comment posted successfully, id: ' + r.id);
           "
+          exit $?
