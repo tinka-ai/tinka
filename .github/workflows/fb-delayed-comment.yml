@@ -36,9 +36,15 @@ jobs:
           # care esueaza omoara scriptul instant, inainte sa apuc sa citesc $? sau sa printez ceva.
           set +e
 
-          # curl a respins URL-ul cu "Malformed input to a URL function" — semn clar ca
-          # secretul contine un caracter invizibil (newline/spatiu) de la copiere. Il curatam.
-          FB_PAGE_ACCESS_TOKEN="$(printf '%s' "$FB_PAGE_ACCESS_TOKEN" | tr -d '[:space:]')"
+          # curl tot respinge URL-ul cu "Malformed input to a URL function" chiar si dupa
+          # ce am scos spatiile normale — inseamna ca e vorba de caractere Unicode invizibile
+          # (zero-width space, BOM etc.) ramase de la copierea din vizualizatorul JSON al
+          # browserului, pe care tr -d '[:space:]' nu le prinde. Folosim lista alba stricta:
+          # pastram DOAR caracterele valide intr-un token Facebook (litere, cifre, _ si -),
+          # orice altceva e sters necondiotionat.
+          echo "Token length before cleanup: ${#FB_PAGE_ACCESS_TOKEN}"
+          FB_PAGE_ACCESS_TOKEN="$(printf '%s' "$FB_PAGE_ACCESS_TOKEN" | tr -cd 'A-Za-z0-9_-')"
+          echo "Token length after cleanup: ${#FB_PAGE_ACCESS_TOKEN}"
 
           if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
             echo "::error::FB_PAGE_ACCESS_TOKEN secret is empty or not set in this repo's Settings > Secrets > Actions."
