@@ -32,34 +32,61 @@ jobs:
         run: |
           set -e
 
-          RESPONSE=$(curl -s "https://graph.facebook.com/v26.0/$FB_PAGE_ID/posts?fields=id,message,created_time&limit=3&access_token=$FB_PAGE_ACCESS_TOKEN")
+          # Fail fast cu mesaj clar in loc de o eroare seaca de curl mai jos.
+          # Nu afisam niciodata token-ul, doar daca lipseste.
+          if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
+            echo "::error::FB_PAGE_ACCESS_TOKEN secret is empty or not set in this repo's Settings > Secrets > Actions."
+            exit 1
+          fi
 
-          POST_ID=$(echo "$RESPONSE" | node -e "
-            let d = '';
-            process.stdin.on('data', c => d += c);
-            process.stdin.on('end', () => {
-              const j = JSON.parse(d);
-              if (j.error) { console.error('API_ERROR: ' + JSON.stringify(j.error)); process.exit(1); }
-              if (!j.data || !j.data.length) { console.error('NO_POSTS_FOUND'); process.exit(1); }
-              const post = j.data[0];
-              const ageMinutes = (Date.now() - new Date(post.created_time).getTime()) / 60000;
-              if (ageMinutes > 40) {
-                console.error('MOST_RECENT_POST_TOO_OLD: ' + ageMinutes.toFixed(1) + ' minutes old, refusing to comment on a possibly wrong post');
-                process.exit(1);
-              }
-              console.log(post.id);
-            });
+          HTTP_CODE=$(curl -s -o /tmp/posts_response.json -w "%{http_code}" \
+            "https://graph.facebook.com/v26.0/$FB_PAGE_ID/posts?fields=id,message,created_time&limit=3&access_token=$FB_PAGE_ACCESS_TOKEN")
+          CURL_EXIT=$?
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "::error::curl failed with exit code $CURL_EXIT while fetching recent posts (network issue or malformed URL, not a Facebook API error)."
+            exit 1
+          fi
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            echo "::error::Facebook API returned HTTP $HTTP_CODE fetching recent posts. Response body:"
+            cat /tmp/posts_response.json
+            exit 1
+          fi
+
+          POST_ID=$(node -e "
+            const fs = require('fs');
+            const j = JSON.parse(fs.readFileSync('/tmp/posts_response.json', 'utf8'));
+            if (j.error) { console.error('API_ERROR: ' + JSON.stringify(j.error)); process.exit(1); }
+            if (!j.data || !j.data.length) { console.error('NO_POSTS_FOUND'); process.exit(1); }
+            const post = j.data[0];
+            const ageMinutes = (Date.now() - new Date(post.created_time).getTime()) / 60000;
+            if (ageMinutes > 40) {
+              console.error('MOST_RECENT_POST_TOO_OLD: ' + ageMinutes.toFixed(1) + ' minutes old, refusing to comment on a possibly wrong post');
+              process.exit(1);
+            }
+            console.log(post.id);
           ")
 
           echo "Target post id: $POST_ID"
 
-          curl -s -X POST "https://graph.facebook.com/v26.0/$POST_ID/comments" \
+          HTTP_CODE=$(curl -s -o /tmp/comment_response.json -w "%{http_code}" -X POST "https://graph.facebook.com/v26.0/$POST_ID/comments" \
             --data-urlencode "message@/tmp/comment.txt" \
-            --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN" \
-            -o /tmp/comment_response.json
+            --data-urlencode "access_token=$FB_PAGE_ACCESS_TOKEN")
+          CURL_EXIT=$?
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "::error::curl failed with exit code $CURL_EXIT while posting the comment (network issue or malformed URL, not a Facebook API error)."
+            exit 1
+          fi
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            echo "::error::Facebook API returned HTTP $HTTP_CODE posting the comment. Response body:"
+            cat /tmp/comment_response.json
+            exit 1
+          fi
 
           node -e "
-            const r = require('/tmp/comment_response.json');
+            const fs = require('fs');
+            const r = JSON.parse(fs.readFileSync('/tmp/comment_response.json', 'utf8'));
             if (r.error) { console.error('COMMENT_FAILED: ' + JSON.stringify(r.error)); process.exit(1); }
             console.log('Comment posted successfully, id: ' + r.id);
           "
