@@ -11,6 +11,7 @@
 - **Automatizări Business** — Fluxuri automate CRM, email, notificări WhatsApp, procesare comenzi
 - **Conținut & media generate cu AI** — Dublaj audio/video multilingv cu voci AI, avatare AI (digital humans) pentru prezentări sau customer service, meniuri audio electronice, voce-over, conținut video/social generat cu AI
 - **Platforme de e-learning** — Platforme LMS personalizate, cursuri online cu certificare automată, teste automate, training corporate, conținut educațional video/audio asistat de AI
+- **Automatizare postări Facebook & Instagram** — Imagini generate cu AI, text scris automat, publicare programată direct pe pagini, fără intervenție manuală zilnică
 - **Consultanță Digitală** — Strategie AI, audit procese, implementare și training pentru echipe
 
 ## Despre companie
@@ -34,9 +35,28 @@
 
 - **TinkaBook** (tinkaweb.md) — sistem de programări online pentru saloane de frumusețe, cabinete medicale și liber-profesioniști din Moldova, dezvoltat inițial ca soluție personalizată și transformat în produs SaaS
 
+## Limbi disponibile
+
+Site-ul are pagini complete, distincte, în 3 limbi (nu doar comutare vizuală):
+română (fără prefix, ex. tinka.md/about), engleză (prefix /en, ex. tinka.md/en/about) și
+rusă (prefix /ru, ex. tinka.md/ru/about).
+
+## Pagini de servicii (fiecare cu conținut dedicat)
+
+- Chatbot AI: https://tinka.md/solutions/chatbot-ai
+- Software Personalizat: https://tinka.md/solutions/software-personalizat
+- Website-uri cu AI: https://tinka.md/solutions/website-uri
+- Platforme SaaS & Booking: https://tinka.md/solutions/platforme-saas
+- Automatizări Business: https://tinka.md/solutions/automatizari-business
+- Conținut AI, Dublaj & Avatare: https://tinka.md/solutions/continut-ai-dublaj-avatare
+- Platforme E-learning: https://tinka.md/solutions/elearning
+- Consultanță Digitală: https://tinka.md/solutions/consultanta-digitala
+- Automatizare Social Media (Facebook & Instagram): https://tinka.md/solutions/automatizare-social-media
+
 ## Linkuri utile
 
-- Servicii: https://tinka.md/solutions
+- Toate soluțiile: https://tinka.md/solutions
+- Blog (articole despre software, AI și digitalizare în Moldova): https://tinka.md/blog
 - Portofoliu: https://tinka.md/portfolio
 - Despre: https://tinka.md/about
 - Contact: https://tinka.md/contact
