@@ -36,6 +36,10 @@ jobs:
           # care esueaza omoara scriptul instant, inainte sa apuc sa citesc $? sau sa printez ceva.
           set +e
 
+          # curl a respins URL-ul cu "Malformed input to a URL function" — semn clar ca
+          # secretul contine un caracter invizibil (newline/spatiu) de la copiere. Il curatam.
+          FB_PAGE_ACCESS_TOKEN="$(printf '%s' "$FB_PAGE_ACCESS_TOKEN" | tr -d '[:space:]')"
+
           if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
             echo "::error::FB_PAGE_ACCESS_TOKEN secret is empty or not set in this repo's Settings > Secrets > Actions."
             exit 1
