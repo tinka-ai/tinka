@@ -42,6 +42,13 @@ export async function generateStaticParams() {
   return SERVICES.map((s) => ({ service: s.slug }))
 }
 
+// Slug-urile vin dintr-un array static (services-data.ts) — un serviciu nou
+// cere oricum o modificare de cod + redeploy. Fara asta, notFound() pentru
+// un slug necunoscut randeaza boundary-ul corect dar raspunde cu HTTP 200
+// (bug cunoscut Next.js pentru rute dinamice cu generateStaticParams);
+// dynamicParams=false face Next sa dea 404 real la nivel de rutare.
+export const dynamicParams = false
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw, service: slug } = await params
   const locale = (LOCALES.includes(raw as Locale) ? raw : "ro") as Locale
