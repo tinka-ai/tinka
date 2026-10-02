@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { notFound } from "next/navigation"
+import Script from "next/script"
 
 import "../globals.css"
 
@@ -224,6 +225,20 @@ export default async function LocaleRootLayout({
             }),
           }}
         />
+
+        {/* Google Analytics (GA4) — tinka.md, stream "TINKA AI" */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MLE4N46EN9"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MLE4N46EN9');
+          `}
+        </Script>
       </head>
 
       <body
