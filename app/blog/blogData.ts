@@ -1234,12 +1234,316 @@ If you want, the system can also connect to the <a href="/en/solutions/automatiz
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 6
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "platforma-cursuri-online-lms-moldova",
+    date: "2026-10-12",
+    readTime: 8,
+    category: "elearning",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/2034bcf6-7ff9-41ae-a3b5-b737604f7c4d.png",
+    translations: {
+      ro: {
+        title: "Platformă proprie de cursuri online (LMS): cum transformi cunoștințele în venit lunar, în Moldova",
+        description: "Ghid practic pentru traineri, consultanți, școli de limbi și instructori din Moldova care vor să vândă cursuri online printr-o platformă proprie, nu doar prin grupuri de WhatsApp și transferuri bancare.",
+        content: `
+## Predai același curs a 40-a oară. De ce nu-l vinzi o singură dată, de 40 de ori?
+
+Dacă ești trainer, consultant, instructor de limbi străine sau formator și ții aceeași lecție introductivă lună de lună, grupă după grupă — nu vinzi cunoștințe, îți vinzi timpul la bucată. Și timpul tău are o limită fizică: 8-10 ore pe zi, cel mult 25 de cursanți pe grupă.
+
+O platformă proprie de e-learning (LMS — Learning Management System) rupe exact legătura asta. Înregistrezi o dată lecțiile, le structurezi pe module, iar platforma vinde și livrează cursul automat, 24 de ore din 24 — fie că predai limba engleză, pregătire pentru examenul auto, contabilitate, marketing sau meșteșuguri.
+
+## De ce "grup de WhatsApp + Google Drive + transfer bancar" nu mai ține
+
+E setup-ul clasic pentru cursuri online în Moldova, și funcționează — până la un punct:
+
+- **Materialele se pierd** — PDF-uri trimise acum 3 luni, nimeni nu le mai găsește
+- **Plata e manuală** — transfer bancar, urmat de "am trimis, verifică te rog", urmat de tu care verifici contul de 3 ori pe zi
+- **Zero control al accesului** — cursantul care nu a plătit luna asta vede exact același conținut ca cel care a plătit
+- **Niciun progres urmărit** — nu știi cine a vizionat lecțiile, cine a abandonat la lecția 2, cine e pregătit pentru testul final
+- **Nu poți scala** — fiecare grupă nouă înseamnă din nou aceleași mesaje, aceleași linkuri trimise manual, aceleași explicații
+
+Toate astea consumă timpul pe care ar trebui să-l petreci predând, nu administrând un grup de WhatsApp.
+
+## Ce poate face concret o platformă LMS pentru afacerea ta
+
+### Cursuri video structurate pe module
+Cursantul avansează lecție după lecție, pe calculator sau telefon, în ritmul lui — nu sincronizat cu programul tău.
+
+### Teste și quiz-uri cu notare automată
+Verifici înțelegerea fără să corectezi manual fiecare răspuns.
+
+### Certificate automate la finalizare
+Generat și trimis automat când cursantul termină toate modulele — valoros mai ales pentru cursuri de formare profesională sau corporate.
+
+### Plăți online cu cardul, fără transfer manual
+Cursantul plătește direct pe platformă — o singură dată sau abonament lunar — iar accesul se activează/dezactivează automat.
+
+### Progres urmărit per cursant
+Vezi exact cine a început, cine a abandonat și unde, ca să poți interveni cu un mesaj de reactivare la momentul potrivit.
+
+### Acces controlat și recurent
+Membership lunar cu conținut nou adăugat constant, nu un singur produs vândut o dată.
+
+## Cine din Moldova poate monetiza cu propriul LMS
+
+- **Traineri corporate și consultanți business** — vinzi aceleași training-uri de soft skills sau vânzări la zeci de companii, nu la una
+- **Școli de limbi străine** — cursuri structurate pe niveluri (A1-C1), cu teste de progres automate
+- **Autoșcoli** — partea teoretică (legislație, semne de circulație) livrată online, orele practice rezervate separat
+- **Instructori fitness și nutriție** — programe de 4-8 săptămâni, cu video demonstrative și urmărire progres
+- **Departamente HR** — onboarding intern și training obligatoriu pentru angajați noi, fără să repete aceeași prezentare de fiecare dată
+- **Meșteri și artizani** — cursuri de meserie (cofetărie, tâmplărie, croitorie) vândute dincolo de limitele geografice ale atelierului
+
+## Curs live repetat vs. platformă proprie — comparație directă
+
+| | Curs live repetat | Platformă LMS proprie |
+|---|---|---|
+| Venit per oră de predare | Limitat la o grupă | Nelimitat, curs vândut de n ori |
+| Capacitate maximă | 20-30 cursanți/grupă | Fără limită tehnică |
+| Acoperire geografică | Chișinău sau orașul tău | Toată Moldova + diaspora |
+| Timp pentru o grupă nouă | Repeți tot cursul | Zero — cursul e deja înregistrat |
+| Urmărire progres | Inexistentă sau manuală | Automată, per cursant |
+
+## Studiu de caz: instructoare de limba engleză din Chișinău
+
+**Înainte:** 4 grupe fizice, 15 cursanți/grupă, plăți prin transfer bancar urmărite manual într-un caiet. Venit plafonat de orele fizice disponibile într-o săptămână.
+
+**După platforma proprie:**
+- Cursurile de nivel A1-A2 înregistrate o singură dată, vândute lunar unor cursanți noi, fără oră predată în plus
+- Timp liber redirecționat spre cursuri live avansate (B2-C1), plătite la preț premium
+- Venit lunar recurent din abonamentele la cursurile înregistrate, independent de câte ore predă efectiv
+
+## Cât costă o platformă de e-learning personalizată în 2026
+
+| Tip platformă | Preț estimativ | Potrivit pentru |
+|----------------|----------------|------------------|
+| LMS simplu (cursuri video + quiz) | 1.200–2.500 USD | Un singur curs sau instructor individual |
+| LMS cu plăți online + certificate automate | 2.500–4.500 USD | Școli de limbi, autoșcoli, formatori corporate |
+| Platformă completă, multi-curs, membership recurent | 4.500–9.000 USD | Academii online, multiple formatori, abonamente |
+
+Diferența față de platformele gata-făcute (Teachable, Thinkific, Udemy ca marketplace) e esențială: acolo plătești abonament lunar în valută **și** un comision din fiecare vânzare (10-30% la Udemy, de exemplu), iar cursanții tăi rămân "ai platformei", nu ai tăi. Cu un <a href="/solutions/elearning" class="text-sky-400 hover:text-sky-300 underline">LMS construit pentru afacerea ta</a>, plătești o singură dată costul de dezvoltare, deții 100% din datele cursanților și din venitul generat, fără comision pe vânzare.
+
+## Ești pregătit pentru un LMS propriu dacă:
+
+- Predai aceeași lecție sau curs introductiv de mai multe ori pe lună, pentru grupe diferite
+- Ai deja cursanți care plătesc, dar gestionarea e manuală (WhatsApp, Drive, transfer bancar)
+- Vrei venit recurent, nu doar plăți punctuale pentru fiecare grupă nouă
+- Ai cunoștințe specializate pe care le poți preda dincolo de orașul tău, inclusiv diasporei moldovenești
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu tipul de curs și câți cursanți ai în prezent
+2. Facem un audit gratuit de 30 de minute și îți spunem ce format de LMS se potrivește afacerii tale
+3. Primești o ofertă cu preț fix pentru dezvoltare
+4. Livrare în 4–8 săptămâni, în funcție de complexitate și numărul de cursuri
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Собственная платформа онлайн-курсов (LMS): как превратить знания в ежемесячный доход в Молдове",
+        description: "Практический гайд для тренеров, консультантов, языковых школ и инструкторов в Молдове, которые хотят продавать онлайн-курсы через собственную платформу, а не через группы WhatsApp и банковские переводы.",
+        content: `
+## Вы ведёте один и тот же курс в 40-й раз. Почему не продать его один раз — 40 раз?
+
+Если вы тренер, консультант, преподаватель иностранного языка или инструктор и месяц за месяцем, группа за группой читаете одну и ту же вводную лекцию — вы не продаёте знания, вы продаёте своё время поштучно. А у времени есть физический предел: 8-10 часов в день, максимум 25 учеников на группу.
+
+Собственная платформа электронного обучения (LMS — Learning Management System) разрывает именно эту связь. Вы записываете уроки один раз, структурируете их по модулям, а платформа продаёт и доставляет курс автоматически, 24 часа в сутки — учите ли вы английскому, готовите к экзамену на права, бухучёту, маркетингу или ремеслу.
+
+## Почему «группа WhatsApp + Google Диск + банковский перевод» уже не работает
+
+Это классическая схема для онлайн-курсов в Молдове, и она работает — до определённого момента:
+
+- **Материалы теряются** — PDF, отправленные 3 месяца назад, уже никто не найдёт
+- **Оплата вручную** — банковский перевод, затем «я отправил, проверьте», затем вы проверяете счёт 3 раза в день
+- **Нет контроля доступа** — ученик, не оплативший этот месяц, видит ровно тот же контент, что и оплативший
+- **Прогресс не отслеживается** — вы не знаете, кто посмотрел уроки, кто бросил на втором уроке, кто готов к финальному тесту
+- **Невозможно масштабировать** — каждая новая группа означает те же сообщения, те же ссылки, отправленные вручную, те же объяснения
+
+Всё это съедает время, которое должно уходить на преподавание, а не на администрирование группы в WhatsApp.
+
+## Что конкретно умеет платформа LMS для вашего бизнеса
+
+### Видеокурсы, структурированные по модулям
+Ученик проходит урок за уроком, с компьютера или телефона, в своём темпе — не синхронизируясь с вашим расписанием.
+
+### Тесты и квизы с автоматической оценкой
+Проверяете понимание без ручной проверки каждого ответа.
+
+### Автоматические сертификаты по завершении
+Генерируются и отправляются автоматически, когда ученик завершает все модули — особенно ценно для профессионального обучения или корпоративных курсов.
+
+### Онлайн-оплата картой, без ручных переводов
+Ученик платит прямо на платформе — разово или по месячной подписке — а доступ активируется/отключается автоматически.
+
+### Прогресс по каждому ученику
+Видите точно, кто начал, кто бросил и на каком этапе, чтобы вовремя отправить сообщение для возвращения.
+
+### Контролируемый и повторяющийся доступ
+Месячная подписка с постоянно добавляемым новым контентом, а не разовый продукт.
+
+## Кто в Молдове может монетизировать собственную LMS
+
+- **Корпоративные тренеры и бизнес-консультанты** — продаёте одни и те же тренинги по soft skills или продажам десяткам компаний, а не одной
+- **Языковые школы** — курсы по уровням (A1-C1) с автоматическими тестами прогресса
+- **Автошколы** — теоретическая часть (ПДД, знаки) онлайн, практические занятия отдельно
+- **Фитнес- и нутрициологические инструкторы** — программы на 4-8 недель с демо-видео и отслеживанием прогресса
+- **HR-отделы** — внутренний онбординг и обязательное обучение новых сотрудников без повторения одной презентации каждый раз
+- **Мастера и ремесленники** — курсы по профессии (кондитерское дело, столярное дело, швейное дело), продаваемые за пределами географии мастерской
+
+## Повторяющийся живой курс vs. собственная LMS-платформа — прямое сравнение
+
+| | Повторяющийся живой курс | Собственная LMS-платформа |
+|---|---|---|
+| Доход за час преподавания | Ограничен одной группой | Без ограничений, курс продаётся n раз |
+| Максимальная вместимость | 20-30 учеников/группа | Без технического лимита |
+| Географический охват | Кишинёв или ваш город | Вся Молдова + диаспора |
+| Время на новую группу | Повторяете весь курс | Ноль — курс уже записан |
+| Отслеживание прогресса | Отсутствует или вручную | Автоматическое, по каждому ученику |
+
+## Кейс: преподавательница английского из Кишинёва
+
+**До:** 4 очные группы, 15 учеников/группа, оплата банковским переводом, учёт вручную в тетради. Доход ограничен физически доступными часами в неделю.
+
+**После собственной платформы:**
+- Курсы уровня A1-A2 записаны один раз, продаются ежемесячно новым ученикам, без дополнительных преподанных часов
+- Освободившееся время перенаправлено на живые курсы продвинутого уровня (B2-C1) по премиальной цене
+- Ежемесячный рекуррентный доход от подписок на записанные курсы, независимо от количества фактически проведённых часов
+
+## Сколько стоит индивидуальная платформа e-learning в 2026 году
+
+| Тип платформы | Ориентировочная цена | Подходит для |
+|----------------|----------------------|--------------|
+| Простая LMS (видеокурсы + квиз) | 1 200–2 500 USD | Один курс или отдельный инструктор |
+| LMS с онлайн-оплатой + автосертификатами | 2 500–4 500 USD | Языковые школы, автошколы, корпоративные тренеры |
+| Полная платформа, мультикурс, подписка | 4 500–9 000 USD | Онлайн-академии, несколько преподавателей, подписки |
+
+Разница с готовыми платформами (Teachable, Thinkific, Udemy как маркетплейс) принципиальна: там вы платите ежемесячную подписку в валюте **и** комиссию с каждой продажи (10-30% у Udemy, например), а ваши ученики остаются «учениками платформы», а не вашими. С <a href="/ru/solutions/elearning" class="text-sky-400 hover:text-sky-300 underline">LMS, построенной под ваш бизнес</a>, вы платите один раз за разработку, владеете 100% данных учеников и доходом, без комиссии с продаж.
+
+## Вам стоит задуматься о собственной LMS, если:
+
+- Вы читаете одну и ту же вводную лекцию или курс несколько раз в месяц для разных групп
+- У вас уже есть платящие ученики, но управление ведётся вручную (WhatsApp, Диск, банковский перевод)
+- Вы хотите рекуррентный доход, а не разовые оплаты за каждую новую группу
+- У вас есть специализированные знания, которые можно преподавать за пределами вашего города, включая молдавскую диаспору
+
+## Как начать
+
+1. Напишите на office@tinka.md с типом курса и количеством текущих учеников
+2. Проведём бесплатный аудит за 30 минут и скажем, какой формат LMS подходит вашему бизнесу
+3. Получите предложение с фиксированной ценой за разработку
+4. Срок реализации: 4–8 недель, в зависимости от сложности и количества курсов
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Your own online course platform (LMS): turning knowledge into monthly income in Moldova",
+        description: "A practical guide for trainers, consultants, language schools and instructors in Moldova who want to sell online courses through their own platform, instead of WhatsApp groups and bank transfers.",
+        content: `
+## You've taught the same course 40 times. Why not sell it once, 40 times over?
+
+If you're a trainer, consultant, language instructor or coach delivering the same introductory lesson month after month, group after group — you're not selling knowledge, you're selling your time by the hour. And your time has a hard physical limit: 8-10 hours a day, maybe 25 students per group at most.
+
+A custom e-learning platform (LMS — Learning Management System) breaks exactly that link. You record the lessons once, structure them into modules, and the platform sells and delivers the course automatically, 24 hours a day — whether you teach English, driving-test theory, accounting, marketing or a trade skill.
+
+## Why "WhatsApp group + Google Drive + bank transfer" stops working
+
+It's the classic setup for online courses in Moldova, and it works — up to a point:
+
+- **Materials get lost** — PDFs sent 3 months ago, nobody can find them anymore
+- **Payment is manual** — a bank transfer, followed by "I sent it, please check," followed by you checking your account 3 times a day
+- **No access control** — a student who hasn't paid this month sees exactly the same content as one who has
+- **No progress tracking** — you don't know who watched the lessons, who dropped off at lesson 2, who's ready for the final test
+- **It doesn't scale** — every new group means the same messages, the same links sent manually, the same explanations all over again
+
+All of that eats into the time you should be spending teaching, not administering a WhatsApp group.
+
+## What an LMS platform can actually do for your business
+
+### Video courses structured into modules
+Students move lesson by lesson, on their computer or phone, at their own pace — not synced to your schedule.
+
+### Quizzes and tests with automatic grading
+You verify understanding without manually correcting every answer.
+
+### Automatic certificates on completion
+Generated and sent automatically once a student finishes all modules — especially valuable for professional training or corporate courses.
+
+### Online card payments, no manual transfers
+Students pay directly on the platform — a one-time fee or a monthly subscription — and access turns on or off automatically.
+
+### Per-student progress tracking
+See exactly who started, who dropped off and where, so you can send a re-engagement message at the right moment.
+
+### Controlled, recurring access
+A monthly membership with new content added continuously, instead of a single product sold once.
+
+## Who in Moldova can monetize their own LMS
+
+- **Corporate trainers and business consultants** — sell the same soft-skills or sales training to dozens of companies, not just one
+- **Language schools** — courses structured by level (A1-C1), with automatic progress tests
+- **Driving schools** — theory content (traffic rules, road signs) delivered online, practical lessons booked separately
+- **Fitness and nutrition coaches** — 4-8 week programs with demonstration videos and progress tracking
+- **HR departments** — internal onboarding and mandatory training for new hires, without repeating the same presentation every time
+- **Craftsmen and artisans** — trade courses (pastry, carpentry, tailoring) sold beyond the geographic limits of a single workshop
+
+## Repeated live course vs. your own LMS platform — a direct comparison
+
+| | Repeated live course | Your own LMS platform |
+|---|---|---|
+| Income per teaching hour | Capped by one group | Uncapped, course sold n times |
+| Maximum capacity | 20-30 students/group | No technical limit |
+| Geographic reach | Chișinău or your city | All of Moldova + the diaspora |
+| Time for a new group | Repeat the whole course | Zero — the course is already recorded |
+| Progress tracking | None, or manual | Automatic, per student |
+
+## Case study: an English teacher in Chișinău
+
+**Before:** 4 in-person groups, 15 students/group, bank-transfer payments tracked by hand in a notebook. Income capped by the physical hours available in a week.
+
+**After her own platform:**
+- A1-A2 level courses recorded once, sold monthly to new students, with no extra hours taught
+- Freed-up time redirected to advanced live courses (B2-C1), charged at a premium price
+- Monthly recurring income from subscriptions to the recorded courses, independent of how many hours she actually teaches
+
+## What a custom e-learning platform costs in 2026
+
+| Platform type | Estimated price | Best for |
+|----------------|------------------|----------|
+| Simple LMS (video courses + quiz) | $1,200–$2,500 | A single course or individual instructor |
+| LMS with online payments + auto-certificates | $2,500–$4,500 | Language schools, driving schools, corporate trainers |
+| Full platform, multi-course, recurring membership | $4,500–$9,000 | Online academies, multiple instructors, subscriptions |
+
+The difference from ready-made platforms (Teachable, Thinkific, Udemy as a marketplace) is fundamental: there, you pay a monthly subscription in foreign currency **and** a commission on every sale (10-30% on Udemy, for example), and your students stay "the platform's" students, not yours. With an <a href="/en/solutions/elearning" class="text-sky-400 hover:text-sky-300 underline">LMS built for your business</a>, you pay once for development, and you own 100% of the student data and the revenue it generates, with no sales commission.
+
+## You're ready for your own LMS if:
+
+- You teach the same introductory lesson or course several times a month, for different groups
+- You already have paying students, but management is manual (WhatsApp, Drive, bank transfer)
+- You want recurring income, not just one-off payments for each new group
+- You have specialized knowledge you could teach beyond your city, including to the Moldovan diaspora abroad
+
+## How to get started
+
+1. Email us at office@tinka.md with your course type and how many students you currently have
+2. We do a free 30-minute audit and tell you which LMS format fits your business
+3. You get a proposal with a fixed development price
+4. Delivery in 4–8 weeks, depending on complexity and number of courses
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
-  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat" },
-  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО" },
-  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software" },
+  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat", elearning: "E-Learning" },
+  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО", elearning: "Электронное обучение" },
+  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software", elearning: "E-Learning" },
 }
 
 export const blogUI = {
