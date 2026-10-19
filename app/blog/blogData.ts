@@ -1538,12 +1538,259 @@ The difference from ready-made platforms (Teachable, Thinkific, Udemy as a marke
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 7
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "meniu-digital-audio-restaurant-ai",
+    date: "2026-10-19",
+    readTime: 7,
+    category: "ai-content",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/b865307b-5d79-4ba5-aaf1-bc06dc0e9029.jpg",
+    translations: {
+      ro: {
+        title: "Meniu digital & audio cu AI pentru restaurante — elimini meniul pe hârtie și câștigi clienții turiști",
+        description: "Cum înlocuiești meniul laminat, retipărit de câteva ori pe an, cu un meniu digital accesat prin cod QR și cu descrieri audio AI în mai multe limbi, pentru restaurante din Moldova.",
+        content: `
+## Câte meniuri a retipărit restaurantul tău anul acesta?
+
+De fiecare dată când crește prețul la o bere sau la o porție de mici, un restaurant clasic din Moldova are două variante proaste: fie retipărește 40-80 de meniuri laminate — timp, bani, deșeuri — fie lipește peste prețul vechi un abțibild cu prețul nou, ceea ce îi face pe clienți să se întrebe ce altceva mai e "vechi" în meniul ăla.
+
+Și asta e doar jumătate din problemă. Cealaltă jumătate apare când la masă se așază un turist care nu citește nici română, nici rusă — și chelnerul traduce din priviri "ce e asta?" pentru fiecare fel de mâncare.
+
+## De ce meniul pe hârtie te costă mai mult decât crezi
+
+Un meniu tipărit clasic pare "gratis" după ce l-ai plătit o dată. În realitate:
+
+- O retipărire completă (40-60 de meniuri laminate, cu design) costă de obicei 800-1.500 lei, iar majoritatea restaurantelor din Chișinău o fac de 2-4 ori pe an — din cauza prețurilor la produse, a felurilor noi sau pur și simplu a uzurii
+- Meniurile murdare, rupte sau cu pete sunt primul lucru pe care îl observă un client nou, înainte să guste orice
+- Clienții străini sau turiștii nu înțeleg descrierile și aleg "ce li se pare sigur" — de obicei cel mai ieftin fel, nu cel mai profitabil pentru tine
+- Un fel nou sau o ofertă de sezon nu poate fi promovată rapid — trebuie să aștepți următoarea tură de printat
+
+## Ce este, concret, un meniu digital & audio cu AI
+
+Nu vorbim despre un simplu PDF încărcat pe un link. Un meniu digital & audio înseamnă:
+
+### Acces instant prin cod QR
+Clientul scanează codul de pe masă și vede meniul pe telefonul lui — actualizat în timp real, fără aplicație de instalat.
+
+### Narațiune audio în mai multe limbi
+Fiecare fel de mâncare are o scurtă descriere audio generată cu AI, în română, rusă și engleză (sau orice altă limbă ai nevoie) — clientul apasă play și ascultă ce conține felul, fără să te întrebe pe tine sau pe chelner.
+
+### Prețuri și disponibilitate actualizate instant
+Se epuizează un fel? Îl marchezi indisponibil în 10 secunde. Crește prețul la ulei? Modifici un singur număr — fără retipărire, fără abțibilduri.
+
+### Recomandări inteligente
+Meniul poate sugera automat combinații ("cine alege acest fel, de obicei adaugă...") — un mic upsell care se întâmplă fără presiune din partea chelnerului.
+
+## Cum arată practic, pentru un restaurant din Chișinău
+
+1. Fotografiem sau primim fotografiile existente ale felurilor de mâncare
+2. Construim meniul digital cu categoriile și structura localului tău
+3. Generăm descrierile audio AI în limbile de care ai nevoie
+4. Îți dăm codurile QR, pregătite de pus pe fiecare masă
+5. Tu actualizezi prețuri și disponibilitate dintr-un panou simplu, oricând, de pe telefon
+
+Poți vedea și <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">serviciul nostru de conținut AI, dublaj și avataruri</a> pentru alte formate — de la voci AI pentru reclame, până la avataruri pentru prezentări video.
+
+## Rezultate realiste pentru un restaurant cu clientelă mixtă
+
+**Restaurant cu specific local, zona centrală a Chișinăului:**
+- Înainte: meniu tipărit, retipărit de 3 ori anul trecut, fără variantă în engleză
+- După meniu digital & audio: zero costuri de retipărire, meniu disponibil instant în 3 limbi
+- Timp mediu petrecut de client "citind" meniul: de la 4-5 minute de nedumerire, la sub 1 minut cu audio
+- Reclamații legate de "nu am înțeles ce am comandat": aproape eliminate
+
+## Pachete și prețuri orientative
+
+| Pachet | Preț | Ce include |
+|--------|------|-----------|
+| Starter | 200-350 USD | Meniu digital QR, 1 limbă, actualizare manuală |
+| Business | 350-700 USD | Meniu digital + audio AI în 2-3 limbi, panou de administrare |
+| Pro | 700-1.200 USD | Multi-locație, recomandări automate, integrare cu sistemul de comenzi |
+
+## Ai nevoie de un meniu digital & audio dacă:
+
+- Retipărești meniul de mai mult de 2 ori pe an din cauza prețurilor
+- Primești frecvent clienți care nu vorbesc română sau rusă
+- Vrei să promovezi rapid oferte de sezon fără cost de printare
+- Ai mai multe locații și vrei prețuri și meniuri sincronizate automat
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu fotografii ale meniului actual (sau ale felurilor de mâncare)
+2. Analizăm gratuit structura meniului tău și limbile de care ai nevoie
+3. Primești o ofertă cu preț fix pentru numărul tău de feluri și limbi
+4. Livrare în 1-2 săptămâni, incluzând codurile QR pregătite de montat
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Цифровое и аудио меню с AI для ресторанов — без бумажного меню и с клиентами-туристами",
+        description: "Как заменить ламинированное меню, которое перепечатывают несколько раз в год, на цифровое меню с доступом по QR-коду и аудио-описаниями на AI на нескольких языках, для ресторанов в Молдове.",
+        content: `
+## Сколько меню ваш ресторан перепечатал в этом году?
+
+Каждый раз, когда растёт цена на пиво или порцию мичь, у классического молдавского ресторана два плохих варианта: перепечатать 40-80 ламинированных меню — время, деньги, отходы — или наклеить на старую цену стикер с новой, из-за чего клиент начинает гадать, что ещё в этом меню «устарело».
+
+И это лишь половина проблемы. Вторая половина проявляется, когда за стол садится турист, не читающий ни по-румынски, ни по-русски — и официант начинает жестами объяснять, что это за блюдо.
+
+## Почему бумажное меню стоит дороже, чем кажется
+
+Печатное меню кажется «бесплатным» после того, как вы его один раз оплатили. На самом деле:
+
+- Полная перепечатка (40-60 ламинированных меню, с дизайном) обычно стоит 800-1 500 леев, и большинство ресторанов в Кишинёве делают это 2-4 раза в год — из-за изменения цен, новых блюд или простого износа
+- Грязные, порванные или с пятнами меню — первое, что замечает новый клиент, ещё не попробовав ни одного блюда
+- Иностранные клиенты или туристы, не понимающие описаний, выбирают «что-то безопасное» — обычно самое дешёвое блюдо, а не самое выгодное для вас
+- Новое блюдо или сезонное предложение нельзя быстро продвинуть — нужно ждать следующей печати
+
+## Что такое, конкретно, цифровое и аудио меню с AI
+
+Речь не о простом PDF, загруженном по ссылке. Цифровое и аудио меню означает:
+
+### Мгновенный доступ по QR-коду
+Клиент сканирует код на столе и видит меню на своём телефоне — обновлённое в реальном времени, без установки приложения.
+
+### Аудио-рассказ на нескольких языках
+У каждого блюда есть короткое аудио-описание, созданное AI, на румынском, русском и английском (или любом другом нужном вам языке) — клиент нажимает play и слышит, что входит в блюдо, не спрашивая вас или официанта.
+
+### Цены и наличие обновляются мгновенно
+Блюдо закончилось? Отметьте его недоступным за 10 секунд. Выросла цена на масло? Меняете одну цифру — без перепечатки, без стикеров.
+
+### Умные рекомендации
+Меню может автоматически предлагать сочетания («те, кто выбирает это блюдо, обычно добавляют...») — небольшой допродажный приём без давления со стороны официанта.
+
+## Как это выглядит на практике для ресторана в Кишинёве
+
+1. Мы фотографируем блюда или получаем ваши существующие фото
+2. Строим цифровое меню со структурой и категориями вашего заведения
+3. Генерируем AI-аудио описания на нужных вам языках
+4. Передаём вам QR-коды, готовые к размещению на каждом столе
+5. Вы обновляете цены и наличие из простой панели, в любое время, с телефона
+
+Также посмотрите нашу <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">услугу AI-контента, дубляжа и аватаров</a> для других форматов — от AI-голосов для реклам до аватаров для видео-презентаций.
+
+## Реалистичные результаты для ресторана со смешанной клиентурой
+
+**Ресторан с локальной кухней, центр Кишинёва:**
+- До: печатное меню, перепечатанное 3 раза за прошлый год, без английской версии
+- После цифрового и аудио меню: ноль затрат на перепечатку, меню мгновенно доступно на 3 языках
+- Среднее время, которое клиент тратит на «чтение» меню: с 4-5 минут растерянности до менее 1 минуты с аудио
+- Жалобы «я не понял, что заказал»: почти исчезли
+
+## Пакеты и ориентировочные цены
+
+| Пакет | Цена | Что включает |
+|-------|------|--------------|
+| Starter | 200-350 USD | Цифровое QR-меню, 1 язык, ручное обновление |
+| Business | 350-700 USD | Цифровое + AI-аудио меню на 2-3 языках, панель администратора |
+| Pro | 700-1 200 USD | Мульти-локация, автоматические рекомендации, интеграция с системой заказов |
+
+## Вам нужно цифровое и аудио меню, если:
+
+- Вы перепечатываете меню больше 2 раз в год из-за изменения цен
+- У вас часто бывают клиенты, не говорящие по-румынски или по-русски
+- Вы хотите быстро продвигать сезонные предложения без затрат на печать
+- У вас несколько точек, и вы хотите синхронизированные цены и меню
+
+## Как начать
+
+1. Напишите на office@tinka.md с фотографиями текущего меню (или блюд)
+2. Бесплатно анализируем структуру вашего меню и нужные языки
+3. Получаете предложение с фиксированной ценой для вашего числа блюд и языков
+4. Срок реализации: 1-2 недели, включая готовые к установке QR-коды
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "AI digital & audio menu for restaurants — ditch the paper menu and win over tourist customers",
+        description: "How to replace a laminated menu, reprinted several times a year, with a digital menu accessed via QR code and AI audio descriptions in multiple languages, for restaurants in Moldova.",
+        content: `
+## How many menus has your restaurant reprinted this year?
+
+Every time the price of a beer or a plate of mici goes up, a classic Moldovan restaurant has two bad options: reprint 40-80 laminated menus — time, money, waste — or stick a sticker with the new price over the old one, which makes customers wonder what else in that menu is "old."
+
+And that's only half the problem. The other half shows up when a tourist who reads neither Romanian nor Russian sits down — and the waiter ends up miming "what is this?" for every single dish.
+
+## Why a paper menu costs you more than you think
+
+A printed menu feels "free" once you've paid for it once. In reality:
+
+- A full reprint (40-60 laminated menus, with design) typically costs 800-1,500 lei, and most restaurants in Chișinău do it 2-4 times a year — because of price changes, new dishes, or simple wear
+- Dirty, torn or stained menus are the first thing a new customer notices, before tasting anything
+- Foreign customers or tourists who don't understand the descriptions pick "whatever seems safe" — usually the cheapest dish, not the most profitable one for you
+- A new dish or seasonal offer can't be promoted quickly — you have to wait for the next print run
+
+## What a digital & audio AI menu actually is
+
+We're not talking about a PDF uploaded to a link. A digital & audio menu means:
+
+### Instant access via QR code
+The customer scans the code on the table and sees the menu on their own phone — updated in real time, no app to install.
+
+### Audio narration in multiple languages
+Every dish has a short AI-generated audio description, in Romanian, Russian and English (or any other language you need) — the customer taps play and hears what's in the dish, without asking you or the waiter.
+
+### Prices and availability updated instantly
+A dish sells out? Mark it unavailable in 10 seconds. Oil prices go up? Change one number — no reprinting, no stickers.
+
+### Smart recommendations
+The menu can automatically suggest pairings ("people who order this usually add...") — a small upsell that happens without any pressure from the waiter.
+
+## What it looks like in practice, for a restaurant in Chișinău
+
+1. We photograph or receive your existing dish photos
+2. We build the digital menu with your venue's categories and structure
+3. We generate the AI audio descriptions in the languages you need
+4. We hand you the QR codes, ready to place on every table
+5. You update prices and availability from a simple panel, anytime, from your phone
+
+You can also check our <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">AI content, dubbing and avatar service</a> for other formats — from AI voices for ads to avatars for video presentations.
+
+## Realistic results for a restaurant with mixed clientele
+
+**Local-specialty restaurant, central Chișinău:**
+- Before: printed menu, reprinted 3 times last year, no English version
+- After the digital & audio menu: zero reprinting costs, menu instantly available in 3 languages
+- Average time a customer spends "reading" the menu: from 4-5 minutes of confusion to under 1 minute with audio
+- Complaints about "I didn't understand what I ordered": almost eliminated
+
+## Packages and sample pricing
+
+| Package | Price | Includes |
+|---------|-------|----------|
+| Starter | $200-$350 | Digital QR menu, 1 language, manual updates |
+| Business | $350-$700 | Digital + AI audio menu in 2-3 languages, admin panel |
+| Pro | $700-$1,200 | Multi-location, automatic recommendations, order-system integration |
+
+## You need a digital & audio menu if:
+
+- You reprint your menu more than twice a year because of price changes
+- You regularly get customers who don't speak Romanian or Russian
+- You want to promote seasonal offers quickly without printing costs
+- You have multiple locations and want synchronized prices and menus
+
+## How to get started
+
+1. Email us at office@tinka.md with photos of your current menu (or your dishes)
+2. We analyze your menu structure and the languages you need, for free
+3. You get a fixed-price offer for your number of dishes and languages
+4. Delivery in 1-2 weeks, including QR codes ready to install
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
-  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat", elearning: "E-Learning" },
-  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО", elearning: "Электронное обучение" },
-  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software", elearning: "E-Learning" },
+  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat", elearning: "E-Learning", "ai-content": "Conținut AI & Media" },
+  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО", elearning: "Электронное обучение", "ai-content": "AI-контент и медиа" },
+  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software", elearning: "E-Learning", "ai-content": "AI Content & Media" },
 }
 
 export const blogUI = {
