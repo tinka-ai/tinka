@@ -1785,6 +1785,241 @@ You can also check our <a href="/solutions/continut-ai-dublaj-avatare" class="te
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 7
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "avatare-ai-dublaj-video-pentru-afaceri-moldova",
+    date: "2026-10-26",
+    readTime: 7,
+    category: "ai-content",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/2b42f1da-a82b-4dec-80d1-87a63d897e57.jpg",
+    translations: {
+      ro: {
+        title: "Avatare AI și dublaj video automat — un video, trei limbi, fără filmare repetată",
+        description: "Cum folosești un avatar AI și dublaj automat pentru a crea video-uri de prezentare în română, rusă și engleză, fără actor, studio și filmare separată pentru fiecare limbă.",
+        content: `
+## Un video, trei limbi, de obicei trei facturi
+
+Vrei un video de prezentare pentru afacerea ta — pentru produs, pentru pagina de Facebook sau pentru un curs online — dar clienții tăi vorbesc și română, și rusă, și poate și engleză. În mod clasic, asta înseamnă un prezentator plătit de trei ori, un studio de sunet rezervat de trei ori și trei termene de livrare separate.
+
+Cu un **avatar AI și dublaj automat**, același video se face o singură dată și "vorbește" fluent în toate cele trei limbi, fără să chemi din nou actorul, fără filmare repetată și fără să plătești un voice-over separat pentru fiecare variantă.
+
+## Problema clasică: filmare video = timp, bani și repetiție
+
+O firmă mică din Chișinău care vrea un video de prezentare profesionist trece de obicei prin:
+
+- Angajarea unui prezentator sau actor (plătit pe oră sau pe zi de filmare)
+- Rezervarea unui studio sau a unui echipament de filmare
+- Montaj și corectare — de obicei 2-3 runde, pentru că "nu a sunat bine" la prima filmare
+- Repetarea întregului proces pentru fiecare limbă în care vrea să publice conținutul
+
+Rezultatul: 2-4 săptămâni de la idee la video publicat, costuri care se înmulțesc cu numărul de limbi, și orice modificare ulterioară (preț nou, ofertă nouă) înseamnă o filmare nouă de la zero.
+
+## Ce este, de fapt, un avatar AI cu dublaj automat
+
+### Avatar AI prezentator
+Un personaj digital realist (sau stilizat, în funcție de brand) care "vorbește" scriptul tău, cu mișcări naturale ale buzelor și expresii faciale sincronizate cu vocea. Nu ai nevoie de o persoană reală în fața camerei.
+
+### Dublaj automat pe mai multe limbi
+Același script este tradus și "vorbit" automat de o voce AI naturală — română, rusă, engleză sau orice combinație ai nevoie — păstrând tonul și ritmul potrivit pentru fiecare limbă.
+
+### Sincronizare buze (lip-sync)
+Tehnologia ajustează automat mișcarea buzelor avatarului pentru fiecare limbă, astfel încât videoclipul pare filmat nativ, nu "dublat" artificial.
+
+## Unde funcționează cel mai bine
+
+- **Video de prezentare produs/serviciu** — pentru site sau pagina de Facebook/Instagram
+- **Video de training pentru angajați noi** — explicat o singură dată, disponibil permanent, în orice limbă au nevoie angajații
+- **Reclame pentru social media** — variante rapide pentru oferte sezoniere, fără filmare nouă de fiecare dată
+- **Mesaje recurente** — urări de sărbători, anunțuri de program, oferte speciale — actualizate în câteva ore, nu zile
+
+## Cât costă clasic vs. cu avatar AI
+
+| Variantă | Cost pentru 3 limbi | Timp de livrare |
+|----------|---------------------|------------------|
+| Filmare clasică (actor + studio + montaj) | 800–2.500 USD | 2–4 săptămâni |
+| Avatar AI + dublaj automat | 150–500 USD | 2–4 zile |
+| Actualizare ulterioară (preț/ofertă nouă) | Filmare nouă: 300-800 USD | Avatar AI: 1 zi, ~50-100 USD |
+
+## Studiu de caz: curs online pentru un centru de pregătire din Moldova
+
+Un centru de pregătire profesională voia un video introductiv pentru cursurile sale, disponibil pentru cursanți din Moldova (română), diaspora din Rusia (rusă) și clienți internaționali (engleză).
+
+- Înainte: plănuiau 3 filmări separate, buget estimat 1.800 USD, termen 3 săptămâni
+- Cu avatar AI + dublaj: un singur script, 3 variante lingvistice, cost total sub 400 USD, livrare în 4 zile
+- Bonus: când au schimbat prețul cursului o lună mai târziu, actualizarea celor 3 video-uri a durat câteva ore, nu o nouă filmare
+
+## Ai nevoie de asta dacă:
+
+- Vinzi către clienți care vorbesc limbi diferite (română, rusă, engleză) și repeți mesajul de fiecare dată
+- Ai nevoie de video-uri de training sau onboarding actualizate frecvent
+- Vrei conținut video constant pentru social media, dar nu ai buget pentru filmări lunare
+- Îți schimbi des ofertele sau prețurile și fiecare schimbare ar necesita o filmare nouă
+
+La TINKA AI construim exact acest tip de soluție prin <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">conținut AI, dublaj și avatare</a>, adaptat afacerii tale.
+
+## Cum începi
+
+1. Ne trimiți scriptul sau ideea video la office@tinka.md
+2. Îți propunem avatarul potrivit brandului și limbile necesare
+3. Primești prima variantă în 2-4 zile, cu posibilitate de ajustări
+4. Plătești o singură dată pentru toate limbile, fără costuri ascunse per variantă
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "AI-аватары и автоматическое дублирование видео — одно видео, три языка, без повторных съёмок",
+        description: "Как использовать AI-аватар и автоматическое дублирование для создания презентационных видео на румынском, русском и английском, без актёра, студии и отдельной съёмки для каждого языка.",
+        content: `
+## Одно видео, три языка, но обычно три счёта
+
+Вам нужно презентационное видео для бизнеса — для продукта, страницы в Facebook или онлайн-курса — а клиенты говорят на румынском, русском и, возможно, английском. Классический подход означает оплату ведущего три раза, бронирование студии звукозаписи три раза и три отдельных дедлайна.
+
+С **AI-аватаром и автоматическим дублированием** одно и то же видео создаётся один раз и свободно «говорит» на всех трёх языках — без повторного приглашения актёра, без новой съёмки и без отдельной оплаты озвучки для каждой версии.
+
+## Классическая проблема: видеосъёмка — это время, деньги и повторение
+
+Небольшая компания в Кишинёве, которая хочет профессиональное презентационное видео, обычно проходит через:
+
+- Наём ведущего или актёра (оплата по часам или за день съёмки)
+- Бронирование студии или оборудования для съёмки
+- Монтаж и повторные дубли — обычно 2-3 раунда, потому что первая запись «не звучала как надо»
+- Повторение всего процесса для каждого языка, на котором нужно опубликовать контент
+
+Результат: 2-4 недели от идеи до опубликованного видео, расходы умножаются на количество языков, а любое последующее изменение (новая цена, новое предложение) означает новую съёмку с нуля.
+
+## Что такое AI-аватар с автоматическим дублированием
+
+### AI-аватар ведущего
+Реалистичный (или стилизованный, в зависимости от бренда) цифровой персонаж, который «произносит» ваш текст с естественными движениями губ и выражениями лица, синхронизированными с голосом. Реальный человек перед камерой не нужен.
+
+### Автоматическое дублирование на нескольких языках
+Один и тот же текст переводится и автоматически «произносится» естественным AI-голосом — румынский, русский, английский или любая нужная комбинация — с сохранением правильного тона и темпа для каждого языка.
+
+### Синхронизация губ (lip-sync)
+Технология автоматически подстраивает движение губ аватара под каждый язык, поэтому видео выглядит как снятое нативно, а не искусственно «дублированное».
+
+## Где это работает лучше всего
+
+- **Презентационное видео продукта/услуги** — для сайта или страницы Facebook/Instagram
+- **Обучающие видео для новых сотрудников** — объяснено один раз, доступно постоянно, на любом нужном сотрудникам языке
+- **Реклама для соцсетей** — быстрые варианты для сезонных предложений, без новой съёмки каждый раз
+- **Повторяющиеся сообщения** — поздравления с праздниками, объявления о графике, специальные предложения — обновляются за часы, а не дни
+
+## Классическая съёмка против AI-аватара: сравнение стоимости
+
+| Вариант | Стоимость для 3 языков | Срок доставки |
+|---------|-------------------------|----------------|
+| Классическая съёмка (актёр + студия + монтаж) | 800–2 500 USD | 2–4 недели |
+| AI-аватар + автоматическое дублирование | 150–500 USD | 2–4 дня |
+| Последующее обновление (новая цена/предложение) | Новая съёмка: 300–800 USD | AI-аватар: 1 день, ~50–100 USD |
+
+## Кейс: онлайн-курс для учебного центра в Молдове
+
+Центр профессиональной подготовки хотел вводное видео для своих курсов, доступное для учащихся в Молдове (румынский), диаспоры в России (русский) и международных клиентов (английский).
+
+- До: планировали 3 отдельные съёмки, бюджет около 1 800 USD, срок 3 недели
+- С AI-аватаром и дублированием: один сценарий, 3 языковые версии, общая стоимость менее 400 USD, доставка за 4 дня
+- Бонус: когда месяц позже изменили цену курса, обновление всех 3 видео заняло несколько часов, а не новую съёмку
+
+## Вам это нужно, если:
+
+- Вы продаёте клиентам, говорящим на разных языках (румынский, русский, английский), и повторяете одно и то же сообщение каждый раз
+- Вам нужны обучающие видео или видео для онбординга, которые часто обновляются
+- Вы хотите постоянный видеоконтент для соцсетей, но нет бюджета на ежемесячные съёмки
+- Вы часто меняете предложения или цены, и каждое изменение потребовало бы новой съёмки
+
+В TINKA AI мы создаём именно такие решения через <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">AI-контент, дублирование и аватары</a>, адаптированные под ваш бизнес.
+
+## Как начать
+
+1. Отправьте нам сценарий или идею видео на office@tinka.md
+2. Мы предложим аватар, подходящий вашему бренду, и нужные языки
+3. Вы получите первую версию за 2-4 дня, с возможностью правок
+4. Вы платите один раз за все языки, без скрытых затрат за каждую версию
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "AI avatars and automatic video dubbing — one video, three languages, no re-filming",
+        description: "How to use an AI avatar and automatic dubbing to create presentation videos in Romanian, Russian and English, without an actor, a studio, or separate filming for each language.",
+        content: `
+## One video, three languages, usually three invoices
+
+You want a presentation video for your business — for a product, your Facebook page, or an online course — but your customers speak Romanian, Russian, and maybe English too. The classic approach means paying a presenter three times, booking a sound studio three times, and juggling three separate delivery deadlines.
+
+With an **AI avatar and automatic dubbing**, the same video is made once and "speaks" fluently in all three languages — no re-booking the actor, no re-filming, and no separate voice-over cost for each version.
+
+## The classic problem: video filming means time, money and repetition
+
+A small company in Chișinău that wants a professional presentation video usually goes through:
+
+- Hiring a presenter or actor (paid hourly or per filming day)
+- Booking a studio or filming equipment
+- Editing and re-takes — usually 2-3 rounds, because the first take "didn't sound right"
+- Repeating the entire process for every language the content needs to be published in
+
+The result: 2-4 weeks from idea to published video, costs multiplying with each language, and any later change (a new price, a new offer) means filming everything again from scratch.
+
+## What an AI avatar with automatic dubbing actually is
+
+### AI presenter avatar
+A realistic (or stylized, depending on your brand) digital character that "speaks" your script, with natural lip movement and facial expressions synced to the voice. No real person needs to be in front of a camera.
+
+### Automatic multi-language dubbing
+The same script is translated and automatically "spoken" by a natural AI voice — Romanian, Russian, English, or any combination you need — keeping the right tone and pacing for each language.
+
+### Lip-sync
+The technology automatically adjusts the avatar's lip movement for each language, so the video looks natively filmed, not artificially "dubbed."
+
+## Where this works best
+
+- **Product/service presentation video** — for your website or Facebook/Instagram page
+- **Training videos for new employees** — explained once, available permanently, in whatever language employees need
+- **Social media ads** — quick variants for seasonal offers, without re-filming every time
+- **Recurring messages** — holiday greetings, schedule announcements, special offers — updated in hours, not days
+
+## Classic filming vs. AI avatar: cost comparison
+
+| Option | Cost for 3 languages | Delivery time |
+|--------|----------------------|----------------|
+| Classic filming (actor + studio + editing) | $800–$2,500 | 2–4 weeks |
+| AI avatar + automatic dubbing | $150–$500 | 2–4 days |
+| Later update (new price/offer) | New filming: $300–$800 | AI avatar: 1 day, ~$50–$100 |
+
+## Case study: online course for a training center in Moldova
+
+A professional training center wanted an intro video for its courses, available to students in Moldova (Romanian), the diaspora in Russia (Russian), and international clients (English).
+
+- Before: they planned 3 separate filming sessions, an estimated budget of $1,800, a 3-week timeline
+- With AI avatar + dubbing: one script, 3 language versions, total cost under $400, delivered in 4 days
+- Bonus: when they changed the course price a month later, updating all 3 videos took a few hours, not a new filming session
+
+## You need this if:
+
+- You sell to customers who speak different languages (Romanian, Russian, English) and repeat the same message every time
+- You need training or onboarding videos that get updated frequently
+- You want consistent video content for social media but don't have the budget for monthly filming
+- You change your offers or prices often, and each change would otherwise require new filming
+
+At TINKA AI we build exactly this kind of solution through <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">AI content, dubbing and avatars</a>, tailored to your business.
+
+## How to get started
+
+1. Send us your script or video idea at office@tinka.md
+2. We propose the avatar that fits your brand and the languages you need
+3. You get the first version in 2-4 days, with room for adjustments
+4. You pay once for all languages, with no hidden per-version costs
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
