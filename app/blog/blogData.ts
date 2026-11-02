@@ -2020,6 +2020,298 @@ At TINKA AI we build exactly this kind of solution through <a href="/solutions/c
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 9
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "sistem-programari-online-rezervari-moldova",
+    date: "2026-11-02",
+    readTime: 7,
+    category: "custom-software",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/c907d76f-7b1b-4e83-ba6b-c80e2058e683.jpg",
+    translations: {
+      ro: {
+        title: "Sistem de programări online: cum elimini telefonul și no-show-urile pentru saloane, clinici și service auto",
+        description: "Cât te costă de fapt programările pe telefon și Instagram DM, și cum un sistem propriu de rezervări online reduce no-show-urile și recuperează orele pierdute pentru afaceri din Moldova.",
+        content: `
+## Telefonul sună, tu ești cu un client, iar programarea se pierde
+
+Ești la mijlocul unei tunsori, al unei consultații sau sub o mașină ridicată pe elevator, și telefonul sună pentru a treia oară în ultima oră. Nu poți răspunde. Clientul de la celălalt capăt fie încearcă să te caute pe Instagram, fie — cel mai probabil — sună la concurență, care răspunde.
+
+În Moldova, majoritatea saloanelor de înfrumusețare, clinicilor mici, service-urilor auto și pensiunilor gestionează programările exact așa: telefon, WhatsApp, un mesaj pe Instagram, un caiet sau un Excel ținut de recepție. Funcționează, dar **scurge bani pe care nu-i vezi direct** — sub forma orelor libere nefolosite și a clienților care pur și simplu renunță să mai sune.
+
+## Cum "pierzi" programări fără să-ți dai seama
+
+Problema nu e lipsa de cerere. Problema e canalul prin care cerere ajunge să devină o programare confirmată:
+
+- **Apeluri ratate în afara programului** — clientul sună la 21:00 sau duminică, nu răspunde nimeni, iar a doua zi a găsit deja altă soluție
+- **No-show fără reamintire** — clientul programat telefonic uită, pentru că nimeni nu-i trimite o reamintire automată cu o zi înainte
+- **Dublă programare** — recepția sau tu înșiși notezi greșit ora într-un caiet sau Excel, și doi clienți apar în același interval
+- **Timp pierdut la coordonare** — fiecare programare înseamnă un apel de 3-5 minute, plus eventuale reprogramări telefonice ulterioare
+- **Zero vizibilitate pe disponibilitate** — clientul nu vede orele libere, trebuie să întrebe, iar tu trebuie să te uiți în caiet de fiecare dată
+
+Un studiu de sector arată că afacerile fără reamintiri automate au o rată de no-show între 20% și 30%. Pentru un salon cu 25 de programări/zi, asta înseamnă 5-7 fotolii goale, plătite din chirie și salarii, dar fără încasare.
+
+## Ce face concret un sistem de programări online
+
+### Calendar live, vizibil non-stop
+Clientul vede exact orele libere și alege singur — la 23:00 sau duminică dimineață — fără să mai aștepte să răspunzi tu la telefon.
+
+### Confirmare și reamintire automată prin SMS sau WhatsApp
+Reamintirea pleacă automat cu 24 de ore înainte. Clientul poate confirma sau anula dintr-un singur click, iar ora liberată apare instant pentru altcineva.
+
+### Sincronizare pe mai mulți angajați sau stații de lucru
+Pentru saloane cu mai multe stiliste, clinici cu mai mulți medici sau service-uri cu mai multe elevatoare — fiecare are propriul calendar, fără suprapuneri.
+
+### Avans sau plată online la rezervare
+Pentru serviciile populare sau sezoanele încărcate, un avans minim de 10-20% la rezervare reduce drastic no-show-urile intenționate.
+
+### Istoric client și statistici reale
+Vezi cine vine recurent, cine a anulat de 3 ori la rând, și care sunt orele cu cea mai mare cerere — date pe care un caiet nu le poate oferi niciodată.
+
+## Cine din Moldova are nevoie concret de asta
+
+- **Saloane de înfrumusețare și barber shop-uri** — volum mare de programări zilnice, pe mai multe stiliste
+- **Clinici stomatologice și cabinete medicale** — programări care trebuie confirmate, nu doar notate
+- **Service-uri auto și vulcanizări** — coordonare pe elevatoare/boxe, mai ales în sezonul de schimbare a cauciucurilor
+- **Pensiuni și cazări turistice** — rezervări pe perioade, cu disponibilitate care se schimbă constant
+- **Instructori fitness, terapeuți, cosmeticieni** — sesiuni individuale, unde fiecare oră liberă neumplută e venit pierdut definitiv
+
+## Telefon și caiet vs. sistem de programări online
+
+| | Telefon + caiet | Sistem de programări online |
+|---|---|---|
+| Disponibilitate pentru client | Doar în orele tale de lucru | 24/7, inclusiv noaptea și weekendul |
+| Rată de no-show | 20-30% (fără reamintire) | Sub 10%, cu reamintire automată |
+| Risc de dublă programare | Ridicat, mai ales cu mai mulți angajați | Zero — calendarul blochează automat ora |
+| Timp pierdut la coordonare telefonică | 3-5 min/programare | Aproape zero — clientul se programează singur |
+| Vizibilitate asupra cererii reale | Inexistentă | Rapoarte clare pe ore, zile, angajați |
+
+## Studiu de caz: salon de înfrumusețare cu 2 stiliste, Chișinău
+
+**Înainte:** programări exclusiv telefonice, rată de no-show de aproximativ 27%, recepția pierdea în medie 1,5 ore pe zi doar coordonând și reprogramând telefonic.
+
+**După implementarea sistemului propriu de programări online:**
+- Rata de no-show a scăzut de la 27% la 9%, datorită reamintirilor automate pe WhatsApp
+- Peste 60% dintre programări se fac acum direct de client, în afara orelor de program ale salonului
+- Timp economisit la recepție: aproximativ 7 ore pe săptămână, redirecționate spre clienți efectivi
+
+## Cât costă un sistem de programări online personalizat în 2026
+
+| Tip sistem | Preț estimativ | Potrivit pentru |
+|------------|----------------|------------------|
+| Calendar online simplu + confirmare automată | 600–1.200 USD | Un singur specialist, o locație |
+| Multi-angajat + reamintiri SMS/WhatsApp automate | 1.200–2.500 USD | Saloane, clinici, service-uri cu mai mulți angajați |
+| Platformă completă: avans online, multi-locație, rapoarte | 2.500–5.000+ USD | Lanțuri de saloane, clinici sau pensiuni cu mai multe puncte |
+
+Diferența față de un abonament generic de tip Booksy sau Calendly e aceeași ca la orice software personalizat: acolo plătești lunar în valută, cu limite de utilizatori sau funcții blocate în planuri superioare, și depinzi de disponibilitatea platformei lor. Cu un <a href="/solutions/platforme-saas" class="text-sky-400 hover:text-sky-300 underline">sistem construit special pentru fluxul afacerii tale</a>, plătești o singură dată dezvoltarea, iar sistemul se adaptează exact la cum lucrezi tu, nu invers.
+
+## Ești pregătit pentru un sistem propriu de programări dacă:
+
+- Pierzi apeluri sau mesaje în afara orelor de program, în mod recurent
+- Ai avut no-show-uri frecvente care îți lasă fotolii sau elevatoare goale
+- Coordonezi programări pentru mai mult de un angajat și apar suprapuneri
+- Vrei să vezi date reale despre cerere, nu doar impresia că "e plin"
+
+## Cum începi
+
+1. Scrii la office@tinka.md cu tipul afacerii și câte programări faci în medie pe zi
+2. Facem un audit gratuit de 30 de minute și îți spunem exact ce format de sistem se potrivește
+3. Primești o ofertă cu preț fix, nu o estimare vagă
+4. Livrare în 2–5 săptămâni, în funcție de complexitate
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Система онлайн-записи: как убрать телефон и неявки клиентов для салонов, клиник и автосервисов",
+        description: "Сколько на самом деле стоит запись по телефону и в Instagram, и как собственная система онлайн-записи снижает неявки и возвращает потерянные часы для бизнеса в Молдове.",
+        content: `
+## Телефон звонит, вы заняты с клиентом, а запись теряется
+
+Вы в середине стрижки, консультации или под машиной на подъёмнике, а телефон звонит уже третий раз за час. Ответить невозможно. Клиент на другом конце либо пытается найти вас в Instagram, либо — что чаще — звонит конкуренту, который отвечает.
+
+В Молдове большинство салонов красоты, небольших клиник, автосервисов и гостевых домов записывают клиентов именно так: телефон, WhatsApp, сообщение в Instagram, тетрадь или Excel на ресепшене. Это работает, но **незаметно съедает деньги** — в виде незаполненных свободных часов и клиентов, которые просто перестают звонить.
+
+## Как вы «теряете» записи, даже не замечая этого
+
+Проблема не в нехватке спроса. Проблема — в канале, через который спрос превращается в подтверждённую запись:
+
+- **Пропущенные звонки вне рабочего времени** — клиент звонит в 21:00 или в воскресенье, никто не отвечает, а на следующий день он уже нашёл другое решение
+- **Неявка без напоминания** — клиент, записавшийся по телефону, забывает, потому что никто не отправляет ему автоматическое напоминание накануне
+- **Двойная запись** — ресепшен или вы сами ошибочно записываете время в тетрадь или Excel, и два клиента приходят на один и тот же слот
+- **Потерянное время на координацию** — каждая запись — это звонок на 3-5 минут, плюс возможные перезаписи по телефону позже
+- **Нулевая видимость свободных окон** — клиент не видит свободное время, ему нужно спрашивать, а вам — каждый раз смотреть в тетрадь
+
+Отраслевые исследования показывают, что у бизнесов без автоматических напоминаний доля неявок составляет 20-30%. Для салона с 25 записями в день это 5-7 пустых кресел, оплаченных арендой и зарплатой, но без выручки.
+
+## Что конкретно умеет система онлайн-записи
+
+### Живой календарь, доступный 24/7
+Клиент видит точно свободные часы и выбирает сам — в 23:00 или в воскресенье утром — без необходимости ждать вашего ответа по телефону.
+
+### Автоматическое подтверждение и напоминание через SMS или WhatsApp
+Напоминание уходит автоматически за 24 часа. Клиент может подтвердить или отменить в один клик, а освободившееся время сразу становится доступным для другого.
+
+### Синхронизация для нескольких сотрудников или рабочих мест
+Для салонов с несколькими стилистами, клиник с несколькими врачами или автосервисов с несколькими подъёмниками — у каждого свой календарь, без пересечений.
+
+### Предоплата или онлайн-оплата при бронировании
+Для популярных услуг или загруженных сезонов минимальная предоплата 10-20% при записи резко снижает намеренные неявки.
+
+### История клиента и реальная статистика
+Вы видите, кто приходит регулярно, кто отменял запись 3 раза подряд, и какие часы наиболее востребованы — данные, которые тетрадь никогда не даст.
+
+## Кому в Молдове это конкретно нужно
+
+- **Салоны красоты и барбершопы** — большой объём ежедневных записей на нескольких стилистов
+- **Стоматологические клиники и медицинские кабинеты** — записи, которые нужно подтверждать, а не просто фиксировать
+- **Автосервисы и шиномонтажи** — координация по подъёмникам/боксам, особенно в сезон замены шин
+- **Гостевые дома и туристическое жильё** — бронирования на период, с постоянно меняющейся доступностью
+- **Фитнес-инструкторы, терапевты, косметологи** — индивидуальные сессии, где каждый незаполненный свободный час — это окончательно потерянный доход
+
+## Телефон и тетрадь против системы онлайн-записи
+
+| | Телефон + тетрадь | Система онлайн-записи |
+|---|---|---|
+| Доступность для клиента | Только в ваши рабочие часы | 24/7, включая ночь и выходные |
+| Доля неявок | 20-30% (без напоминания) | Менее 10%, с автонапоминанием |
+| Риск двойной записи | Высокий, особенно с несколькими сотрудниками | Ноль — календарь автоматически блокирует время |
+| Потери времени на координацию по телефону | 3-5 мин/запись | Почти ноль — клиент записывается сам |
+| Видимость реального спроса | Отсутствует | Чёткие отчёты по часам, дням, сотрудникам |
+
+## Кейс: салон красоты с 2 стилистами, Кишинёв
+
+**До:** записи исключительно по телефону, доля неявок около 27%, ресепшен в среднем терял 1,5 часа в день только на координацию и перезапись по телефону.
+
+**После внедрения собственной системы онлайн-записи:**
+- Доля неявок снизилась с 27% до 9% благодаря автоматическим напоминаниям в WhatsApp
+- Более 60% записей теперь делаются клиентом напрямую, вне рабочих часов салона
+- Экономия времени на ресепшене: около 7 часов в неделю, перенаправленных на реальных клиентов
+
+## Сколько стоит индивидуальная система онлайн-записи в 2026 году
+
+| Тип системы | Ориентировочная цена | Подходит для |
+|--------------|----------------------|--------------|
+| Простой онлайн-календарь + автоподтверждение | 600–1 200 USD | Один специалист, одна локация |
+| Несколько сотрудников + автонапоминания SMS/WhatsApp | 1 200–2 500 USD | Салоны, клиники, сервисы с несколькими сотрудниками |
+| Полная платформа: онлайн-предоплата, несколько точек, отчёты | от 2 500 USD | Сети салонов, клиник или гостевых домов с несколькими точками |
+
+Разница с готовой подпиской типа Booksy или Calendly та же, что и с любым индивидуальным ПО: там вы платите ежемесячно в валюте, с лимитами пользователей или функциями, заблокированными в старших планах, и зависите от доступности их платформы. С <a href="/ru/solutions/platforme-saas" class="text-sky-400 hover:text-sky-300 underline">системой, построенной именно под процессы вашего бизнеса</a>, вы платите один раз за разработку, а система подстраивается под то, как работаете вы, а не наоборот.
+
+## Вам нужна собственная система записи, если:
+
+- Вы регулярно теряете звонки или сообщения вне рабочего времени
+- У вас часто бывают неявки, из-за которых кресла или подъёмники стоят пустыми
+- Вы координируете записи для нескольких сотрудников, и случаются пересечения
+- Вы хотите видеть реальные данные о спросе, а не просто ощущение, что «всё занято»
+
+## Как начать
+
+1. Напишите на office@tinka.md с типом бизнеса и средним числом записей в день
+2. Проведём бесплатный аудит за 30 минут и скажем, какой формат системы подходит
+3. Получите предложение с фиксированной ценой, а не расплывчатой оценкой
+4. Срок реализации: 2–5 недель, в зависимости от сложности
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Online booking system: how to ditch the phone and no-shows for salons, clinics and auto shops",
+        description: "What phone and Instagram DM bookings are really costing you, and how a custom online booking system cuts no-shows and recovers lost hours for businesses in Moldova.",
+        content: `
+## The phone rings, you're with a client, and the booking slips away
+
+You're mid-haircut, mid-consultation, or under a car on the lift, and the phone rings for the third time this hour. You can't pick up. The person on the other end either tries to find you on Instagram, or — more likely — calls your competitor, who answers.
+
+In Moldova, most beauty salons, small clinics, auto shops and guesthouses manage bookings exactly this way: phone calls, WhatsApp, an Instagram message, a notebook or an Excel sheet at the front desk. It works, but it **quietly bleeds money** — in the form of unfilled open slots and customers who simply stop calling.
+
+## How you "lose" bookings without even noticing
+
+The problem isn't a lack of demand. It's the channel through which demand turns into a confirmed booking:
+
+- **Missed calls outside business hours** — a customer calls at 9pm or on Sunday, nobody answers, and by the next day they've already found another option
+- **No-shows with no reminder** — a customer booked by phone forgets, because nobody sends an automatic reminder the day before
+- **Double bookings** — the front desk, or you yourself, mis-enters a time in a notebook or spreadsheet, and two customers show up for the same slot
+- **Time lost on coordination** — every booking means a 3-5 minute phone call, plus possible rescheduling calls later
+- **Zero visibility into availability** — the customer can't see open slots, has to ask, and you have to check the notebook every single time
+
+Industry data shows businesses without automated reminders see no-show rates of 20-30%. For a salon with 25 bookings a day, that's 5-7 empty chairs — paid for in rent and salaries, but with no revenue to show for it.
+
+## What an online booking system actually does
+
+### A live calendar, visible around the clock
+Customers see exactly which slots are open and pick one themselves — at 11pm or Sunday morning — without waiting for you to pick up the phone.
+
+### Automatic confirmation and reminders via SMS or WhatsApp
+A reminder goes out automatically 24 hours ahead. The customer can confirm or cancel in one click, and the freed-up slot instantly becomes available to someone else.
+
+### Sync across multiple staff members or work stations
+For salons with several stylists, clinics with several doctors, or auto shops with several lifts — each gets their own calendar, with no overlaps.
+
+### Deposit or online payment at booking
+For popular services or busy seasons, a small 10-20% deposit at booking time drastically cuts deliberate no-shows.
+
+### Customer history and real statistics
+See who's a regular, who's cancelled three times in a row, and which hours see the highest demand — data a notebook can never give you.
+
+## Who in Moldova actually needs this
+
+- **Beauty salons and barber shops** — high daily booking volume across several stylists
+- **Dental clinics and medical offices** — appointments that need confirming, not just jotting down
+- **Auto repair and tire shops** — coordinating across lifts/bays, especially during tire-change season
+- **Guesthouses and tourist accommodation** — date-range bookings with constantly shifting availability
+- **Fitness coaches, therapists, beauticians** — one-on-one sessions, where every unfilled slot is permanently lost revenue
+
+## Phone and notebook vs. online booking system
+
+| | Phone + notebook | Online booking system |
+|---|---|---|
+| Availability for customers | Only during your working hours | 24/7, including nights and weekends |
+| No-show rate | 20-30% (no reminder) | Under 10%, with automatic reminders |
+| Risk of double booking | High, especially with multiple staff | Zero — the calendar blocks the slot automatically |
+| Time lost on phone coordination | 3-5 min/booking | Nearly zero — customers book themselves |
+| Visibility into real demand | None | Clear reports by hour, day, staff member |
+
+## Case study: beauty salon with 2 stylists, Chișinău
+
+**Before:** phone-only bookings, a no-show rate of roughly 27%, and the front desk losing an average of 1.5 hours a day just coordinating and rescheduling by phone.
+
+**After implementing a custom online booking system:**
+- The no-show rate dropped from 27% to 9%, thanks to automatic WhatsApp reminders
+- Over 60% of bookings are now made directly by customers, outside the salon's opening hours
+- Time saved at the front desk: around 7 hours a week, redirected to actual customers
+
+## What a custom online booking system costs in 2026
+
+| System type | Estimated price | Best for |
+|-------------|------------------|----------|
+| Simple online calendar + auto-confirmation | $600–$1,200 | A single specialist, one location |
+| Multi-staff + automatic SMS/WhatsApp reminders | $1,200–$2,500 | Salons, clinics, shops with several staff members |
+| Full platform: online deposits, multi-location, reports | $2,500+ | Chains of salons, clinics or guesthouses with multiple locations |
+
+The difference versus a generic subscription like Booksy or Calendly is the same as with any custom software: there you pay monthly in foreign currency, with user limits or features locked behind higher tiers, and you depend on their platform's uptime. With a <a href="/en/solutions/platforme-saas" class="text-sky-400 hover:text-sky-300 underline">system built around how your business actually works</a>, you pay once for development, and the system adapts to you — not the other way around.
+
+## You're ready for your own booking system if:
+
+- You regularly miss calls or messages outside business hours
+- You've had frequent no-shows leaving chairs or lifts empty
+- You coordinate bookings for more than one staff member and double-bookings happen
+- You want real data on demand, not just the feeling that "we're busy"
+
+## How to get started
+
+1. Email us at office@tinka.md with your business type and average daily bookings
+2. We do a free 30-minute audit and tell you exactly which system format fits
+3. You get a proposal with a fixed price, not a vague estimate
+4. Delivery in 2–5 weeks, depending on complexity
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
