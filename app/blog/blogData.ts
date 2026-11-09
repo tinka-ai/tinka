@@ -2312,6 +2312,307 @@ The difference versus a generic subscription like Booksy or Calendly is the same
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 10
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "mentenanta-securitate-site-web-moldova",
+    date: "2026-11-09",
+    readTime: 7,
+    category: "web-design",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/55b03b67-4e35-4b58-88f7-f8fbae4734d6.jpg",
+    translations: {
+      ro: {
+        title: "Mentenanță și securitate pentru site-ul tău: cât te costă să NU o faci",
+        description: "Ce se întâmplă cu un site abandonat după lansare, cât costă să repari un site hackuit și cât costă, de fapt, un pachet de mentenanță lunară în Moldova în 2026.",
+        content: `
+## Site-ul e live de un an. Nimeni nu s-a mai logat în el de atunci.
+
+Factura a fost plătită, site-ul arată bine, toată lumea e fericită — până în ziua în care un client îți scrie pe Facebook: "Îmi apare un mesaj roșu de la Google, ceva cu 'site periculos'". Sau, mai simplu, site-ul pur și simplu nu se mai încarcă, pentru că certificatul SSL a expirat în urmă cu trei zile și nimeni nu a observat.
+
+Nu e un scenariu rar. E ce li se întâmplă, lunar, afacerilor mici care tratează site-ul ca pe o cheltuială unică — "l-am plătit, e al meu pentru totdeauna" — nu ca pe un activ digital care, exact ca o clădire sau o maşină, are nevoie de întreținere.
+
+## De ce "nu mă mai ating de el" e cea mai scumpă strategie
+
+Un site WordPress neactualizat este una dintre cele mai frecvente ținte pentru atacuri automate — nu pentru că cineva "te vânează" pe tine personal, ci pentru că roboți scanează permanent internetul în căutare de pluginuri vechi și portiţe de securitate cunoscute, pe oricare domeniu le găsesc.
+
+Ce se întâmplă concret când un site e lăsat în voia sorții:
+
+- **Pluginuri și teme neactualizate** — fiecare versiune veche e o portiță documentată public, pe care orice script automat o poate exploata
+- **Certificat SSL expirat** — browserul arată "Site nesigur", vizitatorii pleacă în câteva secunde
+- **Backup inexistent** — dacă site-ul e compromis sau serverul pică, nu ai de unde să-l restaurezi
+- **Domeniu neplătit la timp** — site-ul și adresele de email de pe el dispar peste noapte
+- **Formulare de contact sparte** — lead-urile ajung într-o adresă de email moartă, luni la rând, fără să observe nimeni
+
+## Cât costă, de fapt, să NU faci mentenanță
+
+Costul real nu e abonamentul de 20-40 USD/lună pe care îl eviți. E ce urmează:
+
+| Problemă | Cost tipic de reparație | Timp de nefuncționare |
+|----------|--------------------------|------------------------|
+| Site hackuit, listat de Google ca periculos | 300–800 USD | 2–5 zile |
+| Restaurare din backup inexistent (reconstrucție manuală) | 500–2.000 USD | 1–3 săptămâni |
+| Pierdere domeniu expirat, recuperare/răscumpărare | 50–500+ USD | Variabil, uneori ireversibil |
+| Lead-uri pierdute din formular stricat (3 luni, estimativ) | Cost de oportunitate, nu factură | — |
+
+La acestea se adaugă ceva ce nu apare în nicio factură: **poziția în Google**. Un site marcat ca nesigur sau care a fost offline câteva zile pierde din încrederea motorului de căutare — și recuperarea poziției durează, de obicei, mai mult decât a durat căderea.
+
+## Ce include, de fapt, un pachet de mentenanță serios
+
+### Backup-uri automate, nu "mai fac unul când am timp"
+Copii de siguranță zilnice sau săptămânale, stocate separat de server, cu restaurare testată — nu doar bifată pe hârtie.
+
+### Actualizări de securitate controlate
+CMS, pluginuri, certificat SSL — actualizate regulat, dar testate înainte, ca o actualizare să nu-ți "spargă" singură site-ul.
+
+### Monitorizare uptime 24/7
+O alertă automată în momentul în care site-ul pică, nu un client care-ți spune peste trei zile că nu a mai putut intra.
+
+### Suport tehnic la o intervenție rapidă
+Când apare o problemă — formular stricat, pagină care nu se încarcă — răspuns în ore, nu în săptămâni.
+
+## Cât costă mentenanța unui site în Moldova în 2026
+
+| Pachet | Preț lunar | Ce include |
+|--------|------------|------------|
+| Basic | 20–40 USD/lună | Backup, SSL, monitorizare uptime |
+| Standard | 40–80 USD/lună | Basic + actualizări CMS/plugin-uri, suport email |
+| Premium | 80–150+ USD/lună | Standard + modificări minore incluse, suport prioritar telefonic |
+
+Pentru context: un pachet Standard costă, pe an, cât o singură reparație de urgență după un hack.
+
+## Studiu de caz: magazin online de cosmetice din Bălți
+
+**Situația inițială:** site WordPress construit în 2023, zero mentenanță de 18 luni, plugin de plăți neactualizat.
+
+**Ce s-a întâmplat:** scripturi malițioase injectate în pagina de checkout, nedetectate 6 săptămâni. Google a listat site-ul ca "potențial periculos" chiar în perioada de Black Friday.
+
+**Costul real:**
+- 3 zile fără vânzări în plin sezon de reduceri
+- 650 USD cost de curățare și securizare
+- ~2 luni până la recuperarea completă a poziției în Google
+
+Un pachet de mentenanță Standard, pe toată acea perioadă de 18 luni, ar fi costat mai puțin decât o singură săptămână din pierderea de vânzări.
+
+## Cum știi dacă site-ul tău are nevoie de mentenanță URGENT
+
+Verifică chiar acum:
+
+- Nu știi sigur când a fost făcut ultimul backup al site-ului
+- Nu-ți amintești când ai actualizat ultima dată CMS-ul sau pluginurile
+- Certificatul SSL nu are reînnoire automată confirmată
+- Nimeni din echipă nu primește alertă dacă site-ul pică
+- Nu ai acces direct la panoul de administrare, doar "cel care l-a făcut" îl mai are
+
+Dacă ai bifat cel puțin două, site-ul tău e expus riscului chiar acum, nu într-un viitor nedefinit.
+
+Dacă vrei un site nou construit corect de la zero — cu mentenanță inclusă din prima zi — vezi și <a href="/solutions/website-uri" class="text-sky-400 hover:text-sky-300 underline">serviciul nostru de website-uri</a>, unde securitatea și backup-urile fac parte din pachet, nu sunt un "extra" la care te gândești abia după un incident.
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu adresa site-ului actual
+2. Facem un audit gratuit de securitate și performanță în 24-48 de ore
+3. Îți arătăm exact ce riscuri are site-ul tău chiar acum
+4. Alegi pachetul de mentenanță potrivit, fără angajament pe termen lung
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Техническая поддержка и безопасность сайта: сколько стоит НЕ заниматься этим",
+        description: "Что происходит с сайтом, брошенным после запуска, сколько стоит восстановить взломанный сайт и сколько на самом деле стоит пакет ежемесячной поддержки в Молдове в 2026 году.",
+        content: `
+## Сайт работает уже год. С тех пор в него никто не заходил.
+
+Счёт оплачен, сайт выглядит хорошо, все довольны — до того дня, когда клиент пишет вам в Facebook: «У меня появляется красное сообщение от Google, что-то про "опасный сайт"». Или, ещё проще, сайт просто перестаёт загружаться, потому что SSL-сертификат истёк три дня назад, а никто не заметил.
+
+Это не редкий случай. Это то, что ежемесячно происходит с малым бизнесом, который относится к сайту как к разовой трате — «я его оплатил, он мой навсегда» — а не как к цифровому активу, который, точно как здание или автомобиль, требует обслуживания.
+
+## Почему «больше не трогаю его» — самая дорогая стратегия
+
+Неактуализированный сайт на WordPress — одна из самых частых целей автоматических атак, не потому что кто-то охотится именно за вами, а потому что роботы постоянно сканируют интернет в поиске старых плагинов и известных уязвимостей — на любом домене, который найдут.
+
+Что происходит на практике, если сайт оставлен без внимания:
+
+- **Неактуализированные плагины и темы** — каждая старая версия — это публично известная уязвимость, которую может использовать любой автоматический скрипт
+- **Истёкший SSL-сертификат** — браузер показывает «Сайт небезопасен», посетители уходят за несколько секунд
+- **Отсутствие бэкапа** — если сайт взломан или сервер падает, восстановить его неоткуда
+- **Неоплаченный вовремя домен** — сайт и почтовые адреса на нём исчезают за одну ночь
+- **Сломанные формы обратной связи** — заявки месяцами уходят на мёртвый email, и никто этого не замечает
+
+## Сколько на самом деле стоит НЕ заниматься поддержкой
+
+Реальная стоимость — не подписка в 20-40 USD/месяц, которую вы избегаете. А то, что происходит дальше:
+
+| Проблема | Типичная стоимость исправления | Время простоя |
+|----------|----------------------------------|----------------|
+| Взломанный сайт, помеченный Google как опасный | 300–800 USD | 2–5 дней |
+| Восстановление при отсутствии бэкапа (ручная пересборка) | 500–2 000 USD | 1–3 недели |
+| Потеря просроченного домена, выкуп/восстановление | 50–500+ USD | По-разному, иногда без возврата |
+| Потерянные заявки из-за сломанной формы (3 месяца, оценка) | Упущенная выгода, не счёт | — |
+
+К этому добавляется то, что не попадает ни в один счёт: **позиции в Google**. Сайт, помеченный как небезопасный, или бывший офлайн несколько дней, теряет доверие поисковой системы — а восстановление позиций обычно занимает дольше, чем длилось само падение.
+
+## Что на самом деле входит в серьёзный пакет поддержки
+
+### Автоматические бэкапы, а не «сделаю, когда будет время»
+Ежедневные или еженедельные копии, хранящиеся отдельно от сервера, с проверенным восстановлением — а не просто отметка «есть» на бумаге.
+
+### Контролируемые обновления безопасности
+CMS, плагины, SSL-сертификат — обновляются регулярно, но протестированными, чтобы само обновление не «сломало» сайт.
+
+### Мониторинг доступности 24/7
+Автоматическое уведомление в момент падения сайта, а не клиент, который через три дня говорит, что не смог зайти.
+
+### Техподдержка с быстрой реакцией
+Когда возникает проблема — сломанная форма, страница не загружается — ответ за часы, а не за недели.
+
+## Сколько стоит поддержка сайта в Молдове в 2026 году
+
+| Пакет | Цена в месяц | Что включает |
+|-------|--------------|--------------|
+| Basic | 20–40 USD/мес | Бэкап, SSL, мониторинг доступности |
+| Standard | 40–80 USD/мес | Basic + обновления CMS/плагинов, поддержка по email |
+| Premium | 80–150+ USD/мес | Standard + мелкие правки включены, приоритетная телефонная поддержка |
+
+Для сравнения: пакет Standard за год стоит столько же, сколько одно экстренное восстановление после взлома.
+
+## Кейс: интернет-магазин косметики в Бельцах
+
+**Исходная ситуация:** сайт на WordPress, созданный в 2023 году, ноль технической поддержки за 18 месяцев, неактуализированный плагин оплаты.
+
+**Что произошло:** вредоносные скрипты внедрены в страницу оплаты, не обнаружены 6 недель. Google пометил сайт как «потенциально опасный» прямо во время Чёрной пятницы.
+
+**Реальная стоимость:**
+- 3 дня без продаж в разгар сезона скидок
+- 650 USD за очистку и восстановление безопасности
+- ~2 месяца на полное восстановление позиций в Google
+
+Пакет поддержки Standard за эти 18 месяцев обошёлся бы дешевле, чем одна неделя потерянных продаж.
+
+## Как понять, что вашему сайту срочно нужна поддержка
+
+Проверьте прямо сейчас:
+
+- Вы не знаете точно, когда был сделан последний бэкап сайта
+- Вы не помните, когда в последний раз обновляли CMS или плагины
+- SSL-сертификат не имеет подтверждённого автопродления
+- Никто в команде не получает уведомление, если сайт упадёт
+- У вас нет прямого доступа к панели администратора — только у «того, кто его делал»
+
+Если отметили хотя бы два пункта — ваш сайт под риском уже сейчас, а не в неопределённом будущем.
+
+Если хотите новый сайт, построенный правильно с нуля — с поддержкой, включённой с первого дня — посмотрите нашу <a href="/ru/solutions/website-uri" class="text-sky-400 hover:text-sky-300 underline">услугу по созданию сайтов</a>, где безопасность и бэкапы — часть пакета, а не «опция», о которой вы задумываетесь только после инцидента.
+
+## Как начать
+
+1. Напишите на office@tinka.md с адресом вашего текущего сайта
+2. Проведём бесплатный аудит безопасности и производительности за 24-48 часов
+3. Покажем точно, каким рискам подвержен ваш сайт прямо сейчас
+4. Выберете подходящий пакет поддержки без долгосрочных обязательств
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Website maintenance and security: what it costs you to skip it",
+        description: "What happens to a website abandoned after launch, how much it costs to recover a hacked site, and what a monthly maintenance package actually costs in Moldova in 2026.",
+        content: `
+## The website has been live for a year. No one has logged into it since.
+
+The invoice was paid, the website looks great, everyone's happy — until the day a customer messages you on Facebook: "I'm getting a red warning from Google, something about a 'dangerous site'." Or, more simply, the site just stops loading because the SSL certificate expired three days ago and nobody noticed.
+
+This isn't a rare scenario. It's what happens, monthly, to small businesses that treat their website as a one-time expense — "I paid for it, it's mine forever" — instead of a digital asset that, just like a building or a car, needs upkeep.
+
+## Why "I'm not touching it again" is the most expensive strategy
+
+An outdated WordPress website is one of the most common targets for automated attacks — not because someone is hunting you personally, but because bots constantly scan the internet for old plugins and known security holes, on whatever domain they find them on.
+
+What actually happens when a website is left to fend for itself:
+
+- **Outdated plugins and themes** — every old version is a publicly documented hole that any automated script can exploit
+- **Expired SSL certificate** — the browser shows "Not secure," visitors leave within seconds
+- **No backups** — if the site gets compromised or the server goes down, there's nothing to restore from
+- **Domain not renewed on time** — the site and its email addresses disappear overnight
+- **Broken contact forms** — leads land in a dead inbox for months, and nobody notices
+
+## What it really costs to skip maintenance
+
+The real cost isn't the $20–40/month subscription you're avoiding. It's what comes next:
+
+| Problem | Typical repair cost | Downtime |
+|---------|---------------------|----------|
+| Hacked site, flagged by Google as dangerous | $300–$800 | 2–5 days |
+| Restoring without a backup (manual rebuild) | $500–$2,000 | 1–3 weeks |
+| Lost expired domain, recovery/buyback | $50–$500+ | Variable, sometimes unrecoverable |
+| Lost leads from a broken form (3 months, estimate) | Opportunity cost, not an invoice | — |
+
+On top of that comes something that never appears on any invoice: **your Google ranking**. A site flagged as unsafe, or one that was down for a few days, loses the search engine's trust — and recovering that ranking usually takes longer than the outage itself.
+
+## What a serious maintenance package actually includes
+
+### Automatic backups, not "I'll do one when I have time"
+Daily or weekly copies, stored separately from the server, with tested restores — not just a box ticked on paper.
+
+### Controlled security updates
+CMS, plugins, SSL certificate — updated regularly, but tested first, so an update doesn't break your site on its own.
+
+### 24/7 uptime monitoring
+An automatic alert the moment your site goes down — not a customer telling you three days later that they couldn't get in.
+
+### Fast-response technical support
+When something breaks — a broken form, a page that won't load — a response in hours, not weeks.
+
+## What website maintenance costs in Moldova in 2026
+
+| Package | Monthly price | Includes |
+|---------|---------------|----------|
+| Basic | $20–$40/month | Backup, SSL, uptime monitoring |
+| Standard | $40–$80/month | Basic + CMS/plugin updates, email support |
+| Premium | $80–$150+/month | Standard + minor changes included, priority phone support |
+
+For context: a Standard package costs, per year, about as much as a single emergency repair after a hack.
+
+## Case study: cosmetics online store in Bălți
+
+**Starting point:** a WordPress site built in 2023, zero maintenance for 18 months, an outdated payment plugin.
+
+**What happened:** malicious scripts injected into the checkout page, undetected for 6 weeks. Google flagged the site as "potentially dangerous" right during the Black Friday sales period.
+
+**The real cost:**
+- 3 days with no sales during peak discount season
+- $650 to clean up and secure the site
+- ~2 months to fully recover its Google ranking
+
+A Standard maintenance package over that entire 18-month period would have cost less than a single week of lost sales.
+
+## How to tell if your website urgently needs maintenance
+
+Check right now:
+
+- You don't know for sure when the site's last backup was made
+- You don't remember the last time the CMS or plugins were updated
+- The SSL certificate doesn't have a confirmed auto-renewal
+- Nobody on your team gets alerted if the site goes down
+- You don't have direct admin access — only "whoever built it" still does
+
+If you checked at least two, your website is exposed right now, not at some undefined point in the future.
+
+If you want a new site built right from scratch — with maintenance included from day one — check out our <a href="/en/solutions/website-uri" class="text-sky-400 hover:text-sky-300 underline">website service</a>, where security and backups are part of the package, not an afterthought you only think about after an incident.
+
+## How to get started
+
+1. Email us at office@tinka.md with your current website's address
+2. We run a free security and performance audit within 24-48 hours
+3. We show you exactly what risks your website has right now
+4. You pick the maintenance package that fits, with no long-term commitment
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
