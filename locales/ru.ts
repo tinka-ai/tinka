@@ -32,10 +32,10 @@ export const ru = {
     titleSuffix: ", а не просто обычное IT-решение.",
     lede:
       "Индивидуальное ПО, SaaS-платформы, автоматизация и персонализированный медиаконтент или онлайн-платформа обучения, включая AI-агента — чтобы бизнес находили и в Google, и через AI-ассистентов вроде ChatGPT, Gemini, Grok, Perplexity, Claude и других.",
-    stat1Value: "2×",
-    stat1Label: "видимость в AI-поиске",
-    stat2Value: "MD → RO",
-    stat2Label: "региональный охват",
+    stat1Value: "SEO + GEO",
+    stat1Label: "видимость в Google и в ChatGPT, Gemini, Perplexity",
+    stat2Value: "MD + RO",
+    stat2Label: "один проект, два рынка",
     stat3Value: "#1",
     stat3Label: "цель: новые клиенты",
     ctaPrimary: "Получить бесплатный аудит",
@@ -557,10 +557,10 @@ export const ru = {
 
   whyAI: {
     title: "Почему TINKA AI",
-    benefit1: { title: "Экономия времени", description: "Меньше рутины." },
-    benefit2: { title: "Меньше расходов", description: "Больше эффективности." },
-    benefit3: { title: "Быстрый рост", description: "Масштабируемость." },
-    benefit4: { title: "Ответ 24/7", description: "Мгновенно для клиентов." },
+    benefit1: { title: "Экономия времени", description: "Меньше времени на рутинные задачи — больше времени на клиентов и рост." },
+    benefit2: { title: "Меньше расходов", description: "Одна система на основе ваших процессов вместо отдельных подписок на инструменты, которые не связаны между собой." },
+    benefit3: { title: "Быстрый рост", description: "Система растёт вместе с вашим бизнесом — без необходимости всё переделывать." },
+    benefit4: { title: "Ответ 24/7", description: "Клиенты получают ответ мгновенно, даже вне рабочего времени." },
   },
 
   tinkabook: {

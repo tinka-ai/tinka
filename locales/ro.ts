@@ -32,10 +32,10 @@ export const ro = {
     titleSuffix: ", nu doar o soluție IT obișnuită.",
     lede:
       "Software personalizat, platforme SaaS, automatizări și conținut media personalizat sau platformă de instruire on-line, inclusiv cu AI agent — construite ca afacerea ta să fie găsită și în Google, și de asistenții AI precum ChatGPT, Gemini, Grok, Perplexity, Claude etc.",
-    stat1Value: "2×",
-    stat1Label: "vizibilitate în căutări AI",
-    stat2Value: "MD → RO",
-    stat2Label: "acoperire regională",
+    stat1Value: "SEO + GEO",
+    stat1Label: "vizibil în Google și în ChatGPT, Gemini, Perplexity",
+    stat2Value: "MD + RO",
+    stat2Label: "un singur proiect, două piețe",
     stat3Value: "#1",
     stat3Label: "obiectiv: clienți noi",
     ctaPrimary: "Solicită un audit gratuit",
@@ -448,10 +448,10 @@ export const ro = {
 
   whyAI: {
     title: "De ce TINKA AI",
-    benefit1: { title: "Timp economisit", description: "Mai puțină muncă manuală, mai mult rezultat." },
-    benefit2: { title: "Costuri reduse", description: "Automatizarea reduce timp și erori." },
-    benefit3: { title: "Scalare rapidă", description: "Procesele cresc odată cu businessul tău." },
-    benefit4: { title: "Răspuns instant", description: "Disponibil 24/7 pentru clienții tăi." },
+    benefit1: { title: "Timp economisit", description: "Mai puțin timp pe sarcini repetitive — mai mult timp pentru clienți și creștere." },
+    benefit2: { title: "Costuri reduse", description: "Un singur sistem construit pe procesele tale, în loc de abonamente separate la unelte care nu comunică între ele." },
+    benefit3: { title: "Scalare rapidă", description: "Sistemul crește odată cu afacerea ta, fără să reconstruiești totul de la zero." },
+    benefit4: { title: "Răspuns instant", description: "Clienții primesc răspuns imediat, chiar și în afara programului de lucru." },
   },
 
   tinkabook: {

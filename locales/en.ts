@@ -32,10 +32,10 @@ export const en = {
     titleSuffix: ", not just an ordinary IT solution.",
     lede:
       "Custom software, SaaS platforms, automation and personalized media content or an online training platform, including an AI agent — built to get your business found on Google and by AI assistants like ChatGPT, Gemini, Grok, Perplexity, Claude and more.",
-    stat1Value: "2×",
-    stat1Label: "visibility in AI search",
-    stat2Value: "MD → RO",
-    stat2Label: "regional coverage",
+    stat1Value: "SEO + GEO",
+    stat1Label: "visible on Google and in ChatGPT, Gemini, Perplexity",
+    stat2Value: "MD + RO",
+    stat2Label: "one project, two markets",
     stat3Value: "#1",
     stat3Label: "goal: new customers",
     ctaPrimary: "Get a free audit",
@@ -582,10 +582,10 @@ export const en = {
 
   whyAI: {
     title: "Why TINKA AI",
-    benefit1: { title: "Time saved", description: "Less manual work." },
-    benefit2: { title: "Lower costs", description: "More efficiency." },
-    benefit3: { title: "Fast scaling", description: "Grow effortlessly." },
-    benefit4: { title: "Instant response", description: "Help 24/7." },
+    benefit1: { title: "Time saved", description: "Less time on repetitive tasks — more time for customers and growth." },
+    benefit2: { title: "Lower costs", description: "One system built on your processes, instead of separate subscriptions to tools that don't talk to each other." },
+    benefit3: { title: "Fast scaling", description: "The system grows with your business — no need to rebuild from scratch." },
+    benefit4: { title: "Instant response", description: "Customers get an answer right away, even outside business hours." },
   },
 
   tinkabook: {
