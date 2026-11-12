@@ -32,9 +32,9 @@ const ABOUT_TEXT = {
     value2: "Transparență totală — scope clar, timeline și costuri ferme.",
     value3: "Învățare continuă — iterezi repede, măsori, optimizezi.",
 
-    teamTitle: "O echipă mică, orientată pe impact",
+    teamTitle: "O echipă restrânsă, fără intermediari",
     teamText:
-      "Lucrăm în echipe compacte, aproape de fondatori și echipele de management, ca să scurtăm feedback loop-urile și să punem în producție repede soluțiile.",
+      "Vorbești direct cu persoana care construiește soluția, nu cu un account manager care transmite mesajul mai departe. Suntem o echipă mică din Chișinău care folosește intensiv unelte AI în propriul flux de lucru — exact tehnologia pe care ți-o livrăm și ție — ca să construim mai rapid și să răspundem mai prompt decât o agenție clasică.",
 
     approachText:
       "Începem cu un proiect pilot mic (2–4 săptămâni), măsurăm impactul, apoi scalăm. Fără blocaje inutile, fără vendor lock-in, cu documentație și transfer de cunoștințe.",
@@ -83,9 +83,9 @@ const ABOUT_TEXT = {
     value2: "Full transparency — clear scope, timelines and fixed costs.",
     value3: "Continuous learning — iterate fast, measure, optimize.",
 
-    teamTitle: "A small team focused on impact",
+    teamTitle: "A small team, no middlemen",
     teamText:
-      "We work in compact implementation teams, directly with founders and managers, to shorten feedback loops and ship to production quickly.",
+      "You talk directly with the person building your solution, not an account manager relaying messages back and forth. We're a small team based in Chișinău that uses AI tools heavily in our own workflow — the same technology we deliver to you — to build faster and respond quicker than a traditional agency.",
 
     approachText:
       "We start with a small pilot (2–4 weeks), measure impact, then scale. No vendor lock-in, clear documentation and handover.",
@@ -134,9 +134,9 @@ const ABOUT_TEXT = {
     value2: "Полная прозрачность — понятный объём работ, сроки и бюджет.",
     value3: "Постоянное улучшение — быстрые итерации, измерение, оптимизация.",
 
-    teamTitle: "Небольшая команда, ориентированная на результат",
+    teamTitle: "Небольшая команда, без посредников",
     teamText:
-      "Мы работаем небольшими командами внедрения, напрямую с владельцами и менеджерами, чтобы быстро получать обратную связь и выводить решения в продакшн.",
+      "Вы общаетесь напрямую с тем, кто создаёт решение, а не с менеджером по работе с клиентами, который передаёт сообщения дальше. Мы небольшая команда из Кишинёва, активно использующая AI-инструменты в собственной работе — ту же технологию, которую поставляем вам — чтобы строить быстрее и отвечать оперативнее, чем классическое агентство.",
 
     approachText:
       "Мы начинаем с небольшого пилота (2–4 недели), измеряем эффект, затем масштабируем. Без жёсткой привязки к подрядчику, с документацией и передачей знаний.",

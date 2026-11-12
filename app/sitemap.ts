@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about",       priority: 0.8, changeFrequency: "monthly" },
     { path: "/contact",     priority: 0.8, changeFrequency: "monthly" },
     { path: "/portfolio",   priority: 0.8, changeFrequency: "monthly" },
+    { path: "/case-studies",priority: 0.8, changeFrequency: "monthly" },
     { path: "/blog",        priority: 0.9, changeFrequency: "weekly"  },
 
     // ── Tinkora — produse (ascunse temporar din sitemap cât timp TRANSCRIBER_ENABLED === false) ──

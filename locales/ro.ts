@@ -94,6 +94,13 @@ export const ro = {
         ],
       },
 
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 400 €",
+        detail: "instalare și configurare, antrenat pe informațiile afacerii tale; mentenanță opțională de la 30 €/lună.",
+        note: "Preț de referință — oferta finală depinde de canale (WhatsApp, Messenger) și complexitate, stabilită după o discuție scurtă.",
+      },
+
       cta: {
         primary: "Programează demo gratuit",
         secondary:
@@ -133,6 +140,13 @@ export const ro = {
           "Chatbot AI integrat",
           "Analytics și rapoarte automate",
         ],
+      },
+
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 300 €",
+        detail: "site de prezentare simplu (3-5 pagini); magazin online de la 1.500 €, platformă SaaS de la 5.000 €.",
+        note: "Preț de referință — oferta finală depinde de numărul de pagini și funcționalități, stabilită după o discuție scurtă.",
       },
 
       cta: {
@@ -175,6 +189,13 @@ export const ro = {
         ],
       },
 
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 350 €",
+        detail: "un flux automatizat (ex: formular → CRM → notificare); proiecte cu mai multe fluxuri, de la 800 €.",
+        note: "Preț de referință — oferta finală depinde de numărul și complexitatea proceselor, stabilită după un audit gratuit.",
+      },
+
       cta: {
         primary: "Analizează procesele tale",
         secondary: "Audit gratuit de 30 minute",
@@ -213,6 +234,13 @@ export const ro = {
           "Integrări cu sistemele existente (contabilitate, POS, stoc)",
           "Cod care rămâne al tău, fără vendor lock-in",
         ],
+      },
+
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 800 €",
+        detail: "CRM simplu (clienți + istoric); cu automatizări incluse de la 1.500 €, aplicații offline/desktop de la 2.000 €.",
+        note: "Preț de referință — oferta finală depinde de complexitate, stabilită după prima consultație tehnică (gratuită).",
       },
 
       cta: {
@@ -255,6 +283,13 @@ export const ro = {
         ],
       },
 
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 1.200 €",
+        detail: "platformă de rezervări/booking dedicată; platformă SaaS multi-tenant completă, de la 5.000 €.",
+        note: "Preț de referință — oferta finală depinde de numărul de utilizatori și funcționalități, stabilită după o discuție scurtă.",
+      },
+
       cta: {
         primary: "Vezi cum pornim un SaaS",
         secondary: "De la idee la produs funcțional în săptămâni, nu luni",
@@ -295,6 +330,13 @@ export const ro = {
         ],
       },
 
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 150 €",
+        detail: "dublaj AI pentru un video scurt, în 2-3 limbi; avatar digital sau meniu audio, de la 300 €.",
+        note: "Preț de referință — oferta finală depinde de durata conținutului și numărul de limbi, stabilită după o mostră gratuită.",
+      },
+
       cta: {
         primary: "Vezi exemple de conținut AI",
         secondary: "Testăm gratuit o mostră pentru afacerea ta",
@@ -333,6 +375,13 @@ export const ro = {
           "Conținut video/audio asistat de AI",
           "Acces pe mobil și desktop",
         ],
+      },
+
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 500 €",
+        detail: "instalare și configurare platformă + primele cursuri încărcate; administrare lunară (actualizări, backup, suport), de la 40 €/lună.",
+        note: "Preț de referință — oferta finală depinde de numărul de cursanți și funcționalități, stabilită după o consultație scurtă.",
       },
 
       cta: {
@@ -376,6 +425,13 @@ export const ro = {
         ],
       },
 
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 50 €/oră",
+        detail: "consultanță punctuală; pachet complet de audit + strategie + plan de implementare, de la 200 €.",
+        note: "Preț de referință — oferta finală depinde de complexitatea afacerii, stabilită după consultanța gratuită de 60 minute.",
+      },
+
       cta: {
         primary: "Rezervă consultanță gratuită",
         secondary: "60 minute de claritate totală",
@@ -415,6 +471,13 @@ export const ro = {
           "Rotație de tipuri de conținut, ca paginile să nu pară repetitive",
           "Programare pe zile și ore fixe, stabilite de tine",
         ],
+      },
+
+      pricing: {
+        title: "Preț orientativ",
+        from: "de la 150 €/lună",
+        detail: "3 postări/săptămână pe Facebook și Instagram, text + imagine generate cu AI, publicare automată.",
+        note: "Preț de referință — oferta finală depinde de frecvența postărilor și rețelele dorite, stabilită după o discuție scurtă.",
       },
 
       cta: {

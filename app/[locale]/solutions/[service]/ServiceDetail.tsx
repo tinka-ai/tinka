@@ -1,4 +1,4 @@
-import { AlertCircle, ArrowRight, CheckCircle, Target, type LucideIcon } from "lucide-react"
+import { AlertCircle, ArrowRight, CheckCircle, Tag, Target, type LucideIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -12,6 +12,7 @@ type ServiceData = {
   whereApplies?: { title: string; description: string; tags?: string[] }
   example?: { title: string; description: string }
   features?: { title: string; list: string[] }
+  pricing?: { title: string; from: string; detail: string; note: string }
   cta?: { primary: string; secondary?: string }
 }
 
@@ -123,6 +124,22 @@ export default function ServiceDetail({
                 ))}
               </div>
             </div>
+          )}
+
+          {data.pricing && (
+            <Card className="bg-amber-500/5 border-amber-500/20">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <Tag className="h-6 w-6 text-amber-500 mt-1 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-foreground">{data.pricing.title}</h3>
+                    <p className="text-2xl font-bold text-foreground">{data.pricing.from}</p>
+                    <p className="text-muted-foreground leading-relaxed">{data.pricing.detail}</p>
+                    <p className="text-sm text-muted-foreground italic">{data.pricing.note}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           )}
 
           {data.cta && (

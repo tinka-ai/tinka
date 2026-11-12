@@ -20,15 +20,11 @@ const nextConfig = {
   // ── Redirecturi 301 pentru URL-uri vechi ──────────────────────────────────
   // Nota: redirecturile care stergeau /en/ si /ru/ (ramase dintr-o incercare
   // veche cu linkuri moarte) au fost eliminate — /en/... si /ru/... sunt acum
-  // rute reale, cu continut, vezi app/[locale]/.
+  // rute reale, cu continut, vezi app/[locale]/. Redirectul /case-studies ->
+  // /portfolio a fost eliminat la randul lui — /case-studies e acum o pagina
+  // reala, cu un caz de studiu adevarat (vezi app/[locale]/case-studies/).
   async redirects() {
     return [
-      // Pagini eliminate
-      {
-        source: "/case-studies",
-        destination: "/portfolio",
-        permanent: true,
-      },
       // /ro/... nu trebuie sa existe ca URL public (romana e varianta
       // canonica, fara prefix) — redirect permanent catre echivalentul fara
       // prefix. Mutat aici din middleware.ts: un redirects() din next.config
@@ -75,7 +71,7 @@ const nextConfig = {
   async rewrites() {
     const serviceSlugs = "chatbot-ai|software-personalizat|website-uri|platforme-saas|automatizari-business|continut-ai-dublaj-avatare|elearning|consultanta-digitala|automatizare-social-media"
     const blogSlugs = "cat-costa-un-site-web-in-moldova|chatbot-ai-pentru-afaceri-mici|seo-local-moldova-ghid|cat-costa-un-crm-personalizat-in-moldova|automatizare-postari-facebook-instagram-ai"
-    const PAGES = ["about", "blog", "contact", "cumparare", "download", "portfolio", "privacy", "solutions", "terms"]
+    const PAGES = ["about", "blog", "case-studies", "contact", "cumparare", "download", "portfolio", "privacy", "solutions", "terms"]
 
     return {
       beforeFiles: [],

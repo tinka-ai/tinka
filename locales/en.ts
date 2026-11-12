@@ -93,6 +93,13 @@ export const en = {
         ],
       },
 
+      pricing: {
+        title: "Estimated price",
+        from: "from €400",
+        detail: "setup and configuration, trained on your business info; optional maintenance from €30/month.",
+        note: "Reference price — the final quote depends on channels (WhatsApp, Messenger) and complexity, set after a short discussion.",
+      },
+
       cta: {
         primary: "Schedule free demo",
         secondary: "See a live personalized AI chatbot in action",
@@ -139,6 +146,13 @@ export const en = {
         ],
       },
 
+      pricing: {
+        title: "Estimated price",
+        from: "from €300",
+        detail: "simple business website (3-5 pages); online store from €1,500, SaaS platform from €5,000.",
+        note: "Reference price — the final quote depends on pages and features, set after a short discussion.",
+      },
+
       cta: {
         primary: "Request custom quote",
         secondary: "Free project estimate within 24 hours",
@@ -177,6 +191,13 @@ export const en = {
           "Daily automated reports",
           "WhatsApp/Telegram notifications",
         ],
+      },
+
+      pricing: {
+        title: "Estimated price",
+        from: "from €350",
+        detail: "one automated workflow (e.g. form → CRM → notification); multi-workflow projects from €800.",
+        note: "Reference price — the final quote depends on the number and complexity of processes, set after a free audit.",
       },
 
       cta: {
@@ -219,6 +240,13 @@ export const en = {
         ],
       },
 
+      pricing: {
+        title: "Estimated price",
+        from: "from €800",
+        detail: "simple CRM (customers + history); with built-in automations from €1,500, offline/desktop apps from €2,000.",
+        note: "Reference price — the final quote depends on complexity, set after the first technical consultation (free).",
+      },
+
       cta: {
         primary: "Talk about your project",
         secondary: "First technical consultation is free",
@@ -257,6 +285,13 @@ export const en = {
           "Scales from 10 to 10,000 users",
           "Ongoing maintenance and support",
         ],
+      },
+
+      pricing: {
+        title: "Estimated price",
+        from: "from €1,200",
+        detail: "dedicated booking/reservation platform; full multi-tenant SaaS platform from €5,000.",
+        note: "Reference price — the final quote depends on user count and features, set after a short discussion.",
       },
 
       cta: {
@@ -299,6 +334,13 @@ export const en = {
         ],
       },
 
+      pricing: {
+        title: "Estimated price",
+        from: "from €150",
+        detail: "AI dubbing for a short video, in 2-3 languages; digital avatar or audio menu from €300.",
+        note: "Reference price — the final quote depends on content length and number of languages, set after a free sample.",
+      },
+
       cta: {
         primary: "See AI content examples",
         secondary: "We'll test a free sample for your business",
@@ -337,6 +379,13 @@ export const en = {
           "AI-assisted video/audio content",
           "Mobile and desktop access",
         ],
+      },
+
+      pricing: {
+        title: "Estimated price",
+        from: "from €500",
+        detail: "platform setup + first courses uploaded; monthly administration (updates, backup, support) from €40/month.",
+        note: "Reference price — the final quote depends on the number of learners and features, set after a short consultation.",
       },
 
       cta: {
@@ -380,6 +429,13 @@ export const en = {
         ],
       },
 
+      pricing: {
+        title: "Estimated price",
+        from: "from €50/hour",
+        detail: "one-off consulting; full audit + strategy + implementation plan package from €200.",
+        note: "Reference price — the final quote depends on business complexity, set after the free 60-minute consultation.",
+      },
+
       cta: {
         primary: "Book free consultation",
         secondary: "Learn how AI can transform your business",
@@ -419,6 +475,13 @@ export const en = {
           "Content-type rotation so pages don't feel repetitive",
           "Scheduled on the days and times you choose",
         ],
+      },
+
+      pricing: {
+        title: "Estimated price",
+        from: "from €150/month",
+        detail: "3 posts/week on Facebook and Instagram, AI-generated text + image, automatic publishing.",
+        note: "Reference price — the final quote depends on posting frequency and desired networks, set after a short discussion.",
       },
 
       cta: {
