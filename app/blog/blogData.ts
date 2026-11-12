@@ -1550,12 +1550,1087 @@ The difference from ready-made platforms (Teachable, Thinkific, Udemy as a marke
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 7
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "meniu-digital-audio-restaurant-ai",
+    date: "2026-10-19",
+    readTime: 7,
+    category: "ai-content",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/b865307b-5d79-4ba5-aaf1-bc06dc0e9029.jpg",
+    translations: {
+      ro: {
+        title: "Meniu digital & audio cu AI pentru restaurante — elimini meniul pe hârtie și câștigi clienții turiști",
+        description: "Cum înlocuiești meniul laminat, retipărit de câteva ori pe an, cu un meniu digital accesat prin cod QR și cu descrieri audio AI în mai multe limbi, pentru restaurante din Moldova.",
+        content: `
+## Câte meniuri a retipărit restaurantul tău anul acesta?
+
+De fiecare dată când crește prețul la o bere sau la o porție de mici, un restaurant clasic din Moldova are două variante proaste: fie retipărește 40-80 de meniuri laminate — timp, bani, deșeuri — fie lipește peste prețul vechi un abțibild cu prețul nou, ceea ce îi face pe clienți să se întrebe ce altceva mai e "vechi" în meniul ăla.
+
+Și asta e doar jumătate din problemă. Cealaltă jumătate apare când la masă se așază un turist care nu citește nici română, nici rusă — și chelnerul traduce din priviri "ce e asta?" pentru fiecare fel de mâncare.
+
+## De ce meniul pe hârtie te costă mai mult decât crezi
+
+Un meniu tipărit clasic pare "gratis" după ce l-ai plătit o dată. În realitate:
+
+- O retipărire completă (40-60 de meniuri laminate, cu design) costă de obicei 800-1.500 lei, iar majoritatea restaurantelor din Chișinău o fac de 2-4 ori pe an — din cauza prețurilor la produse, a felurilor noi sau pur și simplu a uzurii
+- Meniurile murdare, rupte sau cu pete sunt primul lucru pe care îl observă un client nou, înainte să guste orice
+- Clienții străini sau turiștii nu înțeleg descrierile și aleg "ce li se pare sigur" — de obicei cel mai ieftin fel, nu cel mai profitabil pentru tine
+- Un fel nou sau o ofertă de sezon nu poate fi promovată rapid — trebuie să aștepți următoarea tură de printat
+
+## Ce este, concret, un meniu digital & audio cu AI
+
+Nu vorbim despre un simplu PDF încărcat pe un link. Un meniu digital & audio înseamnă:
+
+### Acces instant prin cod QR
+Clientul scanează codul de pe masă și vede meniul pe telefonul lui — actualizat în timp real, fără aplicație de instalat.
+
+### Narațiune audio în mai multe limbi
+Fiecare fel de mâncare are o scurtă descriere audio generată cu AI, în română, rusă și engleză (sau orice altă limbă ai nevoie) — clientul apasă play și ascultă ce conține felul, fără să te întrebe pe tine sau pe chelner.
+
+### Prețuri și disponibilitate actualizate instant
+Se epuizează un fel? Îl marchezi indisponibil în 10 secunde. Crește prețul la ulei? Modifici un singur număr — fără retipărire, fără abțibilduri.
+
+### Recomandări inteligente
+Meniul poate sugera automat combinații ("cine alege acest fel, de obicei adaugă...") — un mic upsell care se întâmplă fără presiune din partea chelnerului.
+
+## Cum arată practic, pentru un restaurant din Chișinău
+
+1. Fotografiem sau primim fotografiile existente ale felurilor de mâncare
+2. Construim meniul digital cu categoriile și structura localului tău
+3. Generăm descrierile audio AI în limbile de care ai nevoie
+4. Îți dăm codurile QR, pregătite de pus pe fiecare masă
+5. Tu actualizezi prețuri și disponibilitate dintr-un panou simplu, oricând, de pe telefon
+
+Poți vedea și <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">serviciul nostru de conținut AI, dublaj și avataruri</a> pentru alte formate — de la voci AI pentru reclame, până la avataruri pentru prezentări video.
+
+## Rezultate realiste pentru un restaurant cu clientelă mixtă
+
+**Restaurant cu specific local, zona centrală a Chișinăului:**
+- Înainte: meniu tipărit, retipărit de 3 ori anul trecut, fără variantă în engleză
+- După meniu digital & audio: zero costuri de retipărire, meniu disponibil instant în 3 limbi
+- Timp mediu petrecut de client "citind" meniul: de la 4-5 minute de nedumerire, la sub 1 minut cu audio
+- Reclamații legate de "nu am înțeles ce am comandat": aproape eliminate
+
+## Pachete și prețuri orientative
+
+| Pachet | Preț | Ce include |
+|--------|------|-----------|
+| Starter | 200-350 USD | Meniu digital QR, 1 limbă, actualizare manuală |
+| Business | 350-700 USD | Meniu digital + audio AI în 2-3 limbi, panou de administrare |
+| Pro | 700-1.200 USD | Multi-locație, recomandări automate, integrare cu sistemul de comenzi |
+
+## Ai nevoie de un meniu digital & audio dacă:
+
+- Retipărești meniul de mai mult de 2 ori pe an din cauza prețurilor
+- Primești frecvent clienți care nu vorbesc română sau rusă
+- Vrei să promovezi rapid oferte de sezon fără cost de printare
+- Ai mai multe locații și vrei prețuri și meniuri sincronizate automat
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu fotografii ale meniului actual (sau ale felurilor de mâncare)
+2. Analizăm gratuit structura meniului tău și limbile de care ai nevoie
+3. Primești o ofertă cu preț fix pentru numărul tău de feluri și limbi
+4. Livrare în 1-2 săptămâni, incluzând codurile QR pregătite de montat
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Цифровое и аудио меню с AI для ресторанов — без бумажного меню и с клиентами-туристами",
+        description: "Как заменить ламинированное меню, которое перепечатывают несколько раз в год, на цифровое меню с доступом по QR-коду и аудио-описаниями на AI на нескольких языках, для ресторанов в Молдове.",
+        content: `
+## Сколько меню ваш ресторан перепечатал в этом году?
+
+Каждый раз, когда растёт цена на пиво или порцию мичь, у классического молдавского ресторана два плохих варианта: перепечатать 40-80 ламинированных меню — время, деньги, отходы — или наклеить на старую цену стикер с новой, из-за чего клиент начинает гадать, что ещё в этом меню «устарело».
+
+И это лишь половина проблемы. Вторая половина проявляется, когда за стол садится турист, не читающий ни по-румынски, ни по-русски — и официант начинает жестами объяснять, что это за блюдо.
+
+## Почему бумажное меню стоит дороже, чем кажется
+
+Печатное меню кажется «бесплатным» после того, как вы его один раз оплатили. На самом деле:
+
+- Полная перепечатка (40-60 ламинированных меню, с дизайном) обычно стоит 800-1 500 леев, и большинство ресторанов в Кишинёве делают это 2-4 раза в год — из-за изменения цен, новых блюд или простого износа
+- Грязные, порванные или с пятнами меню — первое, что замечает новый клиент, ещё не попробовав ни одного блюда
+- Иностранные клиенты или туристы, не понимающие описаний, выбирают «что-то безопасное» — обычно самое дешёвое блюдо, а не самое выгодное для вас
+- Новое блюдо или сезонное предложение нельзя быстро продвинуть — нужно ждать следующей печати
+
+## Что такое, конкретно, цифровое и аудио меню с AI
+
+Речь не о простом PDF, загруженном по ссылке. Цифровое и аудио меню означает:
+
+### Мгновенный доступ по QR-коду
+Клиент сканирует код на столе и видит меню на своём телефоне — обновлённое в реальном времени, без установки приложения.
+
+### Аудио-рассказ на нескольких языках
+У каждого блюда есть короткое аудио-описание, созданное AI, на румынском, русском и английском (или любом другом нужном вам языке) — клиент нажимает play и слышит, что входит в блюдо, не спрашивая вас или официанта.
+
+### Цены и наличие обновляются мгновенно
+Блюдо закончилось? Отметьте его недоступным за 10 секунд. Выросла цена на масло? Меняете одну цифру — без перепечатки, без стикеров.
+
+### Умные рекомендации
+Меню может автоматически предлагать сочетания («те, кто выбирает это блюдо, обычно добавляют...») — небольшой допродажный приём без давления со стороны официанта.
+
+## Как это выглядит на практике для ресторана в Кишинёве
+
+1. Мы фотографируем блюда или получаем ваши существующие фото
+2. Строим цифровое меню со структурой и категориями вашего заведения
+3. Генерируем AI-аудио описания на нужных вам языках
+4. Передаём вам QR-коды, готовые к размещению на каждом столе
+5. Вы обновляете цены и наличие из простой панели, в любое время, с телефона
+
+Также посмотрите нашу <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">услугу AI-контента, дубляжа и аватаров</a> для других форматов — от AI-голосов для реклам до аватаров для видео-презентаций.
+
+## Реалистичные результаты для ресторана со смешанной клиентурой
+
+**Ресторан с локальной кухней, центр Кишинёва:**
+- До: печатное меню, перепечатанное 3 раза за прошлый год, без английской версии
+- После цифрового и аудио меню: ноль затрат на перепечатку, меню мгновенно доступно на 3 языках
+- Среднее время, которое клиент тратит на «чтение» меню: с 4-5 минут растерянности до менее 1 минуты с аудио
+- Жалобы «я не понял, что заказал»: почти исчезли
+
+## Пакеты и ориентировочные цены
+
+| Пакет | Цена | Что включает |
+|-------|------|--------------|
+| Starter | 200-350 USD | Цифровое QR-меню, 1 язык, ручное обновление |
+| Business | 350-700 USD | Цифровое + AI-аудио меню на 2-3 языках, панель администратора |
+| Pro | 700-1 200 USD | Мульти-локация, автоматические рекомендации, интеграция с системой заказов |
+
+## Вам нужно цифровое и аудио меню, если:
+
+- Вы перепечатываете меню больше 2 раз в год из-за изменения цен
+- У вас часто бывают клиенты, не говорящие по-румынски или по-русски
+- Вы хотите быстро продвигать сезонные предложения без затрат на печать
+- У вас несколько точек, и вы хотите синхронизированные цены и меню
+
+## Как начать
+
+1. Напишите на office@tinka.md с фотографиями текущего меню (или блюд)
+2. Бесплатно анализируем структуру вашего меню и нужные языки
+3. Получаете предложение с фиксированной ценой для вашего числа блюд и языков
+4. Срок реализации: 1-2 недели, включая готовые к установке QR-коды
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "AI digital & audio menu for restaurants — ditch the paper menu and win over tourist customers",
+        description: "How to replace a laminated menu, reprinted several times a year, with a digital menu accessed via QR code and AI audio descriptions in multiple languages, for restaurants in Moldova.",
+        content: `
+## How many menus has your restaurant reprinted this year?
+
+Every time the price of a beer or a plate of mici goes up, a classic Moldovan restaurant has two bad options: reprint 40-80 laminated menus — time, money, waste — or stick a sticker with the new price over the old one, which makes customers wonder what else in that menu is "old."
+
+And that's only half the problem. The other half shows up when a tourist who reads neither Romanian nor Russian sits down — and the waiter ends up miming "what is this?" for every single dish.
+
+## Why a paper menu costs you more than you think
+
+A printed menu feels "free" once you've paid for it once. In reality:
+
+- A full reprint (40-60 laminated menus, with design) typically costs 800-1,500 lei, and most restaurants in Chișinău do it 2-4 times a year — because of price changes, new dishes, or simple wear
+- Dirty, torn or stained menus are the first thing a new customer notices, before tasting anything
+- Foreign customers or tourists who don't understand the descriptions pick "whatever seems safe" — usually the cheapest dish, not the most profitable one for you
+- A new dish or seasonal offer can't be promoted quickly — you have to wait for the next print run
+
+## What a digital & audio AI menu actually is
+
+We're not talking about a PDF uploaded to a link. A digital & audio menu means:
+
+### Instant access via QR code
+The customer scans the code on the table and sees the menu on their own phone — updated in real time, no app to install.
+
+### Audio narration in multiple languages
+Every dish has a short AI-generated audio description, in Romanian, Russian and English (or any other language you need) — the customer taps play and hears what's in the dish, without asking you or the waiter.
+
+### Prices and availability updated instantly
+A dish sells out? Mark it unavailable in 10 seconds. Oil prices go up? Change one number — no reprinting, no stickers.
+
+### Smart recommendations
+The menu can automatically suggest pairings ("people who order this usually add...") — a small upsell that happens without any pressure from the waiter.
+
+## What it looks like in practice, for a restaurant in Chișinău
+
+1. We photograph or receive your existing dish photos
+2. We build the digital menu with your venue's categories and structure
+3. We generate the AI audio descriptions in the languages you need
+4. We hand you the QR codes, ready to place on every table
+5. You update prices and availability from a simple panel, anytime, from your phone
+
+You can also check our <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">AI content, dubbing and avatar service</a> for other formats — from AI voices for ads to avatars for video presentations.
+
+## Realistic results for a restaurant with mixed clientele
+
+**Local-specialty restaurant, central Chișinău:**
+- Before: printed menu, reprinted 3 times last year, no English version
+- After the digital & audio menu: zero reprinting costs, menu instantly available in 3 languages
+- Average time a customer spends "reading" the menu: from 4-5 minutes of confusion to under 1 minute with audio
+- Complaints about "I didn't understand what I ordered": almost eliminated
+
+## Packages and sample pricing
+
+| Package | Price | Includes |
+|---------|-------|----------|
+| Starter | $200-$350 | Digital QR menu, 1 language, manual updates |
+| Business | $350-$700 | Digital + AI audio menu in 2-3 languages, admin panel |
+| Pro | $700-$1,200 | Multi-location, automatic recommendations, order-system integration |
+
+## You need a digital & audio menu if:
+
+- You reprint your menu more than twice a year because of price changes
+- You regularly get customers who don't speak Romanian or Russian
+- You want to promote seasonal offers quickly without printing costs
+- You have multiple locations and want synchronized prices and menus
+
+## How to get started
+
+1. Email us at office@tinka.md with photos of your current menu (or your dishes)
+2. We analyze your menu structure and the languages you need, for free
+3. You get a fixed-price offer for your number of dishes and languages
+4. Delivery in 1-2 weeks, including QR codes ready to install
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 7
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "avatare-ai-dublaj-video-pentru-afaceri-moldova",
+    date: "2026-10-26",
+    readTime: 7,
+    category: "ai-content",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/2b42f1da-a82b-4dec-80d1-87a63d897e57.jpg",
+    translations: {
+      ro: {
+        title: "Avatare AI și dublaj video automat — un video, trei limbi, fără filmare repetată",
+        description: "Cum folosești un avatar AI și dublaj automat pentru a crea video-uri de prezentare în română, rusă și engleză, fără actor, studio și filmare separată pentru fiecare limbă.",
+        content: `
+## Un video, trei limbi, de obicei trei facturi
+
+Vrei un video de prezentare pentru afacerea ta — pentru produs, pentru pagina de Facebook sau pentru un curs online — dar clienții tăi vorbesc și română, și rusă, și poate și engleză. În mod clasic, asta înseamnă un prezentator plătit de trei ori, un studio de sunet rezervat de trei ori și trei termene de livrare separate.
+
+Cu un **avatar AI și dublaj automat**, același video se face o singură dată și "vorbește" fluent în toate cele trei limbi, fără să chemi din nou actorul, fără filmare repetată și fără să plătești un voice-over separat pentru fiecare variantă.
+
+## Problema clasică: filmare video = timp, bani și repetiție
+
+O firmă mică din Chișinău care vrea un video de prezentare profesionist trece de obicei prin:
+
+- Angajarea unui prezentator sau actor (plătit pe oră sau pe zi de filmare)
+- Rezervarea unui studio sau a unui echipament de filmare
+- Montaj și corectare — de obicei 2-3 runde, pentru că "nu a sunat bine" la prima filmare
+- Repetarea întregului proces pentru fiecare limbă în care vrea să publice conținutul
+
+Rezultatul: 2-4 săptămâni de la idee la video publicat, costuri care se înmulțesc cu numărul de limbi, și orice modificare ulterioară (preț nou, ofertă nouă) înseamnă o filmare nouă de la zero.
+
+## Ce este, de fapt, un avatar AI cu dublaj automat
+
+### Avatar AI prezentator
+Un personaj digital realist (sau stilizat, în funcție de brand) care "vorbește" scriptul tău, cu mișcări naturale ale buzelor și expresii faciale sincronizate cu vocea. Nu ai nevoie de o persoană reală în fața camerei.
+
+### Dublaj automat pe mai multe limbi
+Același script este tradus și "vorbit" automat de o voce AI naturală — română, rusă, engleză sau orice combinație ai nevoie — păstrând tonul și ritmul potrivit pentru fiecare limbă.
+
+### Sincronizare buze (lip-sync)
+Tehnologia ajustează automat mișcarea buzelor avatarului pentru fiecare limbă, astfel încât videoclipul pare filmat nativ, nu "dublat" artificial.
+
+## Unde funcționează cel mai bine
+
+- **Video de prezentare produs/serviciu** — pentru site sau pagina de Facebook/Instagram
+- **Video de training pentru angajați noi** — explicat o singură dată, disponibil permanent, în orice limbă au nevoie angajații
+- **Reclame pentru social media** — variante rapide pentru oferte sezoniere, fără filmare nouă de fiecare dată
+- **Mesaje recurente** — urări de sărbători, anunțuri de program, oferte speciale — actualizate în câteva ore, nu zile
+
+## Cât costă clasic vs. cu avatar AI
+
+| Variantă | Cost pentru 3 limbi | Timp de livrare |
+|----------|---------------------|------------------|
+| Filmare clasică (actor + studio + montaj) | 800–2.500 USD | 2–4 săptămâni |
+| Avatar AI + dublaj automat | 150–500 USD | 2–4 zile |
+| Actualizare ulterioară (preț/ofertă nouă) | Filmare nouă: 300-800 USD | Avatar AI: 1 zi, ~50-100 USD |
+
+## Studiu de caz: curs online pentru un centru de pregătire din Moldova
+
+Un centru de pregătire profesională voia un video introductiv pentru cursurile sale, disponibil pentru cursanți din Moldova (română), diaspora din Rusia (rusă) și clienți internaționali (engleză).
+
+- Înainte: plănuiau 3 filmări separate, buget estimat 1.800 USD, termen 3 săptămâni
+- Cu avatar AI + dublaj: un singur script, 3 variante lingvistice, cost total sub 400 USD, livrare în 4 zile
+- Bonus: când au schimbat prețul cursului o lună mai târziu, actualizarea celor 3 video-uri a durat câteva ore, nu o nouă filmare
+
+## Ai nevoie de asta dacă:
+
+- Vinzi către clienți care vorbesc limbi diferite (română, rusă, engleză) și repeți mesajul de fiecare dată
+- Ai nevoie de video-uri de training sau onboarding actualizate frecvent
+- Vrei conținut video constant pentru social media, dar nu ai buget pentru filmări lunare
+- Îți schimbi des ofertele sau prețurile și fiecare schimbare ar necesita o filmare nouă
+
+La TINKA AI construim exact acest tip de soluție prin <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">conținut AI, dublaj și avatare</a>, adaptat afacerii tale.
+
+## Cum începi
+
+1. Ne trimiți scriptul sau ideea video la office@tinka.md
+2. Îți propunem avatarul potrivit brandului și limbile necesare
+3. Primești prima variantă în 2-4 zile, cu posibilitate de ajustări
+4. Plătești o singură dată pentru toate limbile, fără costuri ascunse per variantă
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "AI-аватары и автоматическое дублирование видео — одно видео, три языка, без повторных съёмок",
+        description: "Как использовать AI-аватар и автоматическое дублирование для создания презентационных видео на румынском, русском и английском, без актёра, студии и отдельной съёмки для каждого языка.",
+        content: `
+## Одно видео, три языка, но обычно три счёта
+
+Вам нужно презентационное видео для бизнеса — для продукта, страницы в Facebook или онлайн-курса — а клиенты говорят на румынском, русском и, возможно, английском. Классический подход означает оплату ведущего три раза, бронирование студии звукозаписи три раза и три отдельных дедлайна.
+
+С **AI-аватаром и автоматическим дублированием** одно и то же видео создаётся один раз и свободно «говорит» на всех трёх языках — без повторного приглашения актёра, без новой съёмки и без отдельной оплаты озвучки для каждой версии.
+
+## Классическая проблема: видеосъёмка — это время, деньги и повторение
+
+Небольшая компания в Кишинёве, которая хочет профессиональное презентационное видео, обычно проходит через:
+
+- Наём ведущего или актёра (оплата по часам или за день съёмки)
+- Бронирование студии или оборудования для съёмки
+- Монтаж и повторные дубли — обычно 2-3 раунда, потому что первая запись «не звучала как надо»
+- Повторение всего процесса для каждого языка, на котором нужно опубликовать контент
+
+Результат: 2-4 недели от идеи до опубликованного видео, расходы умножаются на количество языков, а любое последующее изменение (новая цена, новое предложение) означает новую съёмку с нуля.
+
+## Что такое AI-аватар с автоматическим дублированием
+
+### AI-аватар ведущего
+Реалистичный (или стилизованный, в зависимости от бренда) цифровой персонаж, который «произносит» ваш текст с естественными движениями губ и выражениями лица, синхронизированными с голосом. Реальный человек перед камерой не нужен.
+
+### Автоматическое дублирование на нескольких языках
+Один и тот же текст переводится и автоматически «произносится» естественным AI-голосом — румынский, русский, английский или любая нужная комбинация — с сохранением правильного тона и темпа для каждого языка.
+
+### Синхронизация губ (lip-sync)
+Технология автоматически подстраивает движение губ аватара под каждый язык, поэтому видео выглядит как снятое нативно, а не искусственно «дублированное».
+
+## Где это работает лучше всего
+
+- **Презентационное видео продукта/услуги** — для сайта или страницы Facebook/Instagram
+- **Обучающие видео для новых сотрудников** — объяснено один раз, доступно постоянно, на любом нужном сотрудникам языке
+- **Реклама для соцсетей** — быстрые варианты для сезонных предложений, без новой съёмки каждый раз
+- **Повторяющиеся сообщения** — поздравления с праздниками, объявления о графике, специальные предложения — обновляются за часы, а не дни
+
+## Классическая съёмка против AI-аватара: сравнение стоимости
+
+| Вариант | Стоимость для 3 языков | Срок доставки |
+|---------|-------------------------|----------------|
+| Классическая съёмка (актёр + студия + монтаж) | 800–2 500 USD | 2–4 недели |
+| AI-аватар + автоматическое дублирование | 150–500 USD | 2–4 дня |
+| Последующее обновление (новая цена/предложение) | Новая съёмка: 300–800 USD | AI-аватар: 1 день, ~50–100 USD |
+
+## Кейс: онлайн-курс для учебного центра в Молдове
+
+Центр профессиональной подготовки хотел вводное видео для своих курсов, доступное для учащихся в Молдове (румынский), диаспоры в России (русский) и международных клиентов (английский).
+
+- До: планировали 3 отдельные съёмки, бюджет около 1 800 USD, срок 3 недели
+- С AI-аватаром и дублированием: один сценарий, 3 языковые версии, общая стоимость менее 400 USD, доставка за 4 дня
+- Бонус: когда месяц позже изменили цену курса, обновление всех 3 видео заняло несколько часов, а не новую съёмку
+
+## Вам это нужно, если:
+
+- Вы продаёте клиентам, говорящим на разных языках (румынский, русский, английский), и повторяете одно и то же сообщение каждый раз
+- Вам нужны обучающие видео или видео для онбординга, которые часто обновляются
+- Вы хотите постоянный видеоконтент для соцсетей, но нет бюджета на ежемесячные съёмки
+- Вы часто меняете предложения или цены, и каждое изменение потребовало бы новой съёмки
+
+В TINKA AI мы создаём именно такие решения через <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">AI-контент, дублирование и аватары</a>, адаптированные под ваш бизнес.
+
+## Как начать
+
+1. Отправьте нам сценарий или идею видео на office@tinka.md
+2. Мы предложим аватар, подходящий вашему бренду, и нужные языки
+3. Вы получите первую версию за 2-4 дня, с возможностью правок
+4. Вы платите один раз за все языки, без скрытых затрат за каждую версию
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "AI avatars and automatic video dubbing — one video, three languages, no re-filming",
+        description: "How to use an AI avatar and automatic dubbing to create presentation videos in Romanian, Russian and English, without an actor, a studio, or separate filming for each language.",
+        content: `
+## One video, three languages, usually three invoices
+
+You want a presentation video for your business — for a product, your Facebook page, or an online course — but your customers speak Romanian, Russian, and maybe English too. The classic approach means paying a presenter three times, booking a sound studio three times, and juggling three separate delivery deadlines.
+
+With an **AI avatar and automatic dubbing**, the same video is made once and "speaks" fluently in all three languages — no re-booking the actor, no re-filming, and no separate voice-over cost for each version.
+
+## The classic problem: video filming means time, money and repetition
+
+A small company in Chișinău that wants a professional presentation video usually goes through:
+
+- Hiring a presenter or actor (paid hourly or per filming day)
+- Booking a studio or filming equipment
+- Editing and re-takes — usually 2-3 rounds, because the first take "didn't sound right"
+- Repeating the entire process for every language the content needs to be published in
+
+The result: 2-4 weeks from idea to published video, costs multiplying with each language, and any later change (a new price, a new offer) means filming everything again from scratch.
+
+## What an AI avatar with automatic dubbing actually is
+
+### AI presenter avatar
+A realistic (or stylized, depending on your brand) digital character that "speaks" your script, with natural lip movement and facial expressions synced to the voice. No real person needs to be in front of a camera.
+
+### Automatic multi-language dubbing
+The same script is translated and automatically "spoken" by a natural AI voice — Romanian, Russian, English, or any combination you need — keeping the right tone and pacing for each language.
+
+### Lip-sync
+The technology automatically adjusts the avatar's lip movement for each language, so the video looks natively filmed, not artificially "dubbed."
+
+## Where this works best
+
+- **Product/service presentation video** — for your website or Facebook/Instagram page
+- **Training videos for new employees** — explained once, available permanently, in whatever language employees need
+- **Social media ads** — quick variants for seasonal offers, without re-filming every time
+- **Recurring messages** — holiday greetings, schedule announcements, special offers — updated in hours, not days
+
+## Classic filming vs. AI avatar: cost comparison
+
+| Option | Cost for 3 languages | Delivery time |
+|--------|----------------------|----------------|
+| Classic filming (actor + studio + editing) | $800–$2,500 | 2–4 weeks |
+| AI avatar + automatic dubbing | $150–$500 | 2–4 days |
+| Later update (new price/offer) | New filming: $300–$800 | AI avatar: 1 day, ~$50–$100 |
+
+## Case study: online course for a training center in Moldova
+
+A professional training center wanted an intro video for its courses, available to students in Moldova (Romanian), the diaspora in Russia (Russian), and international clients (English).
+
+- Before: they planned 3 separate filming sessions, an estimated budget of $1,800, a 3-week timeline
+- With AI avatar + dubbing: one script, 3 language versions, total cost under $400, delivered in 4 days
+- Bonus: when they changed the course price a month later, updating all 3 videos took a few hours, not a new filming session
+
+## You need this if:
+
+- You sell to customers who speak different languages (Romanian, Russian, English) and repeat the same message every time
+- You need training or onboarding videos that get updated frequently
+- You want consistent video content for social media but don't have the budget for monthly filming
+- You change your offers or prices often, and each change would otherwise require new filming
+
+At TINKA AI we build exactly this kind of solution through <a href="/solutions/continut-ai-dublaj-avatare" class="text-sky-400 hover:text-sky-300 underline">AI content, dubbing and avatars</a>, tailored to your business.
+
+## How to get started
+
+1. Send us your script or video idea at office@tinka.md
+2. We propose the avatar that fits your brand and the languages you need
+3. You get the first version in 2-4 days, with room for adjustments
+4. You pay once for all languages, with no hidden per-version costs
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 9
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "sistem-programari-online-rezervari-moldova",
+    date: "2026-11-02",
+    readTime: 7,
+    category: "custom-software",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/c907d76f-7b1b-4e83-ba6b-c80e2058e683.jpg",
+    translations: {
+      ro: {
+        title: "Sistem de programări online: cum elimini telefonul și no-show-urile pentru saloane, clinici și service auto",
+        description: "Cât te costă de fapt programările pe telefon și Instagram DM, și cum un sistem propriu de rezervări online reduce no-show-urile și recuperează orele pierdute pentru afaceri din Moldova.",
+        content: `
+## Telefonul sună, tu ești cu un client, iar programarea se pierde
+
+Ești la mijlocul unei tunsori, al unei consultații sau sub o mașină ridicată pe elevator, și telefonul sună pentru a treia oară în ultima oră. Nu poți răspunde. Clientul de la celălalt capăt fie încearcă să te caute pe Instagram, fie — cel mai probabil — sună la concurență, care răspunde.
+
+În Moldova, majoritatea saloanelor de înfrumusețare, clinicilor mici, service-urilor auto și pensiunilor gestionează programările exact așa: telefon, WhatsApp, un mesaj pe Instagram, un caiet sau un Excel ținut de recepție. Funcționează, dar **scurge bani pe care nu-i vezi direct** — sub forma orelor libere nefolosite și a clienților care pur și simplu renunță să mai sune.
+
+## Cum "pierzi" programări fără să-ți dai seama
+
+Problema nu e lipsa de cerere. Problema e canalul prin care cerere ajunge să devină o programare confirmată:
+
+- **Apeluri ratate în afara programului** — clientul sună la 21:00 sau duminică, nu răspunde nimeni, iar a doua zi a găsit deja altă soluție
+- **No-show fără reamintire** — clientul programat telefonic uită, pentru că nimeni nu-i trimite o reamintire automată cu o zi înainte
+- **Dublă programare** — recepția sau tu înșiși notezi greșit ora într-un caiet sau Excel, și doi clienți apar în același interval
+- **Timp pierdut la coordonare** — fiecare programare înseamnă un apel de 3-5 minute, plus eventuale reprogramări telefonice ulterioare
+- **Zero vizibilitate pe disponibilitate** — clientul nu vede orele libere, trebuie să întrebe, iar tu trebuie să te uiți în caiet de fiecare dată
+
+Un studiu de sector arată că afacerile fără reamintiri automate au o rată de no-show între 20% și 30%. Pentru un salon cu 25 de programări/zi, asta înseamnă 5-7 fotolii goale, plătite din chirie și salarii, dar fără încasare.
+
+## Ce face concret un sistem de programări online
+
+### Calendar live, vizibil non-stop
+Clientul vede exact orele libere și alege singur — la 23:00 sau duminică dimineață — fără să mai aștepte să răspunzi tu la telefon.
+
+### Confirmare și reamintire automată prin SMS sau WhatsApp
+Reamintirea pleacă automat cu 24 de ore înainte. Clientul poate confirma sau anula dintr-un singur click, iar ora liberată apare instant pentru altcineva.
+
+### Sincronizare pe mai mulți angajați sau stații de lucru
+Pentru saloane cu mai multe stiliste, clinici cu mai mulți medici sau service-uri cu mai multe elevatoare — fiecare are propriul calendar, fără suprapuneri.
+
+### Avans sau plată online la rezervare
+Pentru serviciile populare sau sezoanele încărcate, un avans minim de 10-20% la rezervare reduce drastic no-show-urile intenționate.
+
+### Istoric client și statistici reale
+Vezi cine vine recurent, cine a anulat de 3 ori la rând, și care sunt orele cu cea mai mare cerere — date pe care un caiet nu le poate oferi niciodată.
+
+## Cine din Moldova are nevoie concret de asta
+
+- **Saloane de înfrumusețare și barber shop-uri** — volum mare de programări zilnice, pe mai multe stiliste
+- **Clinici stomatologice și cabinete medicale** — programări care trebuie confirmate, nu doar notate
+- **Service-uri auto și vulcanizări** — coordonare pe elevatoare/boxe, mai ales în sezonul de schimbare a cauciucurilor
+- **Pensiuni și cazări turistice** — rezervări pe perioade, cu disponibilitate care se schimbă constant
+- **Instructori fitness, terapeuți, cosmeticieni** — sesiuni individuale, unde fiecare oră liberă neumplută e venit pierdut definitiv
+
+## Telefon și caiet vs. sistem de programări online
+
+| | Telefon + caiet | Sistem de programări online |
+|---|---|---|
+| Disponibilitate pentru client | Doar în orele tale de lucru | 24/7, inclusiv noaptea și weekendul |
+| Rată de no-show | 20-30% (fără reamintire) | Sub 10%, cu reamintire automată |
+| Risc de dublă programare | Ridicat, mai ales cu mai mulți angajați | Zero — calendarul blochează automat ora |
+| Timp pierdut la coordonare telefonică | 3-5 min/programare | Aproape zero — clientul se programează singur |
+| Vizibilitate asupra cererii reale | Inexistentă | Rapoarte clare pe ore, zile, angajați |
+
+## Studiu de caz: salon de înfrumusețare cu 2 stiliste, Chișinău
+
+**Înainte:** programări exclusiv telefonice, rată de no-show de aproximativ 27%, recepția pierdea în medie 1,5 ore pe zi doar coordonând și reprogramând telefonic.
+
+**După implementarea sistemului propriu de programări online:**
+- Rata de no-show a scăzut de la 27% la 9%, datorită reamintirilor automate pe WhatsApp
+- Peste 60% dintre programări se fac acum direct de client, în afara orelor de program ale salonului
+- Timp economisit la recepție: aproximativ 7 ore pe săptămână, redirecționate spre clienți efectivi
+
+## Cât costă un sistem de programări online personalizat în 2026
+
+| Tip sistem | Preț estimativ | Potrivit pentru |
+|------------|----------------|------------------|
+| Calendar online simplu + confirmare automată | 600–1.200 USD | Un singur specialist, o locație |
+| Multi-angajat + reamintiri SMS/WhatsApp automate | 1.200–2.500 USD | Saloane, clinici, service-uri cu mai mulți angajați |
+| Platformă completă: avans online, multi-locație, rapoarte | 2.500–5.000+ USD | Lanțuri de saloane, clinici sau pensiuni cu mai multe puncte |
+
+Diferența față de un abonament generic de tip Booksy sau Calendly e aceeași ca la orice software personalizat: acolo plătești lunar în valută, cu limite de utilizatori sau funcții blocate în planuri superioare, și depinzi de disponibilitatea platformei lor. Cu un <a href="/solutions/platforme-saas" class="text-sky-400 hover:text-sky-300 underline">sistem construit special pentru fluxul afacerii tale</a>, plătești o singură dată dezvoltarea, iar sistemul se adaptează exact la cum lucrezi tu, nu invers.
+
+## Ești pregătit pentru un sistem propriu de programări dacă:
+
+- Pierzi apeluri sau mesaje în afara orelor de program, în mod recurent
+- Ai avut no-show-uri frecvente care îți lasă fotolii sau elevatoare goale
+- Coordonezi programări pentru mai mult de un angajat și apar suprapuneri
+- Vrei să vezi date reale despre cerere, nu doar impresia că "e plin"
+
+## Cum începi
+
+1. Scrii la office@tinka.md cu tipul afacerii și câte programări faci în medie pe zi
+2. Facem un audit gratuit de 30 de minute și îți spunem exact ce format de sistem se potrivește
+3. Primești o ofertă cu preț fix, nu o estimare vagă
+4. Livrare în 2–5 săptămâni, în funcție de complexitate
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Система онлайн-записи: как убрать телефон и неявки клиентов для салонов, клиник и автосервисов",
+        description: "Сколько на самом деле стоит запись по телефону и в Instagram, и как собственная система онлайн-записи снижает неявки и возвращает потерянные часы для бизнеса в Молдове.",
+        content: `
+## Телефон звонит, вы заняты с клиентом, а запись теряется
+
+Вы в середине стрижки, консультации или под машиной на подъёмнике, а телефон звонит уже третий раз за час. Ответить невозможно. Клиент на другом конце либо пытается найти вас в Instagram, либо — что чаще — звонит конкуренту, который отвечает.
+
+В Молдове большинство салонов красоты, небольших клиник, автосервисов и гостевых домов записывают клиентов именно так: телефон, WhatsApp, сообщение в Instagram, тетрадь или Excel на ресепшене. Это работает, но **незаметно съедает деньги** — в виде незаполненных свободных часов и клиентов, которые просто перестают звонить.
+
+## Как вы «теряете» записи, даже не замечая этого
+
+Проблема не в нехватке спроса. Проблема — в канале, через который спрос превращается в подтверждённую запись:
+
+- **Пропущенные звонки вне рабочего времени** — клиент звонит в 21:00 или в воскресенье, никто не отвечает, а на следующий день он уже нашёл другое решение
+- **Неявка без напоминания** — клиент, записавшийся по телефону, забывает, потому что никто не отправляет ему автоматическое напоминание накануне
+- **Двойная запись** — ресепшен или вы сами ошибочно записываете время в тетрадь или Excel, и два клиента приходят на один и тот же слот
+- **Потерянное время на координацию** — каждая запись — это звонок на 3-5 минут, плюс возможные перезаписи по телефону позже
+- **Нулевая видимость свободных окон** — клиент не видит свободное время, ему нужно спрашивать, а вам — каждый раз смотреть в тетрадь
+
+Отраслевые исследования показывают, что у бизнесов без автоматических напоминаний доля неявок составляет 20-30%. Для салона с 25 записями в день это 5-7 пустых кресел, оплаченных арендой и зарплатой, но без выручки.
+
+## Что конкретно умеет система онлайн-записи
+
+### Живой календарь, доступный 24/7
+Клиент видит точно свободные часы и выбирает сам — в 23:00 или в воскресенье утром — без необходимости ждать вашего ответа по телефону.
+
+### Автоматическое подтверждение и напоминание через SMS или WhatsApp
+Напоминание уходит автоматически за 24 часа. Клиент может подтвердить или отменить в один клик, а освободившееся время сразу становится доступным для другого.
+
+### Синхронизация для нескольких сотрудников или рабочих мест
+Для салонов с несколькими стилистами, клиник с несколькими врачами или автосервисов с несколькими подъёмниками — у каждого свой календарь, без пересечений.
+
+### Предоплата или онлайн-оплата при бронировании
+Для популярных услуг или загруженных сезонов минимальная предоплата 10-20% при записи резко снижает намеренные неявки.
+
+### История клиента и реальная статистика
+Вы видите, кто приходит регулярно, кто отменял запись 3 раза подряд, и какие часы наиболее востребованы — данные, которые тетрадь никогда не даст.
+
+## Кому в Молдове это конкретно нужно
+
+- **Салоны красоты и барбершопы** — большой объём ежедневных записей на нескольких стилистов
+- **Стоматологические клиники и медицинские кабинеты** — записи, которые нужно подтверждать, а не просто фиксировать
+- **Автосервисы и шиномонтажи** — координация по подъёмникам/боксам, особенно в сезон замены шин
+- **Гостевые дома и туристическое жильё** — бронирования на период, с постоянно меняющейся доступностью
+- **Фитнес-инструкторы, терапевты, косметологи** — индивидуальные сессии, где каждый незаполненный свободный час — это окончательно потерянный доход
+
+## Телефон и тетрадь против системы онлайн-записи
+
+| | Телефон + тетрадь | Система онлайн-записи |
+|---|---|---|
+| Доступность для клиента | Только в ваши рабочие часы | 24/7, включая ночь и выходные |
+| Доля неявок | 20-30% (без напоминания) | Менее 10%, с автонапоминанием |
+| Риск двойной записи | Высокий, особенно с несколькими сотрудниками | Ноль — календарь автоматически блокирует время |
+| Потери времени на координацию по телефону | 3-5 мин/запись | Почти ноль — клиент записывается сам |
+| Видимость реального спроса | Отсутствует | Чёткие отчёты по часам, дням, сотрудникам |
+
+## Кейс: салон красоты с 2 стилистами, Кишинёв
+
+**До:** записи исключительно по телефону, доля неявок около 27%, ресепшен в среднем терял 1,5 часа в день только на координацию и перезапись по телефону.
+
+**После внедрения собственной системы онлайн-записи:**
+- Доля неявок снизилась с 27% до 9% благодаря автоматическим напоминаниям в WhatsApp
+- Более 60% записей теперь делаются клиентом напрямую, вне рабочих часов салона
+- Экономия времени на ресепшене: около 7 часов в неделю, перенаправленных на реальных клиентов
+
+## Сколько стоит индивидуальная система онлайн-записи в 2026 году
+
+| Тип системы | Ориентировочная цена | Подходит для |
+|--------------|----------------------|--------------|
+| Простой онлайн-календарь + автоподтверждение | 600–1 200 USD | Один специалист, одна локация |
+| Несколько сотрудников + автонапоминания SMS/WhatsApp | 1 200–2 500 USD | Салоны, клиники, сервисы с несколькими сотрудниками |
+| Полная платформа: онлайн-предоплата, несколько точек, отчёты | от 2 500 USD | Сети салонов, клиник или гостевых домов с несколькими точками |
+
+Разница с готовой подпиской типа Booksy или Calendly та же, что и с любым индивидуальным ПО: там вы платите ежемесячно в валюте, с лимитами пользователей или функциями, заблокированными в старших планах, и зависите от доступности их платформы. С <a href="/ru/solutions/platforme-saas" class="text-sky-400 hover:text-sky-300 underline">системой, построенной именно под процессы вашего бизнеса</a>, вы платите один раз за разработку, а система подстраивается под то, как работаете вы, а не наоборот.
+
+## Вам нужна собственная система записи, если:
+
+- Вы регулярно теряете звонки или сообщения вне рабочего времени
+- У вас часто бывают неявки, из-за которых кресла или подъёмники стоят пустыми
+- Вы координируете записи для нескольких сотрудников, и случаются пересечения
+- Вы хотите видеть реальные данные о спросе, а не просто ощущение, что «всё занято»
+
+## Как начать
+
+1. Напишите на office@tinka.md с типом бизнеса и средним числом записей в день
+2. Проведём бесплатный аудит за 30 минут и скажем, какой формат системы подходит
+3. Получите предложение с фиксированной ценой, а не расплывчатой оценкой
+4. Срок реализации: 2–5 недель, в зависимости от сложности
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Online booking system: how to ditch the phone and no-shows for salons, clinics and auto shops",
+        description: "What phone and Instagram DM bookings are really costing you, and how a custom online booking system cuts no-shows and recovers lost hours for businesses in Moldova.",
+        content: `
+## The phone rings, you're with a client, and the booking slips away
+
+You're mid-haircut, mid-consultation, or under a car on the lift, and the phone rings for the third time this hour. You can't pick up. The person on the other end either tries to find you on Instagram, or — more likely — calls your competitor, who answers.
+
+In Moldova, most beauty salons, small clinics, auto shops and guesthouses manage bookings exactly this way: phone calls, WhatsApp, an Instagram message, a notebook or an Excel sheet at the front desk. It works, but it **quietly bleeds money** — in the form of unfilled open slots and customers who simply stop calling.
+
+## How you "lose" bookings without even noticing
+
+The problem isn't a lack of demand. It's the channel through which demand turns into a confirmed booking:
+
+- **Missed calls outside business hours** — a customer calls at 9pm or on Sunday, nobody answers, and by the next day they've already found another option
+- **No-shows with no reminder** — a customer booked by phone forgets, because nobody sends an automatic reminder the day before
+- **Double bookings** — the front desk, or you yourself, mis-enters a time in a notebook or spreadsheet, and two customers show up for the same slot
+- **Time lost on coordination** — every booking means a 3-5 minute phone call, plus possible rescheduling calls later
+- **Zero visibility into availability** — the customer can't see open slots, has to ask, and you have to check the notebook every single time
+
+Industry data shows businesses without automated reminders see no-show rates of 20-30%. For a salon with 25 bookings a day, that's 5-7 empty chairs — paid for in rent and salaries, but with no revenue to show for it.
+
+## What an online booking system actually does
+
+### A live calendar, visible around the clock
+Customers see exactly which slots are open and pick one themselves — at 11pm or Sunday morning — without waiting for you to pick up the phone.
+
+### Automatic confirmation and reminders via SMS or WhatsApp
+A reminder goes out automatically 24 hours ahead. The customer can confirm or cancel in one click, and the freed-up slot instantly becomes available to someone else.
+
+### Sync across multiple staff members or work stations
+For salons with several stylists, clinics with several doctors, or auto shops with several lifts — each gets their own calendar, with no overlaps.
+
+### Deposit or online payment at booking
+For popular services or busy seasons, a small 10-20% deposit at booking time drastically cuts deliberate no-shows.
+
+### Customer history and real statistics
+See who's a regular, who's cancelled three times in a row, and which hours see the highest demand — data a notebook can never give you.
+
+## Who in Moldova actually needs this
+
+- **Beauty salons and barber shops** — high daily booking volume across several stylists
+- **Dental clinics and medical offices** — appointments that need confirming, not just jotting down
+- **Auto repair and tire shops** — coordinating across lifts/bays, especially during tire-change season
+- **Guesthouses and tourist accommodation** — date-range bookings with constantly shifting availability
+- **Fitness coaches, therapists, beauticians** — one-on-one sessions, where every unfilled slot is permanently lost revenue
+
+## Phone and notebook vs. online booking system
+
+| | Phone + notebook | Online booking system |
+|---|---|---|
+| Availability for customers | Only during your working hours | 24/7, including nights and weekends |
+| No-show rate | 20-30% (no reminder) | Under 10%, with automatic reminders |
+| Risk of double booking | High, especially with multiple staff | Zero — the calendar blocks the slot automatically |
+| Time lost on phone coordination | 3-5 min/booking | Nearly zero — customers book themselves |
+| Visibility into real demand | None | Clear reports by hour, day, staff member |
+
+## Case study: beauty salon with 2 stylists, Chișinău
+
+**Before:** phone-only bookings, a no-show rate of roughly 27%, and the front desk losing an average of 1.5 hours a day just coordinating and rescheduling by phone.
+
+**After implementing a custom online booking system:**
+- The no-show rate dropped from 27% to 9%, thanks to automatic WhatsApp reminders
+- Over 60% of bookings are now made directly by customers, outside the salon's opening hours
+- Time saved at the front desk: around 7 hours a week, redirected to actual customers
+
+## What a custom online booking system costs in 2026
+
+| System type | Estimated price | Best for |
+|-------------|------------------|----------|
+| Simple online calendar + auto-confirmation | $600–$1,200 | A single specialist, one location |
+| Multi-staff + automatic SMS/WhatsApp reminders | $1,200–$2,500 | Salons, clinics, shops with several staff members |
+| Full platform: online deposits, multi-location, reports | $2,500+ | Chains of salons, clinics or guesthouses with multiple locations |
+
+The difference versus a generic subscription like Booksy or Calendly is the same as with any custom software: there you pay monthly in foreign currency, with user limits or features locked behind higher tiers, and you depend on their platform's uptime. With a <a href="/en/solutions/platforme-saas" class="text-sky-400 hover:text-sky-300 underline">system built around how your business actually works</a>, you pay once for development, and the system adapts to you — not the other way around.
+
+## You're ready for your own booking system if:
+
+- You regularly miss calls or messages outside business hours
+- You've had frequent no-shows leaving chairs or lifts empty
+- You coordinate bookings for more than one staff member and double-bookings happen
+- You want real data on demand, not just the feeling that "we're busy"
+
+## How to get started
+
+1. Email us at office@tinka.md with your business type and average daily bookings
+2. We do a free 30-minute audit and tell you exactly which system format fits
+3. You get a proposal with a fixed price, not a vague estimate
+4. Delivery in 2–5 weeks, depending on complexity
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 10
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "mentenanta-securitate-site-web-moldova",
+    date: "2026-11-09",
+    readTime: 7,
+    category: "web-design",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/55b03b67-4e35-4b58-88f7-f8fbae4734d6.jpg",
+    translations: {
+      ro: {
+        title: "Mentenanță și securitate pentru site-ul tău: cât te costă să NU o faci",
+        description: "Ce se întâmplă cu un site abandonat după lansare, cât costă să repari un site hackuit și cât costă, de fapt, un pachet de mentenanță lunară în Moldova în 2026.",
+        content: `
+## Site-ul e live de un an. Nimeni nu s-a mai logat în el de atunci.
+
+Factura a fost plătită, site-ul arată bine, toată lumea e fericită — până în ziua în care un client îți scrie pe Facebook: "Îmi apare un mesaj roșu de la Google, ceva cu 'site periculos'". Sau, mai simplu, site-ul pur și simplu nu se mai încarcă, pentru că certificatul SSL a expirat în urmă cu trei zile și nimeni nu a observat.
+
+Nu e un scenariu rar. E ce li se întâmplă, lunar, afacerilor mici care tratează site-ul ca pe o cheltuială unică — "l-am plătit, e al meu pentru totdeauna" — nu ca pe un activ digital care, exact ca o clădire sau o maşină, are nevoie de întreținere.
+
+## De ce "nu mă mai ating de el" e cea mai scumpă strategie
+
+Un site WordPress neactualizat este una dintre cele mai frecvente ținte pentru atacuri automate — nu pentru că cineva "te vânează" pe tine personal, ci pentru că roboți scanează permanent internetul în căutare de pluginuri vechi și portiţe de securitate cunoscute, pe oricare domeniu le găsesc.
+
+Ce se întâmplă concret când un site e lăsat în voia sorții:
+
+- **Pluginuri și teme neactualizate** — fiecare versiune veche e o portiță documentată public, pe care orice script automat o poate exploata
+- **Certificat SSL expirat** — browserul arată "Site nesigur", vizitatorii pleacă în câteva secunde
+- **Backup inexistent** — dacă site-ul e compromis sau serverul pică, nu ai de unde să-l restaurezi
+- **Domeniu neplătit la timp** — site-ul și adresele de email de pe el dispar peste noapte
+- **Formulare de contact sparte** — lead-urile ajung într-o adresă de email moartă, luni la rând, fără să observe nimeni
+
+## Cât costă, de fapt, să NU faci mentenanță
+
+Costul real nu e abonamentul de 20-40 USD/lună pe care îl eviți. E ce urmează:
+
+| Problemă | Cost tipic de reparație | Timp de nefuncționare |
+|----------|--------------------------|------------------------|
+| Site hackuit, listat de Google ca periculos | 300–800 USD | 2–5 zile |
+| Restaurare din backup inexistent (reconstrucție manuală) | 500–2.000 USD | 1–3 săptămâni |
+| Pierdere domeniu expirat, recuperare/răscumpărare | 50–500+ USD | Variabil, uneori ireversibil |
+| Lead-uri pierdute din formular stricat (3 luni, estimativ) | Cost de oportunitate, nu factură | — |
+
+La acestea se adaugă ceva ce nu apare în nicio factură: **poziția în Google**. Un site marcat ca nesigur sau care a fost offline câteva zile pierde din încrederea motorului de căutare — și recuperarea poziției durează, de obicei, mai mult decât a durat căderea.
+
+## Ce include, de fapt, un pachet de mentenanță serios
+
+### Backup-uri automate, nu "mai fac unul când am timp"
+Copii de siguranță zilnice sau săptămânale, stocate separat de server, cu restaurare testată — nu doar bifată pe hârtie.
+
+### Actualizări de securitate controlate
+CMS, pluginuri, certificat SSL — actualizate regulat, dar testate înainte, ca o actualizare să nu-ți "spargă" singură site-ul.
+
+### Monitorizare uptime 24/7
+O alertă automată în momentul în care site-ul pică, nu un client care-ți spune peste trei zile că nu a mai putut intra.
+
+### Suport tehnic la o intervenție rapidă
+Când apare o problemă — formular stricat, pagină care nu se încarcă — răspuns în ore, nu în săptămâni.
+
+## Cât costă mentenanța unui site în Moldova în 2026
+
+| Pachet | Preț lunar | Ce include |
+|--------|------------|------------|
+| Basic | 20–40 USD/lună | Backup, SSL, monitorizare uptime |
+| Standard | 40–80 USD/lună | Basic + actualizări CMS/plugin-uri, suport email |
+| Premium | 80–150+ USD/lună | Standard + modificări minore incluse, suport prioritar telefonic |
+
+Pentru context: un pachet Standard costă, pe an, cât o singură reparație de urgență după un hack.
+
+## Studiu de caz: magazin online de cosmetice din Bălți
+
+**Situația inițială:** site WordPress construit în 2023, zero mentenanță de 18 luni, plugin de plăți neactualizat.
+
+**Ce s-a întâmplat:** scripturi malițioase injectate în pagina de checkout, nedetectate 6 săptămâni. Google a listat site-ul ca "potențial periculos" chiar în perioada de Black Friday.
+
+**Costul real:**
+- 3 zile fără vânzări în plin sezon de reduceri
+- 650 USD cost de curățare și securizare
+- ~2 luni până la recuperarea completă a poziției în Google
+
+Un pachet de mentenanță Standard, pe toată acea perioadă de 18 luni, ar fi costat mai puțin decât o singură săptămână din pierderea de vânzări.
+
+## Cum știi dacă site-ul tău are nevoie de mentenanță URGENT
+
+Verifică chiar acum:
+
+- Nu știi sigur când a fost făcut ultimul backup al site-ului
+- Nu-ți amintești când ai actualizat ultima dată CMS-ul sau pluginurile
+- Certificatul SSL nu are reînnoire automată confirmată
+- Nimeni din echipă nu primește alertă dacă site-ul pică
+- Nu ai acces direct la panoul de administrare, doar "cel care l-a făcut" îl mai are
+
+Dacă ai bifat cel puțin două, site-ul tău e expus riscului chiar acum, nu într-un viitor nedefinit.
+
+Dacă vrei un site nou construit corect de la zero — cu mentenanță inclusă din prima zi — vezi și <a href="/solutions/website-uri" class="text-sky-400 hover:text-sky-300 underline">serviciul nostru de website-uri</a>, unde securitatea și backup-urile fac parte din pachet, nu sunt un "extra" la care te gândești abia după un incident.
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu adresa site-ului actual
+2. Facem un audit gratuit de securitate și performanță în 24-48 de ore
+3. Îți arătăm exact ce riscuri are site-ul tău chiar acum
+4. Alegi pachetul de mentenanță potrivit, fără angajament pe termen lung
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Техническая поддержка и безопасность сайта: сколько стоит НЕ заниматься этим",
+        description: "Что происходит с сайтом, брошенным после запуска, сколько стоит восстановить взломанный сайт и сколько на самом деле стоит пакет ежемесячной поддержки в Молдове в 2026 году.",
+        content: `
+## Сайт работает уже год. С тех пор в него никто не заходил.
+
+Счёт оплачен, сайт выглядит хорошо, все довольны — до того дня, когда клиент пишет вам в Facebook: «У меня появляется красное сообщение от Google, что-то про "опасный сайт"». Или, ещё проще, сайт просто перестаёт загружаться, потому что SSL-сертификат истёк три дня назад, а никто не заметил.
+
+Это не редкий случай. Это то, что ежемесячно происходит с малым бизнесом, который относится к сайту как к разовой трате — «я его оплатил, он мой навсегда» — а не как к цифровому активу, который, точно как здание или автомобиль, требует обслуживания.
+
+## Почему «больше не трогаю его» — самая дорогая стратегия
+
+Неактуализированный сайт на WordPress — одна из самых частых целей автоматических атак, не потому что кто-то охотится именно за вами, а потому что роботы постоянно сканируют интернет в поиске старых плагинов и известных уязвимостей — на любом домене, который найдут.
+
+Что происходит на практике, если сайт оставлен без внимания:
+
+- **Неактуализированные плагины и темы** — каждая старая версия — это публично известная уязвимость, которую может использовать любой автоматический скрипт
+- **Истёкший SSL-сертификат** — браузер показывает «Сайт небезопасен», посетители уходят за несколько секунд
+- **Отсутствие бэкапа** — если сайт взломан или сервер падает, восстановить его неоткуда
+- **Неоплаченный вовремя домен** — сайт и почтовые адреса на нём исчезают за одну ночь
+- **Сломанные формы обратной связи** — заявки месяцами уходят на мёртвый email, и никто этого не замечает
+
+## Сколько на самом деле стоит НЕ заниматься поддержкой
+
+Реальная стоимость — не подписка в 20-40 USD/месяц, которую вы избегаете. А то, что происходит дальше:
+
+| Проблема | Типичная стоимость исправления | Время простоя |
+|----------|----------------------------------|----------------|
+| Взломанный сайт, помеченный Google как опасный | 300–800 USD | 2–5 дней |
+| Восстановление при отсутствии бэкапа (ручная пересборка) | 500–2 000 USD | 1–3 недели |
+| Потеря просроченного домена, выкуп/восстановление | 50–500+ USD | По-разному, иногда без возврата |
+| Потерянные заявки из-за сломанной формы (3 месяца, оценка) | Упущенная выгода, не счёт | — |
+
+К этому добавляется то, что не попадает ни в один счёт: **позиции в Google**. Сайт, помеченный как небезопасный, или бывший офлайн несколько дней, теряет доверие поисковой системы — а восстановление позиций обычно занимает дольше, чем длилось само падение.
+
+## Что на самом деле входит в серьёзный пакет поддержки
+
+### Автоматические бэкапы, а не «сделаю, когда будет время»
+Ежедневные или еженедельные копии, хранящиеся отдельно от сервера, с проверенным восстановлением — а не просто отметка «есть» на бумаге.
+
+### Контролируемые обновления безопасности
+CMS, плагины, SSL-сертификат — обновляются регулярно, но протестированными, чтобы само обновление не «сломало» сайт.
+
+### Мониторинг доступности 24/7
+Автоматическое уведомление в момент падения сайта, а не клиент, который через три дня говорит, что не смог зайти.
+
+### Техподдержка с быстрой реакцией
+Когда возникает проблема — сломанная форма, страница не загружается — ответ за часы, а не за недели.
+
+## Сколько стоит поддержка сайта в Молдове в 2026 году
+
+| Пакет | Цена в месяц | Что включает |
+|-------|--------------|--------------|
+| Basic | 20–40 USD/мес | Бэкап, SSL, мониторинг доступности |
+| Standard | 40–80 USD/мес | Basic + обновления CMS/плагинов, поддержка по email |
+| Premium | 80–150+ USD/мес | Standard + мелкие правки включены, приоритетная телефонная поддержка |
+
+Для сравнения: пакет Standard за год стоит столько же, сколько одно экстренное восстановление после взлома.
+
+## Кейс: интернет-магазин косметики в Бельцах
+
+**Исходная ситуация:** сайт на WordPress, созданный в 2023 году, ноль технической поддержки за 18 месяцев, неактуализированный плагин оплаты.
+
+**Что произошло:** вредоносные скрипты внедрены в страницу оплаты, не обнаружены 6 недель. Google пометил сайт как «потенциально опасный» прямо во время Чёрной пятницы.
+
+**Реальная стоимость:**
+- 3 дня без продаж в разгар сезона скидок
+- 650 USD за очистку и восстановление безопасности
+- ~2 месяца на полное восстановление позиций в Google
+
+Пакет поддержки Standard за эти 18 месяцев обошёлся бы дешевле, чем одна неделя потерянных продаж.
+
+## Как понять, что вашему сайту срочно нужна поддержка
+
+Проверьте прямо сейчас:
+
+- Вы не знаете точно, когда был сделан последний бэкап сайта
+- Вы не помните, когда в последний раз обновляли CMS или плагины
+- SSL-сертификат не имеет подтверждённого автопродления
+- Никто в команде не получает уведомление, если сайт упадёт
+- У вас нет прямого доступа к панели администратора — только у «того, кто его делал»
+
+Если отметили хотя бы два пункта — ваш сайт под риском уже сейчас, а не в неопределённом будущем.
+
+Если хотите новый сайт, построенный правильно с нуля — с поддержкой, включённой с первого дня — посмотрите нашу <a href="/ru/solutions/website-uri" class="text-sky-400 hover:text-sky-300 underline">услугу по созданию сайтов</a>, где безопасность и бэкапы — часть пакета, а не «опция», о которой вы задумываетесь только после инцидента.
+
+## Как начать
+
+1. Напишите на office@tinka.md с адресом вашего текущего сайта
+2. Проведём бесплатный аудит безопасности и производительности за 24-48 часов
+3. Покажем точно, каким рискам подвержен ваш сайт прямо сейчас
+4. Выберете подходящий пакет поддержки без долгосрочных обязательств
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Website maintenance and security: what it costs you to skip it",
+        description: "What happens to a website abandoned after launch, how much it costs to recover a hacked site, and what a monthly maintenance package actually costs in Moldova in 2026.",
+        content: `
+## The website has been live for a year. No one has logged into it since.
+
+The invoice was paid, the website looks great, everyone's happy — until the day a customer messages you on Facebook: "I'm getting a red warning from Google, something about a 'dangerous site'." Or, more simply, the site just stops loading because the SSL certificate expired three days ago and nobody noticed.
+
+This isn't a rare scenario. It's what happens, monthly, to small businesses that treat their website as a one-time expense — "I paid for it, it's mine forever" — instead of a digital asset that, just like a building or a car, needs upkeep.
+
+## Why "I'm not touching it again" is the most expensive strategy
+
+An outdated WordPress website is one of the most common targets for automated attacks — not because someone is hunting you personally, but because bots constantly scan the internet for old plugins and known security holes, on whatever domain they find them on.
+
+What actually happens when a website is left to fend for itself:
+
+- **Outdated plugins and themes** — every old version is a publicly documented hole that any automated script can exploit
+- **Expired SSL certificate** — the browser shows "Not secure," visitors leave within seconds
+- **No backups** — if the site gets compromised or the server goes down, there's nothing to restore from
+- **Domain not renewed on time** — the site and its email addresses disappear overnight
+- **Broken contact forms** — leads land in a dead inbox for months, and nobody notices
+
+## What it really costs to skip maintenance
+
+The real cost isn't the $20–40/month subscription you're avoiding. It's what comes next:
+
+| Problem | Typical repair cost | Downtime |
+|---------|---------------------|----------|
+| Hacked site, flagged by Google as dangerous | $300–$800 | 2–5 days |
+| Restoring without a backup (manual rebuild) | $500–$2,000 | 1–3 weeks |
+| Lost expired domain, recovery/buyback | $50–$500+ | Variable, sometimes unrecoverable |
+| Lost leads from a broken form (3 months, estimate) | Opportunity cost, not an invoice | — |
+
+On top of that comes something that never appears on any invoice: **your Google ranking**. A site flagged as unsafe, or one that was down for a few days, loses the search engine's trust — and recovering that ranking usually takes longer than the outage itself.
+
+## What a serious maintenance package actually includes
+
+### Automatic backups, not "I'll do one when I have time"
+Daily or weekly copies, stored separately from the server, with tested restores — not just a box ticked on paper.
+
+### Controlled security updates
+CMS, plugins, SSL certificate — updated regularly, but tested first, so an update doesn't break your site on its own.
+
+### 24/7 uptime monitoring
+An automatic alert the moment your site goes down — not a customer telling you three days later that they couldn't get in.
+
+### Fast-response technical support
+When something breaks — a broken form, a page that won't load — a response in hours, not weeks.
+
+## What website maintenance costs in Moldova in 2026
+
+| Package | Monthly price | Includes |
+|---------|---------------|----------|
+| Basic | $20–$40/month | Backup, SSL, uptime monitoring |
+| Standard | $40–$80/month | Basic + CMS/plugin updates, email support |
+| Premium | $80–$150+/month | Standard + minor changes included, priority phone support |
+
+For context: a Standard package costs, per year, about as much as a single emergency repair after a hack.
+
+## Case study: cosmetics online store in Bălți
+
+**Starting point:** a WordPress site built in 2023, zero maintenance for 18 months, an outdated payment plugin.
+
+**What happened:** malicious scripts injected into the checkout page, undetected for 6 weeks. Google flagged the site as "potentially dangerous" right during the Black Friday sales period.
+
+**The real cost:**
+- 3 days with no sales during peak discount season
+- $650 to clean up and secure the site
+- ~2 months to fully recover its Google ranking
+
+A Standard maintenance package over that entire 18-month period would have cost less than a single week of lost sales.
+
+## How to tell if your website urgently needs maintenance
+
+Check right now:
+
+- You don't know for sure when the site's last backup was made
+- You don't remember the last time the CMS or plugins were updated
+- The SSL certificate doesn't have a confirmed auto-renewal
+- Nobody on your team gets alerted if the site goes down
+- You don't have direct admin access — only "whoever built it" still does
+
+If you checked at least two, your website is exposed right now, not at some undefined point in the future.
+
+If you want a new site built right from scratch — with maintenance included from day one — check out our <a href="/en/solutions/website-uri" class="text-sky-400 hover:text-sky-300 underline">website service</a>, where security and backups are part of the package, not an afterthought you only think about after an incident.
+
+## How to get started
+
+1. Email us at office@tinka.md with your current website's address
+2. We run a free security and performance audit within 24-48 hours
+3. We show you exactly what risks your website has right now
+4. You pick the maintenance package that fits, with no long-term commitment
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
-  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat", elearning: "E-Learning" },
-  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО", elearning: "Электронное обучение" },
-  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software", elearning: "E-Learning" },
+  ro: { "web-design": "Web Design", ai: "AI & Chatboți", seo: "SEO", automation: "Automatizări", "custom-software": "Software Personalizat", elearning: "E-Learning", "ai-content": "Conținut AI & Media" },
+  ru: { "web-design": "Веб-дизайн", ai: "AI и Чатботы", seo: "SEO", automation: "Автоматизация", "custom-software": "Индивидуальное ПО", elearning: "Электронное обучение", "ai-content": "AI-контент и медиа" },
+  en: { "web-design": "Web Design", ai: "AI & Chatbots", seo: "SEO", automation: "Automation", "custom-software": "Custom Software", elearning: "E-Learning", "ai-content": "AI Content & Media" },
 }
 
 export const blogUI = {
