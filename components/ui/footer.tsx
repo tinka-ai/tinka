@@ -61,6 +61,9 @@ export default function Footer() {
               <li>{t("footer.email")}</li>
               <li>{t("footer.phone")}</li>
               <li>{t("footer.hours")}</li>
+              <li className="pt-2 text-xs border-t border-border/50 mt-2">{t("footer.legalEntity")}</li>
+              <li className="text-xs">{t("footer.idno")}</li>
+              <li className="text-xs">{t("footer.legalAddress")}</li>
             </ul>
           </div>
         </Reveal>

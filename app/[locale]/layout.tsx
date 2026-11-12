@@ -136,6 +136,8 @@ export default async function LocaleRootLayout({
               description: sd.businessDescription,
               telephone: "+37368333899",
               email: "office@tinka.md",
+              legalName: "T.I.N.K.A. AI SRL",
+              taxID: "10125600048437",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Chișinău",

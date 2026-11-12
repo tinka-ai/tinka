@@ -379,8 +379,8 @@ export const ro = {
 
       pricing: {
         title: "Preț orientativ",
-        from: "de la 500 €",
-        detail: "instalare și configurare platformă + primele cursuri încărcate; administrare lunară (actualizări, backup, suport), de la 40 €/lună.",
+        from: "de la 1.200 $",
+        detail: "LMS simplu (cursuri video + quiz); cu plăți online și certificate automate, de la 2.500 $; platformă completă multi-curs, de la 4.500 $.",
         note: "Preț de referință — oferta finală depinde de numărul de cursanți și funcționalități, stabilită după o consultație scurtă.",
       },
 
@@ -585,6 +585,9 @@ export const ro = {
     email: "office@tinka.md",
     phone: "+373 68 333 899",
     hours: "Luni–Duminică 10:00–22:00",
+    legalEntity: "T.I.N.K.A. AI SRL",
+    idno: "IDNO: 10125600048437",
+    legalAddress: "Chișinău, Republica Moldova",
     privacy: "Politica de Confidențialitate",
     terms: "Termeni și Condiții",
     copyright: `© ${new Date().getFullYear()} TINKA AI`,

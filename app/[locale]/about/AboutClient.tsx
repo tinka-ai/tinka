@@ -61,6 +61,9 @@ const ABOUT_TEXT = {
     footerEmail: "office@tinka.md",
     footerPhone: "+373 68 333 899",
     footerHours: "Luni–Duminică 10:00–22:00",
+    footerLegalEntity: "T.I.N.K.A. AI SRL",
+    footerIdno: "IDNO: 10125600048437",
+    footerLegalAddress: "Chișinău, Republica Moldova",
     footerPrivacy: "Politica de Confidențialitate",
     footerTerms: "Termeni și Condiții",
   },
@@ -112,6 +115,9 @@ const ABOUT_TEXT = {
     footerEmail: "office@tinka.md",
     footerPhone: "+373 68 333 899",
     footerHours: "Mon–Sun 10:00–22:00",
+    footerLegalEntity: "T.I.N.K.A. AI SRL",
+    footerIdno: "IDNO: 10125600048437",
+    footerLegalAddress: "Chișinău, Republic of Moldova",
     footerPrivacy: "Privacy Policy",
     footerTerms: "Terms & Conditions",
   },
@@ -163,6 +169,9 @@ const ABOUT_TEXT = {
     footerEmail: "office@tinka.md",
     footerPhone: "+373 68 333 899",
     footerHours: "Пн–Вс 10:00–22:00",
+    footerLegalEntity: "T.I.N.K.A. AI SRL",
+    footerIdno: "IDNO: 10125600048437",
+    footerLegalAddress: "Кишинёв, Республика Молдова",
     footerPrivacy: "Политика конфиденциальности",
     footerTerms: "Условия использования",
   },
@@ -426,6 +435,9 @@ export default function AboutClient() {
                 <p className="text-muted-foreground">{L.footerEmail}</p>
                 <p className="text-muted-foreground">{L.footerPhone}</p>
                 <p className="text-muted-foreground">{L.footerHours}</p>
+                <p className="text-xs text-muted-foreground pt-2 border-t border-border/50 mt-2">{L.footerLegalEntity}</p>
+                <p className="text-xs text-muted-foreground">{L.footerIdno}</p>
+                <p className="text-xs text-muted-foreground">{L.footerLegalAddress}</p>
               </div>
             </div>
           </div>

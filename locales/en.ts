@@ -383,8 +383,8 @@ export const en = {
 
       pricing: {
         title: "Estimated price",
-        from: "from €500",
-        detail: "platform setup + first courses uploaded; monthly administration (updates, backup, support) from €40/month.",
+        from: "from $1,200",
+        detail: "simple LMS (video courses + quizzes); with online payments and auto-certificates from $2,500; full multi-course platform from $4,500.",
         note: "Reference price — the final quote depends on the number of learners and features, set after a short consultation.",
       },
 
@@ -718,6 +718,9 @@ export const en = {
     email: "office@tinka.md",
     phone: "+373 68 333 899",
     hours: "Mon–Sun 10:00–22:00",
+    legalEntity: "T.I.N.K.A. AI SRL",
+    idno: "IDNO: 10125600048437",
+    legalAddress: "Chișinău, Republic of Moldova",
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
     copyright: `© ${new Date().getFullYear()} TINKA AI`,

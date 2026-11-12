@@ -783,11 +783,13 @@ Câte lead-uri intră pe lună, cine convertește cel mai bine, unde se blocheaz
 | Aplicație desktop offline (stoc, comenzi, gestiune) | 2.000–5.000 USD | Depozite, magazine, producție |
 | Platformă SaaS completă (multi-utilizator, roluri) | 5.000+ USD | Startup-uri, platforme cu clienți proprii |
 
-## Studiu de caz: firmă de construcții din Chișinău
+## Scenariu ilustrativ: o firmă de construcții din Chișinău
 
-**Înainte:** ~200 de clienți gestionați în Excel, oferte trimise manual din Word, urmăriri de plată făcute "din memorie".
+Exemplul de mai jos e un scenariu ipotetic, nu un client real — arată tipul de impact pe care îl are, de obicei, trecerea de la Excel la un CRM personalizat, pentru o afacere cu profilul descris mai jos.
 
-**După implementarea unui CRM personalizat:**
+**Înainte (ipotetic):** ~200 de clienți gestionați în Excel, oferte trimise manual din Word, urmăriri de plată făcute "din memorie".
+
+**După implementarea unui CRM personalizat, într-un scenariu tipic:**
 - Timp de pregătire ofertă: de la 40 de minute la 5 minute
 - Zero lead-uri pierdute din lipsă de follow-up
 - Rapoarte lunare generate automat, nu manual într-un weekend
@@ -873,11 +875,13 @@ Ia în calcul un sistem propriu dacă:
 | Офлайн-приложение (склад, заказы, учёт) | 2 000–5 000 USD | Склады, магазины, производство |
 | Полноценная SaaS-платформа (мультипользователь, роли) | от 5 000 USD | Стартапы, платформы с собственными клиентами |
 
-## Кейс: строительная компания в Кишинёве
+## Иллюстративный сценарий: строительная компания в Кишинёве
 
-**До:** ~200 клиентов в Excel, предложения отправлялись вручную из Word, контроль оплат «по памяти».
+Пример ниже — гипотетический сценарий, а не реальный клиент. Он показывает, какой эффект обычно даёт переход от Excel к индивидуальной CRM для бизнеса с описанным ниже профилем.
 
-**После внедрения индивидуальной CRM:**
+**До (гипотетически):** ~200 клиентов в Excel, предложения отправлялись вручную из Word, контроль оплат «по памяти».
+
+**После внедрения индивидуальной CRM, в типичном сценарии:**
 - Время подготовки предложения: с 40 минут до 5 минут
 - Ноль потерянных заявок из-за отсутствия напоминаний
 - Ежемесячные отчёты формируются автоматически, а не вручную в выходные
@@ -963,11 +967,13 @@ How many leads come in per month, who converts best, where the sales process sta
 | Offline desktop app (stock, orders, management) | $2,000–$5,000 | Warehouses, stores, production |
 | Full SaaS platform (multi-user, roles) | $5,000+ | Startups, platforms with their own customers |
 
-## Case study: construction company in Chișinău
+## Illustrative scenario: a construction company in Chișinău
 
-**Before:** ~200 customers managed in Excel, quotes sent manually from Word, payment follow-ups tracked "from memory."
+The example below is a hypothetical scenario, not a real client — it shows the kind of impact a move from Excel to a custom CRM typically has, for a business with the profile described below.
 
-**After implementing a custom CRM:**
+**Before (hypothetical):** ~200 customers managed in Excel, quotes sent manually from Word, payment follow-ups tracked "from memory."
+
+**After implementing a custom CRM, in a typical scenario:**
 - Quote preparation time: from 40 minutes down to 5 minutes
 - Zero leads lost due to missed follow-ups
 - Monthly reports generated automatically, not by hand on a weekend
@@ -1306,11 +1312,13 @@ Membership lunar cu conținut nou adăugat constant, nu un singur produs vândut
 | Timp pentru o grupă nouă | Repeți tot cursul | Zero — cursul e deja înregistrat |
 | Urmărire progres | Inexistentă sau manuală | Automată, per cursant |
 
-## Studiu de caz: instructoare de limba engleză din Chișinău
+## Scenariu ilustrativ: o instructoare de limba engleză din Chișinău
 
-**Înainte:** 4 grupe fizice, 15 cursanți/grupă, plăți prin transfer bancar urmărite manual într-un caiet. Venit plafonat de orele fizice disponibile într-o săptămână.
+Exemplul de mai jos e un scenariu ipotetic, nu un client real — arată tipul de impact pe care îl are, de obicei, trecerea de la grupe fizice la o platformă proprie, pentru un instructor cu profilul descris mai jos.
 
-**După platforma proprie:**
+**Înainte (ipotetic):** 4 grupe fizice, 15 cursanți/grupă, plăți prin transfer bancar urmărite manual într-un caiet. Venit plafonat de orele fizice disponibile într-o săptămână.
+
+**După platforma proprie, într-un scenariu tipic:**
 - Cursurile de nivel A1-A2 înregistrate o singură dată, vândute lunar unor cursanți noi, fără oră predată în plus
 - Timp liber redirecționat spre cursuri live avansate (B2-C1), plătite la preț premium
 - Venit lunar recurent din abonamentele la cursurile înregistrate, independent de câte ore predă efectiv
@@ -1403,11 +1411,13 @@ Diferența față de platformele gata-făcute (Teachable, Thinkific, Udemy ca ma
 | Время на новую группу | Повторяете весь курс | Ноль — курс уже записан |
 | Отслеживание прогресса | Отсутствует или вручную | Автоматическое, по каждому ученику |
 
-## Кейс: преподавательница английского из Кишинёва
+## Иллюстративный сценарий: преподавательница английского из Кишинёва
 
-**До:** 4 очные группы, 15 учеников/группа, оплата банковским переводом, учёт вручную в тетради. Доход ограничен физически доступными часами в неделю.
+Пример ниже — гипотетический сценарий, а не реальный клиент. Он показывает, какой эффект обычно даёт переход от очных групп к собственной платформе для преподавателя с описанным ниже профилем.
 
-**После собственной платформы:**
+**До (гипотетически):** 4 очные группы, 15 учеников/группа, оплата банковским переводом, учёт вручную в тетради. Доход ограничен физически доступными часами в неделю.
+
+**После собственной платформы, в типичном сценарии:**
 - Курсы уровня A1-A2 записаны один раз, продаются ежемесячно новым ученикам, без дополнительных преподанных часов
 - Освободившееся время перенаправлено на живые курсы продвинутого уровня (B2-C1) по премиальной цене
 - Ежемесячный рекуррентный доход от подписок на записанные курсы, независимо от количества фактически проведённых часов
@@ -1500,11 +1510,13 @@ A monthly membership with new content added continuously, instead of a single pr
 | Time for a new group | Repeat the whole course | Zero — the course is already recorded |
 | Progress tracking | None, or manual | Automatic, per student |
 
-## Case study: an English teacher in Chișinău
+## Illustrative scenario: an English teacher in Chișinău
 
-**Before:** 4 in-person groups, 15 students/group, bank-transfer payments tracked by hand in a notebook. Income capped by the physical hours available in a week.
+The example below is a hypothetical scenario, not a real client — it shows the kind of impact a move from in-person groups to a self-owned platform typically has, for a teacher with the profile described below.
 
-**After her own platform:**
+**Before (hypothetical):** 4 in-person groups, 15 students/group, bank-transfer payments tracked by hand in a notebook. Income capped by the physical hours available in a week.
+
+**After her own platform, in a typical scenario:**
 - A1-A2 level courses recorded once, sold monthly to new students, with no extra hours taught
 - Freed-up time redirected to advanced live courses (B2-C1), charged at a premium price
 - Monthly recurring income from subscriptions to the recorded courses, independent of how many hours she actually teaches
