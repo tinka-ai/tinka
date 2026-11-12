@@ -1,17 +1,14 @@
 // app/api/chat/route.ts
 import { NextResponse } from "next/server"
-import OpenAI from "openai"
-import https from "https"
 
-// keepAlive: false — evită eroarea "Premature close" care apare când Next.js
-// dev server (HMR) invalidează conexiunile HTTP ținute deschise în timp ce
-// request-ul către OpenAI e încă în desfășurare.
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-  httpAgent: new https.Agent({ keepAlive: false }),
-})
+// Cont Cloudflare al TINKA AI (ID-ul contului nu e secret — e vizibil în orice
+// URL din dashboard; doar CLOUDFLARE_API_TOKEN e secretul real).
+const CLOUDFLARE_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || "629467a61abab1155a65be60015516bf"
+const CLAUDE_MODEL = "claude-haiku-4-5-20251001"
+const FALLBACK_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
 
 type Lang = "ro" | "ru" | "en"
+type ChatMessage = { role: "user" | "assistant"; content: string }
 
 function isLang(v: any): v is Lang {
   return v === "ro" || v === "ru" || v === "en"
@@ -24,6 +21,56 @@ function safeString(v: any) {
 function clampText(v: string, max = 12000) {
   if (!v) return ""
   return v.length > max ? v.slice(0, max) + "…" : v
+}
+
+// Principal: Claude Haiku (Anthropic). Dacă eșuează (credit epuizat, eroare
+// de rețea etc.), trecem automat pe Mistral Small prin Cloudflare Workers AI
+// — gratuit, în limita alocației zilnice de neuroni a contului Cloudflare
+// (aceeași infrastructură folosită deja pentru generarea de imagini).
+async function callClaude(systemPrompt: string, recentMessages: ChatMessage[]): Promise<string> {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "x-api-key": process.env.ANTHROPIC_API_KEY || "",
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      model: CLAUDE_MODEL,
+      max_tokens: 400,
+      temperature: 0.7,
+      system: systemPrompt,
+      messages: recentMessages,
+    }),
+  })
+  if (!res.ok) throw new Error(`Anthropic error ${res.status}`)
+  const data = await res.json()
+  const text = safeString(data?.content?.[0]?.text).trim()
+  if (!text) throw new Error("Anthropic returned no text")
+  return text
+}
+
+async function callFallback(systemPrompt: string, recentMessages: ChatMessage[]): Promise<string> {
+  const res = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ai/run/${FALLBACK_MODEL}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN || ""}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        messages: [{ role: "system", content: systemPrompt }, ...recentMessages],
+        max_tokens: 400,
+        temperature: 0.7,
+      }),
+    }
+  )
+  if (!res.ok) throw new Error(`Cloudflare AI error ${res.status}`)
+  const data = await res.json()
+  const text = safeString(data?.result?.response).trim()
+  if (!text) throw new Error("Cloudflare AI returned no text")
+  return text
 }
 
 export async function POST(req: Request) {
@@ -180,33 +227,33 @@ IMPORTANT: Nu promiți că “trimiți tu email”; sistemul cere mai întâi co
 userului (bifă de consimțământ) înainte de a trimite orice date — doar incluzi markerul SEND_LEAD.
 `
 
+    // Dacă frontend-ul trimite conversația goală, răspundem cu salutul local
+    // direct — nu are rost să plătim un apel la model doar pentru atât.
+    if (messages.length === 0) {
+      return NextResponse.json({ bot: greetings[language] })
+    }
+
     // Economie de tokeni: trimitem system prompt-ul + doar ultimele N mesaje
     // din conversație, nu tot istoricul. O conversație de vânzări nu are
     // nevoie de context nelimitat — primele mesaje (descoperire/clarificare)
     // nu mai contează odată ce s-a ajuns la ofertă, iar fără limită, costul
     // per mesaj crește nemărginit pe măsură ce conversația se lungește.
     const MAX_HISTORY_MESSAGES = 16
-    const recentMessages =
-      messages.length > MAX_HISTORY_MESSAGES
-        ? messages.slice(-MAX_HISTORY_MESSAGES)
-        : messages
+    const recentMessages: ChatMessage[] = (
+      messages.length > MAX_HISTORY_MESSAGES ? messages.slice(-MAX_HISTORY_MESSAGES) : messages
+    ).map((m: any) => ({ role: m.role === "assistant" ? "assistant" : "user", content: safeString(m.content) }))
 
-    const finalMessages =
-      messages.length === 0
-        ? [
-            { role: "system", content: systemPrompt },
-            { role: "assistant", content: greetings[language] },
-          ]
-        : [{ role: "system", content: systemPrompt }, ...recentMessages]
-
-    const response = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: finalMessages,
-      max_tokens: 400,
-      temperature: 0.7,
-    })
-
-    let botReply = safeString(response.choices[0]?.message?.content || "").trim()
+    let botReply = ""
+    try {
+      botReply = await callClaude(systemPrompt, recentMessages)
+    } catch (claudeErr) {
+      console.error("Claude failed, falling back to Mistral:", claudeErr)
+      try {
+        botReply = await callFallback(systemPrompt, recentMessages)
+      } catch (fallbackErr) {
+        console.error("Fallback also failed:", fallbackErr)
+      }
+    }
     if (!botReply) botReply = greetings[language]
 
     // Detect marker SEND_LEAD
