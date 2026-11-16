@@ -2625,6 +2625,307 @@ If you want a new site built right from scratch — with maintenance included fr
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 11
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "aplicatie-desktop-offline-gestiune-stoc-moldova",
+    date: "2026-11-16",
+    readTime: 7,
+    category: "custom-software",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/1be62b6f-c795-4127-aadc-94d2dc1b95a2.jpg",
+    translations: {
+      ro: {
+        title: "Internetul pică, dar vânzările nu trebuie să se oprească: aplicații desktop offline pentru magazine și depozite din Moldova",
+        description: "Cum funcționează o aplicație desktop care merge fără internet, cât costă în Moldova în 2026 și cum elimină pierderile de vânzări cauzate de conexiuni instabile.",
+        content: `
+## Ce se întâmplă în magazinul tău când pică internetul?
+
+Casa de marcat îngheață, aplicația cloud de gestiune se blochează pe "Se încarcă...", iar vânzătoarea scrie comenzile pe hârtie "să le bată mai târziu". Sună familiar?
+
+În multe zone din Moldova — sate, orășele mici, chiar și cartiere din Chișinău la orele de vârf — internetul nu e o certitudine, e o speranță. Dacă afacerea ta depinde 100% de o aplicație cloud ca să vândă, **fiecare întrerupere de rețea e o întrerupere de business**.
+
+Soluția nu e să renunți la digitalizare, ci să alegi tipul corect de software: o **aplicație desktop care rulează local**, pe calculatorul din magazin sau depozit, și care se sincronizează automat cu internetul, nu invers.
+
+## Problema reală cu aplicațiile 100% cloud
+
+Majoritatea sistemelor moderne de gestiune și vânzări (POS-uri, platforme de stoc) sunt construite "cloud-first" — totul trece prin internet, în fiecare secundă:
+
+- **Fără internet = fără vânzări.** Nu poți emite bon, nu poți verifica stocul, nu poți încasa cu cardul prin terminalul conectat la sistem.
+- **Date pierdute sau duplicate.** Dacă vânzătoarea notează manual pe hârtie cât a vândut, cineva trebuie să bată totul din nou în sistem — cu riscul unor greșeli.
+- **Costuri lunare în valută**, indiferent dacă afacerea ta are internet stabil sau nu.
+
+Pentru un magazin de sat, un depozit la marginea orașului sau un atelier fără fibră optică, acest model pur și simplu **nu e construit pentru realitatea locală**.
+
+## Ce este, de fapt, o aplicație desktop offline
+
+O aplicație desktop offline rulează direct pe computerul din locație, cu o bază de date locală. Internetul devine un **bonus pentru sincronizare**, nu o condiție pentru a funcționa.
+
+### Vânzări și gestiune fără conexiune
+Casa de marcat, emiterea bonurilor, verificarea stocului — toate funcționează normal, chiar dacă rețeaua e complet picată ore în șir.
+
+### Sincronizare automată când revine internetul
+Datele adunate local (vânzări, stoc actualizat, clienți noi) se trimit automat către server sau către celelalte locații, fără ca angajatul să facă nimic manual.
+
+### Gestiune de stoc în timp real, local
+Produsele intrate, vândute sau transferate între depozite se actualizează instant pe calculatorul local, fără întârziere.
+
+### Rapoarte și facturare fără Excel
+Rapoarte de vânzări zilnice/lunare, facturi fiscale, situația stocului — generate automat, nu adunate manual din bonuri de hârtie la final de zi.
+
+### Multi-locație, cu o singură bază de date centrală
+Pentru afaceri cu mai multe puncte de lucru — magazine, filiale, depozite — fiecare locație lucrează local, iar centrala vede totul sincronizat, de câte ori există conexiune.
+
+## Desktop offline vs. aplicație 100% cloud — ce alegi
+
+| Criteriu | Aplicație 100% cloud | Aplicație desktop offline |
+|----------|----------------------|----------------------------|
+| Funcționează fără internet | Nu | Da, integral |
+| Cost | Abonament lunar în valută | Plată unică + mentenanță opțională |
+| Risc la întrerupere de rețea | Oprire completă a vânzărilor | Zero impact |
+| Proprietate asupra datelor | Depinde de furnizor | A ta, integral |
+| Acces de la distanță | Da, nativ | Da, prin sincronizare |
+
+Nu e o alegere "una sau alta" obligatorie — multe afaceri aleg un model **hibrid**: desktop offline la locație, cu sincronizare cloud pentru rapoarte și acces de la distanță al proprietarului.
+
+## Cât costă o aplicație desktop offline în Moldova în 2026
+
+| Tip proiect | Preț estimativ | Potrivit pentru |
+|-------------|----------------|------------------|
+| POS + stoc, o singură locație | 1.200–2.500 USD | Magazin, chioșc, bar, farmacie mică |
+| Gestiune stoc + facturare, multi-utilizator | 2.000–4.000 USD | Depozite, distribuitori, ateliere de producție |
+| Sistem multi-locație cu sincronizare centrală | 4.000–8.000 USD | Lanțuri de magazine, francize locale |
+| Mentenanță și actualizări (opțional) | 30–100 USD/lună | Toate variantele de mai sus |
+
+Comparativ, un abonament lunar la un POS cloud cu funcții similare costă adesea 40–90 USD/lună — adică 1.440–3.240 USD în 3 ani, **fără să deții nimic la final** și fără garanția că funcționează când internetul pică exact în ziua cu cele mai multe vânzări.
+
+## Scenariu ilustrativ: un depozit de materiale de construcții la marginea unui oraș
+
+Exemplul de mai jos e un scenariu ipotetic, nu un client real — arată tipul de impact pe care îl are, de obicei, trecerea la o aplicație desktop offline, pentru o afacere cu profilul descris mai jos.
+
+**Înainte (ipotetic):** internet prin rețea mobilă, instabil mai ales pe vreme rea; de 2-3 ori pe săptămână, vânzările se notau pe hârtie și se introduceau manual seara, cu diferențe între stocul real și cel din sistem.
+
+**După implementarea unei aplicații desktop offline, într-un scenariu tipic:**
+- Zero oprire a vânzărilor la întreruperea internetului
+- Stoc corect în permanență, fără reconciliere manuală seara
+- Rapoarte zilnice generate automat, disponibile și proprietarului de la distanță, odată sincronizate
+
+## Cum știi dacă afacerea ta are nevoie de o aplicație desktop offline
+
+Ia în calcul această soluție dacă:
+
+- Internetul din locație pică frecvent sau e dependent de rețeaua mobilă
+- Vânzările se opresc complet sau se notează "manual" când nu ai conexiune
+- Ai mai multe locații și vrei o imagine centralizată, dar fiecare trebuie să funcționeze independent
+- Depinzi de un abonament cloud scump, în valută, pentru funcții pe care le-ai putea avea o singură dată, definitiv
+
+Dacă recunoști afacerea ta în cel puțin două dintre punctele de mai sus, un <a href="/solutions/software-personalizat" class="text-sky-400 hover:text-sky-300 underline">sistem personalizat construit de la zero</a> pentru fluxul tău de lucru rezolvă problema din rădăcină, nu doar o ascunde temporar.
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu o descriere scurtă a locației și a proceselor actuale
+2. Facem un audit gratuit de 30 de minute și verificăm dacă soluția potrivită e offline, cloud sau hibridă
+3. Primești o ofertă cu preț fix, nu o estimare vagă
+4. Livrare în 4–8 săptămâni, în funcție de complexitate
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Интернет пропал, но продажи не должны останавливаться: офлайн-приложения для магазинов и складов в Молдове",
+        description: "Как работает настольное приложение без интернета, сколько оно стоит в Молдове в 2026 году и как оно устраняет потери продаж из-за нестабильного подключения.",
+        content: `
+## Что происходит в вашем магазине, когда пропадает интернет?
+
+Касса зависает, облачное приложение учёта застывает на «Загрузка...», а продавец записывает заказы на бумаге, чтобы «забить их потом». Знакомо?
+
+В многих районах Молдовы — сёлах, небольших городах, даже в районах Кишинёва в часы пик — интернет не гарантия, а надежда. Если ваш бизнес на 100% зависит от облачного приложения для продаж, **каждый сбой сети — это остановка бизнеса**.
+
+Решение не в том, чтобы отказаться от цифровизации, а в том, чтобы выбрать правильный тип софта: **настольное приложение, которое работает локально**, на компьютере в магазине или на складе, и синхронизируется с интернетом автоматически, а не наоборот.
+
+## Реальная проблема полностью облачных приложений
+
+Большинство современных систем учёта и продаж (POS-кассы, платформы учёта склада) построены по принципу «облако прежде всего» — всё проходит через интернет каждую секунду:
+
+- **Нет интернета = нет продаж.** Невозможно выдать чек, проверить остаток товара, принять оплату картой через подключённый терминал.
+- **Потерянные или дублированные данные.** Если продавец записывает продажи вручную на бумаге, кто-то должен потом заново всё вбить в систему — с риском ошибок.
+- **Ежемесячные расходы в валюте**, независимо от того, стабильный у вас интернет или нет.
+
+Для сельского магазина, склада на окраине города или мастерской без оптоволокна такая модель просто **не построена для местных реалий**.
+
+## Что на самом деле представляет собой офлайн-приложение
+
+Офлайн-приложение работает прямо на компьютере в точке продаж, с локальной базой данных. Интернет становится **бонусом для синхронизации**, а не условием для работы.
+
+### Продажи и учёт без подключения
+Касса, выдача чеков, проверка остатков — всё работает нормально, даже если сеть полностью отключена на несколько часов.
+
+### Автоматическая синхронизация при восстановлении интернета
+Собранные локально данные (продажи, обновлённый остаток, новые клиенты) автоматически отправляются на сервер или в другие точки, без ручных действий сотрудника.
+
+### Учёт склада в реальном времени, локально
+Поступившие, проданные или перемещённые между складами товары обновляются мгновенно на локальном компьютере, без задержки.
+
+### Отчёты и счета без Excel
+Отчёты по продажам за день/месяц, фискальные счета, состояние склада — генерируются автоматически, а не собираются вручную из бумажных чеков в конце дня.
+
+### Несколько точек с одной центральной базой данных
+Для бизнеса с несколькими точками — магазины, филиалы, склады — каждая точка работает локально, а центральный офис видит всё синхронизировано при каждом подключении.
+
+## Офлайн-приложение против полностью облачного — что выбрать
+
+| Критерий | Полностью облачное приложение | Офлайн настольное приложение |
+|----------|-------------------------------|-------------------------------|
+| Работает без интернета | Нет | Да, полностью |
+| Стоимость | Ежемесячная подписка в валюте | Единоразовая оплата + опциональная поддержка |
+| Риск при сбое сети | Полная остановка продаж | Нулевое влияние |
+| Владение данными | Зависит от поставщика | Полностью ваше |
+| Удалённый доступ | Да, по умолчанию | Да, через синхронизацию |
+
+Это не обязательно выбор «или-или» — многие компании выбирают **гибридную модель**: офлайн на месте, с облачной синхронизацией для отчётов и удалённого доступа владельца.
+
+## Сколько стоит офлайн-приложение в Молдове в 2026 году
+
+| Тип проекта | Ориентировочная цена | Подходит для |
+|-------------|----------------------|--------------|
+| POS + склад, одна точка | 1 200–2 500 USD | Магазин, киоск, бар, небольшая аптека |
+| Учёт склада + счета, мультипользователь | 2 000–4 000 USD | Склады, дистрибьюторы, производственные мастерские |
+| Мультиточечная система с центральной синхронизацией | 4 000–8 000 USD | Сети магазинов, локальные франшизы |
+| Поддержка и обновления (опционально) | 30–100 USD/месяц | Все варианты выше |
+
+Для сравнения, ежемесячная подписка на облачную POS-кассу с похожими функциями часто стоит 40–90 USD/месяц — то есть 1 440–3 240 USD за 3 года, **без владения чем-либо в итоге** и без гарантии, что система работает, когда интернет пропадает именно в день максимальных продаж.
+
+## Иллюстративный сценарий: склад строительных материалов на окраине города
+
+Пример ниже — гипотетический сценарий, а не реальный клиент. Он показывает, какой эффект обычно даёт переход на офлайн-приложение для бизнеса с описанным ниже профилем.
+
+**До (гипотетически):** интернет через мобильную сеть, нестабильный особенно в плохую погоду; 2-3 раза в неделю продажи записывались на бумаге и вбивались вручную вечером, с разницей между реальным остатком и данными в системе.
+
+**После внедрения офлайн-приложения, в типичном сценарии:**
+- Ноль остановок продаж при сбое интернета
+- Постоянно корректный остаток товара без ручной сверки вечером
+- Ежедневные отчёты формируются автоматически, доступны владельцу удалённо после синхронизации
+
+## Как понять, что вашему бизнесу нужно офлайн-приложение
+
+Стоит рассмотреть такое решение, если:
+
+- Интернет в вашей точке часто пропадает или зависит от мобильной сети
+- Продажи полностью останавливаются или записываются «вручную» без подключения
+- У вас несколько точек, и вы хотите централизованную картину, но каждая точка должна работать независимо
+- Вы зависите от дорогой облачной подписки в валюте за функции, которые можно получить один раз и навсегда
+
+Если вы узнали свой бизнес хотя бы в двух из перечисленных пунктов, <a href="/ru/solutions/software-personalizat" class="text-sky-400 hover:text-sky-300 underline">индивидуальная система, построенная с нуля</a> под ваш рабочий процесс, решает проблему в корне, а не просто временно её скрывает.
+
+## Как начать
+
+1. Напишите на office@tinka.md с коротким описанием точки и текущих процессов
+2. Проведём бесплатный аудит за 30 минут и проверим, какое решение подходит — офлайн, облачное или гибридное
+3. Получите предложение с фиксированной ценой, а не расплывчатой оценкой
+4. Срок реализации: 4–8 недель, в зависимости от сложности
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "The internet goes down, but your sales shouldn't: offline desktop apps for stores and warehouses in Moldova",
+        description: "How a desktop app that runs without internet actually works, what it costs in Moldova in 2026, and how it eliminates sales lost to unstable connections.",
+        content: `
+## What happens in your store when the internet goes down?
+
+The register freezes, the cloud inventory app hangs on "Loading...", and the clerk starts writing orders on paper to "enter them later." Sound familiar?
+
+In many parts of Moldova — villages, small towns, even Chișinău neighborhoods during peak hours — internet access isn't a guarantee, it's a hope. If your business depends 100% on a cloud app to sell, **every network outage is a business outage.**
+
+The solution isn't to abandon digitalization — it's to pick the right type of software: a **desktop app that runs locally**, on the computer in your store or warehouse, which syncs automatically with the internet instead of depending on it.
+
+## The real problem with 100% cloud apps
+
+Most modern point-of-sale and inventory platforms are built "cloud-first" — everything goes through the internet, every second:
+
+- **No internet = no sales.** You can't issue a receipt, check stock, or take a card payment through the connected terminal.
+- **Lost or duplicate data.** If the clerk notes sales by hand on paper, someone has to re-enter everything into the system later — with the risk of mistakes.
+- **Monthly costs in foreign currency**, regardless of whether your internet connection is stable or not.
+
+For a village shop, a warehouse on the edge of town, or a workshop without fiber internet, this model simply **wasn't built for local reality**.
+
+## What an offline desktop app actually is
+
+An offline desktop app runs directly on the computer at your location, with a local database. The internet becomes a **bonus for syncing**, not a requirement to function.
+
+### Sales and management without a connection
+The register, issuing receipts, checking stock — all work normally, even if the network is completely down for hours.
+
+### Automatic sync once the internet is back
+Data collected locally (sales, updated stock, new customers) is sent automatically to the server or other locations, with no manual action from staff.
+
+### Real-time, local inventory management
+Products received, sold or transferred between warehouses update instantly on the local computer, with no delay.
+
+### Reports and invoicing without Excel
+Daily/monthly sales reports, invoices, stock status — generated automatically, not pieced together by hand from paper receipts at the end of the day.
+
+### Multiple locations, one central database
+For businesses with several locations — stores, branches, warehouses — each site works locally, while headquarters sees everything synced whenever a connection is available.
+
+## Offline desktop vs. 100% cloud app — which one to choose
+
+| Criteria | 100% cloud app | Offline desktop app |
+|----------|-----------------|----------------------|
+| Works without internet | No | Yes, fully |
+| Cost | Monthly subscription in foreign currency | One-time payment + optional maintenance |
+| Risk during a network outage | Sales stop completely | Zero impact |
+| Data ownership | Depends on the provider | Entirely yours |
+| Remote access | Yes, by default | Yes, via sync |
+
+It's not necessarily an either-or choice — many businesses choose a **hybrid model**: offline at the location, with cloud sync for reports and remote access for the owner.
+
+## What an offline desktop app costs in Moldova in 2026
+
+| Project type | Estimated price | Best for |
+|--------------|------------------|----------|
+| POS + inventory, single location | $1,200–$2,500 | Shop, kiosk, bar, small pharmacy |
+| Inventory + invoicing, multi-user | $2,000–$4,000 | Warehouses, distributors, production workshops |
+| Multi-location system with central sync | $4,000–$8,000 | Store chains, local franchises |
+| Maintenance and updates (optional) | $30–$100/month | All of the above |
+
+For comparison, a monthly subscription to a cloud POS with similar features often costs $40–$90/month — that's $1,440–$3,240 over 3 years, **without owning anything at the end**, and with no guarantee it works the one day the internet happens to go down during your busiest sales period.
+
+## Illustrative scenario: a building materials warehouse on the edge of town
+
+The example below is a hypothetical scenario, not a real client — it shows the kind of impact a move to an offline desktop app typically has, for a business with the profile described below.
+
+**Before (hypothetical):** internet via mobile network, unstable especially in bad weather; 2-3 times a week, sales were written on paper and entered manually in the evening, with discrepancies between actual stock and what the system showed.
+
+**After implementing an offline desktop app, in a typical scenario:**
+- Zero sales stoppage during internet outages
+- Stock stays accurate at all times, with no manual reconciliation in the evening
+- Daily reports generated automatically, available to the owner remotely once synced
+
+## How to know if your business needs an offline desktop app
+
+Consider this solution if:
+
+- The internet at your location frequently drops or depends on a mobile network
+- Sales stop completely or get recorded "by hand" whenever you lose connection
+- You have multiple locations and want a centralized view, but each site needs to work independently
+- You depend on an expensive cloud subscription, paid in foreign currency, for features you could own once, for good
+
+If you recognize your business in at least two of the points above, a <a href="/en/solutions/software-personalizat" class="text-sky-400 hover:text-sky-300 underline">custom system built from scratch</a> around your workflow fixes the problem at the root, instead of just hiding it temporarily.
+
+## How to get started
+
+1. Email us at office@tinka.md with a short description of your location and current processes
+2. We run a free 30-minute audit and check whether offline, cloud or hybrid is the right fit
+3. You get a fixed-price proposal, not a vague estimate
+4. Delivery in 4–8 weeks, depending on complexity
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
