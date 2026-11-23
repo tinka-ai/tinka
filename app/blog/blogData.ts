@@ -2926,6 +2926,274 @@ If you recognize your business in at least two of the points above, a <a href="/
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICOL 12
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "platforma-elearning-instruire-angajati-moldova",
+    date: "2026-11-23",
+    readTime: 7,
+    category: "elearning",
+    image: "https://pub-bc5d8e0529324fd4a08614212ba4438b.r2.dev/506bc151-8c82-4dcb-8354-4f2c578e9c43.jpg",
+    translations: {
+      ro: {
+        title: "E-learning intern: cum reduci timpul de instruire al angajaților noi cu o platformă proprie, în Moldova",
+        description: "Ghid practic pentru retail, HoReCa, call-center și producție din Moldova: cum o platformă de e-learning internă reduce timpul și costul instruirii angajaților noi, față de instruirea „din mers”.",
+        content: `
+## Cât te costă, de fapt, fiecare angajat nou pe care îl înveți „din mers”
+
+De fiecare dată când angajezi un vânzător, un ospătar sau un operator nou la depozit, cineva din echipă — de obicei omul tău cel mai experimentat, adică și cel mai scump — oprește ce face și îl instruiește pas cu pas, zile la rând. Multiplică asta la fiecare angajare dintr-un an cu fluctuație mare de personal, și vei vedea că "instruirea din mers" e, de fapt, una din cele mai mari cheltuieli invizibile ale afacerii tale.
+
+În retail, HoReCa și call-centere din Moldova, fluctuația anuală de personal trece frecvent de 30-40%. Asta înseamnă că instruiești aceiași oameni, de la zero, de câteva ori pe an — fără nicio evidență clară despre ce anume au fost învățați.
+
+## Problema reală cu instruirea „din mers”
+
+- **Rotație mare de personal** — în unele lanțuri de magazine sau restaurante, jumătate din echipă se schimbă într-un an
+- **Managerul pierde 3-5 ore per angajat nou** — timp în care nu se ocupă de vânzări, clienți sau operațiuni
+- **Fiecare angajat nou repetă greșelile altora** — pentru că nu există o "memorie" a firmei, scrisă și structurată
+- **Zero evidență a instruirii** — dacă apare un incident (plângere de client, eroare de casă, problemă de igienă), nu poți dovedi ce i s-a explicat angajatului și când
+- **Calitatea instruirii variază de la o persoană la alta** — depinde cine are chef și timp să explice în ziua respectivă
+
+## Ce este o platformă de e-learning intern (și cu ce diferă de un LMS pentru vânzare de cursuri)
+
+O platformă de e-learning internă **nu e despre vânzarea de cursuri către clienți externi** — e un instrument de instruire pentru propria ta echipă. Încarci o singură dată modulele (produse, proceduri, scripturi de vânzare, reguli de siguranță), iar fiecare angajat nou le parcurge automat, de pe telefon, din prima zi.
+
+### Cum funcționează practic
+
+Înregistrezi o singură dată modulele de bază — produse, proceduri interne, reguli de casă, siguranță la locul de muncă. Fiecare angajat nou primește acces automat încă din prima zi, direct pe telefon, fără instalări complicate. Platforma verifică înțelegerea prin quiz-uri scurte după fiecare modul, iar managerul vede într-un singur loc cine a terminat ce și cu ce rezultat.
+
+## Ce poate face concret pentru afacerea ta
+
+- **Onboarding automatizat de la prima zi** — fără să mai depinzi de disponibilitatea unui coleg experimentat
+- **Materiale video, text și quiz-uri** — nu un PDF trimis pe WhatsApp, pe care nimeni nu-l citește
+- **Certificare internă** — igienă alimentară, protecția muncii, proceduri de casă, cu dată și semnătură digitală
+- **Rapoarte clare** — cine a finalizat instruirea, cine a picat testul și trebuie reinstruit, ce module sunt cel mai des ratate
+- **Acces și offline, de pe mobil** — util pentru personal de teren, depozite sau locații fără PC la birou
+
+## Unde se vede cel mai rapid impactul
+
+| Domeniu | Problema tipică | Ce rezolvă e-learning-ul intern |
+|---------|------------------|----------------------------------|
+| Retail / lanțuri de magazine | Fiecare magazin nou instruiește diferit | Standard unic de instruire, replicat identic în toate locațiile |
+| HoReCa / restaurante | Meniu, igienă și proceduri explicate verbal, inconsistent | Module video + quiz, cu certificare pentru fiecare angajat |
+| Call-center | Scripturi de vânzare/suport uitate rapid | Reîmprospătare periodică + testare automată a cunoștințelor |
+| Producție / depozite | Reguli de siguranță explicate o singură dată, la angajare | Instruire recurentă, cu evidență pentru control și audituri |
+
+## Cât costă o platformă de instruire internă în 2026
+
+| Pachet | Preț estimativ | Potrivit pentru |
+|--------|-----------------|------------------|
+| Esențial (module video + quiz-uri) | 600–1.200 USD | Firme cu 1-2 locații, până la 20 angajați |
+| Standard (dashboard manager + certificare) | 1.200–2.500 USD | Lanțuri cu mai multe locații, 20-100 angajați |
+| Avansat (integrare cu HR/CRM, rapoarte automate) | 2.500+ USD | Companii cu fluctuație mare de personal, structuri complexe |
+
+Costul e **unic**, nu un abonament lunar per utilizator ca la multe platforme internaționale de HR — plătești o dată dezvoltarea, iar platforma rămâne a ta.
+
+## Scenariu ilustrativ: un lanț de cafenele din Chișinău
+
+Exemplul de mai jos e un scenariu ipotetic, nu un client real — arată tipul de impact pe care îl are, de obicei, trecerea de la instruire verbală la o platformă de e-learning internă, pentru o afacere cu profilul descris mai jos.
+
+**Înainte (ipotetic):** 6 locații, instruire nouă explicată verbal de fiecare manager de locație, în stil diferit, fără materiale scrise.
+
+**După implementarea unei platforme interne, într-un scenariu tipic:**
+- Timp de onboarding: de la 2 săptămâni de "umbrire" a unui colegă, la 3-4 zile cu module + practică
+- Standard identic de servire și igienă în toate cele 6 locații
+- Evidență completă: cine a fost instruit, când și cu ce rezultat, pentru orice control sanitar sau plângere
+
+## Cum știi dacă afacerea ta are nevoie de e-learning intern
+
+Ia în calcul o platformă proprie dacă:
+
+- Angajezi frecvent personal nou și instruirea depinde de disponibilitatea unui coleg mai vechi
+- Ai mai multe locații și vrei un standard unic de instruire, nu unul diferit la fiecare punct de lucru
+- Ai nevoie de dovadă scrisă a instruirii pentru controale, audituri sau situații de conflict cu un angajat
+- Pierzi ore de management în fiecare lună explicând aceleași lucruri de la zero
+
+Dacă recunoști afacerea ta în cel puțin două dintre punctele de mai sus, o <a href="/solutions/elearning" class="text-sky-400 hover:text-sky-300 underline">platformă de e-learning construită pentru echipa ta</a> rezolvă problema din rădăcină, nu doar temporar, printr-un nou training verbal.
+
+## Cum începi
+
+1. Ne scrii la office@tinka.md cu numărul de locații și angajați pe care îi instruiești lunar
+2. Facem un audit gratuit de 30 de minute al procesului actual de onboarding
+3. Primești o ofertă cu preț fix, nu o estimare vagă
+4. Livrare în 3–6 săptămâni, în funcție de numărul de module
+
+**Sună acum:** +373 68 333 899
+        `,
+      },
+      ru: {
+        title: "Внутренний e-learning: как сократить время обучения новых сотрудников с собственной платформой в Молдове",
+        description: "Практический гайд для ритейла, HoReCa, колл-центров и производства в Молдове: как внутренняя платформа e-learning сокращает время и стоимость обучения новых сотрудников по сравнению с обучением «на ходу».",
+        content: `
+## Сколько на самом деле стоит каждый новый сотрудник, которого вы учите «на ходу»
+
+Каждый раз, когда вы нанимаете нового продавца, официанта или работника склада, кто-то из команды — обычно самый опытный сотрудник, то есть и самый дорогой — откладывает свои дела и объясняет всё шаг за шагом, несколько дней подряд. Умножьте это на каждое новое увольнение-наём в год с высокой текучкой — и окажется, что «обучение на ходу» одна из самых больших невидимых статей расходов вашего бизнеса.
+
+В ритейле, HoReCa и колл-центрах Молдовы годовая текучка персонала часто превышает 30-40%. Это значит, что вы обучаете одних и тех же людей с нуля несколько раз в год — без какой-либо чёткой фиксации того, чему именно их обучили.
+
+## Реальная проблема обучения «на ходу»
+
+- **Высокая текучка персонала** — в некоторых сетях магазинов или ресторанов половина команды меняется за год
+- **Менеджер теряет 3-5 часов на каждого нового сотрудника** — время, когда он не занимается продажами, клиентами или операциями
+- **Каждый новый сотрудник повторяет чужие ошибки** — потому что нет записанной и структурированной «памяти» компании
+- **Нулевая фиксация обучения** — если случается инцидент (жалоба клиента, ошибка на кассе, нарушение гигиены), вы не можете доказать, что и когда объясняли сотруднику
+- **Качество обучения зависит от человека** — от того, у кого в этот день есть время и желание объяснять
+
+## Что такое внутренняя платформа e-learning (и чем она отличается от LMS для продажи курсов)
+
+Внутренняя платформа e-learning **не про продажу курсов внешним клиентам** — это инструмент обучения для вашей собственной команды. Вы один раз загружаете модули (товары, процедуры, скрипты продаж, правила безопасности), а каждый новый сотрудник проходит их автоматически, с телефона, с первого дня.
+
+### Как это работает на практике
+
+Вы один раз записываете базовые модули — товары, внутренние процедуры, кассовые правила, безопасность на рабочем месте. Каждый новый сотрудник получает доступ автоматически с первого дня, прямо с телефона, без сложных установок. Платформа проверяет понимание короткими тестами после каждого модуля, а менеджер видит в одном месте, кто что прошёл и с каким результатом.
+
+## Что конкретно она может сделать для вашего бизнеса
+
+- **Автоматизированный онбординг с первого дня** — без зависимости от занятости опытного коллеги
+- **Видео, текст и тесты** — не PDF, отправленный в WhatsApp, который никто не читает
+- **Внутренняя сертификация** — пищевая гигиена, охрана труда, кассовые процедуры, с датой и цифровой подписью
+- **Понятные отчёты** — кто завершил обучение, кто не прошёл тест и нуждается в повторении, какие модули чаще всего проваливаются
+- **Доступ офлайн, с мобильного** — полезно для выездного персонала, складов или точек без компьютера в офисе
+
+## Где эффект виден быстрее всего
+
+| Сфера | Типичная проблема | Что решает внутренний e-learning |
+|-------|--------------------|-----------------------------------|
+| Ритейл / сети магазинов | Каждый новый магазин обучает по-своему | Единый стандарт обучения, одинаковый во всех точках |
+| HoReCa / рестораны | Меню, гигиена и процедуры объясняются устно, непоследовательно | Видео-модули + тесты, с сертификацией каждого сотрудника |
+| Колл-центр | Скрипты продаж/поддержки быстро забываются | Периодическое повторение + автоматическая проверка знаний |
+| Производство / склады | Правила безопасности объясняются один раз при найме | Повторяющееся обучение с фиксацией для контроля и аудитов |
+
+## Сколько стоит платформа внутреннего обучения в 2026 году
+
+| Пакет | Ориентировочная цена | Подходит для |
+|-------|------------------------|--------------|
+| Базовый (видео-модули + тесты) | 600–1 200 USD | Компании с 1-2 точками, до 20 сотрудников |
+| Стандарт (дашборд менеджера + сертификация) | 1 200–2 500 USD | Сети с несколькими точками, 20-100 сотрудников |
+| Расширенный (интеграция с HR/CRM, автоотчёты) | от 2 500 USD | Компании с высокой текучкой, сложные структуры |
+
+Стоимость **единоразовая**, а не ежемесячная подписка за каждого пользователя, как у многих международных HR-платформ — вы платите один раз за разработку, и платформа остаётся вашей.
+
+## Иллюстративный сценарий: сеть кофеен в Кишинёве
+
+Пример ниже — гипотетический сценарий, а не реальный клиент. Он показывает, какой эффект обычно даёт переход от устного обучения к внутренней платформе e-learning для бизнеса с описанным ниже профилем.
+
+**До (гипотетически):** 6 точек, новое обучение объясняется устно каждым управляющим точки, по-разному, без письменных материалов.
+
+**После внедрения внутренней платформы, в типичном сценарии:**
+- Время онбординга: с 2 недель «тенью» за коллегой до 3-4 дней с модулями и практикой
+- Единый стандарт обслуживания и гигиены во всех 6 точках
+- Полная фиксация: кто обучен, когда и с каким результатом, для любой санитарной проверки или жалобы
+
+## Как понять, что вашему бизнесу нужен внутренний e-learning
+
+Стоит рассмотреть собственную платформу, если:
+
+- Вы часто нанимаете новый персонал, и обучение зависит от занятости более опытного коллеги
+- У вас несколько точек, и вы хотите единый стандарт обучения, а не разный в каждой точке
+- Вам нужно письменное подтверждение обучения для проверок, аудитов или конфликтных ситуаций с сотрудником
+- Вы теряете часы менеджмента каждый месяц, объясняя одно и то же с нуля
+
+Если вы узнали свой бизнес хотя бы в двух из перечисленных пунктов, <a href="/ru/solutions/elearning" class="text-sky-400 hover:text-sky-300 underline">платформа e-learning, построенная для вашей команды</a>, решает проблему в корне, а не временно, через очередной устный тренинг.
+
+## Как начать
+
+1. Напишите на office@tinka.md с количеством точек и сотрудников, которых вы обучаете ежемесячно
+2. Проведём бесплатный аудит за 30 минут текущего процесса онбординга
+3. Получите предложение с фиксированной ценой, а не расплывчатой оценкой
+4. Срок реализации: 3–6 недель, в зависимости от количества модулей
+
+**Звоните сейчас:** +373 68 333 899
+        `,
+      },
+      en: {
+        title: "Internal e-learning: how to cut new-hire training time with your own platform in Moldova",
+        description: "A practical guide for retail, HoReCa, call centers and production businesses in Moldova: how an internal e-learning platform cuts the time and cost of training new employees compared to \"on-the-job\" training.",
+        content: `
+## What every new hire you train "on the fly" is actually costing you
+
+Every time you hire a new salesperson, waiter or warehouse worker, someone on your team — usually your most experienced person, which also makes them your most expensive — drops what they're doing and walks them through everything step by step, for days. Multiply that by every hire in a year with high staff turnover, and "on-the-job training" turns out to be one of the biggest invisible costs in your business.
+
+In retail, HoReCa and call centers in Moldova, annual staff turnover frequently exceeds 30-40%. That means you're training the same roles from scratch several times a year — with no clear record of what was actually taught.
+
+## The real problem with "on-the-job" training
+
+- **High staff turnover** — in some retail or restaurant chains, half the team changes within a year
+- **Managers lose 3-5 hours per new hire** — time not spent on sales, customers or operations
+- **Every new hire repeats someone else's mistakes** — because there's no written, structured "company memory"
+- **Zero record of training** — if an incident happens (a customer complaint, a till error, a hygiene issue), you can't prove what the employee was actually told and when
+- **Training quality varies by person** — it depends on who has the time and patience to explain that day
+
+## What an internal e-learning platform is (and how it differs from an LMS for selling courses)
+
+An internal e-learning platform **is not about selling courses to external customers** — it's a training tool for your own team. You upload the modules once (products, procedures, sales scripts, safety rules), and every new hire goes through them automatically, on their phone, from day one.
+
+### How it works in practice
+
+You record the core modules once — products, internal procedures, till rules, workplace safety. Every new hire gets automatic access from day one, straight from their phone, with no complicated setup. The platform checks understanding with short quizzes after each module, and the manager sees in one place who finished what and with what score.
+
+## What it can concretely do for your business
+
+- **Automated onboarding from day one** — without depending on an experienced colleague's availability
+- **Video, text and quizzes** — not a PDF sent over WhatsApp that nobody reads
+- **Internal certification** — food hygiene, workplace safety, till procedures, with date and digital signature
+- **Clear reports** — who completed training, who failed the quiz and needs retraining, which modules get missed most often
+- **Offline, mobile access** — useful for field staff, warehouses or locations without an office computer
+
+## Where the impact shows up fastest
+
+| Industry | Typical problem | What internal e-learning solves |
+|----------|------------------|----------------------------------|
+| Retail / store chains | Every new store trains differently | One training standard, replicated identically across all locations |
+| HoReCa / restaurants | Menu, hygiene and procedures explained verbally, inconsistently | Video modules + quizzes, with certification per employee |
+| Call centers | Sales/support scripts forgotten quickly | Periodic refreshers + automatic knowledge checks |
+| Production / warehouses | Safety rules explained once, at hiring | Recurring training with records for inspections and audits |
+
+## What an internal training platform costs in 2026
+
+| Package | Estimated price | Best for |
+|---------|------------------|----------|
+| Essential (video modules + quizzes) | $600–$1,200 | Businesses with 1-2 locations, up to 20 employees |
+| Standard (manager dashboard + certification) | $1,200–$2,500 | Chains with several locations, 20-100 employees |
+| Advanced (HR/CRM integration, automatic reports) | $2,500+ | Companies with high turnover, complex structures |
+
+The cost is a **one-time** payment, not a monthly per-user subscription like many international HR platforms charge — you pay once for development, and the platform stays yours.
+
+## Illustrative scenario: a coffee shop chain in Chișinău
+
+The example below is a hypothetical scenario, not a real client — it shows the kind of impact that moving from verbal training to an internal e-learning platform typically has, for a business with the profile described below.
+
+**Before (hypothetical):** 6 locations, new training explained verbally by each location manager, differently, with no written materials.
+
+**After implementing an internal platform, in a typical scenario:**
+- Onboarding time: from 2 weeks of "shadowing" a colleague to 3-4 days with modules and practice
+- Identical service and hygiene standard across all 6 locations
+- Full records: who was trained, when and with what result, for any health inspection or complaint
+
+## How to know if your business needs internal e-learning
+
+Consider your own platform if:
+
+- You hire new staff frequently and training depends on an experienced colleague's availability
+- You have multiple locations and want one training standard, not a different one at each site
+- You need written proof of training for inspections, audits or employee disputes
+- You lose hours of management time every month explaining the same things from scratch
+
+If you recognize your business in at least two of the points above, an <a href="/en/solutions/elearning" class="text-sky-400 hover:text-sky-300 underline">e-learning platform built for your team</a> fixes the problem at the root, instead of relying on yet another verbal training session.
+
+## How to get started
+
+1. Email us at office@tinka.md with the number of locations and employees you train monthly
+2. We run a free 30-minute audit of your current onboarding process
+3. You get a fixed-price proposal, not a vague estimate
+4. Delivery in 3–6 weeks, depending on the number of modules
+
+**Call now:** +373 68 333 899
+        `,
+      },
+    },
+  },
 ]
 
 export const categories = {
