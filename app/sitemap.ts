@@ -51,6 +51,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/terms",       priority: 0.4, changeFrequency: "yearly"  },
   ]
 
+  // /app-privacy traieste in afara arborelui [locale] (document de
+  // conformitate Google Play, un singur URL, fara localizare) — o singura
+  // intrare in sitemap, nu una per limba ca restul paginilor statice.
+  const appPrivacyEntry = {
+    url: `${baseUrl}/app-privacy`,
+    lastModified: now,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }
+
   // Fiecare pagina statica exista acum ca URL real si distinct in toate cele
   // 3 limbi (romana fara prefix, engleza/rusa cu /en, /ru) — cate o intrare
   // per limba, cu hreflang catre celelalte variante reale (nu mai e nevoie
@@ -88,5 +98,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  return [...staticEntries, ...blogEntries, ...serviceEntries]
+  return [...staticEntries, appPrivacyEntry, ...blogEntries, ...serviceEntries]
 }
